@@ -1,0 +1,35 @@
+- class_name: Java 生态
+  class_desc: 
+  link_list:
+    - name: fullstack tutorial
+      link: https://frank-lam.github.io/fullstack-tutorial/#/
+      avatar: /images/books/fullstack-tutorial.png
+      descr: 
+
+- class_name: 综合
+  class_desc: 
+  link_list:
+    - name: Python 量化交易教程
+      link: https://wizardforcel.gitbooks.io/python-quant-uqer
+      avatar: /images/books/python.png
+      descr: 
+    - name: LeetBook
+      link: https://hk029.gitbooks.io/leetbook/content/
+      avatar: /images/books/leetcode.png
+      descr: 
+    - name: 区块链技术指南
+      link: https://yeasy.gitbooks.io/blockchain_guide/content/
+      avatar: /images/books/gitbook.png
+      descr: 
+
+- class_name: 云原生
+  class_desc: 
+  link_list:
+    - name: Docker — 从入门到实践
+      link: https://docker_practice.gitee.io
+      avatar: /images/books/docker.png
+      descr: 
+    - name: Prometheus 实战
+      link: https://songjiayang.gitbooks.io/prometheus/content/
+      avatar: https://songjiayang.gitbooks.io/prometheus/gitbook/images/apple-touch-icon-precomposed-152.png
+      descr: 
