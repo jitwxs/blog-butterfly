@@ -1,0 +1,71 @@
+- class_name: 友情链接
+  class_desc: 那些人，那些事
+  link_list:
+    - name: 美团技术团队
+      link: https://tech.meituan.com
+      avatar: https://awps-assets.meituan.net/mit/blog/v20190629/asset/icon/android-icon-192x192.png
+      descr: 美团技术团队
+    - name: crossoverJie
+      link: https://crossoverjie.top
+      avatar: https://crossoverjie.top/uploads/crossoverjie.jpg
+      descr: 生命不息，奋斗不止
+    - name: Ray's Blog
+      link: https://raycoder.me
+      avatar: https://raycoder.me/favicon.ico
+      descr: 夜晚再黑，也压不过雪的白
+    - name: lomtom
+      link: https://lomtom.top
+      avatar: https://img-blog.csdnimg.cn/20200223102458716.png
+      descr: 为每天多博学一点而奋斗
+    - name: 白程序员的自习室
+      link: https://www.studytime.xin
+      avatar: https://static.studytime.xin/hexo/img/avatar.jpg
+      descr: 个人技术博客
+    - name: Throwable’s Blog
+      link: http://throwable.club
+      avatar: https://throwable-blog-1256189093.cos.ap-guangzhou.myqcloud.com/mine/doge_favicon.ico
+      descr: 
+    - name: telami
+      link: https://www.telami.cn
+      avatar: https://i.loli.net/2020/09/25/5sEaNw31zuGnbhc.jpg
+      descr: Java & Vue & MiniProgram
+    - name: 码酱
+      link: http://luokangyuan.com
+      avatar: http://image.luokangyuan.com/1_qq_27922023.jpg
+      descr: 不忘初心，努力做有价值的技术文章
+    - name: 江南一点雨
+      link: https://www.javaboy.org
+      avatar: https://www.javaboy.org/favicon.ico
+      descr: 专注于 Spring Boot + 微服务技术分享
+    - name: 程序员阿淼
+      link: https://www.mmzsblog.cn
+      avatar: http://resources.mmzsblog.cn/mmzsblog.jpg
+      descr: 懒人更习惯于思考，再没有比编程更纯粹的事了！
+    - name: 心不应景
+      link: https://blog.springgo.icu
+      avatar: https://iblog.cn-bj.ufileos.com/sacha-styles-0sPKk1YWmBc-unsplash.jpg
+      descr: 不可阻挡的一生
+    - name: 框架师
+      link: https://www.mobaijun.com
+      avatar: https://www.mobaijun.com/medias/avatar.jpg
+      descr: 代码改变世界！
+    - name: Kitcham 的归墟
+      link: https://blog.uiharu.top
+      avatar: https://cdn.uiharu.top/blog/home/img/avatar.png
+      descr: 生命洋溢亦无凭无记
+
+- class_name: 网站
+  class_desc: 值得推荐的网站
+  link_list:
+    - name: Youtube
+      link: https://www.youtube.com/
+      avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
+      descr: 视频网站
+    - name: Weibo
+      link: https://www.weibo.com/
+      avatar: https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png
+      descr: 中国最大社交分享平台
+    - name: Twitter
+      link: https://twitter.com/
+      avatar: https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png
+      descr: 社交分享平台
