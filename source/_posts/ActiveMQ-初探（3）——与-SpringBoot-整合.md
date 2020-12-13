@@ -6,8 +6,8 @@ typora-root-url: ..
 abbrlink: a979ce
 date: 2018-05-08 23:49:01
 related_repos:
-  - name: springboot_security03
-    url: https://github.com/jitwxs/blog-sample/blob/master/SpringBoot/springboot_security/springboot_security03
+  - name: activemq03
+    url: https://github.com/jitwxs/blog-sample/tree/master/ActiveMQ/activemq03
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs
