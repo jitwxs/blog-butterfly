@@ -1,11 +1,7 @@
 ---
 title: 深度解读央行数字货币 DCEP
-categories:
-  - 区块链
-  - 加密货币
-tags: 
-  - 区块链
-  - DCEP
+categories: 区块链
+tags: [区块链, DCEP]
 abbrlink: fd57551a
 date: 2019-11-03 22:19:12
 copyright_author: 区块链情报速递

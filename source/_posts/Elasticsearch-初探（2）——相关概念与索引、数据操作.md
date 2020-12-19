@@ -1,9 +1,9 @@
 ---
 title: Elasticsearch 初探（2）——相关概念与索引、数据操作
-tags: 索引
 categories:
   - 搜索引擎
   - Elasticsearch
+tags: [索引, Elasticsearch]
 abbrlink: 404d3073
 date: 2018-10-08 18:12:43
 copyright_author: Jitwxs

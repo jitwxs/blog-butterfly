@@ -1,7 +1,7 @@
 ---
 title: 详解 Caffeine Cache
 categories: Java
-tags: Cache
+tags: [Cache, Caffeine]
 icons: [fas fa-fire red]
 abbrlink: '126e3eed'
 date: 2020-06-26 15:34:01

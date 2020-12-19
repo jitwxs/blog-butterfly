@@ -1,8 +1,6 @@
 ---
 title: Ajax 实现文件上传（解决upload.parseRequest为空问题）
-tags: 
-  - Ajax
-  - Javascript
+tags: [Ajax, Javascript]
 categories: 前端
 abbrlink: 25168d50
 date: 2018-03-15 21:52:04

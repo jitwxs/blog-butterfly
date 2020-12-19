@@ -1,7 +1,7 @@
 ---
 title: 解决 Xshell 关闭 vim 后内容仍停留在屏幕的问题
-tags: Xshell
 categories: 开发工具
+tags: Xshell
 toc: false
 abbrlink: 29f74e3a
 date: 2017-12-23 00:55:55

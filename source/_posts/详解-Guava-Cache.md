@@ -1,10 +1,7 @@
 ---
 title: 详解 Guava Cache
 categories: Java
-tags: 
-  - Cache
-  - Guava
-  - Google
+tags: [Cache, Guava]
 abbrlink: 8fec5912
 date: 2019-04-19 21:19:30
 icons: [fas fa-fire red]
@@ -23,7 +20,6 @@ references:
     target: _blank
 copyright_author: Jitwxs
 ---
-
 ## 一、Guava Cache
 
 {% note warning %}

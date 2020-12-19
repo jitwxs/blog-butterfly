@@ -1,7 +1,7 @@
 ---
 title: 详解 Spring 声明式事务
 categories: Java Web
-tags: 事务
+tags: [事务, Spring]
 abbrlink: a6bbd9cb
 date: 2019-05-26 16:35:07
 icons: [fas fa-fire red]

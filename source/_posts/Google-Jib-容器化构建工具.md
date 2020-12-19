@@ -1,9 +1,6 @@
 ---
 title: Google Jib 容器化构建工具
 categories: 云原生
-tags:
-  - Google
-  - 容器化
 abbrlink: a526485e
 date: 2019-12-17 21:50:11
 icons: [fas fa-fire red]

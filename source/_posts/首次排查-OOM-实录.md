@@ -3,11 +3,7 @@ title: 首次排查 OOM 实录
 categories:
   - Java
   - 性能分析
-tags:
-  - MemoryAnalyzer
-  - OOM
-  - jmap
-  - jvisualvm
+tags: [jvisualvm, OOM]
 abbrlink: f4adeb1d
 date: 2020-04-19 11:18:15
 related_repos:

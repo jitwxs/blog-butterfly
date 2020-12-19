@@ -1,9 +1,9 @@
 ---
 title: Elasticsearch 初探（4）——集群
-tags: 集群
 categories:
   - 搜索引擎
   - Elasticsearch
+tags: Elasticsearch
 abbrlink: d459272e
 date: 2018-10-09 10:16:18
 copyright_author: Jitwxs

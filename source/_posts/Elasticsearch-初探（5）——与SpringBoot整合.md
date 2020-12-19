@@ -1,9 +1,9 @@
 ---
 title: Elasticsearch 初探（5）——与SpringBoot整合
-tags: SpringBoot
 categories:
   - 搜索引擎
   - Elasticsearch
+tags: [Elasticsearch, SpringBoot]
 abbrlink: 79a2adb2
 date: 2018-10-09 17:13:33
 related_repos:

@@ -3,9 +3,7 @@ title: gRPC 在 Java 中的入门实例
 categories:
   - Java
   - Protobuf
-tags:
-  - Protobuf
-  - gRPC
+tags: [Protobuf, gRPC]
 abbrlink: d6535904
 date: 2019-12-26 21:30:04
 related_repos:

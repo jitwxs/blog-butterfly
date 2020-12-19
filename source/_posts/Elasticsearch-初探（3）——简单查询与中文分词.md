@@ -3,6 +3,7 @@ title: Elasticsearch 初探（3）——简单查询与中文分词
 categories:
   - 搜索引擎
   - Elasticsearch
+tags: Elasticsearch
 abbrlink: c4b4d780
 date: 2018-10-08 19:43:51
 copyright_author: Jitwxs

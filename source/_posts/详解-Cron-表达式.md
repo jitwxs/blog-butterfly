@@ -6,7 +6,6 @@ abbrlink: 482391a0
 date: 2019-07-27 14:49:40
 copyright_author: Jitwxs
 ---
-
 ## 一、背景介绍
 
 Cron 表达式，最初是应用于· Unix 系统中的 `crontab` 命令，用于设置周期性被执行的指令。Cron 表达式应用广泛，在服务器中，可以利用 linux 的 cron 服务定时执行一些脚本；在 Java Web 中，利用 cron 可以实现任务的定时执行。

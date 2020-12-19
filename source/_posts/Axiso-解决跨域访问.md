@@ -1,8 +1,6 @@
 ---
 title: Axiso 解决跨域访问
-tags: 
-  - 跨域
-  - Vue
+tags: [跨域, Vue, Axiso]
 categories: 前端
 abbrlink: dad1fbe2
 date: 2018-05-31 13:10:11

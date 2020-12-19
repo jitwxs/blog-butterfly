@@ -1,11 +1,7 @@
 ---
 title: 浅谈央行数字货币 DCEP
-categories:
-  - 区块链
-  - 加密货币
-tags: 
-  - 区块链
-  - DCEP
+categories: 区块链
+tags: [区块链, DCEP]
 abbrlink: 67173ef2
 date: 2019-11-02 18:19:53
 copyright_author: Jitwxs

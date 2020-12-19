@@ -1,7 +1,7 @@
 ---
 title: 理解 HTTP、HTTPS 协议
-tags: HTTP
 categories: 网络
+tags: [HTTP, HTTPS]
 abbrlink: f1215e4d
 date: 2018-09-11 15:48:54
 references:

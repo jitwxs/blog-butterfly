@@ -1,6 +1,7 @@
 ---
 title: 理解 BigDecimal 的 RoundingMode
 categories: Java
+tags: [BigDecimal, RoundingMode]
 abbrlink: f789a6b2
 date: 2019-05-08 23:42:31
 copyright_author: Jitwxs
