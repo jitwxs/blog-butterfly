@@ -109,7 +109,14 @@ theme: butterfly
 deploy:
   type: ''
 
-search:
-  path: search.xml
-  field: post
-  content: true
+algolia:
+  appId: "POGNXMLA2T"
+  apiKey: "2013ebed0f76818838d693c9c40cb1fd"
+  adminApiKey: "dc75e438256f522c85e708bd0fec6c79"
+  chunkSize: 5000
+  indexName: "blog"
+  fields:
+    - content:strip:truncate,0,500
+    - permalink
+    - tags
+    - title

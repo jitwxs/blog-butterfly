@@ -3,10 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
-    "clean": "hexo clean",
-    "deploy": "hexo deploy",
-    "server": "hexo server"
+    "deploy": "hexo clean && hexo generate && hexo algolia"
   },
   "hexo": {
     "version": "5.2.0"
@@ -15,11 +12,11 @@
     "@upupming/hexo-renderer-markdown-it-plus": "^2.0.2",
     "hexo": "^5.0.0",
     "hexo-abbrlink": "^2.2.1",
+    "hexo-algoliasearch": "^1.0.0",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
     "hexo-generator-feed": "^3.0.0",
     "hexo-generator-index": "^2.0.0",
-    "hexo-generator-search": "^2.4.1",
     "hexo-generator-tag": "^1.0.0",
     "hexo-renderer-ejs": "^1.0.0",
     "hexo-renderer-pug": "^1.0.0",
