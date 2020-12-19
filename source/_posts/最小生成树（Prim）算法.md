@@ -4,7 +4,6 @@ tags: prim
 categories:
   - 算法与数据结构
   - 算法
-typora-root-url: ..
 abbrlink: 2d931a86
 date: 2018-03-28 01:32:23
 copyright_author: Jitwxs
@@ -20,7 +19,7 @@ copyright_author: Jitwxs
 
 **注意：** 选择最小边时，可能有多条同样权值的边可选，此时任选其一。
 
-![Prim](/images/posts/20170924022104006.png)
+![Prim](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170924022104006.png)
 
 
 #### 代码实现

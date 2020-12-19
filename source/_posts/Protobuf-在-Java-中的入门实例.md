@@ -1,6 +1,5 @@
 ---
 title: Protobuf 在 Java 中的入门实例
-typora-root-url: ..
 categories:
   - Java
   - Protobuf
@@ -25,7 +24,7 @@ copyright_author: Jitwxs
 
 工欲善其事，必先利其器！让我们先在全宇宙第一的 Java IDE 中安装上 Protobuf 的插件。在插件市场中搜索并安装 `Protobuf Support`，或下载离线插件包手动安装： https://plugins.jetbrains.com/plugin/8277-protobuf-support/ 。
 
-![Protobuf Support Plugins](/images/posts/20191223005652462.png)
+![Protobuf Support Plugins](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191223005652462.png)
 
 安装完毕后，创建一个空的 Maven 工程。借助于 Protobuf Maven 插件的功劳，使我们不必在本地搭建 Protobuf 环境。直接编辑 Pom 文件：
 
@@ -125,13 +124,13 @@ message User {
 
 目录结构如下：
 
-![](/images/posts/20191223011801327.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191223011801327.png)
 
 ## 三、生成 Java 类
 
 在 IDEA 中，双击 Maven Protobuf 插件的 `protobuf:complie `选项，在项目的 target 文件夹中就会生成 protobuf 文件对应的 Java 类，如下图所示。
 
-![Protobuf Compile](/images/posts/20191223011936993.png)
+![Protobuf Compile](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191223011936993.png)
 
 ## 四、运行
 
@@ -193,7 +192,7 @@ sex: MALE
 
 最终项目的目录结构如下：
 
-![](/images/posts/2019122301234225.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2019122301234225.png)
 
 [^1]: Google Protocol Buffers，协议缓冲区。
 [^2]:  https://github.com/trustin/os-maven-plugin 

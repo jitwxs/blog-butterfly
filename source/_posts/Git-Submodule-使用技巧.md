@@ -1,6 +1,5 @@
 ---
 title: Git Submodule 使用技巧
-typora-root-url: ..
 categories:
   - 开发工具
   - Git

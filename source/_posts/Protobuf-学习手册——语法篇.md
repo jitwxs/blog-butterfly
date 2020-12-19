@@ -1,6 +1,5 @@
 ---
 title: Protobuf 学习手册——语法篇
-typora-root-url: ..
 categories:
   - Java
   - Protobuf
@@ -35,7 +34,7 @@ ProtoBuf 在序列化数据方面，它是灵活的、高效的。相比于 XML 
 
 **ProtoBuf 很适合做数据存储或 RPC 数据交换格式。可用于通讯协议、数据存储等领域的语言无关、平台无关、可扩展的序列化结构数据格式**。
 
-![protocol buffers logo](/images/posts/20191224230003235.png)
+![protocol buffers logo](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191224230003235.png)
 
 ### 1.1 为什么要发明 Protobuf
 

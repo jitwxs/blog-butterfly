@@ -1,6 +1,5 @@
 ---
 title: SpringBoot 配置 Logback
-typora-root-url: ..
 categories:
   - Java
   - 日志框架
@@ -25,7 +24,7 @@ copyright_author: Jitwxs
 
 默认情况下，SpringBoot 采用 `Logback` 来记录日志，并输出 INFO 级别日志到控制台。从下图可以看到，`spring-boot-stater` 的依赖中已经包含了 Logback，因此我们无需手动导入依赖。
 
-![](/images/posts/201812060950524.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812060950524.png)
 
 从下图可以看到，日志输出内容包含：
 
@@ -39,7 +38,7 @@ copyright_author: Jitwxs
 |Logger名|通常使用源代码的类名|
 |日志内容||
 
-![](/images/posts/20181206095123315.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181206095123315.png)
 
 ## 二、基础配置
 

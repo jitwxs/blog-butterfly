@@ -1,6 +1,5 @@
 ---
 title: Lombok 子类如何使用 @Builder
-typora-root-url: ..
 categories: 开发工具
 tags: Lombok
 icons:
@@ -41,7 +40,7 @@ public class B extends A {
 
 使用 `builder` 进行初始化时，类 A 可以正常创建，类 B 仅可以初始化自己的属性，父类属性无法初始化。
 
-![](/images/posts/20200829214450.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200829214450.png)
 
 ## 二、解决：构造方法
 
@@ -213,7 +212,7 @@ B(super=A(aName=xxx, aAge=111), bName=yyy, bAge=222, c=com.github.jitwxs.demo.bu
 
 由于 `@SuperBuilder` 刚引入不久，所以还是有一些 BUG 的，比如当你的 SpringBoot 版本为 `2.2.3.RELEASE` 时，或者你的 Lombok 版本低于 `v1.18.12` 时，使用上文的例子，你就会发现竟然无法通过编译。
 
-![](/images/posts/20200829221256.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200829221256.png)
 
 实际的原因是不支持用 `B` 来命名类，简直是吐出一口老血，好在升级到 `v1.18.12` 版本后就修复了这个问题，可能这就是给不规范命名的人埋的坑吧，哈哈。
 

@@ -1,6 +1,5 @@
 ---
 title: Mac 安装 brew
-typora-root-url: ..
 tags: Mac
 categories: 开发工具
 abbrlink: c9822fb1
@@ -40,7 +39,7 @@ date: 2020-09-26 10:36:17
 
 在安装过程中，可能会卡在 ` Tapping homebrew/core` 这一步，如下图所示。
 
-![](/images/posts/20200926103138.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200926103138.png)
 
 这时候直接 `Control + C` 结束执行，手动依次执行以下命令：
 

@@ -3,7 +3,6 @@ title: LTP 第五章 开发 IO 操作测试集
 categories:
   - Linux
   - LTP
-typora-root-url: ..
 abbrlink: df12238b
 date: 2017-11-11 12:59:58
 related_repos:

@@ -4,7 +4,6 @@ categories:
   - 安全框架
   - Spring Security
 tags: 异常处理
-typora-root-url: ..
 abbrlink: eb7552c8
 date: 2018-05-09 10:48:06
 icons: [fas fa-fire red]
@@ -22,7 +21,7 @@ copyright_author: Jitwxs
 
 不知道你有没有注意到，当我们登陆失败时候，Spring security 帮我们跳转到了 `/login?error` Url，奇怪的是不管是控制台还是网页上都没有打印错误信息。
 
-![](/images/posts/20180509103952703.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180509103952703.png)
 
 这是因为首先 `/login?error` 是 Spring security 默认的失败 Url，其次**如果你不手动处理这个异常，这个异常是不会被处理的**。
 
@@ -46,11 +45,11 @@ copyright_author: Jitwxs
 
 （1）在 `doFilter()` 中，捕捉了 `AuthenticationException` 异常，并交给了 `unsuccessfulAuthentication()` 处理。
 
-![](/images/posts/20180403142646331.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180403142646331.png)
 
 （2）在 `unsuccessfulAuthentication()` 中，转交给了 `SimpleUrlAuthenticationFailureHandler` 类的 `onAuthenticationFailure()` 处理。
 
-![](/images/posts/20180403142555587.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180403142555587.png)
 
 （3）在 `onAuthenticationFailure()` 中，首先判断有没有设置 `defaultFailureUrl`。
 
@@ -58,11 +57,11 @@ copyright_author: Jitwxs
 
 - 如果设置了，首先执行 `saveException()` 方法。然后判断 `forwardToDestination` ，即是否是服务器跳转，默认使用重定向即客户端跳转。
 
-![](/images/posts/2018040314320740.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018040314320740.png)
 
 （4）在 `saveException()` 方法中，首先判断`forwardToDestination`，如果使用服务器跳转则写入 Request，客户端跳转则写入 Session。写入名为 `SPRING_SECURITY_LAST_EXCEPTION` ，值为 `AuthenticationException`。
 
-![](/images/posts/20180403143720216.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180403143720216.png)
 
 至此 Spring security 完成了异常处理，总结一下流程：
 
@@ -131,4 +130,4 @@ public void loginError(HttpServletRequest request, HttpServletResponse response)
 
 我们首先获取了 session 中的 `SPRING_SECURITY_LAST_EXCEPTION` 。为了演示，我只是简单的将错误信息返回给了页面。运行程序，当我们输入错误密码时：
 
-![](/images/posts/20180403145530517.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180403145530517.png)

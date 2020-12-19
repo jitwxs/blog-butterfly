@@ -5,7 +5,6 @@ tags:
   - Prometheus
   - Grafana
 categories: 云原生
-typora-root-url: ..
 copyright_author: Jitwxs
 abbrlink: b8c50183
 date: 2020-11-14 16:42:32
@@ -18,7 +17,7 @@ date: 2020-11-14 16:42:32
 
 [Prometheus](https://prometheus.io/) 是 Soundcloud 开发的一款开源的监控工具，其本质是一个时间序列数据库（TSDB），采用 Go 语言开发。
 
-![](/images/posts/20201114153234.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201114153234.png)
 
 它具有以下特点：
 
@@ -38,7 +37,7 @@ date: 2020-11-14 16:42:32
 
 （3）在架构图的左上角，对于有些系统，不能通过拉的方式去获取 Metrics，例如一些周期性运行的 Job。对于这些系统（Short-lived jobs），Prometheus 提供了 Push 网关，我们需要在这些任务内部将 metrics 数据主动 Push 到 Pushgateway。Prometheus再主动去 Pushgateway 拉取 Metrics。
 
-![architecture](/images/posts/20201114163126.png)
+![architecture](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201114163126.png)
 
 （4）在架构图的上方，介绍了 Prometheus如何去发现 Metrics 指标提供方暴露端点。对于 Push 模式的服务，Prometheus只需要去 Pushgateway 拉取即可；对于 Pull 模式的服务，支持静态配置（例如指定服务 IP/Port 等）和服务发现（例如 K8S 等）两种模式。
 

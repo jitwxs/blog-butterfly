@@ -4,7 +4,6 @@ tags: i18n
 categories:
   - Java Web
   - SpringBoot
-typora-root-url: ..
 abbrlink: 885663
 date: 2018-12-02 21:03:43
 related_repos:
@@ -75,7 +74,7 @@ public interface MessageSource {
 
 如果我们使用了 Springboot 的配置项 `spring.messages.basename`，它就是默认的实现类。
 
-![](/images/posts/20181202202942645.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181202202942645.png)
 
 `ReloadableResourceBundleMessageSource` 是以 ResourceBundleMessageSource 结尾的，但实际上它跟ResourceBundleMessageSource没有什么直接的关系。
 
@@ -123,7 +122,7 @@ language.zh_CN=Chinese
 welcome.msg={0}：Welcome to login
 ```
 
-![](/images/posts/20181202203905940.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181202203905940.png)
 
 `zh_CN` 和 `en_US` 代表相应语言的文件，而不带后缀的代表默认的语言文件，当出现不能匹配的语言时，从不带后缀的文件中读取。
 
@@ -277,27 +276,27 @@ public class TestController {
 
 首先我们来测试下 "/test" 接口。首次请求时，session 中没有数据，因此使用默认的 `Locale.getDefault()`，也就是 zh_CN：
 
-![](/images/posts/20181202205452674.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181202205452674.png)
 
 在 CustomSessionLocaleResolver 中，我们知道，只要增加 `language` 参数就能实现修改 语言，当修改语言为 en_US 时：
 
-![](/images/posts/2018120220591629.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018120220591629.png)
 
 当我们去掉参数后继续访问，语言已经被切换到 en_US 了，因为是从 session 中读取：
 
-![](/images/posts/20181202205903911.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181202205903911.png)
 
 下面来测试下 login 页面，因为刚刚切换了语言，所以默认是 en_US:
 
-![](/images/posts/20181202210135825.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181202210135825.png)
 
 切换为中文后：
 
-![](/images/posts/20181202210221553.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181202210221553.png)
 
 去掉请求参数，也一样保持中文：
 
-![](/images/posts/201812022102540.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812022102540.png)
 
 ## 四、更多自定义功能
 

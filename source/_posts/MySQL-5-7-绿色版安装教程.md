@@ -3,7 +3,6 @@ title: MySQL 5.7 绿色版安装教程
 categories: 
   - 数据库
   - MySQL
-typora-root-url: ..
 abbrlink: f5cfbb3c
 date: 2017-11-29 01:36:57
 copyright_author: Jitwxs
@@ -60,7 +59,7 @@ mysqld --initialize --console
 
 （3）打开任务管理器->服务，启动 `MySQL` 服务：
 
-![](/images/posts/20171129012319909.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171129012319909.png)
 
 ## 四、完成安装
 

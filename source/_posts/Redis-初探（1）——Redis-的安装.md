@@ -3,7 +3,6 @@ title: Redis 初探（1）——Redis 的安装
 categories: 
   - 数据库
   - Redis
-typora-root-url: ..
 abbrlink: e331e26a
 date: 2018-02-27 00:57:43
 copyright_author: Jitwxs
@@ -70,7 +69,7 @@ wxs@ubuntu:/usr/local/redis$ sudo make
 
 运行 `redis-server`，映入眼帘的是一张巨大的面包图：
 
-![](/images/posts/20180227000842739.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180227000842739.png)
 
 其中 `Port` 表示redis的端口号，`PID` 表示改进程的 pid 号，下方光标不停的闪动，此时 redis 就已经启动了，但是这个窗口不能够使用了。
 
@@ -106,11 +105,11 @@ CONTRIBUTING     INSTALL  README.md  runtest-cluster  src
 
 编辑 `redis.conf`，将 `daemonize` 的值修改为yes，如图所示：
 
-![](/images/posts/20180227001929294.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180227001929294.png)
 
 保存修改，此时重新运行 redis，注意此时运行时要加上**配置文件这个参数**（如果不加其实使用了默认的配置文件）
 
-![](/images/posts/20180227002449161.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180227002449161.png)
 
 最后一行提示我们配置已经载入，而且也没有弹出之前的类似于面包图，我们查看下进程，redis的确已经在后台启动了。
 
@@ -148,9 +147,9 @@ wxs@ubuntu:/usr/local/redis/src$ sudo vim ../redis.conf
 
 修改配置文件中的 `logfile` 和 `dir` 这两项为自定义路径（`dir` 项参数是一个文件夹，因此结尾必修要有/），如下图：
 
-![](/images/posts/2018022700443054.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018022700443054.png)
 
-![](/images/posts/20180227004439162.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180227004439162.png)
 
 对于其中不存在的文件和路径，都要创建，并且赋予777权限：
 

@@ -3,7 +3,6 @@ title: MySQL 常用用户权限管理命令
 categories:
   - 数据库
   - MySQL
-typora-root-url: ..
 abbrlink: 5aeb4f97
 date: 2020-05-12 22:25:12
 copyright_author: Jitwxs

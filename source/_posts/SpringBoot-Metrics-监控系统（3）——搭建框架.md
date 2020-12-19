@@ -1,7 +1,6 @@
 ---
 title: SpringBoot Metrics 监控系统（3）——搭建框架
 copyright_author: Jitwxs
-typora-root-url: ..
 tags:
   - SpringBoot
   - Prometheus
@@ -347,4 +346,4 @@ public class MetricsApplicationBoot implements ApplicationRunner {
 
 至此完成 SpringBoot Metrics 监控系统框架的搭建，整个项目的文件结构如下图所示，另外访问 `http://127.0.0.1:7002/prometheus` 应当得到形如下图的数据。
 
-![](/images/posts/20201115213022.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201115213022.png)

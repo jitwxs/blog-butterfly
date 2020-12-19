@@ -3,7 +3,6 @@ title: Redis 初探（8）——Redis 的实际应用
 categories: 
   - 数据库
   - Redis
-typora-root-url: ..
 abbrlink: 5907c9b5
 date: 2018-04-10 01:32:07
 copyright_author: Jitwxs
@@ -17,7 +16,7 @@ copyright_author: Jitwxs
 
 商城首页访问量巨大，因为首页的大轮播图是从数据库查询获取的，**每次访问都要查询一次数据库**，数据库压力巨大，亟需缓存。
 
-![](/images/posts/20180410005313843.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410005313843.png)
 
 ## 二、功能实现
 
@@ -232,7 +231,7 @@ public class PageController {
 
 Key 为 `CONTENT_KEY`，field 目前只有一个，即首页轮播图，其值为89，value 为转换为 json 的数据：
 
-![](/images/posts/20180410012837641.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410012837641.png)
 
 当我在后台为首页添加一个轮播图后，该 Field 被删除掉了（这里之所以连 key 也被删掉了，是因为该 key 中只有一个field，因此唯一的 field 被删掉了，key 也就删掉了）：
 
@@ -241,12 +240,12 @@ Key 为 `CONTENT_KEY`，field 目前只有一个，即首页轮播图，其值�
 (empty list or set)
 ```
 
-![](/images/posts/20180410012308433.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410012308433.png)
 
 重新刷新首页，正确显示三张：
 
-![](/images/posts/20180410012539258.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410012539258.png)
 
 再次查看 Redis：
 
-![](/images/posts/20180410012749749.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410012749749.png)

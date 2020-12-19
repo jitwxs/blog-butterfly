@@ -1,6 +1,5 @@
 ---
 title: RESTful API 设计规范
-typora-root-url: ..
 categories: 网络
 tags: RESTful
 abbrlink: 9c7c62cc

@@ -1,6 +1,5 @@
 ---
 title: Axiso 解决跨域访问
-typora-root-url: ..
 tags: 
   - 跨域
   - Vue
@@ -37,7 +36,7 @@ this.$axios.get("https://www.v2ex.com/api/site/info.json")
 
 当我们运行程序后，控制台报错如下：
 
-![跨域访问错误](/images/posts/20190818100522773.png)
+![跨域访问错误](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190818100522773.png)
 
 可以看到浏览器拦截了我们的请求，因为我们跨域了，下面解决跨域问题。
 
@@ -80,7 +79,7 @@ new Vue({
 }
 ```
 
-![配置代理](/images/posts/20190818100903780.png)
+![配置代理](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190818100903780.png)
 
 **Step3：修改请求Url**
 
@@ -100,7 +99,7 @@ this.$axios.get("/site/info.json")
 
 **重启服务**后，此时已经能够访问了：
 
-![](/images/posts/20190818100817426.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190818100817426.png)
 
 **原理：**
 
@@ -128,7 +127,7 @@ module.exports = {
 }
 ```
 
-![vue.config.js](/images/posts/2019081810462216.png)
+![vue.config.js](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2019081810462216.png)
 
 >Vue3 解决跨域，内容只有第二步**配置代理** 和 Vue2 不同，其他的一致。
 

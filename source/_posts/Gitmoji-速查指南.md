@@ -1,6 +1,5 @@
 ---
 title: Gitmoji 速查指南
-typora-root-url: ..
 categories:
   - 开发工具
   - Git
@@ -14,11 +13,11 @@ copyright_author: Jitwxs
 
 Emoji 在日常生活中是不是经常使用呢，Gitmoji 就是 Git 领域的 Emoji。下图就是使用效果。
 
-![](/images/posts/20191114223735395.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191114223735395.png)
 
 Gitmoji 的使用十分简单，只要在 Commit 记录的开头填上对于表情的代码即可，如下图所示。
 
-![](/images/posts/20191114224137502.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191114224137502.png)
 
 下面列出所有的 Gitmoji 表情代码，以及它们的用法。
 

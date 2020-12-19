@@ -1,6 +1,5 @@
 ---
 title: IDEA 下 SpringBoot 实现热部署
-typora-root-url: ..
 tags: SpringBoot
 categories:
   - 开发工具
@@ -12,15 +11,15 @@ copyright_author: Jitwxs
 
 **Step1：** 按照下图所示，勾选`Build project automatically`:
 
-![](/images/posts/20180801090556302.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180801090556302.png)
 
 **Step2：** 快捷键 `Ctrl + shif + A`，搜索`Registry`，选择第一个，如下图所示：
 
-![](/images/posts/20180801090608448.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180801090608448.png)
 
 勾选下图中`compiler.automake.allow.when.app.running`，然后点击关闭。
 
-![](/images/posts/20180706094037751.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180706094037751.png)
 
 **Step3：** 重启IDEA
 

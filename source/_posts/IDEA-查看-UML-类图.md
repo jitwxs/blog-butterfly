@@ -1,6 +1,5 @@
 ---
 title: IDEA 查看 UML 类图
-typora-root-url: ..
 categories:
   - 开发工具
   - IDEA
@@ -18,11 +17,11 @@ copyright_author: Jitwxs
 
 IDEA 的 Diagrams 功能使用起来非常简单，在你想要生成类图的类中右击选择 Diagrams 即可。
 
-![](/images/posts/20190716225007941.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190716225007941.png)
 
 如上图所示，该功能有两个子选项，这两个选项的区别就是前者将类图渲染在一个新标签页中，而后者则是在当前页以浮窗的形式展示。除了在类中右键点击以外，在目录树中右键点击也是同样的效果，然后你就会得到一幅类图。
 
-![](/images/posts/20190716225504423.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190716225504423.png)
 
 ### 1.2 类图含义
 
@@ -66,13 +65,13 @@ public interface WebSecurityConfigurer<T extends SecurityBuilder<Filter>> extend
 
 如果你发现 DELETE 键无效，比如我再 MAC 上就不能用，此时选中该类后右击 DELETE 也是一样的效果。
 
-![](/images/posts/20190716233026438.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190716233026438.png)
 
 ### 2.2 展示类图的附加属性
 
 单纯的类图可能不能满足我们的需要，比如我们想要显示每个类的方法要怎么办呢。有两种方法，第一种是点类图标签页左上角的一排按钮，第二种是右击选择 Show Categories 即可。
 
-![](/images/posts/20190716233228749.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190716233228749.png)
 
 - Fields：属性
 - Constructors：构造方法
@@ -82,38 +81,38 @@ public interface WebSecurityConfigurer<T extends SecurityBuilder<Filter>> extend
 
 同时我们也可以对这些附加属性筛选显示级别，右击后选择 Change Visability Level 即可。
 
-![](/images/posts/2019071623380141.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2019071623380141.png)
 
 ###  2.3 加入其它类图
 
 当我们还需要查看其他类和当前类图中的类是否有关系的时候，可以在当前类图中加入其他类。右键选择 Add Class to Diagram... ，然后在弹出框中输入类名即可。
 
-![](/images/posts/20190716234537483.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190716234537483.png)
 
 ### 2.4 查看具体代码
 
 想要查看某个类的代码，在类图中选中某个类后，右击选择 Jump to Source 即可。
 
-![](/images/posts/20190716234831123.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190716234831123.png)
 
 而如果要跳转到某个附加属性上，则需要先双击附加属性框，然后用鼠标选择具体项后，右击选择 Jump to Source 即可。
 
-![](/images/posts/20190716235046599.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190716235046599.png)
 
 ### 2.5 类图布局
 
 如果你不小心将类图弄乱了也没关系，IDEA 内置了多种布局，你可以任意选择。右键选择 Layout 即可，如下图所示。
 
-![](/images/posts/20190717001008819.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190717001008819.png)
 
 ## 三、Structure
 
 最后在补充下 IDEA 的 Structure 功能，也是在看代码中一个十分常用的功能。最通用的方法，就是点击 IDEA 左下角的 Structure 标签页即可。
 
-![](/images/posts/20190716235425617.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190716235425617.png)
 
 更常用的则是以悬浮窗的形式弹出，方便我们随时跳转。这个快捷键如果我没记错的话，Windwos 平台是 `Ctrl + O`，Mac 平台是 `Command + F12`。
 
 如果快捷键无效的话，可以在 IDEA 设置中查看下 file structure 的键位设置。
 
-![](/images/posts/20190716235813229.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190716235813229.png)

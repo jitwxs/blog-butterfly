@@ -1,6 +1,5 @@
 ---
 title: Java 代码性能优化之路
-typora-root-url: ..
 categories:
   - Java
   - 性能分析

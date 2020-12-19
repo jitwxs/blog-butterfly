@@ -4,7 +4,6 @@ tags:
   - 静态库
   - 动态库
 categories: Linux
-typora-root-url: ..
 abbrlink: 1ab0b663
 date: 2017-10-17 01:11:07
 references:

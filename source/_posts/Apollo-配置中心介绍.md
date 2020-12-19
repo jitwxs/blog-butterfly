@@ -1,6 +1,5 @@
 ---
 title: Apollo 配置中心介绍
-typora-root-url: ..
 abbrlink: 30f1531a
 date: 2019-07-25 23:37:14
 tags: Apollo
@@ -25,7 +24,7 @@ copyright_author: Jitwxs
 
 最近我司进行基础架构升级，将配置中心从 Spring Cloud Config 迁移至 Apollo。趁此机会也学习下 Apollo，本文主要知识来自于我对[官方 Wiki](https://github.com/ctripcorp/apollo/wiki) 的学习，如有错误，欢迎勘误。
 
-![apollo-logo](/images/posts/20190725110301120.png)
+![apollo-logo](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725110301120.png)
 
 [Apollo](https://github.com/ctripcorp/apollo)（阿波罗）来自于携程研发的**分布式配置中心**，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。
 
@@ -35,7 +34,7 @@ Apollo 服务端 基于 Spring Boot 和 Spring Cloud 开发，因此对于 Sprin
 >
 > 账号/密码：apollo/admin
 
-![apollo-home-screenshot](/images/posts/20190725114155146.png)
+![apollo-home-screenshot](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725114155146.png)
 
 ## 二、主要特点
 
@@ -153,7 +152,7 @@ Apollo 服务端 基于 Spring Boot 和 Spring Cloud 开发，因此对于 Sprin
 
 上述的读写开关和比例配置都可以通过配置中心实现动态调整。
 
-![数据库迁移](/images/posts/2019072510255912.png)
+![数据库迁移](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2019072510255912.png)
 
 #### 2.2.4 动态日志级别
 
@@ -192,7 +191,7 @@ Apollo 服务端 基于 Spring Boot 和 Spring Cloud 开发，因此对于 Sprin
 3. 对大部分的应用由于默认配置已经适用，所以不用做任何事情
 4. 对于少量核心 / 高流量应用如果需要调整 minimumIdle 的值，只需要关联 `dal` 公共 Namespace，然后对需要覆盖的配置做调整即可，调整后的配置仅对该应用自己生效
 
-![Namespace 关联类型](/images/posts/20190725103419132.png)
+![Namespace 关联类型](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725103419132.png)
 
 通过这种方式的好处是不管是中间件团队，还是应用开发，都可以灵活地动态调整公共组件的配置。
 
@@ -202,7 +201,7 @@ Apollo 服务端 基于 Spring Boot 和 Spring Cloud 开发，因此对于 Sprin
 
 对于公共组件的配置，建议先在一个或多个应用上生效后观察效果，没有问题再推给所有的应用。
 
-![initial-gray-release-tab](/images/posts/20190725110341345.png)
+![initial-gray-release-tab](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725110341345.png)
 
 ### 2.5 发布审核
 
@@ -240,7 +239,7 @@ Apollo 服务端 基于 Spring Boot 和 Spring Cloud 开发，因此对于 Sprin
 2. 配置中心通知 Apollo 客户端有配置更新
 3. Apollo 客户端从配置中心拉取最新的配置、更新本地配置并通知到应用
 
-![basic-architecture](/images/posts/20190725114238186.png)
+![basic-architecture](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725114238186.png)
 
 ### 3.3 核心概念
 
@@ -329,7 +328,7 @@ k2 = v2
 - 应用 B 有一个私有类型的 Namespace：application，以及一个公共类型的 Namespace：NS-Public。
 - 应用 C 只有一个私有类型的 Namespace：application
 
-![namespace-model-samle](/images/posts/20190725114338862.png)
+![namespace-model-samle](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725114338862.png)
 
 对于应用 A：
 
@@ -434,7 +433,7 @@ Apollo 当拉取到配置中心的配置后，会将其在本地文件系统中�
 
 ### 6.1 七大模块
 
-![overall-architecture](/images/posts/20190725113735971.png)
+![overall-architecture](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725113735971.png)
 
 上图就是 Apollo 的主要架构设计，一共包含七个模块。其中四个模块是和功能相关的核心模块：
 
@@ -479,7 +478,7 @@ Apollo 当拉取到配置中心的配置后，会将其在本地文件系统中�
 
 如果不考虑分布式微服务架构中的服务发现问题，Apollo 的最简架构如下图所示：
 
-![Apollo Architecture V1](/images/posts/20190725113804496.png)
+![Apollo Architecture V1](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725113804496.png)
 
 `Config Service` 是一个独立的微服务，服务于 `Client` 进行配置获取。Client 和 Config Service 保持长连接，通过一种**推拉结合**(push & pull)的模式，在实现配置实时更新的同时，保证配置更新不丢失。
 
@@ -495,7 +494,7 @@ Protal 有一个独立的 PortalDB，**存放用户权限、项目和配置的�
 
 为了解决这个问题，Apollo 在其架构中引入了 Eureka，实现微服务间的服务注册和发现，更新后的架构如下图所示：
 
-![Apollo Architecture V2](/images/posts/20190725113831676.png)
+![Apollo Architecture V2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725113831676.png)
 
 Config Service 和 Admin Service 启动后都会注册到 Eureka 服务注册中心，并定期发送保活心跳。Eureka采用集群方式部署，使用分布式一致性协议保证每个实例的状态最终一致。
 
@@ -505,7 +504,7 @@ Config Service 和 Admin Service 启动后都会注册到 Eureka 服务注册中
 
 发现目标服务后，通过客户端软负载(SLB，例如 Ribbon)就可以路由到目标服务实例。这是一个经典的微服务架构，基于 Eureka 实现服务注册发现+客户端 Ribbon 配合实现软路由，如下图所示：
 
-![Apollo Architecture V3](/images/posts/20190725113857230.png)
+![Apollo Architecture V3](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725113857230.png)
 
 ### 6.5 Apollo V4
 
@@ -519,7 +518,7 @@ Config Service 和 Admin Service 启动后都会注册到 Eureka 服务注册中
 
 引入 MetaServer 和 NginxLB 之后的架构如下图所示：
 
-![Apollo Architecture V4](/images/posts/20190725113916324.png)
+![Apollo Architecture V4](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725113916324.png)
 
 ### 6.6 Apollo V5
 
@@ -527,7 +526,7 @@ V4 版本已经是比较完整的 Apollo 架构全貌，现在还剩下最后一
 
 所以 V5 版本是包括用户端的最终的 Apollo 架构全貌，如下图所示：
 
-![Apollo Architecture V5](/images/posts/20190725113941803.png)
+![Apollo Architecture V5](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725113941803.png)
 
 ### 6.7 Why Eureka
 
@@ -548,7 +547,7 @@ V4 版本已经是比较完整的 Apollo 架构全貌，现在还剩下最后一
 
 在 Apollo 配置中心中，一个重要的功能就是配置发布后实时推送到客户端。
 
-![Apollo 推送](/images/posts/2019072511405397.png)
+![Apollo 推送](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2019072511405397.png)
 
 上图简要描述了配置发布的大致过程：用户首先在 Portal 操作配置发布，Portal 调用 Admin Service 的接口操作发布，Admin Service发布配置后，发送 `ReleaseMessage` 给各个 Config Service，Config Service 收到 ReleaseMessage 后，通知对应的客户端。
 
@@ -565,7 +564,7 @@ Admin Service 在配置发布后，需要通知所有的 Config Service 有配�
 3. Config Service 如果发现有新的消息记录，那么就会通知到所有的消息监听器（[ReleaseMessageListener](https://github.com/ctripcorp/apollo/blob/master/apollo-biz/src/main/java/com/ctrip/framework/apollo/biz/message/ReleaseMessageListener.java)），如[NotificationControllerV2](https://github.com/ctripcorp/apollo/blob/master/apollo-configservice/src/main/java/com/ctrip/framework/apollo/configservice/controller/NotificationControllerV2.java)，消息监听器的注册过程参见 [ConfigServiceAutoConfiguration](https://github.com/ctripcorp/apollo/blob/master/apollo-configservice/src/main/java/com/ctrip/framework/apollo/configservice/ConfigServiceAutoConfiguration.java)
 4. NotificationControllerV2 得到配置发布的 AppId+Cluster+Namespace 后，会通知对应的客户端
 
-![release-message-design, width=30%](/images/posts/2019072511403069.png)
+![release-message-design, width=30%](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2019072511403069.png)
 
 ### 7.3 通知客户端
 
@@ -580,7 +579,7 @@ Admin Service 在配置发布后，需要通知所有的 Config Service 有配�
 
 ### 8.1 实现原理
 
-![client-architecture](/images/posts/20190725110449111.png)
+![client-architecture](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725110449111.png)
 
 上图是 Apollo 客户端的实现原理图，首先 Apollo 客户端通过 HTTP Long Polling 和 Config Service 保持一个长连接，这个连接是 60s，如果在这 60s 内配置发生了更新，那么被保持的客户端就会立刻返回，并告知客户端有配置更新，然后客户端再去主动拉取更新；如果超过 60s，该长连接会中断，客户端返回 HTTP 304（Not Modified）。客户端收到返回的请求后，会立即重新发起长连接请求，以此往复。
 
@@ -598,7 +597,7 @@ Apollo 除了支持 API 方式获取配置，也支持和 Spring/Spring Boot 集
 
 在运行时的结构形如： 
 
-![Overview](/images/posts/20190725110732913.png)
+![Overview](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725110732913.png)
 
 需要注意的是，PropertySource 之间是有优先级顺序的，如果有一个 Key 在多个 property source 中都存在，那么在前面的 property source 优先。所以对上图的例子：
 
@@ -608,7 +607,7 @@ Apollo 除了支持 API 方式获取配置，也支持和 Spring/Spring Boot 集
 
 在理解了上述原理后，Apollo 和 Spring/Spring Boot 集成的手段就呼之欲出了：**在应用启动阶段，Apollo 从远端获取配置，然后组装成 PropertySource 并插入到第一个即可**，如下图所示：
 
-![Overview](/images/posts/20190725110739474.png)
+![Overview](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725110739474.png)
 
 > 相关代码可以参考[PropertySourcesProcessor](https://github.com/ctripcorp/apollo/blob/master/apollo-client/src/main/java/com/ctrip/framework/apollo/spring/config/PropertySourcesProcessor.java)
 
@@ -616,7 +615,7 @@ Apollo 除了支持 API 方式获取配置，也支持和 Spring/Spring Boot 集
 
 ### 9.1 主体
 
-![apollo-erd](/images/posts/20190725110125389.png)
+![apollo-erd](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725110125389.png)
 
 | **Name**         | **Desc**                                                     |
 | ---------------- | ------------------------------------------------------------ |
@@ -631,7 +630,7 @@ Apollo 除了支持 API 方式获取配置，也支持和 Spring/Spring Boot 集
 
 ### 9.2 权限相关
 
-![apollo-erd-role-permission](/images/posts/20190725110206113.png)
+![apollo-erd-role-permission](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190725110206113.png)
 
 | **Name**           | **Desc**                                                     |
 | ------------------ | ------------------------------------------------------------ |

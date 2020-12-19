@@ -1,6 +1,5 @@
 ---
 title: 为什么阿里巴巴要禁用 Executors 创建线程池？
-typora-root-url: ..
 categories:
   - Java
   - 并发编程
@@ -63,7 +62,7 @@ public ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveT
 
 ## 五、线程池执行任务逻辑和线程池参数的关系
 
-![](/images/posts/20191201215641555.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191201215641555.png)
 
 执行逻辑说明：
 
@@ -158,7 +157,7 @@ public class TaskTest {
 
 使用 `Executors` 创建的 `CachedThreadPool`，往线程池中无限添加线程 在启动测试类之前先将 `JVM` 内存调整小一点，不然很容易将电脑跑出问题，在 `idea` 里：`Run` -> `Edit Configurations`。
 
-![](/images/posts/20191201220055454.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191201220055454.png)
 
 `JVM`参数说明：
 

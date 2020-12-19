@@ -1,6 +1,5 @@
 ---
 title: HoloLens 开发笔记（7）——Voice
-typora-root-url: ..
 categories: HoloLens
 abbrlink: 2541026f
 date: 2018-12-03 12:41:39
@@ -30,11 +29,11 @@ copyright_author: Jitwxs
 
 7. 添加一个 Cube，位置如下
 
-![](/images/posts/20181218201741787.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218201741787.png)
 
 最终 Hierarchy 结构如下：
 
-![](/images/posts/20181218221721133.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218221721133.png)
 
 ## 一、语音控制
 
@@ -43,7 +42,7 @@ copyright_author: Jitwxs
 > 1. 后面对应的 `Key Shortcut`，字面意思是对应的键盘按键，但是我在实际程序中并没有体会到有啥用，所以就随便设了两个值，有知道的同学可以留言告诉我下。
 > 2. HoloLens 当前已经支持中文语音，但需要手动安装刷机，[参考官方](https://docs.microsoft.com/en-us/hololens/hololens-install-localized)。
 
-![](/images/posts/20181218225322927.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218225322927.png)
 
 | 属性                       | 描述                                                         |
 |:-------------------------- |:------------------------------------------------------------ |
@@ -82,7 +81,7 @@ public class CubRotate : MonoBehaviour {
 
 为 Cube 添加 MRTK 中的 `SpeechInputHandler.cs` 脚本，根据名字就可以看出和 SpeechInputSource.cs 脚本有关系，该脚本用于处理语音输入。
 
-![](/images/posts/2018121823033761.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018121823033761.png)
 
 | 属性               | 描述                                                         |
 |:------------------ |:------------------------------------------------------------ |
@@ -93,7 +92,7 @@ public class CubRotate : MonoBehaviour {
 
 运行程序，因为使用到了语音，所以必须使用真机运行，在运行前，不要忘记添加 Microphone 的权限。在 `Edit/Project Settings/Player/Publishing Settings/Capabilities`中勾选 Microphone 。
 
-![](/images/posts/20181218231002396.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218231002396.png)
 
 部署到真机上，通过说 start rotate 和 stop rotate，来观察 Cube 的旋转和停止。
 
@@ -163,7 +162,7 @@ public class CubeMic : MonoBehaviour {
 
 为 Cube 添加一个 `Audio Souce` 组件，用于播放声音，它的属性使用默认值即可。
 
-![](/images/posts/20181219142042993.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181219142042993.png)
 
 在真机中运行程序，我们能够听见麦克风的声音，并且 Cube 根据音量大小发生改变。
 

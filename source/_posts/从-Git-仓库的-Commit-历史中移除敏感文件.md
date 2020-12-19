@@ -1,6 +1,5 @@
 ---
 title: 从 Git 仓库的 Commit 历史中移除敏感文件
-typora-root-url: ..
 categories:
   - 开发工具
   - Git

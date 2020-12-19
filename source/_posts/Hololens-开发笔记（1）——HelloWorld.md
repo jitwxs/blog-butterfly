@@ -1,6 +1,5 @@
 ---
 title: HoloLens 开发笔记（1）——HelloWorld
-typora-root-url: ..
 categories: HoloLens
 abbrlink: e42fdabb
 date: 2018-11-19 15:38:31
@@ -30,7 +29,7 @@ HoloLens是微软在2015年推出的一款混合现实（MR）眼镜，官方网
 
 ### 2.1 创建项目
 
-![](/images/posts/20181119153119561.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153119561.png)
 
 1. 点击右上角New按钮，然后你会看到如图的设置项
 2. 请指定项目名和项目位置
@@ -47,7 +46,7 @@ HoloLens是微软在2015年推出的一款混合现实（MR）眼镜，官方网
 5. 将下面的`Background`颜色修改为黑色，即RGBA为**(0, 0, 0, 0)**。
 6. 修改Clipping Planes的 `Near` 的值为 **0.85**，防止当用户接近一个对象时，对象被渲染到离用户眼镜太近的位置。
 
-![](/images/posts/20181119153145584.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153145584.png)
 
 >在 HoloLens 应用中，摄像机位置就是用户的头部的位置，摄像机就代表了用户的眼镜。
 >
@@ -59,32 +58,32 @@ HoloLens是微软在2015年推出的一款混合现实（MR）眼镜，官方网
 
 如果该平台没有安装，选择右边的`open download`按钮，下载对应的平台插件。
 
-![](/images/posts/20181119153200480.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153200480.png)
 
 ### 2.4 更改项目设置
 
 点击菜单栏 `Edit -> Project Settings -> Quality`，在右侧的`Inspector`中，点击windows图标下的Default的下拉框，如图所示，将值修改为`Very Low`。
 
-![](/images/posts/20181222142923568.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181222142923568.png)
 
 点击菜单栏`Edit -> Project Settings -> Player`，选中`Windwos`图标选项卡，选中`XR Settings`，勾选`Virtual Reality Supported`，会看到下面有一项**Windows Mixed Reality**。
 
-![](/images/posts/20181119153230991.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153230991.png)
 
 选中`Other Settings`，将`Scripting Backend`的值修改为**.NET**。
 
-![](/images/posts/20181119153254780.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153254780.png)
 
 ### 2.5 添加立方体
 
 1. 在左侧项目列表空白处，右击选择`3D Object -> Crub`新建一个立方体。
 2. 修改立方体坐标为**(X:0 Y:0 Z:2)**，更改旋转为**(X:45 Y:45 Z:45)**，将立方体缩放为**0.25**。
 
-![](/images/posts/20181119153443757.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153443757.png)
 
 至此整个项目结构如图所示：
 
-![](/images/posts/20181119153454671.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153454671.png)
 
 ## 三、运行程序
 
@@ -92,7 +91,7 @@ HoloLens是微软在2015年推出的一款混合现实（MR）眼镜，官方网
 
 戴上HoloLens眼镜，在HoloLens的Windos Store商店中，下载应用[Holographic Remoting Player](https://docs.microsoft.com/zh-cn/windows/mixed-reality/holographic-remoting-player)，并进入，此时应该出现HoloLens的IP地址信息，形如：
 
-![](/images/posts/20181119153509315.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153509315.png)
 
 确保你的PC与HoloLens在同一网络下。
 
@@ -110,11 +109,11 @@ HoloLens是微软在2015年推出的一款混合现实（MR）眼镜，官方网
 
 连接成功后，点击启动图标，启动程序，再点击下关闭程序，如下：
 
-![](/images/posts/20181119153521912.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153521912.png)
 
 当程序启动后，你就能通过HoloLens看见一个立方体了！Hello World！
 
-![](/images/posts/20181119153542305.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153542305.jpg)
 
 ### 3.3 从Visual Studio构建并部署到设备
 
@@ -126,19 +125,19 @@ HoloLens是微软在2015年推出的一款混合现实（MR）眼镜，官方网
 
 （2）修改`Target Device`为HoloLens；`Build Type`为D3D；`SDK`选择**Latest installed**即可，我这里指定了10.0的版本；VS版本我制定了VS 2017；勾选下方的**Unity C# Projects**按钮，点击Build按钮。
 
-![](/images/posts/20181119153604307.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153604307.png)
 
 （3） 在弹出的目录中新建文件夹APP。
 
-![](/images/posts/20181119153614670.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153614670.png)
 
 （4）进入到App文件夹下，点击选择文件夹按钮。
 
-![](/images/posts/20181119153624287.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153624287.png)
 
 （5）Build完成后，点击App目录下的.sln文件，在VS中打开项目。
 
-![](/images/posts/20181119153640563.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153640563.png)
 
 #### 3.3.2 运行解决方案
 
@@ -146,11 +145,11 @@ HoloLens是微软在2015年推出的一款混合现实（MR）眼镜，官方网
 
 点击右上方选择为`Release`，平台选择`x86`，选择`远程计算机`，然后会弹出一个如图的远程连接对话框，在其中填入HoloLens的IP地址，点击`选择`按钮。
 
-![](/images/posts/2018111915365271.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018111915365271.png)
 
 点击菜单栏`调试->开始执行（不调试）`按钮，或按快捷键 `Ctrl + F5`。
 
-![](/images/posts/20181119153702626.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153702626.png)
 
 如果没有异常，经过一段漫长的等待（取决于网速、电脑配置，我用了3分钟吧），在HoloLens中就可以看到立方体了。
 
@@ -158,11 +157,11 @@ HoloLens是微软在2015年推出的一款混合现实（MR）眼镜，官方网
 
 **（1）关于textmeshpro的错误**
 
-![](/images/posts/20181119153713228.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153713228.png)
 
 请将刚刚创建的App文件夹整个删掉，在Unity中，点击菜单栏`Window > Package Manager`，移除**TextMesh Pro**，如图所示，然后重新导出解决方案即可。
 
-![](/images/posts/20181119153722513.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119153722513.png)
 
 > 解决方案来源：https://github.com/MicrosoftDocs/mixed-reality/issues/557
 

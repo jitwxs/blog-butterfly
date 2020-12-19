@@ -3,7 +3,6 @@ title: LTP 第三章 开发系统调用测试集
 categories:
   - Linux
   - LTP
-typora-root-url: ..
 abbrlink: ebd92a20
 date: 2017-10-10 00:21:58
 related_repos:

@@ -1,6 +1,5 @@
 ---
 title: 'Disruptor: 一种高性能的、在并发线程间数据交换领域用于替换有界限队列的方案'
-typora-root-url: ..
 categories:
   - Java
   - Disruptor
@@ -118,7 +117,7 @@ Java 里使用队列还有一个更大的问题：队列会成为很大的垃圾
 
 这种处理方式并不便宜（ cheap ）——每个阶段都会有入队和出队的开销，当路径必须分叉（fork）时，有多少个目标消费者，就会增加多少倍的成本【注：到每个消费者都会有入队操作】；同时，分叉之后还需要合并，这时候会因为不可避免的资源竞争产生额外的成本。
 
-![Pipelines and Graphs](/images/posts/20191212225548317.png)
+![Pipelines and Graphs](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191212225548317.png)
 
 上图举了一个管道和图的例子。内容是如何组装一台汽车。 要组装一台汽车，我们第一阶段要有底盘（chassis），接着装引擎（Engine），装驾驶员座椅（Driver's Seat），装乘客座椅（ Passenger's Seat），装后座座椅（Rear Seat）等等，最后是装四个轮子（Wheel）。这里每个圆圈都代表一个 Stage。箭头代表依赖关系，只有四个门和引擎盖都装好了（Bonnet）才能进行喷漆（Paint）工作。每个箭头都意味着一个队列，箭头两端代表着生产者和消费者。每个消费者和消费者都意味着一个线程。比如对于 paint 而言，它拥有五个消费者线程来处理队列。
 
@@ -148,11 +147,11 @@ Ringbuffer 的内存是在启动时预先分配的。Ringbuffer 要么是一个�
 
 在 ArrayBlockingQueue 中，数组 Object[] items 负责存储队列中的所有元素，如下图所示，当消费者消费完 items[0] 元素，紧接着生产者向 items[0] 放入新的元素 entity1，这时候 items[0] 存储的是对象 entity1 的引用，items[0] 到 entity0 对象的引用被切断，entity0 等待被 GC。生产者不断地向 items[0] 中写入消息，则老的 entity 将不断地需要被 GC，一旦队列阻塞，items 可能熬过多次minor GC，幸存下来，并进入到老年代，带来更严重的性能隐患。
 
-![ArrayBlockQueue Memory Allocation](/images/posts/20191213012729177.svg)
+![ArrayBlockQueue Memory Allocation](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191213012729177.svg)
 
 再来看看 RingBuffer 预分配内存方式的精妙之处。RingBuffer 同样使用数组 Object[] entries 作为存储元素。如下图所示，初始化RingBuffer 时，会将所有的 entries 的每个元素指定为特定的 Event，这时候 event 中的 detail 属性是 null；后面生产者向 RingBuffer中写入消息时，RingBuffer 不是直接将 enties[7] 指向其他的 event 对象，而是先获取 event 对象，然后更改 event 对象的 detail 属性；消费者在消费时，也是从 RingBuffer 中读取出 event，然后取出其 detail 属性。可以看出，生产/消费过程中，RingBuffer 的 entities[7] 元素并未发生任何变化，未产生临时对象，entities 及其元素对象一直存活，直到 RingBuffer 消亡。故而可以最小化 GC 的频率，提升性能。
 
-![Disruptor Memory Allocation](/images/posts/20191213012818979.svg)
+![Disruptor Memory Allocation](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191213012818979.svg)
 
 ### 4.2 隔离关注 Teasing Apart the Concerns
 
@@ -214,7 +213,7 @@ cursor = claimedSequence;
 
 【注：本篇文章是基于 Disruptor1.0 的，因此下面的类图也是 1.0 版本的，现在已经更新到 3.4 版本，类图已经有了很大的改变。】
 
-![Disruptor Class Diagram](/images/posts/20191213001800413.png)
+![Disruptor Class Diagram](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191213001800413.png)
 
 ### 4.7 代码示例
 
@@ -263,27 +262,27 @@ producerBarrier.commit(entry);
 
 **Unicast: 1P – 1C:** 
 
-![Unicast: 1P – 1C](/images/posts/20191213002407355.png)
+![Unicast: 1P – 1C](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191213002407355.png)
 
 **Three Step Pipeline: 1P – 3C:** 
 
-![Three Step Pipeline: 1P – 3C](/images/posts/20191213002422864.png)
+![Three Step Pipeline: 1P – 3C](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191213002422864.png)
 
 **Sequencer: 3P – 1C:** 
 
-![Sequencer: 3P – 1C](/images/posts/20191213002526271.png)
+![Sequencer: 3P – 1C](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191213002526271.png)
 
 **Multicast: 1P – 3C:** 
 
-![Multicast: 1P – 3C](/images/posts/20191213002538183.png)
+![Multicast: 1P – 3C](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191213002538183.png)
 
 **Diamond: 1P – 3C:**  
 
-![Diamond: 1P – 3C](/images/posts/20191213002548431.png)
+![Diamond: 1P – 3C](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191213002548431.png)
 
 上述配置中，ArrayBlockingQueue 被用于每一个数据流箭头的位置，相当于 Disruptor 中的栅栏所处的位置。下表展示了总共处理 5 亿条消息时每秒吞吐量的性能测试结果，测试环境为：没有 HT 的 1.6.0_25 64-bit Sun JVM, Windows 7, Intel Core i7 860 @ 2.8 GHz ，以及 Intel Core i7-2720QM, Ubuntu 11.04。 我们取了最好的前三条结果，这个结果使用于任何 JVM 运行环境，表中显示的结果并不是我们发现最好的结果。 
 
-![](/images/posts/20191213003003743.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191213003003743.png)
 
 ## 六、 延迟性能测试 Latency Performance Testing 
 
@@ -293,9 +292,9 @@ producerBarrier.commit(entry);
 
 Disruptor 每一轮【注：一次完整的流水线】的平均延时为 52ns，相比之下 ArrayBlockQueue 每一轮的平均延时为 32757ns。跟踪显示 ArrayBlockQueue 性能损失主要是由条件变量的加锁/通知引起的。下表中测试结果是在配置为 2.2Ghz Core i7-2720QM 的 Ubuntu 11.04 操作系统上运行版本为 Java 1.6.0_25 64-bit 的 JVM 虚拟机得到的。
 
-![](/images/posts/20191213003348981.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191213003348981.png)
 
-![](/images/posts/20191213003442677.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191213003442677.png)
 
 ## 七、结论
 

@@ -3,7 +3,6 @@ title: Nginx 初探（1）——搭建环境
 categories:
   - 服务器
   - Nginx
-typora-root-url: ..
 abbrlink: dbe6db6e
 date: 2018-03-23 09:21:22
 copyright_author: Jitwxs
@@ -141,7 +140,7 @@ wxs       24271   2542  0 09:33 pts/19   00:00:00 grep --color=auto nginx
 
 `nginx` 默认运行在 `80` 端口，打开浏览器，访问 `nginx`：
 
-![](/images/posts/2018032309430613.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018032309430613.png)
 
 ## 五、相关命令
 

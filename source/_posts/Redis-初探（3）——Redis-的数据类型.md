@@ -3,7 +3,6 @@ title: Redis 初探（3）——Redis 的数据类型
 categories:
   - 数据库
   - Redis
-typora-root-url: ..
 abbrlink: '63e66407'
 date: 2018-03-02 01:23:21
 copyright_author: Jitwxs
@@ -64,22 +63,22 @@ copyright_author: Jitwxs
 
 **注意：** 如果 key 值不存在，当作0处理；如果 value 值无法转换为整型时，会返回错误信息：
 
-![](/images/posts/2018022800472165.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018022800472165.png)
 
-![](/images/posts/20180228005242867.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180228005242867.png)
 
 介绍一下字符串拼接方法，如下：
 
 | 含义 | 方法 |
 |:------------- |:------------- |
 | 拼接 | append key |
-![](/images/posts/20180228005805506.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180228005805506.png)
 
 ## 二、Hash（散列）类型
 
 散列，即 Hash，Redis 中的 Hash 类型可以看成**Map集合**。Hash 类型的**每一个 key 的 value 对应于一个 Map，该Map包含多个键值对的数据**，如下图所示：
 
-![](/images/posts/20180301220938319.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180301220938319.png)
 
 ### 2.1 赋值
 

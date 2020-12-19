@@ -1,6 +1,5 @@
 ---
 title: 高性能 Disruptor——消除伪共享
-typora-root-url: ..
 categories:
   - Java
   - Disruptor
@@ -39,11 +38,11 @@ copyright_author: Jitwxs
 
 为了解决内存和 CPU 的速度不匹配问题，相继引入了 L1 Cache、L2 Cache、L3 Cache，数字越小，容量越小，速度越快，位置越接近 CPU。
 
-![](/images/posts/20200315233546582.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200315233546582.png)
 
 现在的 CPU 都是由多个处理器，每个处理器由多个核心构成。 一个处理器对应一个物理插槽，不同的处理器间通过 QPI 总线相连。一个处理器间的多核共享 L3 Cache。一个核包含寄存器、L1 Cache、L2 Cache，下图是Intel Sandy Bridge CPU架构：
 
-![](/images/posts/20200315233629903.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200315233629903.png)
 
 ## 二、缓存行与伪共享
 
@@ -51,11 +50,11 @@ copyright_author: Jitwxs
 
 以 Java 的 long 类型为例，它是 8 个字节，假设我们存在一个长度为 8 的 long 数组 arr，那么CPU 在读取 arr[0] 时，首先查询缓存，缓存没有命中，缓存就会去内存中加载。由于缓存的最小存储单位是缓存行，64 字节，且数组的内存地址是连续的，则将 arr[0] 到 arr[7] 加载到缓存中。后续 CPU 查询 arr[6] 时候也可以直接命中缓存。
 
-![Cache Line](/images/posts/20200315220302457.png)
+![Cache Line](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200315220302457.png)
 
 现在假设多线程情况下，线程 A 的执行者 CPU Core-1 读取 arr[1]，首先查询缓存，缓存没有命中，缓存就会去内存中加载。从内存中读取 arr[1] 起的连续的 64 个字节地址到缓存中，组成缓存行。由于从arr[1] 起，arr 的长度不足够 64 个字节，只够 56 个字节。假设最后 8 个字节内存地址上存储的是对象 bar，那么对象 bar 也会被一起加载到缓存行中。
 
-![Cache Line](/images/posts/20200315221131793.png)
+![Cache Line](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200315221131793.png)
 
 现在有另一个线程 B，线程 B 的执行者 CPU Core-2 去读取对象 bar，首先查询缓存，发现命中了，因为 Core-1 在读取 arr 数组的时候也顺带着把 bar 加载到了缓存中。
 
@@ -99,7 +98,7 @@ class LhsPadding {
 
 如下图所示，其中 V 就是 Value 类的 value，P 为 value 前后填充的无意义 long 型变量，U 为其它无关的变量。不论什么情况下，都能保证 V 不和其他无关的变量处于同一缓存行中，这样 V 就不会被其他无关的变量所影响。
 
-![Padding 填充](/images/posts/20200315233704730.jpg)
+![Padding 填充](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200315233704730.jpg)
 
 这里的 V 也不限定为 long 类型，其实**只要对象的大小大于等于8个字节**，通过前后各填充 7 个 long 型变量，就一定能够保证独占缓存行。
 

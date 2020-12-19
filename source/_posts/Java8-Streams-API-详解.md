@@ -2,7 +2,6 @@
 title: Java8 Streams API 详解
 tags: Stream
 categories: Java
-typora-root-url: ..
 abbrlink: 6855101d
 date: 2018-06-08 14:35:04
 copyright_author: 陈争云

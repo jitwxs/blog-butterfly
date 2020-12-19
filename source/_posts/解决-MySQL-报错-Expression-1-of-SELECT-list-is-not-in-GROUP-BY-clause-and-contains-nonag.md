@@ -2,7 +2,6 @@
 title: >-
   解决 MySQL 报错 Expression #1 of SELECT list is not in GROUP BY clause and
   contains nonag...
-typora-root-url: ..
 categories:
   - 数据库
   - MySQL

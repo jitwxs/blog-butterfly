@@ -2,7 +2,6 @@
 title: 解决 Xshell 关闭 vim 后内容仍停留在屏幕的问题
 tags: Xshell
 categories: 开发工具
-typora-root-url: ..
 toc: false
 abbrlink: 29f74e3a
 date: 2017-12-23 00:55:55
@@ -13,7 +12,7 @@ copyright_author: Jitwxs
 
 使用Xshell远程连接终端后，当关闭vim时，内容仍然停留在屏幕上。
 
-![](/images/posts/20171223005116998.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171223005116998.png)
 
 **解决问题：**
 
@@ -21,8 +20,8 @@ copyright_author: Jitwxs
 
 在最后添加一行：`export TERM=xterm`
 
-![](/images/posts/20171223005331413.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171223005331413.png)
 
 2.重新登陆终端：
 
-![](/images/posts/20171223005502170.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171223005502170.png)

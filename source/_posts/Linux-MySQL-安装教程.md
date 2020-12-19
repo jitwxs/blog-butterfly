@@ -3,7 +3,6 @@ title: Linux MySQL 安装教程
 categories: 
   - 数据库
   - MySQL
-typora-root-url: ..
 abbrlink: 783eb9d
 date: 2017-12-09 17:46:34
 copyright_author: Jitwxs
@@ -87,7 +86,7 @@ mysql5.7 默认安装了`密码安全检查插件（validate_password）`，默�
 
 > show variables like '%password%';
 
-![MySQL 密码检查策略](/images/posts/20180511010542698.png)
+![MySQL 密码检查策略](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180511010542698.png)
 
 | 变量名| 数值 |
 |:------------- |:-------------|

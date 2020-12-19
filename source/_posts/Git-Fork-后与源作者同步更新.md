@@ -1,6 +1,5 @@
 ---
 title: Git Fork 后与源作者同步更新
-typora-root-url: ..
 categories:
   - 开发工具
   - Git
@@ -14,17 +13,17 @@ copyright_author: Wayss_S
 
 （1）打开 fork 过来的项目，点击 new pull request
 
-![](/images/posts/20170221001500650.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170221001500650.png)
 
 （2）在进入的界面， 将左边的设置为你自己的仓库， fork 过来的在右边， 然后点击 Create pull request，如下图：
 
-![](/images/posts/20170221001519228.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170221001519228.png)
 
-![](/images/posts/20170226194654555.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170226194654555.png)
 
 （3）点击 Merge pull request 合并从源 fork 来的代码：
 
-![](/images/posts/20170221001548713.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170221001548713.png)
 
 ## 二、命令行操作
 
@@ -38,8 +37,8 @@ git merge upstream/master
 git push
 ```
 
-![](/images/posts/20170221095054215.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170221095054215.png)
 
-![](/images/posts/20170221095105168.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170221095105168.png)
 
-![](/images/posts/20170221095114372.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170221095114372.png)

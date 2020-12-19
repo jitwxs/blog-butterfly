@@ -4,7 +4,6 @@ tags: kmp
 categories:
   - 算法与数据结构
   - 算法
-typora-root-url: ..
 abbrlink: e6a4d507
 date: 2018-09-10 09:42:21
 references:
@@ -31,7 +30,7 @@ copyright_author: Jitwxs
 
 在继续下面的内容之前，有必要在这里介绍下两个概念：**真前缀** 和 **真后缀**。
 
-![真前后缀](/images/posts/20180910091526971.png)
+![真前后缀](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180910091526971.png)
 
 由上图所得， "真前缀"指**除了自身以外，一个字符串的全部头部组合**；"真后缀"指**除了自身以外，一个字符串的全部尾部组合**。
 
@@ -74,31 +73,31 @@ private static int simple(char[] S, char[] P) {
 
 （1）首先，主串"BBC ABCDAB ABCDABCDABDE"的第一个字符与模式串"ABCDABD"的第一个字符，进行比较。因为B与A不匹配，所以模式串后移一位。
 
-![](/images/posts/201809100920441.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201809100920441.png)
 
 （2）因为B与A又不匹配，模式串再往后移。
 
-![](/images/posts/20180910092109282.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180910092109282.png)
 
 （3）就这样，直到主串有一个字符，与模式串的第一个字符相同为止。
 
-![](/images/posts/20180910092127830.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180910092127830.png)
 
 （4）接着比较主串和模式串的下一个字符，还是相同。
 
-![](/images/posts/201809100921481.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201809100921481.png)
 
 （5）直到主串有一个字符，与模式串对应的字符不相同为止。
 
-![](/images/posts/20180910092205146.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180910092205146.png)
 
 （6）这时，最自然的反应是，将模式串整个后移一位，再从头逐个比较。这样做虽然可行，但是效率很差，因为你要把"搜索位置"移到已经比较过的位置，重比一遍。
 
-![](/images/posts/20180910092221315.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180910092221315.png)
 
 （7）一个基本事实是，当空格与D不匹配时，你其实是已经知道前面六个字符是"ABCDAB"。KMP算法的想法是，设法利用这个已知信息，不要把"搜索位置"移回已经比较过的位置，而是继续把它向后移，这样就提高了效率。
 
-![](/images/posts/20180910092238573.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180910092238573.png)
 
 （8）怎么做到这一点呢？可以针对模式串，设置一个跳转数组`int next[]`，这个数组是怎么计算出来的，后面再介绍，这里只要会用就可以了。
 
@@ -109,23 +108,23 @@ private static int simple(char[] S, char[] P) {
 
 （9）已知空格与D不匹配时，前面六个字符"ABCDAB"是匹配的。根据跳转数组可知，不匹配处D的next值为2，因此接下来**从模式串下标为2的位置开始匹配**。
 
-![](/images/posts/20180910092347236.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180910092347236.png)
 
 （10）因为空格与Ｃ不匹配，C处的next值为0，因此接下来模式串从下标为0处开始匹配。
 
-![](/images/posts/20180910092403362.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180910092403362.png)
 
 （11）因为空格与A不匹配，此处next值为-1，表示模式串的第一个字符就不匹配，那么直接往后移一位。
 
-![](/images/posts/20180910092440973.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180910092440973.png)
 
 （12）逐位比较，直到发现C与D不匹配。于是，下一步从下标为2的地方开始匹配。
 
-![](/images/posts/2018091009245921.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018091009245921.png)
 
 （13）逐位比较，直到模式串的最后一位，发现完全匹配，于是搜索完成。
 
-![](/images/posts/20180910092514887.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180910092514887.png)
 
 如果你还是不太理解，可以看看这个视频，对KMP的流程说的简单明了：
 
@@ -185,13 +184,13 @@ $i$ 和 $j$ 就像是两个”指针“，一前一后，通过移动它们来�
 
 **（2）if...else...语句里做了什么？**
 
-![](/images/posts/20180910093104457.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180910093104457.png)
 
 假设 $i$ 和 $j$ 的位置如上图，由 `next[i] = j` 得，也就是对于位置i来说，**区段[0, i - 1]的最长相同真前后缀分别是[0, j - 1]和[i - j, i - 1]，即这两区段内容相同**。
 
 按照算法流程，`if(P[i] == P[j])`，则 `i++; j++; next[i] = j;`；若不等，则 `j = next[j]`，见下图：
 
-![](/images/posts/20180910093138161.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180910093138161.png)
 
 `next[j]` 代表[0, j - 1]区段中最长相同真前后缀的长度。如图，用左侧两个椭圆来表示这个最长相同真前后缀，即这两个椭圆代表的区段内容相同；同理，右侧也有相同的两个椭圆。所以else语句就是利用第一个椭圆和第四个椭圆内容相同来加快得到[0, i - 1]区段的相同真前后缀的长度。
 

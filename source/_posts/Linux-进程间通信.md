@@ -2,7 +2,6 @@
 title: Linux 进程间通信
 tags: 进程通信
 categories: Linux
-typora-root-url: ..
 abbrlink: 6c8041c0
 date: 2017-12-28 01:05:01
 icons: [fas fa-fire red]
@@ -328,7 +327,7 @@ int main(void) {
 }
 ```
 
-![FIFO](/images/posts/20171226162636607.png)
+![FIFO](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171226162636607.png)
 
 ### 2.3 信号
 
@@ -495,7 +494,7 @@ int main(void) {
 }
 ```
 
-![signal](/images/posts/20171226194852780.png)
+![signal](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171226194852780.png)
 
 ## 三、System Ⅴ进程间通信
 
@@ -692,7 +691,7 @@ int main(void) {
 }
 ```
 
-![share_memory](/images/posts/20171226215128936.png)
+![share_memory](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171226215128936.png)
 
 ### 3.2 信号量
 
@@ -876,7 +875,7 @@ int main(void) {
 }
 ```
 
-![semaphore](/images/posts/20171227094515684.png)
+![semaphore](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171227094515684.png)
 
 ### 3.3 消息队列
 
@@ -1040,7 +1039,7 @@ int main(void) {
 }
 ```
 
-![message_queue](/images/posts/20171227102845832.png)
+![message_queue](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171227102845832.png)
 
 ## 四、总结
 

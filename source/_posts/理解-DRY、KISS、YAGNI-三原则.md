@@ -1,6 +1,5 @@
 ---
 title: 理解 DRY、KISS、YAGNI 三原则
-typora-root-url: ..
 categories: 综合
 tags: 设计原则
 abbrlink: 234befaa
@@ -21,7 +20,7 @@ references:
 
 而今天所讲到的软件三原则是适用于在软件设计的各个层面的。它不仅适用于面向对象的设计，也适用于面向过程的程序设计；不仅适用于类的设计，也适用于模块、子系统的设计。就连在项目架构运维部署中也适用于这一套简单的法则。
 
-![](/images/posts/20190921001429772.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190921001429772.png)
 
 ## DRY - Don't Repeat Yourself
 

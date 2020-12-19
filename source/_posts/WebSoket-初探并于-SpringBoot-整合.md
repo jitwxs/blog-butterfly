@@ -1,6 +1,5 @@
 ---
 title: WebSoket 初探并于 SpringBoot 整合
-typora-root-url: ..
 tags: WebSoket
 categories:
   - Java Web
@@ -25,7 +24,7 @@ WebSocket 是一种网络通信协议。[RFC6455](https://tools.ietf.org/html/rf
 
 这种通信模型有一个弊端：**HTTP 协议无法实现服务器主动向客户端发起消息**。这就注定了如果服务器有连续的状态变化，客户端要获知就非常麻烦。大多数 Web 应用程序将通过**轮询请求**。轮询的效率低，非常浪费资源（因为必须不停连接，或者 HTTP 连接始终打开）。
 
-![](/images/posts/20181010102935122.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181010102935122.png)
 
 为了解决HTTP的这一痛点，WebSocket就被发明出来，它的最大特点就是，**服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息**，是真正的双向平等对话。
 
@@ -43,7 +42,7 @@ WebSocket具有以下特点：
 
 （6）协议标识符是`ws`（如果加密，则为wss），服务器网址就是 URL。
 
-![](/images/posts/20181010103156458.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181010103156458.png)
 
 ### 1.2 WebSocket客户端
 
@@ -349,15 +348,15 @@ session.getBasicRemote().sendText(message, true);
 
 当页面加载完毕时，建立连接：
 
-![](/images/posts/20181010102439594.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181010102439594.png)
 
 客户端发送消息 + 服务端回复：
 
-![](/images/posts/20181010102508747.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181010102508747.png)
 
 客户端主动关闭连接：
 
-![](/images/posts/20181010102530650.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181010102530650.png)
 
 ### 2.2 心跳包检测
 
@@ -494,6 +493,6 @@ public void onMessage(String message, Session session) {
 </html>
 ```
 
-![](/images/posts/20181010191652774.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181010191652774.png)
 
-![](/images/posts/20181010191709671.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181010191709671.png)

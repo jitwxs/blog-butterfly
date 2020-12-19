@@ -3,7 +3,6 @@ title: Redis 初探（4）——Redis 的特性
 categories: 
   - 数据库
   - Redis
-typora-root-url: ..
 abbrlink: 125289ae
 date: 2018-03-03 20:30:41
 copyright_author: Jitwxs
@@ -99,7 +98,7 @@ wxs@ubuntu:/usr/local/redis/src$ ./redis-cli
 127.0.0.1:6379> 
 ```
 此时在终端1中就接收到了消息：
-![](/images/posts/20180303201616787.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180303201616787.png)
 
 我们也可以以一种正则的形式订阅多个频道，比如 cctv 下面有多个频道，例如 cctv-1、cctv-2 等等，我们只需订阅这个即可：
 

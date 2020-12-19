@@ -1,6 +1,5 @@
 ---
 title: 详解 Spring 定时任务的调度方式
-typora-root-url: ..
 categories: Java Web
 tags: 定时任务
 abbrlink: 295bff8a
@@ -180,7 +179,7 @@ T4 计划执行时间为 15:21:33，由于 T3 到 15:21:31 就执行结束了，
 
 ### 1.5 总结
 
-![](/images/posts/20200119214455363.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200119214455363.png)
 
 - **Cron：**  在预计的执行时间上，上次执行还未结束，就跳过。
 - **fixedDelay：** 总是在上次执行完毕后，等待 n 秒后执行下次。

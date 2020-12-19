@@ -1,6 +1,5 @@
 ---
 title: HoloLens 开发笔记（8）——Audio Source
-typora-root-url: ..
 categories: HoloLens
 abbrlink: 602f136c
 date: 2018-12-08 16:47:49
@@ -40,13 +39,13 @@ Unity 中对音频文件的属性设置：
 
   - Stream from disc（从磁盘流）：直接从磁盘流读取音频数据。这只使用了原始声音占内存大小的很小一部分。使用这个用于很长的音乐。取决于硬件，一般建议1-2线程同时流。
 
-![](/images/posts/20181119144116127.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119144116127.jpg)
 
 ## 二、Unity 设置
 
 我们想要在 Unity 中利用声音插件（audio spatalizer plugin）来实现空间声音，只需要在设置菜单中 Edit > Audio > Spatializer 启用 `Microsoft HRTF` 拓展就好。
 
-![](/images/posts/20181119143038972.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119143038972.jpg)
 
 ## 三、基本属性
 
@@ -84,14 +83,14 @@ Unity 中对音频文件的属性设置：
 
   - **Spatialize**：是否开启空间化，3D 立体声需要开启。
 
-![](/images/posts/20181119134743714.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119134743714.jpg)
 
 ## 四、Audio Listener
 Audio Listener（声音侦听器），其实就是我们在游戏世界中的“耳朵”。我们依靠这个组件来听游戏世界中的声音，如果没有了这个组件，我们是听不到任何声音的。
 
 **每个场景只能有1个音频侦听器正常工作。** 默认状态这个组件，是挂载到摄像机身上的。
 
-![](/images/posts/20181119135601147.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119135601147.jpg)
 
 ## 五、常用函数
 

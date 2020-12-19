@@ -3,7 +3,6 @@ title: SpringBoot 集成 Spring Security（5）——权限控制
 categories:
   - 安全框架
   - Spring Security
-typora-root-url: ..
 abbrlink: 71543ef6
 date: 2018-05-15 19:09:28
 icons: [fas fa-fire red]
@@ -39,7 +38,7 @@ CREATE TABLE `sys_permission` (
 
 内容就是两条数据，通过 `url` + `role_id` + `permission` 唯一标识了一个角色访问某一url时的权限，其中权限暂定为c、r、u、d，代表了增、删、改、查。
 
-![sys_permission 表数据](/images/posts/20180515185020939.png)
+![sys_permission 表数据](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180515185020939.png)
 
 ### 1.2 创建 POJO、Mapper、Service
 
@@ -288,4 +287,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 当我使用角色为 `ROLE_USER` 的用户仍然能访问，因为该用户访问 `/admin` 路径具有 `r` 权限：
 
-![](/images/posts/2018051519070954.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018051519070954.png)

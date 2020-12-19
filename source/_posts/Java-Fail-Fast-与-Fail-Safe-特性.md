@@ -1,6 +1,5 @@
 ---
 title: Java Fail-Fast 与 Fail-Safe 特性
-typora-root-url: ..
 tags:
   - Fail Fast
   - Fail Safe

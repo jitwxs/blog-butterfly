@@ -2,7 +2,6 @@
 title: Zookeper 集群搭建
 tags: Zookeeper
 categories: 中间件
-typora-root-url: ..
 abbrlink: 820a29b
 date: 2018-04-12 17:08:26
 copyright_author: Jitwxs
@@ -104,7 +103,7 @@ root@ubuntu:/usr/local/zookeeper-cluster/zookeeper01/conf# cp zoo_sample.cfg zoo
 
 编辑 `zoo.cfg`，分别修改 dataDir 路径、clientPort（真集群忽略）、集群节点信息，如图所示：
 
-![](/images/posts/20180412162219680.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180412162219680.png)
 
 另外两个的配置和这个相似，我就不再详细列举了（规定下 `zookeeper02` 的 `myid` 内容为 `2`，`zookeeper03` 的 `myid` 内容为 `3`）。
 
@@ -166,6 +165,6 @@ root@ubuntu:/usr/local/zookeeper-cluster# ./manager.sh status
 
 分别查看每个集群状态：
 
-![](/images/posts/20180412170424612.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180412170424612.png)
 
 可以看见 zookeeper02 为 `leader`，另外两个为 `follower`。

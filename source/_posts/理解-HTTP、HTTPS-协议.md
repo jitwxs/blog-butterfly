@@ -1,6 +1,5 @@
 ---
 title: 理解 HTTP、HTTPS 协议
-typora-root-url: ..
 tags: HTTP
 categories: 网络
 abbrlink: f1215e4d
@@ -53,13 +52,13 @@ Web上可用的每种资源如HTML文档、图像、视频片段、程序等都�
 
 URI是以一种抽象的、高层次概念定义统一资源标识，而URL和URN则是具体的资源标识的方式。URI 包含 URL 和 URN，目前 WEB 只有 URL 比较流行，所以见到的基本都是 URL。
 
-![URI-URL-URN](/images/posts/20180911143626724.jpg)
+![URI-URL-URN](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180911143626724.jpg)
 
 ## 三、请求报文
 
-![请求报文](/images/posts/20180911144241814.png)
+![请求报文](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180911144241814.png)
 
-![Get请求](/images/posts/20180911144251564.png)
+![Get请求](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180911144251564.png)
 
 上图是一个GET请求的例子：
 
@@ -77,7 +76,7 @@ URI是以一种抽象的、高层次概念定义统一资源标识，而URL和UR
 
 这个例子的请求数据为空。
 
-![Post请求](/images/posts/2018091114430292.png)
+![Post请求](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018091114430292.png)
 
 上图是一个POST请求的例子，请求头中的`Content-Type`指明了主体部分的**MIME类型**，关于`Content-type`，主要有以下四种常见的取值：
 
@@ -144,7 +143,7 @@ Content-Type: text/xml
 
 ## 四、响应报文
 
-![响应报文](/images/posts/20180911151312444.png)
+![响应报文](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180911151312444.png)
 
 （1）第一部分：`状态行`，由**HTTP协议版本号**， **状态码**， **状态消息**三部分组成。
 
@@ -156,9 +155,9 @@ Content-Type: text/xml
 
 （4）第四部分：`响应体`，服务器返回给客户端的文本信息。
 
-![200响应](/images/posts/20180911151325189.png)
+![200响应](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180911151325189.png)
 
-![404响应](/images/posts/20180911151336276.png)
+![404响应](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180911151336276.png)
 
 ## 五、HTTP状态
 
@@ -224,7 +223,7 @@ HTTP协议是无状态的（stateless），指的是协议对于事务处理**�
 
 HTTPS 并不是新协议，而是**让 HTTP 先和 SSL（Secure Sockets Layer）通信，再由 SSL 和 TCP 通信**。也就是说 HTTPS 使用了隧道进行通信。通过使用 SSL，HTTPS 具有了**加密（防窃听）**、**认证（防伪装）**和**完整性保护（防篡改）**。
 
-![https](/images/posts/20180911154039309.jpg)
+![https](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180911154039309.jpg)
 
 **（1）对称密钥加密**
 
@@ -233,7 +232,7 @@ HTTPS 并不是新协议，而是**让 HTTP 先和 SSL（Secure Sockets Layer）
 - 优点：运算速度快；
 - 缺点：无法安全地将密钥传输给通信方。
 
-![对称密钥加密](/images/posts/20180911154106813.png)
+![对称密钥加密](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180911154106813.png)
 
 Alice 给 Bob 发送数据时，把数据用对称加密后发送给 Bob，发送过程中由于对数据进行了加密，因此即使有人窃取了数据也没法破解，因为它不知道密钥是什么。但是同样的问题是 Bob 收到数据后也一筹莫展，因为它也不知道密钥是什么，那么 Alice 是不是可以把数据和密钥一同发给 Bob 呢。当然不行，一旦把密钥和密钥一起发送的话，那就跟发送明文没什么区别了，因为一旦有人把密钥和数据同时获取了，密文就破解了。所以对称加密的密钥配是个问题。如何解决呢，公钥加密是一个办法。
 
@@ -248,7 +247,7 @@ Alice 给 Bob 发送数据时，把数据用对称加密后发送给 Bob，发�
 - 优点：可以更安全地将公开密钥传输给通信发送方；
 - 缺点：运算速度慢。
 
-![非对称密钥加密](/images/posts/20180911154134355.png)
+![非对称密钥加密](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180911154134355.png)
 
 还是以Alice 给 Bob 发送数据为例，公钥加密算法由接收者 Bob 发起：
 
@@ -266,7 +265,7 @@ Alice 给 Bob 发送数据时，把数据用对称加密后发送给 Bob，发�
 
 HTTPS采用混合的加密机制，**使用非对称密钥加密用于传输对称密钥来保证安全性，之后使用对称密钥加密进行通信来保证效率**。
 
-![https加密方式](/images/posts/20180911154203951.png)
+![https加密方式](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180911154203951.png)
 
 ## 九、HTTP和HTTPS的区别
 

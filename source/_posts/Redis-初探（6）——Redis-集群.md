@@ -4,7 +4,6 @@ tags: 集群
 categories: 
   - 数据库
   - Redis
-typora-root-url: ..
 abbrlink: bcdf2003
 date: 2018-04-08 23:59:45
 copyright_author: Jitwxs
@@ -16,7 +15,7 @@ copyright_author: Jitwxs
 
 ### 1.1 集群架构
 
-![](/images/posts/20180408215525657.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180408215525657.png)
 
 如上图所示，每一个蓝色圆圈就是一个 Redis 节点，这些节点组成了一个 `Redis集群（Redis-cluster）`。节点之间使用 `Ping——Pong` 机制进行互联，其内部用二进制协议优化传输速度和带宽。
 
@@ -32,11 +31,11 @@ Redis 集群中内置了 **16384** 个`哈希槽（slot）`，它会把所有的
 
 Redis 会根据节点数量大致均等的将哈希槽映射到不同的节点。例如我们有三个节点，其每个节点哈希槽范围为：0 ~ 5000，5001 ~ 10000，10001~ 16383。
 
-![](/images/posts/2018040822112780.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018040822112780.png)
 
 当我们存储一个名为 Hello1 的 key 时，其通过 `crc16` 算法计算出的结果为1500，Redis 集群就会将这个 key 放在对应1500的`哈希槽`中，又因为哈希槽0~ 5000被映射到了 Server1，则 Hello1 就被放置在了 Server1。
 
-![](/images/posts/20180408221454944.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180408221454944.png)
 
 ### 1.3 容错机制
 
@@ -52,7 +51,7 @@ Redis 会根据节点数量大致均等的将哈希槽映射到不同的节点�
  2. 其他节点会尝试去 ping 红色节点，只要有**超过半数**的节点无法 ping 通红色节点，就**判定红色节点挂掉**（即使它实际上可能并没有挂掉）。
  3. 当红色节点被判定挂掉后，会**启动该节点的备用机**。如果该节点不存在备用机，或备用机也挂掉，那么**整个Redis集群就挂掉了**。
 
-![](/images/posts/20180408222553762.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180408222553762.png)
 
 ## 二、搭建集群
 
@@ -100,16 +99,16 @@ bin  redis.conf
 编辑该配置文件：
 
 （1）修改 bind 端口号为 `0.0.0.0`，使其支持远程访问。
-![](/images/posts/20180408230408179.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180408230408179.png)
 
 （2）开启后端模式。
-![](/images/posts/20180408225213142.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180408225213142.png)
 
 （3）设置日志文件位置
-![](/images/posts/2018040822550312.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018040822550312.png)
 
 （4）开启 AOF 持久化
-![](/images/posts/20180408225644836.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180408225644836.png)
 
 ### 2.2 准备 Redis 集群客户端
 
@@ -131,13 +130,13 @@ redis01  redis02  redis03  redis04  redis05  redis06
 以 redis01 为例，编辑其 `redis.conf` 文件：
 
 （1）修改端口号为 7001
-![](/images/posts/20180408230544887.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180408230544887.png)
 
 （2）修改 pidfile
-![](/images/posts/20180408230649718.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180408230649718.png)
 
 （3）开启集群开关
-![](/images/posts/20180408232742829.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180408232742829.png)
 
 依次修改其他客户端，端口号范围从7001 ~ 7006。
 
@@ -165,7 +164,7 @@ cd ../../
 ```
 
 执行脚本，启动成功：
-![](/images/posts/20180408233355513.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180408233355513.png)
 
 编写一个关闭这些客户端的批处理 `shutdown.sh`：
 
@@ -191,7 +190,7 @@ cd ../../
 ```
 
 执行脚本，关闭成功：
-![](/images/posts/2018040823342414.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018040823342414.png)
 
 目录结构如下：
 
@@ -230,7 +229,7 @@ Done installing documentation for redis after 0 seconds
 ```
 
 执行 `redis-trib.rb` 时需要附带参数，格式如下：
-![](/images/posts/20180408235335619.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180408235335619.png)
 
 先启动所有客户端，然后执行脚本：
 
@@ -239,11 +238,11 @@ wxs@ubuntu:/usr/local/redis-cluster$ ./startup.sh
 wxs@ubuntu:/usr/local/redis-cluster$ ./redis-trib.rb create --replicas 1 192.168.30.155:7001 192.168.30.155:7002 192.168.30.155:7003 192.168.30.155:7004 192.168.30.155:7005  192.168.30.155:7006
 ```
 
-![](/images/posts/20180409001036743.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180409001036743.png)
 
 创建成功：
 
-![](/images/posts/20180408235826112.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180408235826112.png)
 
 最后说两句：
 
@@ -262,7 +261,7 @@ wxs@ubuntu:/usr/local/redis-cluster$ ./redis01/bin/redis-cli -h 192.168.30.155 -
 
 当我在7001中添加了一个 `name jitwxs` 后，它计算出 key 的哈希槽为5798，这个范围在7002中，因此这个 key 被移动到了7002中，并且当前连接重定向到了7002。
 
-![](/images/posts/20180409002715610.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180409002715610.png)
 
 ```shell
 192.168.30.155:7002> keys *

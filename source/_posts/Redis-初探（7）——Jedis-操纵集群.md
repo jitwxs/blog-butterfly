@@ -4,7 +4,6 @@ tags: Jedis
 categories: 
   - 数据库
   - Redis
-typora-root-url: ..
 abbrlink: 5108d6b6
 date: 2018-04-09 15:57:55
 copyright_author: Jitwxs

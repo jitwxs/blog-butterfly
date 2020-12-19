@@ -3,7 +3,6 @@ title: LTP 第四章 开发_exit()测试集
 categories:
   - Linux
   - LTP
-typora-root-url: ..
 abbrlink: a375e1a1
 date: 2017-10-27 19:08:58
 related_repos:
@@ -27,7 +26,7 @@ copyright_author: Jitwxs
 
 本章以编写 `_exit()` 函数为例，首先我们查看 `_exit()` 函数的 man-page，根据描述我们抽取出五个测试点，在本章中将依次实现它们。
 
-![test](/images/posts/20171027182917513.png)
+![test](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171027182917513.png)
 
 ### 4.1 Test point 1
 
@@ -35,7 +34,7 @@ copyright_author: Jitwxs
 
 进程调用_exit()后应该立即终止，因此可以测试该进程是否仍然存在。
 
-![testpoint1](/images/posts/20171027183517309.png)
+![testpoint1](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171027183517309.png)
 
 #### 4.1.2 编写代码
 
@@ -225,7 +224,7 @@ NOTE: If any of the errors are false positives, please report
 
 进程调用_exit()终止后，其子进程成为孤儿进程被init进程领养，因此可以测试该子进程的新父进程PID是否为1 。
 
-![testpoint2](/images/posts/20171027183532309.png)
+![testpoint2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171027183532309.png)
 
 #### 4.2.2 编写代码
 
@@ -367,7 +366,7 @@ NOTE: If any of the errors are false positives, please report
 
 进程调用_exit()终止后，其父进程被发送了SIGCHLD信号，因此可以测试该父进程是否真的收到了SIGCHLD信号。
 
-![testpoint3](/images/posts/20171027183545724.png)
+![testpoint3](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171027183545724.png)
 
 #### 4.3.2 编写代码
 
@@ -512,7 +511,7 @@ NOTE: If any of the errors are false positives, please report
 
 进程调用_exit()时所带参数值，应该作为该进程的退出值，能被其父进程的wait()获得，因此可以测试该值是否匹配。
 
-![testpoint4](/images/posts/20171027183600187.png)
+![testpoint4](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171027183600187.png)
 
 #### 4.4.2 编写代码
 
@@ -672,7 +671,7 @@ NOTE: If any of the errors are false positives, please report
 #### 4.5.1 测试思路
 
 进程调用_exit()终止时不会像调用exit(3)一样调用atexit(3)或on_exit(3)，因此可以测试是否回调了atexit(3)中注册的函数 。
-![testpoint5](/images/posts/20171027183613676.png)
+![testpoint5](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171027183613676.png)
 
 #### 4.5.2 编写代码
 

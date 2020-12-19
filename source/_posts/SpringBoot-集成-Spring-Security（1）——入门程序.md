@@ -3,7 +3,6 @@ title: SpringBoot 集成 Spring Security（1）——入门程序
 categories:
   - 安全框架
   - Spring Security
-typora-root-url: ..
 abbrlink: 5f5715e6
 date: 2018-05-09 09:47:49
 related_repos:
@@ -455,14 +454,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
-![](/images/posts/20190114183342718.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190114183342718.png)
 
 ## 七、运行程序
 
 >ROLE_ADMIN 账户：用户名 **admin**，密码 **123**
 >ROLE_USER 账户：用户名 **jitwxs**，密码 **123**
 
-![](/images/posts/20180330153402126.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180330153402126.png)
 
 注：如果你想要将密码加密，可以修改 `configure()` 方法如下：
 

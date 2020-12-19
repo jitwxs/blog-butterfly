@@ -1,7 +1,6 @@
 ---
 title: SpringBoot Metrics 监控系统（4）——使用指标
 copyright_author: Jitwxs
-typora-root-url: ..
 tags:
   - SpringBoot
   - Prometheus
@@ -40,7 +39,7 @@ READ_COUNT_2("read_count", new String[]{"video_name", "不讲武德年轻人"}, 
 - `description` Metrics 指标的描述
 - `type` 自定义的 Metrics 的类型，用于初始化的时候去 Prometheus 注册哪种 Metrics
 
-![](/images/posts/20201115214053.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201115214053.png)
 
 有小伙伴可能会说，你这两个 metrics 怎么 name 都是一样的啊。这个其实没有关系，因为能够通过后面的 tag 来区分开。
 
@@ -78,7 +77,7 @@ public class MockReadCountScheduler {
 
 尝试启动程序，访问 `http://127.0.0.1:7002/prometheus` ，你应该能够看到这两个 metrics 已经出现在其中了，并且随着每次刷新，其数值都会自增。
 
-![](/images/posts/20201115220055.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201115220055.png)
 
 ### 2.2 Gauge
 
@@ -92,7 +91,7 @@ public class MockReadCountScheduler {
 VISITOR_SIZE("visitor_size", null, "系统访问量", GAUGE),
 ```
 
-![](/images/posts/20201115215612.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201115215612.png)
 
 咱们来写一个定时任务，去模拟实时的访客数：
 
@@ -110,7 +109,7 @@ public class MockVisitorSizeScheduler {
 
 运行程序后，一样能够找到这个指标。
 
-![](/images/posts/20201115220132.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201115220132.png)
 
 ### 2.3 Timer
 
@@ -148,7 +147,7 @@ public class MockRequestTimeScheduler {
 }
 ```
 
-![](/images/posts/20201115233933.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201115233933.png)
 
 ## 四、连接 Prometheus
 
@@ -156,17 +155,17 @@ public class MockRequestTimeScheduler {
 
 然后编辑 `prometheus.yml` 文件，增加一个节点：
 
-![](/images/posts/20201115225008.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201115225008.png)
 
 这里多了一个 `metrics_path`，是因为 prometheus 默认采集的 `/metrics` 路径，而我们是用的 `/prometheus` 路径，所以要显式声明一下。或者修改程序的配置文件，加入如下两行也是一样的效果：
 
-![](/images/posts/20201115223930.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201115223930.png)
 
 【注：这里有个坑，因为我的 Prometheus 和 Grafana 都是用容器启动的，所以它们之间用 localhost 是可以连接的。但是我的 SpringBoot 应用跑在容器外，Prometheus 连接 SpringBoot 应用就必须用我物理机的 IP，不能用 localhost】
 
 将 Prometheus 重新启动后，进入 `Status -> Targets` 等我们的服务变成 UP 就连接完毕了。
 
-![](/images/posts/20201115225332.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201115225332.png)
 
 ## 五、Grafana
 
@@ -176,23 +175,23 @@ public class MockRequestTimeScheduler {
 
 这张图表将展示视频阅读量在 5 分钟内的增速：
 
-![](/images/posts/20201115230117.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201115230117.png)
 
 ### 5.2 Gauge
 
 这张图表将展示系统当前的访客数信息：
 
-![](/images/posts/20201115230737.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201115230737.png)
 
 ### 5.3 Timer
 
 这张图表将展示接口的平均耗时信息：
 
-![](/images/posts/20201115231305.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201115231305.png)
 
 这张图表将展示接口的百分位耗时信息：
 
-![](/images/posts/20201115234750.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201115234750.png)
 
 ## 六、结尾
 

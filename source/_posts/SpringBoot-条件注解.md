@@ -1,6 +1,5 @@
 ---
 title: SpringBoot 条件注解
-typora-root-url: ..
 tags: condition
 categories:
   - Java Web
@@ -40,7 +39,7 @@ copyright_author: Jitwxs
 
 当 `spring-boot-starter-data-redis` 包被引入后，@ConditionalOnClass 的要求被满足，`RedisAutoConfiguration` 这个类就会被启用。在图中可以看到最后注入了一个名为 `redisTemplate` 的 Bean，这个 Bean 我们很熟悉，用它就可以来操纵 Redis。
 
-![](/images/posts/2019082514570660.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2019082514570660.png)
 
  `@ConditionalOnClass`注解是上面流程中最关键的注解，你可以认为它是一个开关，只有满足这个注解的条件，这个开关才会打开，这个类就会启用。这就是 SpringBoot 自动配置的关键，只有引入相关的 starter，@ConditionalOnClass 的条件才会满足，自动配置才会生效。
 

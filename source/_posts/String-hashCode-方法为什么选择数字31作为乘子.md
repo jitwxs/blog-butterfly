@@ -1,6 +1,5 @@
 ---
 title: String hashCode 方法为什么选择数字31作为乘子
-typora-root-url: ..
 categories: Java
 abbrlink: 9b889763
 date: 2019-04-26 16:16:58

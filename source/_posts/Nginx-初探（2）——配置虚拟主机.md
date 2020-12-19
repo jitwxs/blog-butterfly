@@ -4,7 +4,6 @@ tags: 虚拟主机
 categories:
   - 服务器
   - Nginx
-typora-root-url: ..
 abbrlink: 133d8a57
 date: 2018-03-23 15:37:13
 copyright_author: Jitwxs
@@ -28,7 +27,7 @@ copyright_author: Jitwxs
 
 一个 `server` 节点就是**一台虚拟主机**，`location /` 子节点中的 `root` 就是指该**虚拟主机的文件夹**。
 
-![](/images/posts/2018032311094779.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018032311094779.png)
 
 因此我们想要使用端口号新建虚拟主机，需要：
 
@@ -38,7 +37,7 @@ copyright_author: Jitwxs
 
 为了方便演示，删除注释部分的代码，拷贝一份，修改端口号为81，修改文件夹目录为html_81：
 
-![](/images/posts/20180323111404117.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180323111404117.png)
 
 保存配置文件，将 nginx 目录下的 html 文件夹复制一份保存为 html_81，并对其首页进行修改，以便测试时候能够区分：
 
@@ -49,11 +48,11 @@ conf  html  html_81  sbin
 wxs@ubuntu:/usr/nginx$ sudo vim html_81/index.html 
 ```
 
-![](/images/posts/20180323111922599.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180323111922599.png)
 
 分别访问 80 和 81 端口进行测试：
 
-![](/images/posts/20180323111950943.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180323111950943.png)
 
 ## 三、使用域名配置虚拟主机
 
@@ -65,17 +64,17 @@ wxs@ubuntu:/usr/nginx$ sudo vim html_81/index.html
 
 修改 `C:\Windows\System32\drivers\etc\host` 文件，手动进行域名、IP映射。
 
-![](/images/posts/20180323152059342.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180323152059342.png)
 
 >注：如果没有权限修改，参考文章：[Win10解决修改host没有权限问题（其他文件同理）](https://blog.csdn.net/yuanlaijike/article/details/79668711)
 
 服务器启动 Nginx：
 
-![](/images/posts/20180323152144683.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180323152144683.png)
 
 现在这两个网站都访问了 Nginx，Nginx 怎么才能区分他们呢？当然是通过**域名**！修改配置文件：
 
-![](/images/posts/20180323152935288.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180323152935288.png)
 
 下面创建这两个网站的文件夹：
 
@@ -90,12 +89,12 @@ conf  html  sbin  www.jit.com  www.wxs.com
 ```shell
 wxs@ubuntu:/usr/nginx$ sudo vim www.jit.com/index.html 
 ```
-![](/images/posts/20180323153246837.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180323153246837.png)
 
 ```
 wxs@ubuntu:/usr/nginx$ sudo vim www.wxs.com/index.html 
 ```
-![](/images/posts/20180323153258510.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180323153258510.png)
 
 重新启动 Nginx：
 
@@ -105,7 +104,7 @@ wxs@ubuntu:/usr/nginx$ sudo sbin/nginx
 ```
 
 访问域名：
-![](/images/posts/20180323153524612.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180323153524612.png)
 
 完成！
 

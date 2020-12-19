@@ -1,6 +1,5 @@
 ---
 title: 理解 BigDecimal 的 RoundingMode
-typora-root-url: ..
 categories: Java
 abbrlink: f789a6b2
 date: 2019-05-08 23:42:31

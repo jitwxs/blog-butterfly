@@ -4,7 +4,6 @@ tags: 线程池
 categories: 
   - Java
   - 并发编程
-typora-root-url: ..
 abbrlink: a916fbe8
 date: 2018-09-27 19:35:33
 copyright_author: 海子

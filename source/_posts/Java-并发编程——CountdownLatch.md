@@ -1,6 +1,5 @@
 ---
 title: Java 并发编程——CountdownLatch
-typora-root-url: ..
 abbrlink: c0b61611
 date: 2019-08-11 23:10:35
 categories: 
@@ -114,7 +113,7 @@ public class CountdownLatchDemo {
 
 下面是 CountDownLatch 的类图，可以看到它有一个内部类 Sync，Sync 的父类也就是 AQS。
 
-![CountDownLatch](/images/posts/20190811222801389.png)
+![CountDownLatch](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190811222801389.png)
 
 ### 3.1 constructors
 

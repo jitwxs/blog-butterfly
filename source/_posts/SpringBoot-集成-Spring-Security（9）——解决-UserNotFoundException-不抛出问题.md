@@ -1,6 +1,5 @@
 ---
 title: SpringBoot 集成 Spring Security（9）——解决 UserNotFoundException 不抛出问题
-typora-root-url: ..
 categories:
   - 安全框架
   - Spring Security
@@ -33,7 +32,7 @@ public UserDetails loadUserByUsername(String username) throws UsernameNotFoundEx
 
 但是实际运行后你会发现，当用户不存在时，只会抛出 `BadCredentialsException`，而不是 `UsernameNotFoundException`，百度下后发现这个问题的人不在少数。在本文中，我将介绍为什么会无法抛出 `UsernameNotFoundException`，以及如何解决这个问题。
 
-![](/images/posts/20190708215558621.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190708215558621.png)
 
 ## 二、导致的原因是什么？
 
@@ -62,27 +61,27 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 运行后，首先进入该断点行中，根据断点信息已知 providers 一共只有1个，当前的 providers 是 DaoAuthenticationProvider。
 
-![](/images/posts/20190709011813797.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190709011813797.png)
 
 DaoAuthenticationProvider 是 Spring Security 默认的用户名密码登陆的处理 provider，符合预期。跳到下一断点处，此时进入 UserDetailsService，由于用户不存在，跳转到异常抛出处。
 
-![](/images/posts/20190709012207760.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190709012207760.png)
 
 下面采用单步调试，如图所示，抛出异常后在 `DaoAuthenticationProvider` 的 `retrieveUser()` 方法中被捕获。随后执行了 mitigateAgainstTimingAttack() 方法，虽然我没看出这方法有啥实际作用。但这不重要，下一行将该异常又抛出去了。
 
 被抛到了 DaoAuthenticationProvider 的父类 AbstractUserDetailsAuthenticationProvider 的 `authenticate()` 方法中。如图所示，在 catch 到 UsernameNotFoundException 后，有个关键的 `hideUserNotFoundExceptions` 变量。当 hideUserNotFoundExceptions 为true 时，在这个地方被重新包装成了 BadCredentialsException 抛出去。
 
-![](/images/posts/20190709013252203.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190709013252203.png)
 
 检查后发现 true 为其默认值，这就是导致 UserNotFoundException 无法抛出的原因。
 
-![](/images/posts/20190709013839485.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190709013839485.png)
 
 ## 三、如何解决？
 
 解决的办法也很简单，我们只要想办法把这个变量默认值改掉就好了。因此我们需要手动注入 DaoAuthenticationProvider，在注入时候把值改了。`WebSecurityConfig` 类改动如下：
 
-![](/images/posts/20190709014423310.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190709014423310.png)
 
 首先自己注入下 DaoAuthenticationProvider：
 
@@ -137,7 +136,7 @@ public DaoAuthenticationProvider authenticationProvider() {
 
 重新运行程序，已经没毛病了：
 
-![](/images/posts/20190709015035758.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190709015035758.png)
 
 ## 四、勘误
 
@@ -147,15 +146,15 @@ public DaoAuthenticationProvider authenticationProvider() {
 
 因此我运行 `springboot_security03` 后，也在 ProviderManager Line 174 行断点调试后，发现 providers 竟然是两个，DaoAuthenticationProvider 也在列。
 
-![](/images/posts/20190709020041511.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190709020041511.png)
 
 此时我还没发现问题，我继续单步调试，自己定义的 provider 中的确把 UsernameNotFoundException 跑出去了，我正高兴了，突然发现它竟然又跳入了下一次循环，此时 provider 是 DaoAuthenticationProvider，且它通过了`provider.supports()` 校验，开始进入正式执行流程了。
 
-![](/images/posts/20190709020514562.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190709020514562.png)
 
 我暗道不好，根据前文我们知道 DaoAuthenticationProvider 默认最后把 UsernameNotFoundException 包装成了 BadCredentialsException。当 providers 循环遍历结束后，取了 lastException，并把它抛出去。
 
-![](/images/posts/20190709021005931.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190709021005931.png)
 
 由于是先执行 CustomAuthenticationProvider 后执行 DaoAuthenticationProvider，故最终自定义的 provider 的 UsernameNotFoundException，被 DaoAuthenticationProvider 的 BadCredentialsException 给覆盖了。
 
@@ -167,7 +166,7 @@ public DaoAuthenticationProvider authenticationProvider() {
 
 **Plan B：** 根据[《SpringBoot集成Spring Security（7）——认证流程》](/a28c0db7.html)，我们知道如果我们要自定义一种登陆方式，那么 xxxProvider、xxxUserDetailsService、xxxToken，这三个应该是一体的。
 
-![](/images/posts/20190709022031849.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190709022031849.png)
 
 provider 决定了调用哪个 userDetailsService，support() 方法决定了这个 provider 支持的 token。但是我在这个项目中偷了懒，我只自定义了 provider 和 userDetailsService，却没有定义专属的 token，而是使用 UsernamePasswordAuthenticationToken。
 
@@ -181,6 +180,6 @@ provider 决定了调用哪个 userDetailsService，support() 方法决定了这
 
 修改 WebSecurityConfig 类如下图，去除了 `auth .userDetailsService(userDetailsService).passwordEncoder(passwordEncoder())` 配置，这会导致将 DaoAuthenticationProvider 加入到 providers 集合中。
 
-![](/images/posts/20190709025121463.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190709025121463.png)
 
 >我参考 https://blog.csdn.net/wzl19870309/article/details/70314085 这篇文章，找到了解决方案。

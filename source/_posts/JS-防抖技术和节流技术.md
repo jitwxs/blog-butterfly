@@ -1,6 +1,5 @@
 ---
 title: JS 防抖技术和节流技术
-typora-root-url: ..
 categories: 前端
 tags: Javascript
 abbrlink: a265bb29
@@ -40,7 +39,7 @@ function debounce(fn, value) {
 
 结果如下:
 
-![防抖技术](/images/posts/20190818113249.gif)
+![防抖技术](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190818113249.gif)
 
 多次触发按钮的点击事件，但是这些都在3S之内触发的，所以每一次点击都会清空当前的计时器，然后重新生成新的计时器。所以等到最后一次超过 3S 才会回调 Submit。
 
@@ -77,7 +76,7 @@ btn.addEventListener('click',throttle(submit, "hellos"));
 
 结果如下：
 
-![节流技术](/images/posts/20190818113250.gif)
+![节流技术](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190818113250.gif)
 
 多次点击按钮，但是回调函数只会以1S每次的频率进行执行。本次回调执行完成之后会将flag置为true，这样就可以生成下一次执行回调的定时器。
 

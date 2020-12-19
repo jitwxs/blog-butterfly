@@ -1,6 +1,5 @@
 ---
 title: Java 并发编程——ArrayBlockingQueue
-typora-root-url: ..
 tags:
   - 队列
   - ArrayBlockingQueue
@@ -16,7 +15,7 @@ copyright_author: benjaminwhx
 
 `ArrayBlockingQueue` 顾名思义：基于数组的阻塞队列。数组是要指定长度的，所以使用 ArrayBlockingQueue 时必须指定长度，也就是它是一个有界队列。它实现了 BlockingQueue 接口，有着队列、集合以及阻塞队列的所有方法。
 
-![](/images/posts/20191124224737766.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191124224737766.png)
 
 ArrayBlockingQueue 是**线程安全**的，内部使用 ReentrantLock 来保证。ArrayBlockingQueue 支持对生产者线程和消费者线程进行公平的调度。当然默认情况下是不保证公平性的，因为公平性通常会降低吞吐量，但是可以减少可变性和避免线程饥饿问题。
 
@@ -24,13 +23,13 @@ ArrayBlockingQueue 是**线程安全**的，内部使用 ReentrantLock 来保证
 
 通常，队列的实现方式有数组和链表两种方式。对于数组这种实现方式来说，我们可以通过维护一个队尾指针，使得在入队的时候可以在 $O(1)$ 的时间内完成；但是对于出队操作，在删除队头元素之后，必须将数组中的所有元素都往前移动一个位置，这个操作的复杂度达到了 $O(n)$，效果并不是很好。如下图所示：
 
-![](/images/posts/20191124225223975.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191124225223975.png)
 
 为了解决这个问题，我们可以使用另外一种逻辑结构来处理数组中各个位置之间的关系。假设现在我们有一个数组 A[1…n]，我们可以把它想象成一个环型结构，即 A[n] 之后是 A[1]，相信了解过一致性 Hash 算法的童鞋应该很容易能够理解。
 
 如下图所示：我们可以使用两个指针，分别维护队头和队尾两个位置，使入队和出队操作都可以在 $O(1$ )的时间内完成。当然，这个环形结构只是逻辑上的结构，实际的物理结构还是一个普通的数组。
 
-![](/images/posts/20191124225237287.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191124225237287.png)
 
 讲完 ArrayBlockingQueue 的数据结构，接下来我们从源码层面看看它是如何实现**阻塞**的。
 

@@ -1,6 +1,5 @@
 ---
 title: Google Jib 容器化构建工具
-typora-root-url: ..
 categories: 云原生
 tags:
   - Google
@@ -54,7 +53,7 @@ parentPro
 
 ### 3.1 介绍
 
-![](/images/posts/20191217223236688.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191217223236688.png)
 
 [Jib](https://github.com/GoogleContainerTools/jib ) 是谷歌公司推出的开源 Java 镜像构建工具，它可以将一个 Java 应用构建成 OCI 镜像或者是 Docker 镜像，目前最新的 Relaese 版本为 1.8.0。
 
@@ -66,7 +65,7 @@ JIB 具有以下特点：
 
 下图为某微服务开启 Jib 构建后在 Jenkins 中的构建过程，可以看出构建速度的提升主要在 package 和 push 阶段。
 
-![](/images/posts/20191218233315514.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191218233315514.png)
 
 ### 3.2 原理
 
@@ -86,7 +85,7 @@ Jib 在编译 Java 应用时，会将 Java 项目内的资源及所依赖的资�
 
 基于 Jib 插件构建出的镜像，与使用以下 Dockerfile 所构建出的镜像相同：
 
-![](/images/posts/20191217223153497.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191217223153497.png)
 
 ## 四、简单上手
 
@@ -145,7 +144,7 @@ mvn clean package -DskipTests jib:build
 
 运行后，发现抛了如下的错误。根据错误日志可知连接 Registry 仓库时需要鉴权。
 
-![](/images/posts/20191218225655688.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191218225655688.png)
 
 #### 4.2.1 命令行
 
@@ -163,7 +162,7 @@ mvn clean package -DskipTests jib:build \
 
 执行完毕后，通过命令行，或者可视化工具，查看是否被 push 上去（此处我使用的工具是 [Harbor]( https://github.com/goharbor/harbor )）。
 
-![](/images/posts/20191218230129659.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191218230129659.png)
 
 #### 4.2.2 配置文件
 
@@ -218,7 +217,7 @@ mvn clean package -DskipTests jib:build \
 mvn clean package -DskipTests jib:build
 ```
 
-![](/images/posts/20191218231231412.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191218231231412.png)
 
 可以看到正常被 push 上去了。最后官方文档详细介绍了各种鉴权方式的使用，参见：https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#authentication-methods 
 
@@ -247,7 +246,7 @@ docker run -d --name jib_test -p 8080:8080 harbor.jitwxs-inc.com/sample/springbo
 
 打开浏览器，请求接口 `http://127.0.0.1:8080/hello`，正确输出。
 
-![](/images/posts/20191218231542961.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191218231542961.png)
 
 ### 4.4 绑定到生命周期
 
@@ -279,4 +278,4 @@ docker run -d --name jib_test -p 8080:8080 harbor.jitwxs-inc.com/sample/springbo
 ./dive harbor.okcoin-inc.com/sample/springboot_jib:v1
 ```
 
-![](/images/posts/20191223000748304.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191223000748304.png)

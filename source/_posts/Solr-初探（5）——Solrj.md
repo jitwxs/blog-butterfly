@@ -3,7 +3,6 @@ title: Solr 初探（5）——Solrj
 categories:
   - 搜索引擎
   - Solr
-typora-root-url: ..
 abbrlink: 46ffa9b2
 date: 2018-04-10 20:27:39
 copyright_author: Jitwxs
@@ -13,7 +12,7 @@ copyright_author: Jitwxs
 
 导入Solr源码包`dist`文件夹下的`solr-solrj-6.6.2.jar`以及`solrj-lib`文件夹下的所有包到项目中。除此之外，还要加上`log4j`包和`junit`测试包。
 
-![](/images/posts/20180410194650625.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410194650625.png)
 
 ## 二、添加/更新数据
 
@@ -38,7 +37,7 @@ public void testAdd() throws Exception {
 ```
 
 （1）BaseURL就是Solr的首页地址和核：
-![](/images/posts/2018041019503032.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018041019503032.png)
 
 （2）创建一个`SolrClient`，其中`HttpSolrClient`是单机版，`CloudSolrClient`是集群版。
 
@@ -54,7 +53,7 @@ HttpSolrClient solrClient = new HttpSolrClient.Builder(BASE_URL)
 ```
 
 查看Solr后台，发现数据已经被添加了：
-![](/images/posts/20180410195408180.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410195408180.png)
 
 ## 三、删除数据
 
@@ -160,4 +159,4 @@ public void testQuery() throws Exception {
 }
 ```
 
-![](/images/posts/20180410202635748.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410202635748.png)

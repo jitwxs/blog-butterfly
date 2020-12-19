@@ -3,7 +3,6 @@ title: LTP 第六章 开发 IO 阻塞测试集
 categories:
   - Linux
   - LTP
-typora-root-url: ..
 abbrlink: 8a00d23c
 date: 2017-11-26 19:13:45
 related_repos:

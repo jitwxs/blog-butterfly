@@ -1,6 +1,5 @@
 ---
 title: HoloLens 开发笔记（6）——Gesture
-typora-root-url: ..
 categories: HoloLens
 abbrlink: 714f9373
 date: 2018-11-30 12:30:10
@@ -30,11 +29,11 @@ copyright_author: Jitwxs
 
 7. 添加一个 Cube，位置如下
 
-![](/images/posts/20181218201741787.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218201741787.png)
 
 最终 Hierarchy 结构如下：
 
-![](/images/posts/20181218221721133.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218221721133.png)
 
 ## 一、Navigation
 
@@ -74,7 +73,7 @@ public class CubeNavigation : MonoBehaviour,INavigationHandler {
 
 当我们将 Cursor 移到 Cube 上，按下手势，并缓慢向左或向右移动时（即导航手势），Cube 会跟随绕 Y 轴旋转。
 
-![](/images/posts/2018121822170786.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018121822170786.png)
 
 可以看到实现导航手势主要是实现 `INavigationHandler` 接口，在 `OnNavigationUpdated()` 方法中改变 Cube 的 Rotate。
 
@@ -88,13 +87,13 @@ public class CubeNavigation : MonoBehaviour,INavigationHandler {
 
 `HandGuidanceThreshold` 属性含义是：当开始显示手动导航指示器时。1不在视图中，0在视图中居中。
 
-![](/images/posts/20181218222822445.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218222822445.png)
 
 > 和上一章[《HoloLens 开发笔记（5）——Gaze》](/aa63820b.html) 中一样，因为官方提供的 HeadsUpDirectionIndicatorPointer 实际效果实在是太丑了，因此我实际使用的是 [MR Input 210: Gaze Chapter 4 - Directional indicator](https://docs.microsoft.com/zh-cn/windows/mixed-reality/holograms-210#chapter-4---directional-indicator) 中提供的方向指示器。
 
 这里使用 Unity 的运行按钮无法查看效果，将程序在真机中运行，结果如下：
 
-![](/images/posts/20181222122748992.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181222122748992.png)
 
 ## 三、Manipulation
 

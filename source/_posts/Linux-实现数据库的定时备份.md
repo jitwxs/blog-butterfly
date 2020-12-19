@@ -4,7 +4,6 @@ tags:
   - Linux
   - 数据库
 categories: Linux
-typora-root-url: ..
 abbrlink: a804ec35
 date: 2017-10-30 23:10:27
 copyright_author: Jitwxs

@@ -4,7 +4,6 @@ tags: 集群
 categories:
   - 搜索引擎
   - Solr
-typora-root-url: ..
 abbrlink: 96601bd
 date: 2018-04-12 13:46:50
 copyright_author: Jitwxs
@@ -31,13 +30,13 @@ Solr 集群，即 `SolrCloud` 是 Solr 提供的分布式搜索方案，当你�
 
 同一个 `Shard` 中的**每一个 `Core` 存储的内容是一致的**，一个为 `Master`，其余为 `Slave`，由此实现了高可用。
 
-![](/images/posts/2018041217401726.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018041217401726.png)
 
 ## 二、搭建环境
 
 我们要准备实现的架构图如下，没错，这次还是伪集群：
 
-![](/images/posts/20180412182204969.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180412182204969.png)
 
 本机IP地址：**192.168.30.155**
 
@@ -140,7 +139,7 @@ export CATALINA_BASE=$CATALINA_01_BASE
 export CATALINA_HOME=$CATALINA_01_HOME
 ```
 
-![](/images/posts/20180412185524913.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180412185524913.png)
 
 ### 2.3 部署 Solr
 
@@ -186,7 +185,7 @@ solrhome02  solrhome04  tomcat02  tomcat04
 root@ubuntu:/usr/local/solr-cloud# vim tomcat01/webapps/solr/WEB-INF/web.xml
 ```
 
-![](/images/posts/20180412190654766.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180412190654766.png)
 
 （4）修改每个 solrhome 中的 `solr.xml` 文件中的 `host` 和 `hostPort`
 
@@ -196,7 +195,7 @@ root@ubuntu:/usr/local/solr-cloud# vim tomcat01/webapps/solr/WEB-INF/web.xml
 root@ubuntu:/usr/local/solr-cloud# vim solrhome01/solr.xml
 ```
 
-![](/images/posts/20180412191109912.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180412191109912.png)
 
 ### 2.4 关联 Solr 和 Zookeeper
 
@@ -206,7 +205,7 @@ root@ubuntu:/usr/local/solr-cloud# vim solrhome01/solr.xml
 JAVA_OPTS="-DzkHost=192.168.30.155:2181,192.168.30.155:2182,192.168.30.155:2183"
 ```
 
-![](/images/posts/20180412191850585.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180412191850585.png)
 
 ### 2.5 将 Solr 配置文件上传至 Zookeeper
 
@@ -304,7 +303,7 @@ root@ubuntu:/usr/local/solr-cloud# ./tomcat.sh start
 
 访问任何一个 solr，选择 cloud 标签，可以看见我们的集群已经显示出来了：
 
-![](/images/posts/20180412232158932.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180412232158932.png)
 
 ## 三、分片
 
@@ -320,15 +319,15 @@ root@ubuntu:/usr/local/solr-cloud# ./tomcat.sh start
 http://192.168.30.155:8181/solr/admin/collections?action=CREATE&name=collection1&numShards=2&replicationFactor=2
 ```
 
-![](/images/posts/20180412232819106.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180412232819106.png)
 
 回车后结果如下：
 
-![](/images/posts/20180412233010361.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180412233010361.png)
 
 重新返回Solr首页，就能看见我们创建的 `Collection` 了：
 
-![](/images/posts/20180412233106597.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180412233106597.png)
 
 ### 3.2 删除分片
 
@@ -340,15 +339,15 @@ http://192.168.30.155:8181/solr/admin/collections?action=CREATE&name=collection1
 http://192.168.30.155:8181/solr/admin/collections?action=DELETE&name=core1
 ```
 
-![](/images/posts/20180412233318310.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180412233318310.png)
 
 运行结果如下：
 
-![](/images/posts/20180412233357962.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180412233357962.png)
 
 重新返回 Solr 首页，发现 `core1` 已经被删除了：
 
-![](/images/posts/20180412233430865.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180412233430865.png)
 
 ## 四、Solrj
 

@@ -4,7 +4,6 @@ tags: Thread
 categories: 
   - Java
   - 并发编程
-typora-root-url: ..
 abbrlink: 29b9a7ac
 date: 2018-10-02 11:59:46
 copyright_author: 海子
@@ -26,7 +25,7 @@ copyright_author: 海子
 
 下面这副图描述了线程从创建到消亡之间的状态：
 
-![线程的状态](/images/posts/20181002112343855.png)
+![线程的状态](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181002112343855.png)
 
 在有些教程上将blocked、waiting、time waiting统称为阻塞状态，这个也是可以的，只不过这里我想将线程的状态和Java中的方法调用联系起来，所以将waiting和time waiting两个状态分离出来。
 
@@ -46,7 +45,7 @@ copyright_author: 海子
 
 通过查看java.lang.Thread类的源码可知：
 
-![](/images/posts/20181002112727866.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181002112727866.png)
 
 Thread类实现了Runnable接口，在Thread类中，有一些比较关键的属性，比如`name`是表示Thread的名字，可以通过Thread类的构造器中的参数来指定线程名字，`priority`表示线程的优先级（最大值为10，最小值为1，默认值为5），`daemon`表示线程是否是守护线程，`target`表示要执行的任务。
 
@@ -112,7 +111,7 @@ public class Test {
 
 输出结果：
 
-![](/images/posts/20181002113112929.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181002113112929.png)
 
 从上面输出结果可以看出，当Thread-0进入睡眠状态之后，Thread-1并没有去执行具体的任务。只有当Thread-0执行完之后，此时Thread-0释放了对象锁，Thread-1才开始执行。
 
@@ -173,13 +172,13 @@ public class Test {
 
 输出结果：
 
-![](/images/posts/20181002113515660.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181002113515660.png)
 
 可以看出，当调用thread1.join()方法后，main线程会进入等待，然后等待thread1执行完之后再继续执行。
 
 实际上调用join方法是调用了Object的`wait()`方法，这个可以通过查看源码得知：
 
-![](/images/posts/20181002113550501.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181002113550501.png)
 
 **wait方法会让线程进入阻塞状态，并且会释放线程占有的锁，并交出CPU执行权限。**
 
@@ -224,7 +223,7 @@ public class Test {
 
 输出结果：
 
-![](/images/posts/20181002113933456.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181002113933456.png)
 
 从这里可以看出，通过`interrupt()`方法可以中断处于阻塞状态的线程。那么能不能中断处于非阻塞状态的线程呢？看下面这个例子：
 
@@ -335,4 +334,4 @@ destroy方法也是废弃的方法。基本不会被使用到。
 
 在上面已经说到了Thread类中的大部分方法，那么Thread类中的方法调用到底会引起线程状态发生怎样的变化呢？下面一幅图就是在上面的图上进行改进而来的：
 
-![](/images/posts/20181002114640137.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181002114640137.png)

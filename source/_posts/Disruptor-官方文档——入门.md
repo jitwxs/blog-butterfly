@@ -1,6 +1,5 @@
 ---
 title: Disruptor 官方文档——入门
-typora-root-url: ..
 categories:
   - Java
   - Disruptor

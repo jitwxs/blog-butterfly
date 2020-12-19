@@ -1,6 +1,5 @@
 ---
 title: Java 并发编程——LinkedBlockingQueue
-typora-root-url: ..
 tags:
   - 队列
   - LinkedBlockingQueue
@@ -16,7 +15,7 @@ copyright_author: benjaminwhx
 
 `LinkedBlockingQueue` 实现了 BlockingQueue 接口，不同于 ArrayBlockingQueue，它如果不指定容量，容量默认为 **Integer.MAX_VALUE**，也就是**无界队列**。
 
-![](/images/posts/20191124224737766.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191124224737766.png)
 
 ## 一、源码分析
 
@@ -104,7 +103,7 @@ public LinkedBlockingQueue(Collection<? extends E> c) {
 
 默认的构造函数和最后一个构造函数创建的队列大小都为 Integer.MAX_VALUE，只有第二个构造函数用户可以指定队列的大小。第二个构造函数最后初始化了 last 和 head 节点，让它们都指向了一个元素为 null 的节点。
 
-![](/images/posts/20191124221805626.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191124221805626.png)
 
 最后一个构造函数使用了 putLock 来进行加锁，这样并不是为了多线程的竞争而加锁，而是为了放入的元素能立即对其他线程可见。
 
@@ -166,7 +165,7 @@ private void enqueue(Node<E> node) {
 
 该方法可能有些同学看不太懂，我们用一张图来看看怎样往队列里依次放入元素 A 和元素 B。
 
-![](/images/posts/20191124222149412.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191124222149412.png)
 
 接下来我们看看 signalNotEmpty() ，顺带着看 signalNotFul() 方法。
 
@@ -323,7 +322,7 @@ private E dequeue() {
 
 可能有些童鞋链表算法不是很熟悉，我们可以结合注释和图来看就清晰很多了。
 
-![](/images/posts/20191124222557509.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191124222557509.png)
 
 其实这个写法看起来很绕，我们其实也可以这么写：
 

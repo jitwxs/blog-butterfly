@@ -1,6 +1,5 @@
 ---
 title: HoloLens 开发笔记（2）——MRTK
-typora-root-url: ..
 categories: HoloLens
 abbrlink: 51ef9785
 date: 2018-11-21 21:01:06
@@ -20,17 +19,17 @@ copyright_author: Jitwxs
 
 `MRTK(Mixed Reality Toolkit)` 是微软为我们提供的混合现实开发工具包，旨在帮助我们加速开发混合现实应用程序。
 
-![](/images/posts/20181121205140695.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181121205140695.png)
 
 基于 Unity 的 MRTK(MixedRealityToolkit-Unity) 提供了许多 API 来加速混合现实项目的开发，包括 HoloLens 和 IHMD。
 
-![](/images/posts/20181121205201455.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181121205201455.png)
 
 ## 二、如何使用MRTK？
 
 在我写这篇文章时（2018-11-21）时，最新的 Relaese 版本为 Mixed Reality Toolkit 2018.9.0 (vNext Beta) ，仍然为 Beta 版，在配合 Unity 2018 2.x 使用的时候仍然会出现 BUG，因此我使用了[HoloToolkit 2017.4.2.0](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases/tag/2017.4.2.0) 版本。
 
-![](/images/posts/20181121205219161.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181121205219161.jpg)
 
 请下载 `HoloToolkit-Unity` 和 `HoloToolkit-Unity-Examples` 这两个 unitypackage 文件。
 
@@ -42,11 +41,11 @@ copyright_author: Jitwxs
 >
 >2. HoloToolkit-Unity-Examples 为官方提供的例子，在自己跟着文档学习的时候再导入。
 
-![](/images/posts/20181121205234603.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181121205234603.jpg)
 
 2. 导入完成后，检查下菜单栏是否多出一个 `Mixed Reality Toolkit`，再检查下 Project 面板的 Assets 目录下是否有 `HoloToolkit` 目录。如果都存在，至此安装完成。
 
-![](/images/posts/20181121205247143.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181121205247143.jpg)
 
 ## 三、Hello World
 
@@ -54,29 +53,29 @@ copyright_author: Jitwxs
 
 1. 首先将项目设置为 MR 项目，点击 `Mixed Reality Toolkit -> Configure -> Apply Mixed Reality Scene Settings`，即可一键切换，不再需要手动设置了。
 
-![](/images/posts/20181121205314130.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181121205314130.jpg)
 
-![](/images/posts/20181121205329569.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181121205329569.jpg)
 
 2. 删除默认的 **Main Camera**，从 `Assets -> HoloToolkit -> Input -> Prefabs` 中添加`MixedRealityCamera` 预置体，并设置该相机：
 
-![](/images/posts/20181121205340786.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181121205340786.jpg)
 
-![](/images/posts/20181121205352926.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181121205352926.jpg)
 
 3. 添加一个立方体：
 
-![](/images/posts/20181121205402160.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181121205402160.jpg)
 
 4. 从 `Assets -> HoloToolkit -> Input -> Prefabs` 中添加 `InputManager` 预置体，从 `Assets -> HoloToolkit -> Input -> Prefabs-> Cursor` 中添加 `CursorWithFeedback`预置体。Hierarchy 目录结构如下：
 
    > 我使用了 CursorWithFeedback ，具有反馈功能，你也可以尝试使用 Cursor 目录下的其他 Cursor
 
-![](/images/posts/20181121205413965.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181121205413965.jpg)
 
 5. 点击 `InputManager` 预置体，在右边的设置中，拖拽 `CursorWithFeedback`预置体到  `SimpleSinglePointerSelector` 脚本的 Cursor 属性：
 
-![](/images/posts/20181121205424423.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181121205424423.jpg)
 
 6. 运行程序，当：
    - 未碰触到 Cude：出现一个光点
@@ -131,4 +130,4 @@ Cursor 代表的就是我们的实现，它的位置就是我们所看的物体�
 | CursorWithFeedback.prefab | Torus shaped cursor that follows the user's gaze and HandDetectedFeedback asset to give feedback to user when their hand is detected in the ready state. |
 | DefaultCursor.prefab      | 3D animated cursor that follows the user's gaze and uses the Unity animation system to handle its various states. This cursor imitates the HoloLens Shell cursor. |
 
-![](/images/posts/20181218200550791.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218200550791.png)

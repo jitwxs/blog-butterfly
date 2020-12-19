@@ -2,7 +2,6 @@
 title: 上传 Jar 包至 Maven 中央仓库
 categories: 开发工具
 tags: Maven
-typora-root-url: ..
 abbrlink: 4714ed08
 icons: [fas fa-fire red]
 date: 2020-05-17 22:32:48
@@ -21,7 +20,7 @@ copyright_author: Jitwxs
 
 首先你得有个 sonatype 的账号，[点击这里](https://issues.sonatype.org/secure/Signup!default.jspa)前往注册。最好使用 Chrome 浏览器进行注册，因为当我使用微软 Chrome 内核的 Edge 浏览器注册时，当输入不满足条件时，没有弹出错误提示。
 
-![注册账户](/images/posts/20200523211803286.png)
+![注册账户](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200523211803286.png)
 
 注册完毕后，点击上方导航栏蓝色的创建按钮，创建一个工单。
 
@@ -39,15 +38,15 @@ copyright_author: Jitwxs
 
 **Already Synced to Central:** 对于上传新项目来说，选择 No 即可。
 
-![创建工单](/images/posts/20200523212749327.png)
+![创建工单](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200523212749327.png)
 
 工单创建完毕后，会有客服发来消息，要求在 GitHub 账户中，创建一个指定名称的仓库，来验证你对账户的所有权。创建完毕后，回复创建完毕即可（创建的这个仓库，等到流程完毕后，可以删了）。
 
-![创建验证仓库](/images/posts/20200523213714851.png)
+![创建验证仓库](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200523213714851.png)
 
 随后客服提示已经审核完毕，可以准备上传了。
 
-![准备上传](/images/posts/20200523213915535.png)
+![准备上传](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200523213915535.png)
 
 ## 三、上传 Jar 包
 
@@ -180,19 +179,19 @@ copyright_author: Jitwxs
 
 上传 jar 包过程，需要使用秘钥，对于 Windwos 系统，使用 `Gpg4win` 即可，[点击这里]( https://www.gpg4win.org/download.html )下载。一路傻瓜式安装即可，唯一要注意的是安装组件那边，其实我们只使用了 `GunPG`，因此其他可选项都可以不安装。
 
-![Gpg4win](/images/posts/20190627150325388.png)
+![Gpg4win](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190627150325388.png)
 
 安装完毕后，执行命令 `gpg --version` 验证是否安装成功。
 
-![验证是否安装成功](/images/posts/20200523215327357.png)
+![验证是否安装成功](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200523215327357.png)
 
 执行命令 `gpg --gen-key` ，提示填写 `Real name` 和 `Email address`，自行填写即可，输入字母 O 后生成秘钥。
 
-![生成秘钥](/images/posts/20200523215608152.png)
+![生成秘钥](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200523215608152.png)
 
 执行命令 ` gpg --list-keys` 查看所有已经创建的秘钥信息。
 
-![查看秘钥](/images/posts/20200523215850127.png)
+![查看秘钥](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200523215850127.png)
 
 上图红框处为刚刚生成的秘钥的公钥，复制下来，并将其上传至 PGP 秘钥服务器。
 
@@ -206,7 +205,7 @@ gpg --keyserver hkp://keyserver.ubuntu.com:11371 --send-keys 红框内容
 gpg --keyserver hkp://keyserver.ubuntu.com:11371 --recv-keys 红框内容
 ```
 
-![验证是否上传成功](/images/posts/202005232201231.png)
+![验证是否上传成功](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202005232201231.png)
 
 ## 四、发布
 
@@ -218,23 +217,23 @@ gpg --keyserver hkp://keyserver.ubuntu.com:11371 --recv-keys 红框内容
 mvn clean deploy -DskipTests -P sonatype-release
 ```
 
-![命令行上传](/images/posts/20200524104350463.png)
+![命令行上传](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200524104350463.png)
 
 此时会抛一些错误，例如我这边是 Javadoc 写的不规范，按提示将错误处理了即可。
 
-![错误提示](/images/posts/20200524104431369.png)
+![错误提示](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200524104431369.png)
 
 但是，我更推荐直接使用 IDEA 操作，勾选 Profike 后，同时选中 clean、deploy，右键 run 即可。使用这种方式，都没有让我输入密码。
 
-![IDEA 上传](/images/posts/20200524104449245.png)
+![IDEA 上传](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200524104449245.png)
 
-![](/images/posts/20200524104509473.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200524104509473.png)
 
 ### 4.2 Repository Manager
 
 打开 [Nexus Repository Manager](https://oss.sonatype.org)，使用 sonatype 账户登录即可。点击左侧的 `Staging Repositories`，可以找到我们刚刚 deploy 的项目，目前处理 open 状态。
 
-![Staging Repositories](/images/posts/20200524104748924.png)
+![Staging Repositories](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200524104748924.png)
 
 网上几乎所有的相关文章，对于 Repository Manager 相关的描述，都只是说要怎么做，却不告诉大家为什么要这么做，导致让新手操作起来很晕。
 
@@ -246,27 +245,27 @@ mvn clean deploy -DskipTests -P sonatype-release
 
 现在开始正式操作，点击上方的 Close 按钮，准备提交。弹窗中的描述随便填写即可，比如我填写的是本次发布的版本号 1.3。
 
-![Close Project](/images/posts/20200524105544719.png)
+![Close Project](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200524105544719.png)
 
 点击上方的 `Refresh` 按钮刷新一下，在 `Activity` 标签页，可以看到当前的检测进度。
 
 当所有检测项均为 Passed 后，就可以进入下一步了。如果有某一项没有通过，先 `Drop` 掉本次提交，按照错误提示修改完代码后，重新走一遍流程即可。
 
-![Check Pass](/images/posts/20200524105820160.png)
+![Check Pass](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200524105820160.png)
 
 点击上方的 `Release` 按钮，正式提交到中央仓库。
 
-![Release Project](/images/posts/20200524110025104.png)
+![Release Project](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200524110025104.png)
 
 点击上方的 `Refresh` 按钮刷新一下，在 `Activity` 标签页，可以看到当前的上传进度。当上传完毕后，内容会自动为空。此时在左侧的搜索框搜索项目，右侧能够显示出来，即表示上传成功。
 
-![Search Project](/images/posts/20200524110401760.png)
+![Search Project](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200524110401760.png)
 
 ### 4.3 回复工单
 
 对于项目的首次 Release，需要回复下工单，告诉客服已经发布了。后续的提交，就不再需要回复工单，这个流程了。
 
-![](/images/posts/20200524110546973.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200524110546973.png)
 
 ## 五、常见问题
 

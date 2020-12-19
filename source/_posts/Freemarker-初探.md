@@ -2,7 +2,6 @@
 title: Freemarker 初探
 tags: Freemarker
 categories: Java Web
-typora-root-url: ..
 abbrlink: e843d977
 date: 2018-04-16 11:07:35
 copyright_author: Jitwxs
@@ -16,7 +15,7 @@ copyright_author: Jitwxs
 
 主要用 `Freemarker` **做静态页面或是页面展示**。
 
-![Freemarker](/images/posts/20180416095513273.png)
+![Freemarker](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180416095513273.png)
 
 ### 1.2 入门程序
 
@@ -38,7 +37,7 @@ copyright_author: Jitwxs
 ${test}
 ```
 
-![test](/images/posts/20180416100108850.png)
+![test](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180416100108850.png)
 
 是不是有点像 `EL表达式`，在 EL表达式中使用 `model.addAttr..()` 就可以替换掉JSP 中的 EL表达式了，Freemarker 和它类似，其步骤大致如下：
 
@@ -69,7 +68,7 @@ public void firstDemo() throws Exception {
 
 运行程序，在 ftl_out 文件夹中生成了 test.txt 文件，查看文件内容：
 
-![test结果](/images/posts/20180416101139775.png)
+![test结果](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180416101139775.png)
 
 可以看到，成功将`${test}`替换为输入的数据。
 
@@ -143,7 +142,7 @@ Map<String,Object> data = new HashMap<>();
 data.put("studentList", list);
 ```
 
-![集合元素](/images/posts/20180416103159941.png)
+![集合元素](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180416103159941.png)
 
 ### 2.4 取循环中下标
 
@@ -157,7 +156,7 @@ data.put("studentList", list);
 </#list>
 ```
 
-![循环下标](/images/posts/20180416103359147.png)
+![循环下标](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180416103359147.png)
 
 ### 2.5 判断
 
@@ -175,7 +174,7 @@ data.put("studentList", list);
 </#list>
 ```
 
-![判断](/images/posts/20180416103645519.png)
+![判断](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180416103645519.png)
 
 ### 2.6 日期处理
 
@@ -195,7 +194,7 @@ data.put("date", new Date());
 自定义日期格式：${date?string("yyyyMMdd-HH:mm:ss")}
 ```
 
-![日期处理](/images/posts/20180416104211750.png)
+![日期处理](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180416104211750.png)
 
 ### 2.7 NULL处理
 
@@ -220,7 +219,7 @@ value值为null
 </#if>
 ```
 
-![NULL处理](/images/posts/20180416105101636.png)
+![NULL处理](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180416105101636.png)
 
 ### 2.8 include
 

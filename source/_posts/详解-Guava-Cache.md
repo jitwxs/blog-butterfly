@@ -1,6 +1,5 @@
 ---
 title: 详解 Guava Cache
-typora-root-url: ..
 categories: Java
 tags: 
   - Cache

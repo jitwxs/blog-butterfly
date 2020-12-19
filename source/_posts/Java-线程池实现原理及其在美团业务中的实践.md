@@ -1,6 +1,5 @@
 ---
 title: Java 线程池实现原理及其在美团业务中的实践
-typora-root-url: ..
 tags: 线程池
 categories:
   - Java

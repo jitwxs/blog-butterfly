@@ -1,6 +1,5 @@
 ---
 title: Markdown 使用进阶教程
-typora-root-url: ..
 categories: 综合
 tags: Markdown
 abbrlink: 69ded3af
@@ -137,7 +136,7 @@ Markdown 不支持文字更改颜色，如需支持，请使用 HTML 标签，�
 
 Markdown 本身是不支持视频的，但是我们可以通过 HTML 的 Iframe 来实现，在大部分的视频网站中，通过点击视频下方的`获取嵌入代码`，并将其粘入 Markdown 中即可。
 
-![](/images/posts/20190316191716824.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190316191716824.png)
 
 >Tips：视频自适应大小在 Markdown 中的实现比较复杂，受限于 Iframe 的特性，一般需要通过调整渲染的样式或其他途径来实现。例如在 Hexo 中调整主题的样式实现，或在 Gitbook 中按转换视频插件。
 

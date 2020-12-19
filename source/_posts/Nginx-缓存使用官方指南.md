@@ -3,7 +3,6 @@ title: Nginx 缓存使用官方指南
 categories:
   - 服务器
   - Nginx
-typora-root-url: ..
 abbrlink: cd6f6a52
 date: 2018-05-11 14:11:17
 copyright_author: 张帆

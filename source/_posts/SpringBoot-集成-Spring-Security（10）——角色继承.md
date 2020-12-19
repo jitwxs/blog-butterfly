@@ -1,6 +1,5 @@
 ---
 title: SpringBoot 集成 Spring Security（10）——角色继承
-typora-root-url: ..
 categories:
   - 安全框架
   - Spring Security
@@ -40,7 +39,7 @@ public String printUser() {
 }
 ```
 
-![](/images/posts/20180330153402126.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180330153402126.png)
 
 但是如果我想让 ROLE_ADMIN 用户继承 ROLE_USER 用户的所有权限，该如何做呢？
 
@@ -62,7 +61,7 @@ public RoleHierarchy roleHierarchy() {
 
 让我们使用 ROLE_ADMIN 账号登陆，发现原本无法访问的 `/user` 接口也可以访问了：
 
-![](/images/posts/20190902233036282.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190902233036282.png)
 
 ## 源码
 

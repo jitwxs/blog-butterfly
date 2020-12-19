@@ -1,6 +1,5 @@
 ---
 title: 不可不说的 Java “锁”事
-typora-root-url: ..
 abbrlink: 95f9cf72
 date: 2020-02-29 20:12:08
 categories:

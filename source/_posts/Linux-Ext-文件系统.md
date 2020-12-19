@@ -2,7 +2,6 @@
 title: Linux Ext 文件系统
 tags: 文件系统
 categories: Linux
-typora-root-url: ..
 abbrlink: 63a050cf
 date: 2017-11-06 23:47:27
 copyright_author: Jitwxs
@@ -37,7 +36,7 @@ Blocks per group:         32768
 
 ext2文件系统将整个分区划成若干个同样大小的**块组（Block Group）**，如下图所示：
 
-![ext2](/images/posts/20171106231849242.png)
+![ext2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171106231849242.png)
 
 ### 1.2 详细描述
 

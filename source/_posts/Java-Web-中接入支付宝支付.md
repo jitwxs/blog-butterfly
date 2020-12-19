@@ -4,7 +4,6 @@ tags: 三方支付
 categories:
   - Java Web
   - SpringBoot
-typora-root-url: ..
 abbrlink: ea57cb90
 date: 2018-06-05 00:29:21
 related_repos:
@@ -53,7 +52,7 @@ copyright_author: Jitwxs
 
 **Step2：** 按照上面的资料申请好沙箱，生成好签名，修改程序配置文件中支付的配置信息
 
-![修改配置文件](/images/posts/20180605220537873.png)
+![修改配置文件](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180605220537873.png)
 
 **这里有一个很大的坑！**
 
@@ -65,10 +64,10 @@ copyright_author: Jitwxs
 
 ###  截图
 
-![支付宝在线支付Demo1](/images/posts/20180605000729234.png)
+![支付宝在线支付Demo1](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180605000729234.png)
 
-![支付宝在线支付Demo2](/images/posts/20180605000750289.png)
+![支付宝在线支付Demo2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180605000750289.png)
 
-![支付宝在线支付Demo3](/images/posts/20180605000810355.png)
+![支付宝在线支付Demo3](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180605000810355.png)
 
-![支付宝在线支付Demo4](/images/posts/20180605000954825.png)
+![支付宝在线支付Demo4](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180605000954825.png)

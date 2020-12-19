@@ -1,6 +1,5 @@
 ---
 title: ES6 箭头函数
-typora-root-url: ..
 categories: 前端
 tags: 箭头函数
 abbrlink: '4e410719'

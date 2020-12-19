@@ -1,6 +1,5 @@
 ---
 title: gRPC 在 Java 中的入门实例
-typora-root-url: ..
 categories:
   - Java
   - Protobuf
@@ -179,7 +178,7 @@ service UserRpcService {
 
 点开 IDEA Maven 插件面板，同时选中 `protobuf:compile` 和 `protobuf:compile-custom` 命令，右击 Run Maven Build 运行，即可得到生成的 Java 类，如下图所示。
 
-![](/images/posts/20200411215225665.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200411215225665.png)
 
 ## 四、gRPC 服务端与客户端
 
@@ -403,7 +402,7 @@ public class ProtoUtils {
 
 整个项目代码目录结构如下：
 
-![](/images/posts/20200411220150795.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200411220150795.png)
 
 首先启动服务端，然后启动客户端。服务端首先接收到客户端请求，输出：
 

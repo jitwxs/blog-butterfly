@@ -1,6 +1,5 @@
 ---
 title: Protobuf 学习手册——编码篇
-typora-root-url: ..
 categories:
   - Java
   - Protobuf
@@ -244,7 +243,7 @@ key 的计算方法是 `(field_number << 3) | wire_type `，换句话说，key �
 0001 ---> 1 ---> 1在Test1中是: a
 ```
 
-![](/images/posts/20191226000506791.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191226000506791.jpg)
 
 ### 2.3 更多值类型
 
@@ -459,7 +458,7 @@ public class ProtoBufTest1 {
 
 每个字节解码详细解释见下图。
 
-![](/images/posts/20191226000356778.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191226000356778.png)
 
 ## 三、技巧
 

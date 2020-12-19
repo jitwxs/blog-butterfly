@@ -2,7 +2,6 @@
 title: Java8 Optional 详解
 tags: Optional
 categories: Java
-typora-root-url: ..
 abbrlink: c6a78a53
 date: 2018-03-14 10:37:35
 copyright_author: Jitwxs

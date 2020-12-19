@@ -3,7 +3,6 @@ title: SpringBoot 集成 Spring Security（4）——自定义表单登录
 categories:
   - 安全框架
   - Spring Security
-typora-root-url: ..
 abbrlink: f420faae
 date: 2018-05-09 15:05:40
 icons: [fas fa-fire red]
@@ -261,7 +260,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 这样验证码就加好了，运行下程序：
 
-![](/images/posts/20180509110841240.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180509110841240.png)
 
 下面才算是这篇文章真正的部分。我们如何才能实现验证码验证呢，思考一下，应该有以下几种实现方式：
 
@@ -368,7 +367,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 现在来测试下，当验证码错误后：
 
-![](/images/posts/20180509145853658.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180509145853658.png)
 
 ### 四、Spring Security 验证
 
@@ -563,4 +562,4 @@ protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 是不是比较复杂，为了实现该需求自定义了 `WebAuthenticationDetails`、`AuthenticationDetailsSource`、`AuthenticationProvider`，让我们运行一下程序，当输入错误验证码时：
 
-![错误信息](/images/posts/20180509145853658.png)
+![错误信息](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180509145853658.png)

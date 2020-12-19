@@ -1,6 +1,5 @@
 ---
 title: 深度解读央行数字货币 DCEP
-typora-root-url: ..
 categories:
   - 区块链
   - 加密货币

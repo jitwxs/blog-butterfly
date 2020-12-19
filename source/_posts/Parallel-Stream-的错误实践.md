@@ -1,6 +1,5 @@
 ---
 title: Parallel Stream 的错误实践
-typora-root-url: ..
 categories: Java
 tags:
   - Stream
@@ -116,7 +115,7 @@ null 元素产生跟元素数据丢失类似，也是由于 `elementData[size++]
 
 - 线程3 一开始读取 size 值 = 1 后时间片就用完了，轮到执行第二步将 e 添加到 size 位置读取到了线程 2 的更新，size 变成了 3。size = 2 的位置就被跳过了，因此 elementData[2] 为 null 了。
 
-![](/images/posts/20200119214514457.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200119214514457.png)
 
 ### 3.3 数组下标越界
 

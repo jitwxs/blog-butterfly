@@ -1,7 +1,6 @@
 ---
 title: Java8 日期处理
 categories: Java
-typora-root-url: ..
 abbrlink: 2fc7970f
 date: 2018-03-18 19:38:43
 copyright_author: Jitwxs

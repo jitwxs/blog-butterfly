@@ -3,7 +3,6 @@ title: Lucene 初探——基于 Lucene 6.6.2
 categories:
   - 搜索引擎
   - Lucene
-typora-root-url: ..
 abbrlink: 44bf5506
 date: 2018-03-04 14:25:39
 copyright_author: Jitwxs
@@ -41,7 +40,7 @@ Lucene提供了一个简单却强大的应用程式接口，能够做**全文索
 
 ## 二、全文检索流程
 
-![](/images/posts/20180304212126695.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180304212126695.png)
 
 ### 2.1 索引过程
 
@@ -68,7 +67,7 @@ Lucene提供了一个简单却强大的应用程式接口，能够做**全文索
 获得原始内容的目的是为了创建索引，在索引前需要将原始内容创建成`文档（Document）`，文档中包含多个`域（Field）`，在域中存储内容。
 
 域可以被理解为一个原始文档的**属性**。例如有一个文本文件test.txt，我们将这个文本文件的内容创建成文档（Document），它就包含了许多域，比如有文件名、文件大小、最后修改时间等等，如图：
-![](/images/posts/20180304215920616.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180304215920616.png)
 
 **注意：**每个Document可以有多个Field，不同的Document可以有不同的Field，同一个Document可以有相同的Field。
 
@@ -85,12 +84,12 @@ Lucene提供了一个简单却强大的应用程式接口，能够做**全文索
 >lucene、java、full 、search、engine...
 
 将每个语汇单元叫做一个`term `，不**同的域中拆分出来的相同的语汇单元是不同的 term** 。term 中包含两部分一部分是文档的域名，另一部分是内容。例如：文件名中包含 java 和文件内容中包含的  java是不同的 term 。
-![](/images/posts/2018030422111946.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018030422111946.png)
 
 #### 2.1.4 创建索引
 
 对所有文档分析得出的语汇单元进行`索引`，最终要实现只搜索语汇单元就能够找到文档（Document）。
-![](/images/posts/20180304222635579.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180304222635579.png)
 
 ### 2.2 搜索过程
 
@@ -263,7 +262,7 @@ Query query=new MatchAllDocsQuery();
 ### 3.3 第一个全文检索例子
 
 本例子项目结构如下：
-![](/images/posts/2018030523381936.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018030523381936.png)
 
 ```java
 import java.io.File;
@@ -411,10 +410,10 @@ public class SearchEnglish {
 ```
 
 我随意写了几篇英文做了下测试：
-![](/images/posts/20180305165049345.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180305165049345.png)
 
 搜索关键字java，结果如下：
-![](/images/posts/20180305165421244.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180305165421244.png)
 
 ### 3.4 中文分词
 
@@ -434,7 +433,7 @@ public class SearchEnglish {
 ，[点击下载](http://download.csdn.net/download/yuanlaijike/10270713)我自行编译后的`IK-Analyzer-6.6.2.jar`。
 
 项目结构如下：
-![](/images/posts/20180305234846180.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180305234846180.png)
 
 | 名称| 含义 |
 |:------------- |:-------------|
@@ -601,16 +600,16 @@ public class SearchChinese {
 ```
 
 这次只准备一个文件测试下即可：
-![](/images/posts/20180305235530689.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180305235530689.png)
 
 测试下分词效果：
-![](/images/posts/20180305235637899.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180305235637899.png)
 
 分词效果还可以，但是我们要搜的`jitwxs`却没有搜到，因为它自带的字典中没有这个词，自然没法识别出来。我们知道`IK-Analyzer`相较于自带的`SmartChineseAnalyzer`最大的优点就是**扩展性**，我们在之前的扩展字典文件`ext.dic`中添加单词`jitwxs`：
-![](/images/posts/20180305235930278.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180305235930278.png)
 
 **注：**再啰嗦下，这两个文件一定要确保是**UTF-8**编码，否则会导致无法生效（IK-Analyzer内部我是用UTF-8读取的）。重新运行程序，成功识别出了我们添加的单词：
-![](/images/posts/20180306000152337.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180306000152337.png)
 
 ### 3.5 代码高亮
 
@@ -810,4 +809,4 @@ public class SearchHighlighter {
 }
 ```
 
-![](/images/posts/20180306004915385.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180306004915385.png)

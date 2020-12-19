@@ -4,7 +4,6 @@ tags:
   - Ajax
   - Javascript
 categories: 前端
-typora-root-url: ..
 abbrlink: 25168d50
 date: 2018-03-15 21:52:04
 copyright_author: Jitwxs

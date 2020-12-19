@@ -1,6 +1,5 @@
 ---
 title: SpringBoot 集成 Spring Security（6）——登录管理
-typora-root-url: ..
 categories:
   - 安全框架
   - Spring Security
@@ -133,11 +132,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 运行程序，当我们成功登陆后，发现日志信息被打印出来，页面被重定向到了首页：
 
-![](/images/posts/20190110174809434.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190110174809434.png)
 
 当我们认证失败后，发现日志中“登陆失败”被打印出来，页面展示了认证失败的异常消息：
 
-![](/images/posts/20190110174827988.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190110174827988.png)
 
 ## 二、Session 超时
 
@@ -196,7 +195,7 @@ public String invalid() {
 
 运行程序，登陆成功后等待一分钟（或者重启服务器），刷新页面：
 
-![session 过期](/images/posts/20190110171026663.png)
+![session 过期](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190110171026663.png)
 
 ## 三、限制最大登录数
 
@@ -250,11 +249,11 @@ public class CustomExpiredSessionStrategy implements SessionInformationExpiredSt
 
 执行程序，打开两个浏览器，登录同一个账户。因为我设置了 `maximumSessions(1)`，也就是单个用户只能存在一个 session，因此当你刷新先登录的那个浏览器时，被提示踢出了。
 
-![maxSessionsPreventsLogin 为 false](/images/posts/2019011017515758.png)
+![maxSessionsPreventsLogin 为 false](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2019011017515758.png)
 
 下面我们来测试下 `maxSessionsPreventsLogin(true)` 时的情况，我们发现第一个浏览器登录后，第二个浏览器无法登录：
 
-![maxSessionsPreventsLogin 为 true](/images/posts/20190110175325653.png)
+![maxSessionsPreventsLogin 为 true](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190110175325653.png)
 
 ## 四、踢出用户
 
@@ -352,7 +351,7 @@ public class LoginController {
 
 运行程序，分别使用 admin 和 jitwxs 账户登录，admin 访问 `/kick?username=jitwxs` 来踢出用户 jitwxs，jitwxs 刷新页面，发现被踢出。
 
-![](/images/posts/20181129193622640.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181129193622640.jpg)
 
 ## 五、退出登录
 
@@ -479,20 +478,20 @@ public class Application {
 
 这样就完成了基于 Redis 的 Session 共享，下面来测试下。首先修改 IDEA 配置来允许项目在多端口运行，勾选   `Allow running in parallel`：
 
-![Allow running in parallel](/images/posts/20190118110506723.png)
+![Allow running in parallel](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190118110506723.png)
 
 运行程序，然后修改配置文件，将 `server.port` 更改为 8060，再次运行。这样项目就会分别在默认的 8080 端口和 8060 端口运行。
 
-![](/images/posts/20190118113440171.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190118113440171.png)
 
 先访问 `localhost:8080`，登录成功后，再访问 `localhost:8060`，发现无需登录。
 
-![Session 共享运行结果](/images/posts/20190118110952599.png)
+![Session 共享运行结果](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190118110952599.png)
 
 然后我们进入 Redis 查看下 key：
 
-![](/images/posts/20190118111044647.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190118111044647.png)
 
 最后再测试下之前配置的 session 设置是否还有效，使用其他浏览器登陆，登陆成功后发现原浏览器用户的确被踢出。
 
-![](/images/posts/20190118111234720.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190118111234720.png)

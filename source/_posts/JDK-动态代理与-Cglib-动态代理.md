@@ -4,7 +4,6 @@ tags:
   - 动态代理
   - AOP
 categories: Java
-typora-root-url: ..
 abbrlink: 8ee3adf6
 date: 2018-03-09 10:03:36
 related_repos:
@@ -170,7 +169,7 @@ public class JdkProxyTest {
 }
 ```
 
-![](/images/posts/20180309094803849.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180309094803849.png)
 
 ##  三、Cglib 动态代理
 
@@ -239,7 +238,7 @@ public class CglibProxyTest {
 }
 ```
 
-![](/images/posts/20180309094803849.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180309094803849.png)
 
 ## 四、总结
 

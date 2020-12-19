@@ -2,7 +2,6 @@
 title: >-
   解决 MySQL 报错The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is unrecognized or
   represents ....
-typora-root-url: ..
 categories: 
   - 数据库
   - MySQL
@@ -37,7 +36,7 @@ java.sql.SQLException: The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is 
 
 看了下包依赖，SpringBoot 2.1 默认使用的是`mysql-connector-java 8`的依赖，而不是之前使用的 5.x。
 
-![](/images/posts/20181115152954963.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181115152954963.jpg)
 
 出错的原因是从`mysql-connector-java 6`开始，连接时需要指定时区`serverTimezone`。
 
@@ -59,11 +58,11 @@ spring.datasource.url=jdbc:mysql://localhost:3306/demo?useUnicode=true&character
 default-time-zone='+08:00'
 ```
 
-![](/images/posts/20181115153837884.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181115153837884.jpg)
 
 记得重启下mysql服务，在命令行中执行命令`SHOW VARIABLES LIKE '%time_zone%'`，得到下图结果就OK了：
 
-![](/images/posts/20181115154134709.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181115154134709.jpg)
 
 ## 其他
 

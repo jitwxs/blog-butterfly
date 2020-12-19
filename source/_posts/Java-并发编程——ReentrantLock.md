@@ -1,6 +1,5 @@
 ---
 title: Java 并发编程——ReentrantLock
-typora-root-url: ..
 abbrlink: cbe421eb
 date: 2019-08-07 21:18:07
 categories: 
@@ -29,7 +28,7 @@ copyright_author: Jitwxs
 
 `ReentrantLock` 是一个**可重入**且**独占式**的锁，相较于传统的 `Synchronized `，它增加了轮询、超时、中断等高级功能。其类图如下：
 
-![ReentrantLock](/images/posts/20190806224334764.png)
+![ReentrantLock](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190806224334764.png)
 
 ReentrantLock 是 java.util.concurrent（J.U.C）包中的锁，相比于 synchronized，它多了以下高级功能：
 

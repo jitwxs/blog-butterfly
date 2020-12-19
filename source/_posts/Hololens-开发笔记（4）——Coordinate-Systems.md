@@ -1,6 +1,5 @@
 ---
 title: HoloLens 开发笔记（4）——Coordinate Systems
-typora-root-url: ..
 categories: HoloLens
 abbrlink: 75fdb477
 date: 2018-11-26 11:29:15
@@ -30,7 +29,7 @@ HoloLens 采用右手笛卡尔坐标系，也就是说 X 轴正方向指向右�
 
 笛卡尔坐标系的左手和右手的区别就是 Z 轴的方向是朝向你还是远离你。将左手和右手平放均指向右方，将手指弯曲指向上方，此时大拇指的朝向就是 Z 轴的朝向。
 
-![笛卡尔坐标系](/images/posts/20181126112756736.png)
+![笛卡尔坐标系](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181126112756736.png)
 
 ## 二、坐标参考框架
 

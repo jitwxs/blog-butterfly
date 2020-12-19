@@ -4,7 +4,6 @@ tags: JWT
 categories:
   - Java Web
   - SpringBoot
-typora-root-url: ..
 abbrlink: 7ac4f061
 date: 2018-05-03 02:25:18
 icons: [fas fa-fire red]
@@ -26,14 +25,14 @@ copyright_author: Jitwxs
 
 用户之后发起的请求都会携带 Cookie 信息，服务器根据 `SessionId` 寻回对应的 Session，从而完成验证，确认这是之前登陆过的用户。其工作原理如下图所示：
 
-![](/images/posts/20180503001829205.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180503001829205.png)
 
 ### 1.2 JWT 技术
 
 JWT，即 `JSON Web Token`，当用户使用它的认证信息登陆系统之后，会返回给用户一个 JWT，用户只需要本地保存即可。
 
 当用户希望访问一个受保护的路由或者资源的时候，在请求头部添加该 JWT。后台获取请求头部的JWT并进行验证，如果合法，则允许用户的行为。
-![](/images/posts/20180503012041674.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180503012041674.png)
 
 ## 二、JWT 的组成
 
@@ -106,7 +105,7 @@ rSWamyAYwuHCo7IFAgd1oRpSP7nzL7BF5t7ItqpKViM
 
 这就是`签名`。最后将这一部分签名也拼接在被签名的字符串后面，我们就得到了完整的JWT，形如：
 
-![](/images/posts/20180503011703499.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180503011703499.png)
 
 我们就可以将这个传递给客户端了。
 
@@ -480,13 +479,13 @@ public class Application {
 是不是很简单，让我们运行下程序：
 
 （1）当我们未携带或携带错误的 `jwt token` 访问 `/api/test` 时，抛出异常：
-![未携带JWT](/images/posts/20180504004546403.png)
+![未携带JWT](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180504004546403.png)
 
 （2）当我们成功登录后，返回 `jwt token`：
-![登陆成功](/images/posts/20180504005420850.png)
+![登陆成功](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180504005420850.png)
 
 （3）重新访问 `jwt token`，并在请求头中携带 `jwt token`：
-![携带JWT](/images/posts/2018050400545552.png)
+![携带JWT](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018050400545552.png)
 
 ### 7.2 与 Spring Security 结合
 
@@ -1067,14 +1066,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 下面来验证下，运行程序。
 
 在未登录情况下，是无法访问 api 资源的：
-![未登录](/images/posts/2018050922062413.png)
+![未登录](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018050922062413.png)
 
-![未登录](/images/posts/20180509220629367.png)
+![未登录](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180509220629367.png)
 
 我们使用一个角色为 ROLE_USER 的用户登录，登录成功后会返回一个token，在响应头：
-![登录成功](/images/posts/20180509220921978.png)
+![登录成功](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180509220921978.png)
 
 下面带着这个 token 再次访问 api 资源：
-![携带JWT](/images/posts/20180509221133208.png)
+![携带JWT](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180509221133208.png)
 
-![携带JWT](/images/posts/20180509221141478.png)
+![携带JWT](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180509221141478.png)

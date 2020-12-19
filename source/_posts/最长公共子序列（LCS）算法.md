@@ -4,7 +4,6 @@ tags: LCS
 categories:
   - 算法与数据结构
   - 算法
-typora-root-url: ..
 abbrlink: 38f549b
 date: 2018-03-28 01:33:50
 copyright_author: Jitwxs
@@ -65,7 +64,7 @@ void init_array(char *str1, char *str2) {
 
 - 如果`str1[i-1] != str[j-1]`，则比较`L[i,j-1]`与`L[i-1,j]`，`L[i,j-1]`大，则`j--`，否则`i--`；（**如果相等，则任选一个**）
 
-![LCS](/images/posts/20171113204141802.png)
+![LCS](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171113204141802.png)
 
 ```c
 void parser(char *str1, char *str2, char *res) {

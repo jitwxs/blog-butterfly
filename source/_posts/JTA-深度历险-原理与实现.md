@@ -1,6 +1,5 @@
 ---
 title: JTA 深度历险 - 原理与实现
-typora-root-url: ..
 categories: Java Web
 tags: 事务
 abbrlink: cb257e6d
@@ -136,7 +135,7 @@ public void transferAccount() {
 
 以数据库为例，IBM 公司提供了实现分布式事务的数据库驱动程序，Oracle 也提供了实现分布式事务的数据库驱动程序， 在同时使用 DB2 和 Oracle 两种数据库连接时， JTA 即可以根据约定的接口协调者两种事务资源从而实现分布式事务。正是基于统一规范的不同实现使得 JTA 可以协调与控制不同数据库或者 JMS 厂商的事务资源，其架构如下图所示：
 
-![JTA 体系架构](/images/posts/20190526170534.jpg)
+![JTA 体系架构](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190526170534.jpg)
 
 开发人员使用开发人员接口，实现应用程序对全局事务的支持；各提供商（数据库，JMS 等）依据提供商接口的规范提供事务资源管理功能；事务管理器（ TransactionManager ）将应用对分布式事务的使用映射到实际的事务资源并在事务资源间进行协调与控制。 
 
@@ -184,7 +183,7 @@ TransactionManager 本身并不承担实际的事务处理功能，它更多的�
 
 下面将通过具体的代码向读者介绍 JTA 实现原理。下图列出了示例实现中涉及到的 Java 类，其中 UserTransactionImpl 实现了 UserTransaction 接口，TransactionManagerImpl 实现了 TransactionManager 接口，TransactionImpl 实现了 Transaction 接口。
 
-![JTA 实现类图](/images/posts/20190526213037.jpg)
+![JTA 实现类图](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190526213037.jpg)
 
 ```java 开始事务 - UserTransactionImpl implenments UserTransaction
 public void begin() throws NotSupportedException, SystemException { 
@@ -291,7 +290,7 @@ public void transferAccount() {
 
 我们可以把 XAConnection 理解为普通的数据库连接，它支持所有 JDBC 规范的数据库操作，不同之处在于 XAConnection 增加了对分布式事务的支持。通过下面的类图读者可以对这几个接口的关系有所了解：
 
-![事务资源类图](/images/posts/20190526214156.jpg)
+![事务资源类图](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190526214156.jpg)
 
 应用程序从支持分布式事务的数据源获得的数据库连接是 XAConnection 接口的实现，而由此数据库连接创建的会话（Statement）也为了支持分布式事务而增加了功能，如下代码所示：
 

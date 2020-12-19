@@ -1,6 +1,5 @@
 ---
 title: Java 设计模式——工厂模式
-typora-root-url: ..
 categories: 
   - Java
   - 设计模式

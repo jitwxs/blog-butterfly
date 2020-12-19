@@ -1,6 +1,5 @@
 ---
 title: 详解 Cron 表达式
-typora-root-url: ..
 categories: 综合
 tags: Cron
 abbrlink: 482391a0

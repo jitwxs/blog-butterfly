@@ -4,7 +4,6 @@ tags: Dijkstra
 categories:
   - 算法与数据结构
   - 算法
-typora-root-url: ..
 abbrlink: 40493b95
 date: 2018-03-28 01:30:00
 copyright_author: Jitwxs
@@ -38,9 +37,9 @@ copyright_author: Jitwxs
 
 求v0到其它各点的最短路径：
 
-![Dijkstra题目](/images/posts/20170924022726419.png)
+![Dijkstra题目](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170924022726419.png)
 
-![Dijkstra答案](/images/posts/20170924022801653.png)
+![Dijkstra答案](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170924022801653.png)
 
 > 答：最短路径为（V0,V2,V4,V3,V5）
 
@@ -187,7 +186,7 @@ int main(void)
 
 **图如下**
 
-![](/images/posts/20170606212248641.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170606212248641.png)
 
 **运行结果**
-![](/images/posts/20170606220125628.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170606220125628.png)

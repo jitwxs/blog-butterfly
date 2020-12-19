@@ -1,6 +1,5 @@
 ---
 title: Git 多用户配置
-typora-root-url: ..
 categories:
   - 开发工具
   - Git

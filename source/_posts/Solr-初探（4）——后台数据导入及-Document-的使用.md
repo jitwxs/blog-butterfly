@@ -3,7 +3,6 @@ title: Solr 初探（4）——后台数据导入及 Document 的使用
 categories:
   - 搜索引擎
   - Solr
-typora-root-url: ..
 abbrlink: 7aa79ad1
 date: 2018-04-10 19:14:28
 copyright_author: Jitwxs
@@ -11,7 +10,7 @@ copyright_author: Jitwxs
 
 进入Solr后台页面，选择一个核，点击 `Documents`，进入 `Document` 管理标签：
 
-![](/images/posts/20180410164320462.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410164320462.png)
 
 ## 一、添加 Document
 
@@ -26,7 +25,7 @@ copyright_author: Jitwxs
 
 在查询页中点击 `Execute Query` 进行查询，就能看见我们添加的这个 `Doucment` 了：
 
-![](/images/posts/20180410164729758.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410164729758.png)
 
 ## 二、更新 Document
 
@@ -114,7 +113,7 @@ copyright_author: Jitwxs
 
 在 `core1` 的目录下新建 `lib` 文件夹（如果有，无需建立），从 Solr 源码包的 dist 文件夹中导入两个 `solr-dataimporthandler` 包，以及一个 `mysql` 驱动包。
 
-![](/images/posts/20180410175217215.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410175217215.png)
 
 **Step2：** 创建导入数据的 Handler
 
@@ -128,13 +127,13 @@ copyright_author: Jitwxs
 </requestHandler>
 ```
 
-![](/images/posts/20180410182810703.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410182810703.png)
 
 **Step3：** 配置 data-config.xml
 
 我们刚刚在 `requestHander` 中指定了我们数据导入的配置文件，因此我们在 `solrconfig.xml` 的同级目录下，即 `core1/conf` 目录下新建 `data-config.xml` 文件：
 
-![](/images/posts/20180410183100909.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410183100909.png)
 
 编辑文件内容：
 
@@ -174,13 +173,13 @@ copyright_author: Jitwxs
 
 （2）创建了 `item_keywords` 域，将 `item_title`、`item_sell_point` 拷贝到 `item_keywords` 中，便于搜索。（因为需求是从商品标题或商品卖点中查找）
 
-![](/images/posts/20180410183707457.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410183707457.png)
 
 **Step5：** 重启服务
 
 重启服务，选择 `core1` 的 `Dataimport` 标签页，此时右边就已经有内容了。
 
-![](/images/posts/20180410184041506.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410184041506.png)
 
 解释：
 
@@ -198,14 +197,14 @@ copyright_author: Jitwxs
 
 当我们点击 Execute 按钮后，过一会右边会提示索引创建成功，如下所示：
 
-![](/images/posts/20180410184054353.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410184054353.png)
 
 点击 `Query` 标签页，查询后可以看到数据已经被导入了：
 
-![](/images/posts/20180410184106342.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410184106342.png)
 
 ## 五、查询 Document
 
 之前一直是用 `*.*` 查询所有，下面详细介绍下查询：
 
-![](/images/posts/20180410191304255.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410191304255.png)

@@ -1,6 +1,5 @@
 ---
 title: Linux 配置多个 Tomcat
-typora-root-url: ..
 categories: 服务器
 tags: Tomcat
 abbrlink: 13892bf0
@@ -62,11 +61,11 @@ games  lib           redis  src    tomcat8-wxs
 wxs@ubuntu:/usr/local$ sudo vim tomcat8-jit/conf/server.xml 
 ```
 
-![](/images/posts/20180325235811354.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180325235811354.png)
 
-![](/images/posts/20180325235819267.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180325235819267.png)
 
-![](/images/posts/20180325235826575.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180325235826575.png)
 
 （2）对于 tomcat8-wxs：
 
@@ -74,11 +73,11 @@ wxs@ubuntu:/usr/local$ sudo vim tomcat8-jit/conf/server.xml
 wxs@ubuntu:/usr/local$ sudo vim tomcat8-wxs/conf/server.xml
 ```
 
-![](/images/posts/20180326000010454.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180326000010454.png)
 
-![](/images/posts/20180326000017770.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180326000017770.png)
 
-![](/images/posts/20180326000024487.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180326000024487.png)
 
 ## 二、修改启动文件
 
@@ -98,7 +97,7 @@ export CATALINA_WXS_HOME=/usr/local/tomcat8-wxs
 export TOMCAT_WXS_HOME=/usr/local/tomcat8-wxs
 ```
 
-![](/images/posts/20180326011722230.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180326011722230.png)
 
 修改每个 tomcat 下的 `bin/catalina.sh` 文件，找到下面代码：
 
@@ -116,7 +115,7 @@ export CATALINA_BASE=$CATALINA_JIT_BASE
 export CATALINA_HOME=$CATALINA_JIT_HOME
 ```
 
-![](/images/posts/2018032601213778.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018032601213778.png)
 
 （2）对于 tomcat8-wxs：
 
@@ -126,7 +125,7 @@ export CATALINA_BASE=$CATALINA_WXS_BASE
 export CATALINA_HOME=$CATALINA_WXS_HOME
 ```
 
-![](/images/posts/20180326012148923.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180326012148923.png)
 
 ## 三、测试
 
@@ -137,10 +136,10 @@ wxs@ubuntu:/usr/local$ sudo vim tomcat8-jit/webapps/ROOT/index.jsp
 wxs@ubuntu:/usr/local$ sudo vim tomcat8-wxs/webapps/ROOT/index.jsp 
 ```
 
-![](/images/posts/20180326003422116.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180326003422116.png)
 
-![](/images/posts/20180326000348638.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180326000348638.png)
 
 我的服务器IP是 `192.168.30.149` ，分别访问 `192.168.30.149:8090` 和 `192.168.30.149:8091` :
 
-![](/images/posts/201803260122316.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803260122316.png)

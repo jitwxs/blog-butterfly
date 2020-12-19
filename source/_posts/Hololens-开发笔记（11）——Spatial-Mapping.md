@@ -1,6 +1,5 @@
 ---
 title: HoloLens 开发笔记（11）——Spatial Mapping
-typora-root-url: ..
 categories: HoloLens
 abbrlink: fd886217
 date: 2019-01-25 17:40:36
@@ -20,11 +19,11 @@ HoloLens 作为一款混合现实设备，其与传统 VR/AR 设备最大的区�
 5. 创建一个空 GameObject，名为 `Manager`，为其添加子 gameObject： `InputManager`
 6. 设置 InputManager 的 `SimpleSinglePointerSelector` 脚本的 Cursor 属性为添加的 CursorWithFeedback
 7. 添加一个 Cube，位置如下
-![](/images/posts/20181218201741787.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218201741787.png)
 
 最终 Hierarchy 结构如下：
 
-![](/images/posts/20181219161856957.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181219161856957.png)
 
 ## 一、Spatial Mapping
 
@@ -32,11 +31,11 @@ HoloLens 作为一款混合现实设备，其与传统 VR/AR 设备最大的区�
 
 修改 Spatial Mapping Manager 的 `Surface Material` 属性值为 MRTK 包中的 `SpatialUnderstandingSurface`，其他参数使用默认值即可，该属性为空间扫描时所使用的材质。
 
-![](/images/posts/20181219163624113.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181219163624113.png)
 
 （2）在 Manager 下新建一个 GameObject，名为 `SpatialProcessing`。
 
-![](/images/posts/20181219163748595.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181219163748595.png)
 
 （3）为 SpatialProcessing 添加以下两个 MRTK 包中的脚本：
 
@@ -193,7 +192,7 @@ namespace HoloToolkit.Unity.SpatialMapping.Tests
 }
 ```
 
-![](/images/posts/20181219163851771.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181219163851771.png)
 
 - `Surface Meshes To Planes` 脚本能够**将扫描的网格转换为实体**。
   - **Draw Planes** 为需要转换的类型。
@@ -208,19 +207,19 @@ namespace HoloToolkit.Unity.SpatialMapping.Tests
 
 （5）为 Cube 添加 MRTK 包下的 `TapToPlace.cs` 脚本。
 
-![](/images/posts/20181219165758785.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181219165758785.png)
 
 （6）使用真机运行程序，不要忘记添加 `SpatialPerception` 权限：
 
-![](/images/posts/20181219163517509.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181219163517509.png)
 
 程序启动后，会先扫描空间信息：
 
-![](/images/posts/20181219170922809.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181219170922809.png)
 
 当扫描结束后，我们就可以把 Cube 放在实际的物体上，比如墙壁上：
 
-![](/images/posts/20181219171009803.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181219171009803.png)
 
 ## 二、Spatial UnderStanding
 
@@ -232,21 +231,21 @@ HoloLens 为我们提供了 `Spatial UnderStanding` 的功能，能够让 HoloLe
 
 MRTK 工具包为我们提供了 `SpatialUnderstanding`，直接将其拖入 Manager 下即可。
 
-![](/images/posts/20181219171936148.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181219171936148.png)
 
 重新运行程序，我们发现是在实时扫描的，扫描到的部分被蓝色网格所覆盖。
 
-![](/images/posts/20181219172601972.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181219172601972.png)
 
 查看下开启 SpatialUnderstanding 的 CPU 使用情况：
 
-![](/images/posts/20181219172628898.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181219172628898.png)
 
 ## 三、Anchor
 
 如果我们查看 Cube 上的 `TapToPlace` 脚本的源码的话，我们会发现它内部调用了 WorldAnchorManager 来实现锚点的管理。
 
-![](/images/posts/20181219172808951.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181219172808951.png)
 
 因此理论上我们给任一 GameObject 添加上 `WorldAnchorManager` 脚本，就能够实现锚点管理。但是遗憾的是，不知道是不是我打开姿势不对，还是什么原因，即时添加了 `WorldAnchorManager` 脚本，仍然无法实现锚点的效果，有实现的小伙伴可以留言告诉我下。
 
@@ -553,4 +552,4 @@ namespace HoloToolkit.Unity.SpatialMapping
 
 >PS：注意去除 `is Being Placed` 选项，不然程序每次启动 Cube 都会处于可移动状态。
 
-![](/images/posts/20181219174316587.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181219174316587.png)

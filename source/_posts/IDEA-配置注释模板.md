@@ -1,6 +1,5 @@
 ---
 title: IDEA 配置注释模板
-typora-root-url: ..
 categories:
   - 开发工具
   - IDEA
@@ -21,7 +20,7 @@ copyright_author: Jitwxs
  */
 ```
 
-![](/images/posts/20190123201211263.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190123201211263.png)
 
 在我提供的示例模板中，说明了作者和时间，IDEA 支持的所有的模板参数在下方的 `Description` 中被列出来。
 
@@ -38,19 +37,19 @@ copyright_author: Jitwxs
 
 点击最右边的 `+`，首先选择 `2. Template Group...` 来创建一个模板分组：
 
-![](/images/posts/20190123201855342.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190123201855342.png)
 
 在弹出的对话框中填写分组名，我这里叫做 userDefine：
 
-![创建模板分组](/images/posts/20190123202104218.png)
+![创建模板分组](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190123202104218.png)
 
 然后选中刚刚创建的模板分组 `userDefine`，然后点击 `+`，选择 `1. Live Template`：
 
-![创建模板](/images/posts/20190123202225989.png)
+![创建模板](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190123202225989.png)
 
 此时就会创建了一个空的模板，我们修改该模板的 `Abbreviation`、`Description` 和 `Template text`。需要注意的是，`Abbreviation` 必须为 `*`，最后检查下 `Expand with` 的值是否为 <kbd>Enter</kbd> 键。
 
-![](/images/posts/20190729235756426.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190729235756426.png)
 
 上图中· `Template text` 内容如下，请直接复制进去，**需要注意首行没有 `/`，且 `*` 是顶格的**。
 
@@ -64,19 +63,19 @@ copyright_author: Jitwxs
 
 注意到右下角的 `No applicable contexts yet` 了吗，这说明此时这个模板还没有指定应用的语言：
 
-![No applicable contexts yet](/images/posts/20190730000025806.png)
+![No applicable contexts yet](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190730000025806.png)
 
 点击 `Define`，在弹框中勾选`Java`，表示将该模板应用于所有的 Java 类型文件。
 
-![设置 applicable contexts](/images/posts/20190730000437518.png)
+![设置 applicable contexts](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190730000437518.png)
 
 还记得我们配置 `Template text` 时里面包含了类似于 `$date$` 这样的参数，此时 IDEA 还不认识这些参数是啥玩意，下面我们对这些参数进行方法映射，让 IDEA 能够明白这些参数的含义。点击 `Edit variables` 按钮：
 
-![](/images/posts/20190730000545850.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190730000545850.png)
 
 为每一个参数设置相对应的 `Expression`：
 
-![设置 Expression](/images/posts/20190730000854659.png)
+![设置 Expression](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190730000854659.png)
 
 需要注意的是，`date` 和 `time` 的 `Expression` 使用的是 IDEA 内置的函数，直接使用下拉框选择就可以了，而 `param` 这个参数 IDEA 默认的实现很差，因此我们需要手动实现，代码如下：
 
@@ -100,7 +99,7 @@ groovyScript("return \"${_1}\" == 'void' ? null : '\\r\\n * @return ' + \"${_1}\
 
 类注释只有在**新建类时才会自动生成**，效果如下：
 
-![类注释](/images/posts/20190730001256977.png)
+![类注释](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190730001256977.png)
 
 ### 3.2 方法注释
 
@@ -112,7 +111,7 @@ groovyScript("return \"${_1}\" == 'void' ? null : '\\r\\n * @return ' + \"${_1}\
 4. 无返回值
 5. 有返回值
 
-![方法注释](/images/posts/20190730001836247.png)
+![方法注释](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190730001836247.png)
 
 ## 四、Q & A
 

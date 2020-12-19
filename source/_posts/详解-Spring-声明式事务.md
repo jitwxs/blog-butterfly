@@ -1,6 +1,5 @@
 ---
 title: 详解 Spring 声明式事务
-typora-root-url: ..
 categories: Java Web
 tags: 事务
 abbrlink: a6bbd9cb
@@ -99,7 +98,7 @@ public interface TransactionStatus{
 
 ### 2.3 事务接口联系
 
-![Spring 事务接口](/images/posts/20160324011156424.png)
+![Spring 事务接口](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20160324011156424.png)
 
 ## 三、事务属性
 
@@ -218,11 +217,11 @@ ServiceA {
 
 进入 AbstractPlatformTransactionManager 的 `handleExistingTransaction()` 方法中，当我们的传播行为是 PROPAGATION_NESTED 时，先判断 `nestedTransactionAllowed` 是否为 true，根据下图可以看到该值默认为 false。不用担心的是在初始化 `DataSourceTransactionManager` 时，该值就被初始化为 true。
 
-![AbstractPlatformTransactionManager#handleExistingTransaction](/images/posts/20190526155211.png)
+![AbstractPlatformTransactionManager#handleExistingTransaction](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190526155211.png)
 
 接着流程走，`useSavepointForNestedTransaction()` 的值永远为 true，因此进入 if 语句，`status.createAndHoldSavepoint()` 创建了一个 `savepoint`，下面追踪下创建的条件，如下图所示。
 
-![JdbcTransactionObjectSupport#createSavepoint](/images/posts/20190526160829.png)
+![JdbcTransactionObjectSupport#createSavepoint](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190526160829.png)
 
 `createAndHoldSavepoint()` 方法内部通过调用 `getSavepointManager().createSavepoint()` 来创建一个 savepoint，进入 `createSavepoint` 方法，发现这是一个接口，因为我使用的是 `DataSourceTransactionManager` ，所以选择 `JdbcTransactionObjectSupport` 实现类。
 
@@ -262,7 +261,7 @@ ServiceA {
 
 在 MySQL 中，如果事务声明为只读，却在其中做修改操作，会抛出异常。
 
-![Read Only Transactional](/images/posts/20190520160936.png)
+![Read Only Transactional](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190520160936.png)
 
 ## 四、注意点
 
@@ -270,7 +269,7 @@ ServiceA {
 
 只有 `@Transactional` 注解应用到 public 方法上才能进行事务管理。这是因为 Spring 在 AOP 事务注解时，在读取注解上的属性方法中，会优先判断方法是否是 public，如果不是 public，就不会读取事务配置信息。
 
-![AbstractFallbackTransactionAttributeSource#computeTransactionAttribute](/images/posts/20190520164135.png)
+![AbstractFallbackTransactionAttributeSource#computeTransactionAttribute](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190520164135.png)
 
 ### 4.2 AOP 的自调用问题
 

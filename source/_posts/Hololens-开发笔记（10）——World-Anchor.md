@@ -1,6 +1,5 @@
 ---
 title: HoloLens 开发笔记（10）——World Anchor
-typora-root-url: ..
 categories: HoloLens
 abbrlink: c957c529
 date: 2018-12-16 13:06:18
@@ -173,11 +172,11 @@ void Anchor_OnTrackingChanged(WorldAnchor self, bool located) {
 2. 添加 HoloToolkit / Input / Prefabs / Cursor / CursorWithFeedback
 3. 添加 HoloToolkit / Input / Prefabs / InputManager，设置其 Simple Single Pointer Selector 的 Cursor 为上一步的 Cursor。
 
-![](/images/posts/20181204145735150.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181204145735150.png)
 
 4. 添加一个 Cube，它的 Position 为 (X:0, Y:0, Z:4), Scale 为 (X:0.25, Y:0.25, Z:0.25)
 
-![](/images/posts/20181204145754692.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181204145754692.png)
 
 5. 编写脚本 CubeCommand 并将其添加到 Cube 上。
 
@@ -276,11 +275,11 @@ public class CubeCommand : MonoBehaviour, IInputClickHandler {
 
 初始位置位于靠近屋顶：
 
-![](/images/posts/20181204145857992.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181204145857992.png)
 
 通过点击事件，将其拖拽到地上：
 
-![](/images/posts/20181204145907467.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181204145907467.png)
 
 关闭程序，重新打开后，物体仍然停留在地上。
 

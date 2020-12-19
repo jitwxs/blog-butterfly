@@ -1,6 +1,5 @@
 ---
 title: SpringBoot @Value 解析集合配置
-typora-root-url: ..
 tags: '@Value'
 categories:
   - Java Web
@@ -150,7 +149,7 @@ private List<String> testList;
 
 但是这样有个问题，当不配置该 key 值，默认值会为空串，它的 length = 1（不同于数组，length = 0），这样解析出来 list 的元素个数就不是空了。
 
-![](/images/posts/20200626125526383.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200626125526383.png)
 
 这个问题比较严重，因为它会导致代码中的判空逻辑执行错误。这个问题也是可以解决的，在 `split()` 之前判断下是否为空即可。
 
