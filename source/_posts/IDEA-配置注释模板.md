@@ -76,7 +76,7 @@ copyright_author: Jitwxs
 
 为每一个参数设置相对应的 `Expression`：
 
-![设置 Expression](https://img-blog.csdnimg.cn/20190730000854659.png)
+![设置 Expression](/images/posts/20190730000854659.png)
 
 需要注意的是，`date` 和 `time` 的 `Expression` 使用的是 IDEA 内置的函数，直接使用下拉框选择就可以了，而 `param` 这个参数 IDEA 默认的实现很差，因此我们需要手动实现，代码如下：
 
@@ -100,7 +100,7 @@ groovyScript("return \"${_1}\" == 'void' ? null : '\\r\\n * @return ' + \"${_1}\
 
 类注释只有在**新建类时才会自动生成**，效果如下：
 
-![类注释](https://img-blog.csdnimg.cn/20190730001256977.png)
+![类注释](/images/posts/20190730001256977.png)
 
 ### 3.2 方法注释
 
@@ -112,13 +112,13 @@ groovyScript("return \"${_1}\" == 'void' ? null : '\\r\\n * @return ' + \"${_1}\
 4. 无返回值
 5. 有返回值
 
-![方法注释](https://img-blog.csdnimg.cn/20190730001836247.png)
+![方法注释](/images/posts/20190730001836247.png)
 
 ## 四、Q & A
 
 **（1）为什么模板的 `Abbreviation` 一定要叫 `*` ？`Expand with` 要保证是  <kbd>Enter</kbd>  键？**
 
-答：因为 IDEA 模板的生成逻辑是 $模板名 + 生成键$，当生成键是 <kbd>Enter</kbd> 时，我们输入 `* + Enter` 就能够触发模板。
+答：因为 IDEA 模板的生成逻辑是 `模板名 + 生成键`，当生成键是 <kbd>Enter</kbd> 时，我们输入 `* + Enter` 就能够触发模板。
 
 这也同时说明了为什么注释模板首行是一个 `*` 了，因为当我们先输入 `/*`，然后输入 `* + Enter`，触发模板，首行正好拼成了 `/**`，符合 Javadoc 的规范。
 
