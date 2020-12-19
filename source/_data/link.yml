@@ -54,18 +54,22 @@
       avatar: https://cdn.uiharu.top/blog/home/img/avatar.png
       descr: 生命洋溢亦无凭无记
 
-- class_name: 网站
-  class_desc: 值得推荐的网站
+- class_name: 特别鸣谢
+  class_desc: 
   link_list:
-    - name: Youtube
-      link: https://www.youtube.com/
-      avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
-      descr: 视频网站
-    - name: Weibo
-      link: https://www.weibo.com/
-      avatar: https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png
-      descr: 中国最大社交分享平台
-    - name: Twitter
-      link: https://twitter.com/
-      avatar: https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png
-      descr: 社交分享平台
+    - name: Hexo
+      link: https://hexo.io/
+      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+      descr: 博客框架
+    - name: Bufferfly Theme
+      link: https://butterfly.js.org/
+      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+      descr: 博客主题
+    - name: Jsdelivr
+      link: https://www.jsdelivr.com
+      avatar: https://cdn.jsdelivr.net/gh/jsdelivr/jsdelivr-media/default/svg/jsdelivr-icon.svg
+      descr: 站点 CDN
+    - name: GitHub
+      link: https://github.com/
+      avatar: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+      descr: 私有存储与评论服务
