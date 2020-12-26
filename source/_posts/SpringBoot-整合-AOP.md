@@ -107,7 +107,7 @@ public void delete() {
 |返回通知 After (finally) advice|在连接点执行完成后执行，不管是正常执行完成，还是抛出异常，都会执行返回通知中的内容|
 |环绕通知 Around advice|环绕着在切入点选择的连接点处的方法所执行的通知，环绕通知可以在方法调用之前和之后自定义任何行为，并且可以决定是否执行连接点处的方法、替换返回值、抛出异常等等。|
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181206165911529.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181206165911529.png)
 
 ### 2.3 底层实现
 
@@ -316,11 +316,11 @@ public class TestAspect {
 
 当我们执行 "/delete" 接口时，访问 `/delete?name=jitwxs`，运行结果如下：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181206180112369.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181206180112369.png)
 
 当我们执行 "/exception" 接口时，访问 `/exception`，运行结果如下：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181206181304976.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181206181304976.png)
 
 ### 3.3 资源同步
 

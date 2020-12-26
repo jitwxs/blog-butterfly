@@ -109,9 +109,9 @@ GET user/novel/_search
 curl 'localhost:9200/user/novel/_search' -d '{"query":{"match":{"name":"jitwxs"}}}'
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018100818415238.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/2018100818415238.png)
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018100818431118.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/2018100818431118.png)
 
 ### 1.3 多条件查询
 
@@ -190,11 +190,11 @@ from表示分页开始的条数（从0开始），size表示你要查询的数�
 
 默认的分词器对中文很差，这里还是使用我们的老朋友——IK分词器，到[elasticsearch-analysis-ik](https://github.com/medcl/elasticsearch-analysis-ik)下载与版本对应的IK分词器。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008190944524.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008190944524.png)
 
 解压并将将文件复制到Elasticsearch的安装目录`/plugin/ik`下面即可，完成之后效果如下：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008191123447.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008191123447.png)
 
 重新启动Elasticsearch服务。
 

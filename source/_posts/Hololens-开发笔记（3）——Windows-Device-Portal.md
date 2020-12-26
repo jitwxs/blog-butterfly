@@ -72,7 +72,7 @@ Windows设备控制台允许你通过 Wi-Fi 或 USB 来远程控制你的 HoloLe
 
 ## 七、设备控制台页面
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181222105548198.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181222105548198.png)
 
 设备管理会话起始于首页。从左边导航栏点击Home即可进入首页。
 
@@ -112,7 +112,7 @@ Windows设备控制台允许你通过 Wi-Fi 或 USB 来远程控制你的 HoloLe
 
 ### 7.2 混合现实捕获
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181222110222976.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181222110222976.png)
 
 使用[混合现实捕获](https://developer.microsoft.com/zh-cn/windows/holographic/using_mixed_reality_capture)可以保存来自 HoloLens 设备的媒体流。
 
@@ -130,7 +130,7 @@ Windows设备控制台允许你通过 Wi-Fi 或 USB 来远程控制你的 HoloLe
 
 ### 7.3 性能追踪
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181222110339519.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181222110339519.png)
 
 用于从 HoloLens 捕获 Windows 性能记录器（WPR）追踪内容
 
@@ -141,13 +141,13 @@ Windows设备控制台允许你通过 Wi-Fi 或 USB 来远程控制你的 HoloLe
 
 ### 7.4 进程
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181222110435604.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181222110435604.png)
 
 显示当前运行进程的细节。包括了所有系统和应用进程。
 
 ### 7.5 系统性能
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181222110516658.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181222110516658.png)
 
 显示系统实时诊断图形信息，例如使用电量、帧速和 CPU 负载。
 
@@ -163,7 +163,7 @@ Windows设备控制台允许你通过 Wi-Fi 或 USB 来远程控制你的 HoloLe
 
 ### 7.6 应用
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181222110633929.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181222110633929.png)
 
 管理安装在 HoloLens 上的应用。
 
@@ -175,13 +175,13 @@ Windows设备控制台允许你通过 Wi-Fi 或 USB 来远程控制你的 HoloLe
 
 ### 7.7 应用崩溃纪录页面 
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018122211081481.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/2018122211081481.png)
 
 这个页面允许你收集旁加载应用的崩溃日志。为每一个你想收集崩溃日志的应用选中 Crash Dump，然后返回此页面收集崩溃日志。dump 文件可以使用 Visual Studio 打开来 [调试](https://msdn.microsoft.com/en-us/library/d5zhxt22.aspx)。
 
 ### 7.8 文件浏览器
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181222110909672.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181222110909672.png)
 
 使用文件资源管理器浏览、上传和下载文件。您可以在 Documents 文件夹、Pictures 文件夹和本地存储文件夹中处理从 Visual Studio 或设备门户部署的应用程序的文件。
 
@@ -195,7 +195,7 @@ Windows设备控制台允许你通过 Wi-Fi 或 USB 来远程控制你的 HoloLe
 
 ### 7.10 日志
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018122211094710.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/2018122211094710.png)
 
 管理HoloLens上的Windows实时事件追踪（ETW）。
 
@@ -218,7 +218,7 @@ Windows设备控制台允许你通过 Wi-Fi 或 USB 来远程控制你的 HoloLe
 
 ###  7.11 仿真
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181222111137751.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181222111137751.png)
 
 允许你纪录和回放用于测试的输入数据。
 
@@ -229,13 +229,13 @@ Windows设备控制台允许你通过 Wi-Fi 或 USB 来远程控制你的 HoloLe
 
 ### 7.12 网络
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812221112573.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/201812221112573.png)
 
 管理 HoloLens 上的 Wi-Fi 连接。
 
 ### 7.13 虚拟输入
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181222111408270.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181222111408270.png)
 
 从远程机器发送键盘输入到 HoloLens 上。
 

@@ -50,19 +50,19 @@ INSERT INTO course(name) VALUES ('music');
 
 **情况一：** session1 和 session2 都可以自由的SELECT mylock 表的内容。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190305220127729.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201903/20190305220127729.png)
 
 **情况二：** session1 不可以 SELECT 其他没有锁住的表，session2 可以。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190305220748269.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201903/20190305220748269.png)
 
 **情况三：** session1 无法对 mylock 表做 INSERT、UPDATE、DELETE 操作。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190305221118321.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201903/20190305221118321.png)
 
 **情况四：** session2 对 mylock 表做 INSERT、UPDATE、DELETE 操作，会阻塞，直到 session1 释放锁。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190305221310900.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201903/20190305221310900.png)
 
 上图中，首先在 session2 中执行 INSERT 语句，执行后发现被阻塞，然后再 session1 中通过 `unlock tables` 解锁，然后 session2 返回执行结果（通过 session2 的执行时间可以看出来）。
 
@@ -72,11 +72,11 @@ INSERT INTO course(name) VALUES ('music');
 
 **情况一：** session1 无法 SELECT 其他没有锁定的表，session2 可以。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190305221819183.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201903/20190305221819183.png)
 
 **情况二：** session1 可以 SELECT、 INSERT、UPDATE、DELETE mylock 表，session2 不可以，会阻塞，直到 sesson1 释放掉锁。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190305222247472.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201903/20190305222247472.png)
 
 ### 1.3 总结
 
@@ -147,17 +147,17 @@ INSERT INTO i_mylock(name) VALUES ('e');
 
 下面演示对 `id=1` 的行同时进行 UPDATE 操作。session1 首先开启事务，并对该行进行修改，在 session1 提交事务之前，session2 也对该行进行修改，但是因为存在行锁所以操作被**阻塞**掉。session1 提交事务后，session2 恢复执行。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190305230205949.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201903/20190305230205949.png)
 
 ### 2.2 锁住指定行
 
 默认情况下 SELECT 语句是不会触发行锁的，例如下图中 session1 开启事务后，session2 仍然能够查询到 session1 查询的同一行记录。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190305231058742.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201903/20190305231058742.png)
 
 如果我们想要实现锁住想要的行，可以通过给行锁加**意向排它锁**来实现，即 `SELECT ... FOR UPDATE`，如下图：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190305232530937.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201903/20190305232530937.png)
 
 ### 2.3 间隙锁
 
@@ -165,7 +165,7 @@ INSERT INTO i_mylock(name) VALUES ('e');
 
 下面演示一个间隙锁的例子，session1 中使用 IX 锁锁住了表中 id >=5 的记录，虽然影响条数只有一条，但是 InnoDB 却会对这个不存在的间隙加锁，加锁范围为 **(5, ∞]** ，因此当 session2 插入一条记录为 6 的数据会被阻塞。
 
-![间隙锁](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190305233414260.png)
+![间隙锁](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201903/20190305233414260.png)
 
 间隙锁的弱点是当锁定一个范围键值之后，即使某些不存在的键值也会被无辜的锁定，而造成在锁定的时候**无
 法插入/修改锁定键值范围内的任何数据**，在某些场景下这可能会对性能造成很大的危害，使用需要十分谨慎。
@@ -176,7 +176,7 @@ INSERT INTO i_mylock(name) VALUES ('e');
 
 至于什么情况下会导致索引失效，在本文开头的前导文章链接中已经叙述过了，就不再赘述了，下面直接给出行锁失效引发表锁的例子。
 
-![行锁失效](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190305234849764.png)
+![行锁失效](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201903/20190305234849764.png)
 
 ### 2.5 行锁分析
 

@@ -15,7 +15,7 @@ copyright_author: Jitwxs
 
 下面我使用[dubbo官网](http://dubbo.apache.org/)的一张图来介绍下`dubbo`（本人才开始学习，如有错误，欢迎指正）：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180322102544516.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180322102544516.png)
 
 - Registry：**注册中心**，相当于**房产中介**，服务提供者和使用者都需要在这里注册/使用服务，我使用 `zookeeper` 实现。
 
@@ -88,7 +88,7 @@ wxs@ubuntu:/usr/zookeeper-3.5.2-alpha/conf$ vim zoo.cfg
 
 配置下 `dataDir` 和 `dataLogDir` 的路径，为之前创建的两个文件夹的路径，`clientPort` 使用默认的 2181 端口即可：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018032209423299.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/2018032209423299.png)
 
 我使用的是单机模式，没有配集群，这样就可以了。进入到`bin`目录，启动服务即可：
 
@@ -129,7 +129,7 @@ Error: JAVA_HOME is not set and java could not be found in PATH.
 
 如果不在一台服务器上，将 war 包解压后，修改项目 `/WEF-INF/dubbo.properties`文件，将 zookeeper 地址改为其所在服务器的地址（这里同时能修改 root 用户和 guest 用户的密码）。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180322143242449.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180322143242449.png)
 
 ## 四、配置项目
 
@@ -373,24 +373,24 @@ Tomcat started.
 
 分别启动服务提供方的项目和服务使用方的项目：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018032211294940.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/2018032211294940.png)
 
 测试下 `/items/{id}` 这个API：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180322113130841.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180322113130841.png)
 
 成功！下面再访问下监控中心，因为监控中心和 `zookeeper` 在一台服务器上，我的 tomcat 部署在 8888 端口，即访问 `192.168.30.145:8080/dubbo-admin` 即可，用户名密码默认为 root：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180322142406319.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180322142406319.png)
 
 查看所有注册的服务：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180322142709390.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180322142709390.png)
 
 查看包括消费者和提供者的所有应用名：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180322142715245.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180322142715245.png)
 
 消费者、提供者详细信息：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180322142720610.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180322142720610.png)

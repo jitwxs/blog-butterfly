@@ -169,7 +169,7 @@ public class JdkProxyTest {
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180309094803849.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180309094803849.png)
 
 ##  三、Cglib 动态代理
 
@@ -238,7 +238,7 @@ public class CglibProxyTest {
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180309094803849.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180309094803849.png)
 
 ## 四、总结
 

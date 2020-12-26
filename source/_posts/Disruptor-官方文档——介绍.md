@@ -79,7 +79,7 @@ WaitStrategy 决定了消费者以何种方式等待生产者将 Event 放进 Di
 
 为了能够将这些概念关联起来，即放在一个上下文中表示，下图是个例子，展示 LMAX 在高性能的核心服务中使用 Disruptor 的场景。
 
-![Figure 1. Disruptor with a set of dependent consumers.](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191216221318838.png)
+![Figure 1. Disruptor with a set of dependent consumers.](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201912/20191216221318838.png)
 
 在该示例中为我们展示了一个多生产者多消费者的模型，生产者和消费者的交互核心为 RingBuffer 和 Sequencer。
 

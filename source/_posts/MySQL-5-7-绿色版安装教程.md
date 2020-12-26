@@ -59,7 +59,7 @@ mysqld --initialize --console
 
 （3）打开任务管理器->服务，启动 `MySQL` 服务：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171129012319909.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201711/20171129012319909.png)
 
 ## 四、完成安装
 

@@ -177,13 +177,13 @@ Disconnected from the target VM, address: '127.0.0.1:62588', transport: 'socket'
 
 对 `java.util.HashMap.KeySpliterator#forEachRemaining` 进行 Debug，如下图所示。此时 Set 的 `modCount` 已经更新到了 4（这是没问题的，因为线程 A 一直在添加，添加了 4 次），然而线程 B 的 `mc`仍然为开始 Stream 时的 1，因此抛出了异常。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200218005429917.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200218005429917.png)
 
 ## 三、源码查看
 
  `Collections.synchronizedSet` 创建了 `SynchronizedSet`对象，构造方法又调用了父类 `SynchronizedCollection`。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2020021800545017.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/2020021800545017.png)
 
 看到 `SynchronizedCollection` 后就一切都明白了。首先把当前对象作为同步对象，因此加了对象锁的方法都是线程安全的，没有加 `synchronized` 修饰的方法就都是非线程安全的，使用过程中必须手动加同步块：
 
@@ -192,6 +192,6 @@ Disconnected from the target VM, address: '127.0.0.1:62588', transport: 'socket'
 - `stream()`
 - `parallelStream()`
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200218005839899.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200218005839899.png)
 
 这边有一个有意思的地方，`forEach()`是线程安全，而 `itearator()` 不是线程安全，`stream().forEach()` 也不是线程安全的。不同的遍历方式线程安全与否也不一样，不太明白 JDK 是怎么考虑这样设计的。

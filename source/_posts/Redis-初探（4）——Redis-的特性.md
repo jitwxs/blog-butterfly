@@ -98,7 +98,7 @@ wxs@ubuntu:/usr/local/redis/src$ ./redis-cli
 127.0.0.1:6379> 
 ```
 此时在终端1中就接收到了消息：
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180303201616787.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180303201616787.png)
 
 我们也可以以一种正则的形式订阅多个频道，比如 cctv 下面有多个频道，例如 cctv-1、cctv-2 等等，我们只需订阅这个即可：
 

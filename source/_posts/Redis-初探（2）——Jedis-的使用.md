@@ -64,11 +64,11 @@ public class JedisTest {
 
 运行程序，如果你没有导入上面的 `hamcrest-all` 包的话，可能会出现这个错误：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180227204212520.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201802/20180227204212520.png)
 
 导入后，运行结果如下：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180227204332240.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201802/20180227204332240.png)
 
 很不幸，再次出现了错误，错误原因是说连接被拒绝，这是因为我们的 Redis 的配置文件中**默认只允许本机访问**，停 止Redis 服务，修改配置文件：
 
@@ -79,11 +79,11 @@ wxs@ubuntu:/usr/local/redis/src$ sudo vim ../redis.conf
 
 将配置文件中的 `bind` 参数修改为0.0.0.0，即所有主机都能访问：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180227211443295.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201802/20180227211443295.png)
 
 重新启动 Redis，并运行 Java 程序：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180227214326760.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201802/20180227214326760.png)
 
 我这里已经能够成功取出值了，如果这个时候你还是出现了错误，且错误信息是连接超时（connention timeout...）,可能是因为Linux主机**没有开放 Redis 的端口**，导致我们远程连接被拒绝。以 iptables 为例：
 
@@ -122,7 +122,7 @@ public void test2() {
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180227234859583.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201802/20180227234859583.png)
 
 ### 2.4 封装成工具类
 
@@ -215,4 +215,4 @@ public void test3() {
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180228001213330.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201802/20180228001213330.png)

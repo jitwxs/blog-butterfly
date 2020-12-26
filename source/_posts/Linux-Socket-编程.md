@@ -31,11 +31,11 @@ copyright_author: Jitwxs
 
 这个在网络中被唯一标识的进程，被称为`socket`。在网络通信中，套接字一定是**成对出现**的。这两个socket组成的`socket pair`就**唯一标识一个连接**。
 
-![socket通信原理](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171114161609619.png)
+![socket通信原理](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201711/20171114161609619.png)
 
 在TCP/IP模型中，套接字位于**应用层和传输层之间**：
 
-![socket位置](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171114161918044.png)
+![socket位置](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201711/20171114161918044.png)
 
 套接字一般分为以下三种类型：
 
@@ -54,7 +54,7 @@ copyright_author: Jitwxs
 
 我们知道，计算机在内存中存放数据有`小端字节序（Little-Endian）`和`大端字节序（Big-Endian）`两种方法。举个简单的例子，对于整型数据`0x12345678`，有以下两种存放形式：
 
-![小端法和大端法](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171114163224086.png)
+![小端法和大端法](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201711/20171114163224086.png)
 
 TCP/IP协议规定了，**网络数据应采用大端字节序**。
 
@@ -138,7 +138,7 @@ char *inet_ntoa(struct in_addr in);
 
 - `struct sockaddr_un`
 
-![sockaddr](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171114172748320.png)
+![sockaddr](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201711/20171114172748320.png)
 
 为了不改变那些使用`struct sockaddr`作为参数的函数（例如bind、accpet、connect），`struct sockaddr`退化成了**泛型**（和 void * 作用相似）。
 
@@ -181,9 +181,9 @@ struct in_addr {
 
 ### 2.5 TCP与UDP运行流程
 
-![TCP](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171114200747792.png)
+![TCP](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201711/20171114200747792.png)
 
-![UDP](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171114200805172.png)
+![UDP](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201711/20171114200805172.png)
 
 ## 三、相关函数
 

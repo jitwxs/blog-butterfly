@@ -36,7 +36,7 @@ Blocks per group:         32768
 
 ext2文件系统将整个分区划成若干个同样大小的**块组（Block Group）**，如下图所示：
 
-![ext2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171106231849242.png)
+![ext2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201711/20171106231849242.png)
 
 ### 1.2 详细描述
 

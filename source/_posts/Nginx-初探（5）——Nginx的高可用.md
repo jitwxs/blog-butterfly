@@ -24,7 +24,7 @@ copyright_author: Jitwxs
  2. 当从服务器没有收到主服务器返回的心跳包时，`keepalived` 就认为主服务器**宕机**了，它会**将 VIP 切换到从服务器**，由从服务器提供服务。
  3. 当运维人员修复好主服务器后，`keepalived`会将 VIP 切换回主服务器，从服务器不再处理请求，只给主服务器发送心跳包。
 
-![keepalived width=70%](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180327002757478.png)
+![keepalived width=70%](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180327002757478.png)
 
 ## 三、解决超大并发
 

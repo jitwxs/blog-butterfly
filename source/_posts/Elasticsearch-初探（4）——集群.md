@@ -64,11 +64,11 @@ node.data = false
 
 拓扑图一是一个简单的集群部署，适用于数据量较小的场景。集群中有三个节点，三个都是候选主节点，因此我们可以设置最少可工作候选主节点个数为2。节点1和2同时作为数据节点，两个节点的数据相互备份。
 
-![拓扑图1](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181009094114144.png)
+![拓扑图1](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181009094114144.png)
 
 这样的部署结构在扩展过程中，通常是先根据需要逐步加入专用的数据节点，最后考虑将数据节点和候选主节点分离，也就发展为了拓扑图二的结构。在拓扑图二中，有三个专用的候选主节点，用来做集群状态维护，数据节点根据需要进行增加，注意只增加专用的数据节点即可。
 
-![拓扑图2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181009094130184.png)
+![拓扑图2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181009094130184.png)
 
 ## 二、集群搭建
 
@@ -76,7 +76,7 @@ node.data = false
 
 本次以搭建三节点的单机集群为例，拷贝出两份副本，如图所示。然后清理两份副本中的`data`和`logs`文件夹下的所有内容，否则启动集群是会报`failed to send join request to master...`的错误。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181009094446589.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181009094446589.png)
 
 ### 2.2 修改配置文件
 
@@ -203,6 +203,6 @@ http.cors.allow-origin: "*"
 
 启动后使用head插件查看：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181009101308176.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181009101308176.png)
 
 可以看到我们之前创建的索引user的五个分片和一个备份被分散存储到各个节点上。

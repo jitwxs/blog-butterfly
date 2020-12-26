@@ -56,7 +56,7 @@ java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=6001 -jar 
 
 `JPDA`(Java Platform Debugger Architecture)，即 Java 平台调试体系，具体结构图如下图所示。
 
-![JPDA](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190521114410.png)
+![JPDA](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/20190521114410.png)
 
 其中实现调试功能的主要协议是 `JDWP`协议，在 Java SE 5 以前版本，JVM 端的实现接口是 `JVMPI`(Java Virtual Machine Profiler Interface)，而在 Java SE 5 及以后版本，使用 `JVMTI`(Java Virtual Machine Tool Interface) 来替代 JVMPI。
 
@@ -145,16 +145,16 @@ java -agentlib:jdwp=...
 java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=6001 -jar express.jar
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190521114429.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/20190521114429.png)
 
 然后在 IDEA 中，点击 `Edit Configurations`，在弹框中点击 `+` 号，然后选择 `Remote`。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190521114514.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/20190521114514.png)
 
 填写服务端的 IP 地址，以及调试端口号。在检查下下方的 `Command line arguments for remote JVM` 是否和服务端启动是配置的一致。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190521114700.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/20190521114700.png)
 
 配置完毕后点击保存即可，因为我配置的 `suspend=n`，因此服务端程序无需阻塞等待我们的连接。我们点击 IDEA 调试按钮，当我访问某一接口时，能够正常调试。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190521114818.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/20190521114818.png)

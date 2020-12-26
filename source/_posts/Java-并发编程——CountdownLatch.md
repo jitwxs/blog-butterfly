@@ -113,7 +113,7 @@ public class CountdownLatchDemo {
 
 下面是 CountDownLatch 的类图，可以看到它有一个内部类 Sync，Sync 的父类也就是 AQS。
 
-![CountDownLatch](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190811222801389.png)
+![CountDownLatch](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201908/20190811222801389.png)
 
 ### 3.1 constructors
 

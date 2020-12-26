@@ -57,7 +57,7 @@ Vim是一个类似于Vi的著名的功能强大、高度可定制的文本编辑
 
 在多个窗口中使用命令 `Ctrl + W + W` 来切换窗口。
 
-![多文件操作](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171030235938161.png)
+![多文件操作](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201710/20171030235938161.png)
 
 ### 2.3 vim和shell之间切换
 
@@ -109,7 +109,7 @@ Vim是一个类似于Vi的著名的功能强大、高度可定制的文本编辑
 
 （1）为以下代码每行行尾添加分号：
  
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912164123918.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912164123918.png)
 
 按键说明：
 
@@ -123,7 +123,7 @@ Vim是一个类似于Vi的著名的功能强大、高度可定制的文本编辑
 
 （2）注释以下代码：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912164137654.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912164137654.png)
 
 按键说明：
 
@@ -375,4 +375,4 @@ autocmd BufNewFile *.java normal 3G$
 7、恢复vim状态 :source name.vim
 8、启动vim时恢复状态 vim -S name.vim
 
-![vi/vim键位图](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170606201929349.png)
+![vi/vim键位图](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201706/20170606201929349.png)

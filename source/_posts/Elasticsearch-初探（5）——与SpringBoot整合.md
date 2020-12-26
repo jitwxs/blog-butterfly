@@ -495,7 +495,7 @@ Elasticsearch重头戏就是搜索，这里限于篇幅只能简单演示下，�
 
 需求：查询书名中包含关键字的记录，且50 < 价格 <= 200，按照价格降序排序，从0开始取最多10条记录，进行关键字高亮处理。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181009164522410.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181009164522410.png)
 
 ```java
 @GetMapping("/{index}/{type}/search")

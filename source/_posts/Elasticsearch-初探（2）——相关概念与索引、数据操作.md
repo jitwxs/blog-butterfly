@@ -37,7 +37,7 @@ http://localhost:9200/_cat/indices?v
 
 - **strict**：精确的，不允许插入不符合默认属性的值，如果不符合，直接报错。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018100817524794.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/2018100817524794.png)
 
 ### 1.3 Document
 
@@ -194,7 +194,7 @@ http://localhost:9200/_mapping?pretty=true
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008122853927.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008122853927.png)
 
 ### 2.3 删除索引
 
@@ -239,7 +239,7 @@ POST localhost:9200/_reindex
 
 **请求路径：** ES服务的IP：端口/索引名/类型名/id
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008123852756.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008123852756.png)
 
 #### 3.1.2 不指定ID
 
@@ -247,7 +247,7 @@ POST localhost:9200/_reindex
 
 **请求路径：** ES服务的IP：端口/索引名/类型名
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008124100181.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008124100181.png)
 
 ### 3.2 查看数据
 
@@ -255,7 +255,7 @@ POST localhost:9200/_reindex
 
 **请求路径：** ES服务的IP：端口/索引名/类型名/ID
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008124749570.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008124749570.png)
 
 返回的数据中，found字段表示查询成功，_source字段返回原始记录。
 
@@ -279,7 +279,7 @@ POST localhost:9200/_reindex
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008125322248.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008125322248.png)
 
 #### 3.3.2 使用脚本修改
 
@@ -298,7 +298,7 @@ POST localhost:9200/_reindex
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008135922763.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008135922763.png)
 
 方法是POST，路径跟上面一致，需要注意的是，但是请求体的时候，使用的是script，，`inline`字段的值时可以对属性进行计算。
 
@@ -324,7 +324,7 @@ POST localhost:9200/_reindex
 
 inline中的参数可以使用params中的参数。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008171838318.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008171838318.png)
 
 ### 3.4 删除数据
 
@@ -332,4 +332,4 @@ inline中的参数可以使用params中的参数。
 
 **请求路径：** ES服务的IP：端口/索引名/类型名/ID
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008172122129.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008172122129.png)

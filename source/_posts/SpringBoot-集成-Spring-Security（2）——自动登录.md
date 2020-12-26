@@ -77,7 +77,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 当我们登陆时勾选自动登录时，会自动在 Cookie 中保存一个名为 `remember-me` 的cookie，默认有效期为2周，其值是一个加密字符串：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180509100451811.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/20180509100451811.png)
 
 ### 2.2 数据库存储
 
@@ -91,11 +91,11 @@ Spring security 还提供了另一种相对更安全的实现机制：**在客�
 
 当浏览器下次请求时，会经过 `RememberMeAuthenticationFilter`，它会读取 Cookie 中的 token，交给 RememberMeService 从数据库中查询记录。如果存在记录，会读取用户名并去调用 `UserDetailsService`，获取用户信息，并将用户信息放入Spring Security 中，实现自动登陆。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181202143630639.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181202143630639.png)
 
 RememberMeAuthenticationFilter 在整个过滤器链中是比较靠后的位置，也就是说在传统登录方式都无法登录的情况下才会使用自动登陆。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181202144420871.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181202144420871.png)
 
 #### 2.2.2 代码实现
 
@@ -162,4 +162,4 @@ protected void configure(HttpSecurity http) throws Exception {
 
 勾选自动登录后，Cookie 和数据库中均存储了 token 信息：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180509102031410.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/20180509102031410.png)

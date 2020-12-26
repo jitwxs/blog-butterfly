@@ -123,7 +123,7 @@ public class OOMTest {
 
 `Java VisualVM` 是自 JDK 1.6 起，安装时自带的 JVM 监控工具，本次我们使用它来监控程序运行后的堆内存情况。运行程序，启动 Java VisualVM 并连接上程序。可以观察到，随着程序的不断运行，堆的大小不断扩大。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200502204332810.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202005/20200502204332810.png)
 
 ### 2.3 复现 OOM
 
@@ -135,11 +135,11 @@ public class OOMTest {
 
 第一个指定了堆的初始大小，第二个指定了堆的最大大小，第三个指定了当 JVM 发生 OOM 时，自动生成 dump 文件，第四个指定了 dump 文件的位置。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2020050220441815.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202005/2020050220441815.png)
 
 重新运行程序，由于我们配置了 Xmx，因此当内存增长到阈值时，触发 OOM，dump 文件生成在指定位置。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200502204448955.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202005/20200502204448955.png)
 
 ## 三、Heap Dump
 
@@ -149,9 +149,9 @@ Eclipse 的 `MemoryAnalyzer` 是目前最为常用的 dump 文件分析工具，
 
 安装完毕后，点击 `File -> Open Heap Dump` 打开生成的 dump 文件，等待右下角加载完毕后，选择 `Leak Suspects Report` 打开分析报告。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2020050220452020.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202005/2020050220452020.png)
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200502204545100.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202005/20200502204545100.png)
 
 由于使用的这个 Case 没有干扰项，所以报告刚打开，`Override` 页其实就已经展示出了问题：
 
@@ -162,7 +162,7 @@ Shallow Size: 144 B Retained Size: 232.6 MB
 
 我们假装看不见，点击 Leak Suspects，查看内存泄露分析报告。如图中 ① 所示，报告只出现了一个问题。实际项目这里可能会展示多个，你需要去找到真正导致 OOM 的那一个问题。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200502204621957.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202005/20200502204621957.png)
 
 在 ② 处和 ③ 处，重点关注 `Shallow Heap` 和 `Retained Heap` 两个字段。专业的解释比较晦涩难懂，用大白话来说就是： `Shallow Heap` 表示对象自身的占用大小；`Retained Heap` 表示对象自身及其 GC 后可被释放的所有引用对象的大小。
 
@@ -184,7 +184,7 @@ class B { String sss; }
 
 将程序主类中的 `BUFFER_SIZE` 从 65536 下调到 128，重新运行再试试看。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200502204647774.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202005/20200502204647774.png)
 
 可以看到程序内存保持稳定。
 

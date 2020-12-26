@@ -26,7 +26,7 @@ copyright_author: Jitwxs
 
 ## 二、程序的编译过程
 
-![编译流程](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170705135553918.png)
+![编译流程](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201707/20170705135553918.png)
 
 ### 2.1 预处理
 
@@ -90,7 +90,7 @@ gcc [-Wall] [-O1..3] [-g] [-o name] file...
 
 使用举例： 
    
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170705140416364.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201707/20170705140416364.png)
 
 ## 四、gcc 命令行选项
 

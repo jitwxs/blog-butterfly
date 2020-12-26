@@ -60,9 +60,9 @@ Elasticsearch采用Java开发，因此必须具备Java环境。
 
 解压后进入`elasticsearch-6.4.1\bin`，然后双击`elasticsearch.bat`即可。访问`http://localhost:9200` 即可看到是否安装成功。如果显示JSON串就表示安装成功。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008104957405.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008104957405.png)
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008192708499.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008192708499.png)
 
 默认情况下，Elasticsearch 只允许本机访问，如果需要远程访问，可以修改 Elastic 安装目录的`config/elasticsearch.yml`文件，去掉`network.host`的注释，将它的值改成`0.0.0.0`，然后重新启动 Elastic。
 
@@ -74,7 +74,7 @@ Elasticsearch采用Java开发，因此必须具备Java环境。
 
 将该项目下载下来并解压: https://github.com/mobz/elasticsearch-head ，放在`elasticsearch-6.4.1` 同级目录即可。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008192301669.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008192301669.png)
 
 #### 2.2.2 编译安装
 
@@ -85,7 +85,7 @@ http.cors.enabled: true
 http.cors.allow-origin: "*"
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008114635323.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008114635323.png)
 
 （2）编译安装需要Node.js的支持，安装比较简单，因为我已经有环境了，就不在描述了，直接百度即可。Nodejs环境搭建完毕后，进入`elasticsearch-head-master`文件夹，执行命令：
 
@@ -102,6 +102,6 @@ npm install
 
 安装完成之后，执行命令：`grunt server`，显示如下图，然后就可以访问 `http://localhost:9100` 即可访问ElasticSearch的head插件了。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008115027471.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008115027471.png)
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181008115252653.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181008115252653.png)

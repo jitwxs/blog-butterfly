@@ -28,7 +28,7 @@ date: 2020-12-26 20:00:34
 
 查看命令帮助信息。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226200828.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226200828.png)
 
 （2）cls
 
@@ -130,11 +130,11 @@ helloworld
 
 （3）显示包含system字符串的10行信息。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226201557.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226201557.png)
 
 （4）使用正则表达式，显示包含2个o字符的线程信息。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226201641.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226201641.png)
 
 ### 2.4 pwd
 
@@ -155,7 +155,7 @@ reset *List // 还原所有以List结尾的类
 reset // 还原所有的类
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226202102.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226202102.png)
 
 ### 2.6 keymap
 

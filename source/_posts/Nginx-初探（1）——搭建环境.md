@@ -140,7 +140,7 @@ wxs       24271   2542  0 09:33 pts/19   00:00:00 grep --color=auto nginx
 
 `nginx` 默认运行在 `80` 端口，打开浏览器，访问 `nginx`：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018032309430613.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/2018032309430613.png)
 
 ## 五、相关命令
 

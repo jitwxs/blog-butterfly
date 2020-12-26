@@ -37,9 +37,9 @@ copyright_author: Jitwxs
 
 求v0到其它各点的最短路径：
 
-![Dijkstra题目](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170924022726419.png)
+![Dijkstra题目](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170924022726419.png)
 
-![Dijkstra答案](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170924022801653.png)
+![Dijkstra答案](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170924022801653.png)
 
 > 答：最短路径为（V0,V2,V4,V3,V5）
 
@@ -186,7 +186,7 @@ int main(void)
 
 **图如下**
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170606212248641.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201706/20170606212248641.png)
 
 **运行结果**
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170606220125628.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201706/20170606220125628.png)

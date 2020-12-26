@@ -51,11 +51,11 @@ Redis 支持两种持久化方式，一种是 `RDB方式`，一种是 `AOF方式
 
 (1) 配置 RDB 文件位置
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180303205645415.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180303205645415.png)
 
 (2) 配置 RDB 保存时机
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180303205724127.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180303205724127.png)
 
 ## 二、AOF
 
@@ -95,11 +95,11 @@ AOF 的方式也同时带来了另一个问题：**持久化文件会变的越�
 
 AOF 默认是关闭的，修改配置文件 `redis.conf` 来打开 AOF：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180303211647852.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180303211647852.png)
 
 AOF 具有三种同步策略，在配置文件 `redis.conf` 中进行配置：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180303211902488.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180303211902488.png)
 
 除了满足同步策略来自动同步外，可以手动同步，执行命令 `bgrewriteaof` 即可。
 

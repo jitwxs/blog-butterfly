@@ -24,7 +24,7 @@ copyright_author: Jitwxs
 First Commit From Master
 ```
 
-![First Commit](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191130175607270.png)
+![First Commit](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201911/20191130175607270.png)
 
 然后创建一个新分支 `dev`，在提交内容后面追加了以下内容：
 
@@ -32,7 +32,7 @@ First Commit From Master
 Second Commit From Dev
 ```
 
-![Dev Branch Merge](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2019113017593983.png)
+![Dev Branch Merge](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201911/2019113017593983.png)
 
 将 dev 分支 merge 到 master 分支，此时 master 分支内容如下：
 
@@ -44,15 +44,15 @@ Second Commit From Dev
 
 此时我觉得 dev 分支还没有修改完毕，想要 revert 后重新提交。因此在 GitLab 中找到那个 Merge 申请，并点击 Revert 按钮，如下图所示。
 
-![Revert Dev Commit](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191130223242927.png)
+![Revert Dev Commit](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201911/20191130223242927.png)
 
 点击 Revert 后相当于将代码 Revert 到了一个新分支，并将那个新分支 Merge 到 Master 上。Commit 记录如下图所示，其中的 `revert-f8856e36` 就是那个 revert 分支。
 
-![Commit History](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191130223506820.png)
+![Commit History](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201911/20191130223506820.png)
 
 Revert 后切换到 Master 分支，发现代码的确已经回滚了。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191130181032292.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201911/20191130181032292.png)
 
 此时切换到 dev 分支，在最后再填上一行内容，内容如下：
 
@@ -60,23 +60,23 @@ Revert 后切换到 Master 分支，发现代码的确已经回滚了。
 Third Commit From Dev
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191130180830115.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201911/20191130180830115.png)
 
 然后重新对 dev 分支发起 Merge 到 Master 的申请。
 
-![Branch List](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191130181332225.png)
+![Branch List](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201911/20191130181332225.png)
 
 但是发现 dev 分支和 master 分支的差异 commit 只有 dev 分支 revert 后的提交记录。
 
-![Commits Changes](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191130223710903.png)
+![Commits Changes](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201911/20191130223710903.png)
 
 再切到 `Changes`页面，发现变动也是只有 revert 后的变动记录。revert 前的 `Second Commit From Dev` 这行内容竟然不算改动，被认为已经存在于 Master 分支上了？
 
-![Code Changes](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191130181555605.png)
+![Code Changes](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201911/20191130181555605.png)
 
 但是切换回 master 分支，`Second Commit From Dev` 这行内容的确已经被 Revert 了。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191130223810347.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201911/20191130223810347.png)
 
 以上就完成了对问题的复现，`Second Commit From Dev` 这行内容就丢失了，准确说就是 dev 分支 revert 之前的内容都丢失了。
 
@@ -97,7 +97,7 @@ Third Commit From Dev
 
 找到 revert 的那条提交记录，注意了，revert 相关的会有两条记录，第一条是 revert，第二条是 revert 后 merge 的记录，这里取第一条，如下图所示。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191130230632590.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201911/20191130230632590.png)
 
 ```powershell
 ~/Projects/demo: git revert f5c3b544164eec662ea6914d6bd19aedf46874f8
@@ -115,8 +115,8 @@ Third Commit From Dev
 
 将 dev 分支推送到远程后，重新提交对 master 的 merge 申请。我们发现，在 revert 之前的提交记录还没有找回来，即 `second commit by dev` 这条记录没有找回来，如下图所示。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191130230959188.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201911/20191130230959188.png)
 
 这是因为 revert 的特性所致，虽然这条提交记录没有找回来，但是 revert 之前的代码都回来了，如下图所示。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191130231317474.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201911/20191130231317474.png)

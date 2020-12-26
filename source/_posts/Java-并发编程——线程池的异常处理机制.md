@@ -93,7 +93,7 @@ public class ThreadPoolLogTest {
 
 运行程序，查看控制台输出及日志输出。我们发现，在控制台中正确输出了异常栈，但是在日志中却没有记录下异常栈。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200223150331247.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200223150331247.png)
 
 ## 二、原生处理机制
 
@@ -105,7 +105,7 @@ public class ThreadPoolLogTest {
 
 如下图所示，ThreadPoolExecutor 通过 `getThreadFactory().newThread(this)` 方式创建了一个任务，其底层执行的为 Thread 类。
 
-![ThreadPoolExecutor#addWorker](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200223153043790.png)
+![ThreadPoolExecutor#addWorker](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200223153043790.png)
 
 查看 Thread 类的源码，发现了两个十分特别的方法，结合上面的 JavaDoc 注释：
 
@@ -115,7 +115,7 @@ public class ThreadPoolLogTest {
 
 接着我们看下 dispatchUncaughtException() 中的 `uncaughtException()` 方法，发现其属于 `UncaughtExceptionHandler` 接口，查看该接口实现类。**目前只有一个实现类，就是 ThreadGroup**。
 
-![Thread#dispatchUncaughtException](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200223180847915.png)
+![Thread#dispatchUncaughtException](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200223180847915.png)
 
 现在有点思路了，梳理下：
 
@@ -124,7 +124,7 @@ public class ThreadPoolLogTest {
 
 让我们看看 ThreadGroup 的 uncaughtException() 方法是如何处理的。
 
-![ThreadGroup#uncaughtException](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200223160112225.png)
+![ThreadGroup#uncaughtException](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200223160112225.png)
 
 方法比较简单：
 
@@ -134,7 +134,7 @@ public class ThreadPoolLogTest {
 
 OK 了，问题找到了。如果这里直接走了最后的逻辑，那么 `System.err` 是只会输出在控制台和 tomcat 的 catalina.out 中，不会输出在日志中的。打上断点验证下。
 
-![Debug Verify](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200223161128922.png)
+![Debug Verify](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200223161128922.png)
 
 `Thread.getDefaultUncaughtExceptionHandler()` 为 null，除零异常不属于 ThreadDeath，因此执行 System.err 的逻辑，大功告成。
 
@@ -181,15 +181,15 @@ public class ThreadPoolLogTest {
 }
 ```
 
-![ThreadPoolExecutor#submit](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200223162245833.png)
+![ThreadPoolExecutor#submit](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200223162245833.png)
 
 运行程序，发现这次不仅日志没有异常栈，连控制台也没了，继续开始看源码。
 
-![submit](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200223162954105.png)
+![submit](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200223162954105.png)
 
 我们发现 submit 方法最后底层真正干活的是 `FutureTask`，同时任务的 state 被置为 1（NEW）。接着看 FutureTask 类的 run() 方法是如何处理的。
 
-![FutureTask#run](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200223163422226.png)
+![FutureTask#run](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200223163422226.png)
 
 run() 方法中关于异常处理的部分：
 
@@ -204,7 +204,7 @@ run() 方法中关于异常处理的部分：
 
 至此就结束了，说明 submit() 方式的异常信息并不是在 run() 方法中抛出的，因此只能去看获取执行结果的 `get()` 方法。
 
-![FutureTask#get](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200223164142205.png)
+![FutureTask#get](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200223164142205.png)
 
 由于之前 state 被设置为了 3（EXCEPTIONAL），因此 get() 方法中直接走 `report()` 方法，report() 方法中首先将 `ountcome` 取出赋给局部变量 x，对于 s == 3 的处理是直接将异常 x 包装成 ExecutionException 抛出。
 
@@ -216,7 +216,7 @@ run() 方法中关于异常处理的部分：
 
 最后恢复本节 Case main() 方法最后一行的注释，重新运行程序，得到和 execute() 方式一样的结果。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200223164702112.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200223164702112.png)
 
 ## 三、自定义处理机制
 
@@ -249,7 +249,7 @@ private static Result doSomeThing() {
 
 运行结果如下：
 
-![sumbit catch](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200223170446533.png)
+![sumbit catch](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200223170446533.png)
 
 （2）对于 execute() 方式，修改 `doSimeThing()` ：
 
@@ -265,7 +265,7 @@ private static void doSomeThing() {
 
 运行结果如下：
 
-![execute catch](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200223170751643.png)
+![execute catch](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200223170751643.png)
 
 ### 3.2 自定义 ThreadPoolExecutor
 
@@ -339,7 +339,7 @@ public class ThreadPoolLogTest {
 
 运行程序：
 
-![CustomThreadPoolExecutor](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200223172504890.png)
+![CustomThreadPoolExecutor](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200223172504890.png)
 
 之所以控制台会输出两遍异常栈，是因为第一遍是我们自定义线程池输出的，且它会被记录到日志中。第二遍是 `super.afterExecute(r, e)` 导致的，这一遍只会输出在控制台。
 
@@ -395,7 +395,7 @@ public class ThreadPoolLogTest {
 
 运行程序：
 
-![CustomThreadGroup](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200223173826702.png)
+![CustomThreadGroup](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200223173826702.png)
 
 ### 3.4 设置 UncaughtExceptionHandler
 
@@ -432,7 +432,7 @@ public class ThreadPoolLogTest {
 
 运行程序：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200223174559265.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200223174559265.png)
 
 与自定义 ThreadPoolExecutor、自定义 ThreadGroup 不同的是，这种方式不会打印两遍错误栈。
 

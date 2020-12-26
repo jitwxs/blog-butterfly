@@ -21,7 +21,7 @@ copyright_author: Jitwxs
 
 目前使用比较多的是配置多个 `application-{profile}.yml` 文件的写法，一张图就能解释清楚了，如下图所示。
 
-![Multiple Application](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190901232036439.png)
+![Multiple Application](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201909/20190901232036439.png)
 
 首先配置不同环境的 application 文件，在上图中我配置了以下环境：
 
@@ -104,7 +104,7 @@ app.name=env-prod
 
 为了演示 Maven `<resource>` 标签的作用，在 `resources` 目录下建一个文件 `log4j.properties`，模拟 log4j 的配置，内容为空即可。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190902000014396.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201909/20190902000014396.png)
 
 ### 3.2 Pom.xml
 
@@ -134,7 +134,7 @@ app.name=env-prod
 
 然后修改 `<build>` 节点内容，下图中，红框内为新增部分：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190902001136100.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201909/20190902001136100.png)
 
 ```xml
 <filters>
@@ -194,7 +194,7 @@ app.name=env-prod
 
 如果你不写第二个 resource 块，那么你会发现打包后是没有 log4j.properties 文件的。
 
-![](.https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190902005722996.png)
+![](.https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201909/20190902005722996.png)
 
 当然，你觉得我的其他配置文件不会有占位符，或者不和 application 中的占位符冲突，那么你也可以将两个 resource 块合二为一：
 
@@ -220,7 +220,7 @@ app.name=env-prod
 mvn clean package -DMaven.test.skip=true
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190902010206856.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201909/20190902010206856.png)
 
 当指定 prod 环境时：
 
@@ -228,7 +228,7 @@ mvn clean package -DMaven.test.skip=true
 mvn clean package -DMaven.test.skip=true -Pprod
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190902010217320.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201909/20190902010217320.png)
 
 ## 四、结语
 

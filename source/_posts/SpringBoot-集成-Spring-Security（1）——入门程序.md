@@ -454,14 +454,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190114183342718.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201901/20190114183342718.png)
 
 ## 七、运行程序
 
 >ROLE_ADMIN 账户：用户名 **admin**，密码 **123**
 >ROLE_USER 账户：用户名 **jitwxs**，密码 **123**
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180330153402126.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180330153402126.png)
 
 注：如果你想要将密码加密，可以修改 `configure()` 方法如下：
 

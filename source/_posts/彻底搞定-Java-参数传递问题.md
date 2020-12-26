@@ -76,21 +76,21 @@ private static void func(User user) {
 
 下面画图理解下，在 main() 函数中，创建了对象 User，我们假设它的地址为 0x1，那么变量 user 所指向的就是地址为 0x1 的 User。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190702231524840.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201907/20190702231524840.png)
 
 因为 Java 对于引用类型，值传递的是对象的地址。因此在进入 func() 函数后，形参 user 仍然指向地址 0x1。
 
 当执行 `user = new User("lisi")` 这条语句后，新创建了一个地址为 0x2 的 User 对象，并让 user 指向了这个新的对象，那么它和原本的地址为 0x1 的对象的连接就中断了。因此下一行修改 name 值为“wangwu”修改的就是 0x2 ，与 0x1 无关。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190702231725963.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201907/20190702231725963.png)
 
 在方法执行结束后，由于该方法返回值为 void，因此执行结束后，main() 函数的 user 仍然是指向 0x1 的。func() 函数内部的改动相当于是对局部变量的修改，因此程序输出为“zhangsan”。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190702231524840.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201907/20190702231524840.png)
 
 明白了之后，再考虑下将 func() 函数中的 `user = new User("lisi")` 语句删除掉，程序的输出将会变为“wangwu”。这是因为在 func() 函数中 user 一直都是指向 0x1 的，因此在返回 main() 函数后，0x1 地址上的值已经被修改了。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190702232714604.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201907/20190702232714604.png)
 
 最后，让我们回到引言中提到的代码，那里只是将 0x1 改成了 null 而已，相信你已经明白为什么会导致 NPE 了。
 
@@ -114,7 +114,7 @@ private static void func(String name) {
 
 这是因为 String 类，比较特殊，它是不可变类（final），它的底层实现是 `final char value[]`，对于 final 自然是无法修改的，同理包装类也是不可变的。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190702233601669.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201907/20190702233601669.png)
 
 将 String 改成 StringBuilder 或者 StringBuffer 返回结果就会和 3.2 节的结论一致。因为其内部的 char[] 数组并不是 final 类型，只是最终输出的时候才调用 toString() 方法，将数组转变为 String 而已。
 

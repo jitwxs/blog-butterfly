@@ -120,7 +120,7 @@ public void testProducer() {
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180415151538184.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201804/20180415151538184.png)
 
 ## 三、消息接收
 
@@ -201,4 +201,4 @@ public class MyMessageListener implements MessageListener {
 
 运行 `testProducer()` 方法，MessageListener 中接收到消息：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180508224144573.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/20180508224144573.png)

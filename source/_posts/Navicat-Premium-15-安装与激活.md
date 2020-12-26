@@ -27,13 +27,13 @@ copyright_author: Jitwxs
 安装完成后，运行激活工具：`Navicat Keygen Patch v5.6.0 DFoX.exe`：
 
 1)Patch勾选`Backup`、`Host`和`Navicat v15`，然后点击`Patch`按钮：
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200214231155763.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200214231155763.png)
 
 找到Navicat Premium 15安装路径下的`navicat.exe`，选中并点击打开：
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200214225444.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200214225444.png)
 
 然后弹出 Info 对话框，内容为 `Cracked` 就 OK 了：
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200214225456.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200214225456.png)
 
 **Step2：**
 
@@ -45,18 +45,18 @@ copyright_author: Jitwxs
 **Step3：**
 
 打开 Navicat Premium 15，弹出注册窗口（如果未弹出，点击菜单栏的帮助，选择注册），输入之前获得的注册码，点击激活：
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200214231517.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200214231517.png)
 
 **Step4：**
 
 弹出激活服务器不可用，点击手动激活：
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180504154324818.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/20180504154324818.png)
 
 **Step5：**
 
 复制请求码到激活工具中，然后点击左下角的`Generate`按钮。生成后激活码会自动复制过去（如果没有，请手动复制），然后点击激活，弹出激活成功提示：
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200214225722.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200214225722.png)
 
 成功！进入程序点击帮助-->关于：
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200214225753.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202002/20200214225753.png)
 

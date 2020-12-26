@@ -18,7 +18,7 @@ Solr **可以独立运行**，运行在**Jetty**、**Tomcat**等 Servlet 容器�
 
 Solr 索引的实现方法很简单，用 `Post` 方法向 Solr 服务器发送一个描述Field及其内容的JSON文档，Solr根据JSON文档**添加**、**删除**、**更新**索引。Solr搜索只需发送 `Get` 请求，然后对 Solr 返回的JSON等格式的**查询**结果进行解析，组织页面布局。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180306233919166.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180306233919166.png)
 
 ### 1.2 Solr 与 Lucene 区别
 
@@ -38,7 +38,7 @@ Solr 索引的实现方法很简单，用 `Post` 方法向 Solr 服务器发送�
 
 Solr下载地址[点击这里](https://mirrors.aliyun.com/apache/lucene/solr/)，我使用的版本是 `solr-6.6.2`，和[《Lucene 初探——基于 Lucene 6.6.2》](/44bf5506.html)这篇文章的版本相对应。下载完后，解压压缩包，目录结构如下：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180306234340626.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180306234340626.png)
 
 | 名称 | 介绍 |
 |:-------------|:-------------| 
@@ -60,61 +60,61 @@ Solr 自带了一个后台管理，但是不能直接运行，需要进行配置
 
 **Step1：**将 `solr-6.6.2\server\solr-webapp` 下的 `webapp` 复制到 `D:\apache-tomcat-8.5.16\webapps` 目录下，并改名为 `solr`（名称任意）。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180306235719939.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180306235719939.png)
 
 **Step2：** 将 `solr-6.6.2\server\lib\ext` 的 jar 包复制到 `D:\apache-tomcat-8.5.16\webapps\solr\WEB-INF\lib` 目录下。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180306235942410.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180306235942410.png)
 
 **Step3：**将 `solr-6.6.2\dist` 下的 `solr-dataimporthandler-6.6.2.jar` 和 `solr-dataimporthandler-extras-6.6.2.jar` 复制到 `D:\apache-tomcat-8.5.16\webapps\solr\WEB-INF\lib` 目录下。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180307000147865.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180307000147865.png)
 
 **Step4：**将 `solr-6.6.2\server\lib` 下的以 `metrics` 开头的 5 个 jar 包复制到 `D:\apache-tomcat-8.5.16\webapps\solr\WEB-INF\lib` 目录下。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018030700033299.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/2018030700033299.png)
 
 **Step5：** 配置 solr 的家目录。在 E 盘下创建文件夹 `solrHome`（位置名称任意），将 `solr-6.6.2\server\solr` 下的所有文件复制到 `E:\solrHome`。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180307000633692.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180307000633692.png)
 
 **Step6：**修改 solr 配置文件。打开 `D:\apache-tomcat-8.5.16\webapps\solr\WEB-INF` 下的 `web.xml`，定位到 40 行，将下面一段注解打开，并修改 `<env-entry-value>` 值为 `E:/solrHome`。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180307000949991.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180307000949991.png)
 
 **Step7：**将 `web.xml` 168 行那一大块注释掉，不然访问 solr 会出现没有授权的错误。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180307001230502.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180307001230502.png)
 
 **Step8：** 在 `D:\apache-tomcat-8.5.16\webapps\solr\WEB-INF` 目录下创建 `classes` 文件夹，并将 `solr-6.6.2\server\resources` 下的 `log4j.properties` 复制过去。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180307001451632.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180307001451632.png)
 
 **Step9：**启动 Tomcat，访问 `http://localhost:8080/solr/index.htm`，登陆到 Solr 后台管理。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180307002927867.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180307002927867.png)
 
 ### 2.3 创建一个核(core)
 
 现在为 Solr 添加一个`核（core）`，在 `E:/solrHome` 目录下新建一个文件夹，文件夹名就是核的名字，以 `core1` 为例。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410091110722.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201804/20180410091110722.png)
 
 拷贝 `E:\solrHome\configsets\sample_techproducts_configs` 目录下 的`conf` 文件夹到 `core1` 文件夹中。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410091342689.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201804/20180410091342689.png)
 
 在 Solr 后台的 `Core Admin` 中点击 `Add Core` 新建一个核，`name` 和 `instanceDir` 填之前建的文件夹名。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410091453209.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201804/20180410091453209.png)
 
 添加后多了一个 `Core Seletctor`，至此核就建好了。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410091659647.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201804/20180410091659647.png)
 
 ## 三、后台介绍
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180410160618644.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201804/20180410160618644.png)
 
 | 名称 | 含义 |
 |:-------------|:-----| 

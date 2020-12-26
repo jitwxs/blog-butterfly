@@ -60,7 +60,7 @@ JMS定义了五种不同的消息正文格式，以及调用的消息类型，�
 
 本次测试版本为当前最新的 `ActiveMQ 5.15.3 Release`，[点击下载](http://activemq.apache.org/activemq-5153-release.html)
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180413102919639.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201804/20180413102919639.png)
 
 解压并放在 `usr/local` 目录下：
 
@@ -89,9 +89,9 @@ INFO: pidfile created : '/usr/local/activemq//data/activemq.pid' (pid '6914')
 
 ActiveMQ 默认运行在 `8161` 端口，点击首页的 `Manage ActiveMQ broker` 进入后台管理系统，用户名：**admin**，密码：**admin**.
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180413103707326.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201804/20180413103707326.png)
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180413104813304.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201804/20180413104813304.png)
 
 ## 三、Queue
 
@@ -161,11 +161,11 @@ public void testQueueProducer() throws Exception {
 
 执行后查看 ActiveMQ 后台，选择 `Queue` 选项卡可以看到我们创建的 Queue 对象 test-queue：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180413133733442.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201804/20180413133733442.png)
 
 点进去可以看到发送的消息内容：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180413133723384.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201804/20180413133723384.png)
 
 ### 3.2 Consumer
 
@@ -221,11 +221,11 @@ public void testQueueConsumer() throws Exception {
 
 运行程序，接收到了之前的消息：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180413135654960.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201804/20180413135654960.png)
 
 此时重新查看后台，发现 `Number Of Pending Messages` 的值已经变成 0，说明刚刚那条消息已经被消费掉了，`Number Of Consumers` 值变为了 1。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180413135757928.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201804/20180413135757928.png)
 
 ## 四、Topic
 
@@ -273,7 +273,7 @@ public void testTopicProducer() throws Exception {
 
 进入后台查看，test-topic 拥有 0 个消费者，1 个消息入队，0 个消息入队。前面说过 ActiveMQ 后台是不会保存 Topic 的消息的，所以我们刚刚发送的消息因为没有消费者就丢失了。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180413141016830.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201804/20180413141016830.png)
 
 ### 4.2 Consumer
 

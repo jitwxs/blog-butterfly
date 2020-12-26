@@ -178,7 +178,7 @@ public class SerializeDeserialize_readObject {
 
 `Apache Commons Collections` 是一个扩展了Java标准库里的Collection结构的第三方基础库。它包含有很多jar工具包如下图所示，它提供了很多强有力的数据结构类型并且实现了各种集合工具类。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180326182909368.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180326182909368.png)
 
 作为Apache开源项目的重要组件，`Commons Collections`被广泛应用于各种Java应用的开发，而又正是因为在大量web应用程序中这些类的实现以及方法的调用，导致了**反序列化用漏洞的普遍性和严重性**。　
 
@@ -225,13 +225,13 @@ Map afterMap = TransformedMap.decorate(beforeMap, null, chainedTransformer);
 
 ### 3.2 Transformer接口 
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180326184558509.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180326184558509.png)
 
 我们可以看到该类接收一个对象，获取该对象的名称，然后调用了一个`invoke`反射方法。另外，多个`Transformer`还能串起来，形成`ChainedTransformer`链。当触发时，`ChainedTransformer`可以**按顺序**调用一系列的变换。
 
 下面是一些实现`Transformer`接口的类，箭头标注的是我们会用到的：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180326184636432.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180326184636432.png)
 
 - `ConstantTransformer` ：把一个对象转化为常量，并返回。
 
@@ -282,7 +282,7 @@ public class InvokerTransformer implements Transformer, Serializable {
 
 只需要传入方法名、参数类型和参数，即可调用任意函数。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180326185035632.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180326185035632.png)
 
 在这里，我们可以看到，先用`ConstantTransformer()`获取了`Runtime`类，接着反射调用`getRuntime`函数，再调用getRuntime的`exec()`函数，执行命令"calc.exe"。依次调用关系为： **Runtime --> getRuntime --> exec()**。
 
@@ -337,7 +337,7 @@ public static void main(String[] args) throws Exception {
 我们知道，如果一个类的方法被重写，那么在调用这个函数时，会优先调用经过修改的方法。因此，如果**某个可序列化的类重写了`readObject()`方法**，并且**在`readObject()`中对Map类型的变量进行了键值修改操作**，**且这个Map变量是可控的**，我们就可以实现攻击目标。
 
 `AnnotationInvocationHandler`类有一个成员变量`memberValues`是Map类型 ，并且`AnnotationInvocationHandler`的`readObject()`函数中对`memberValues`的每一项调用了`setValue()`函数对value值进行一些变换。
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018032618570364.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/2018032618570364.png)
 
 这个类完全符合我们的要求，那么，我们的思路就非常清晰了：
 

@@ -17,7 +17,7 @@ copyright_author: Jitwxs
 
 事实上我们还是没法访问谷歌，只是这个“梯子”能够访问，它只是将访问结果返回给我们而已。这里的“梯子”就是一个`正向代理`，它是帮助客户端也就是我们用户来代理的。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180325232601579.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180325232601579.png)
 
 ### 1.2 反向代理
 
@@ -25,7 +25,7 @@ copyright_author: Jitwxs
 
 回到程序的世界中，如果 www.baidu.com 这个域名下的网站放在好几个服务器上（组建集群），如图所示：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180325232610110.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180325232610110.png)
 
 用户访问 www.baidu.com 这个域名，但是具体访问哪一台服务器不需要用户关心，nginx 会帮助我们将我们的请求转发(forward)到某一台服务器上，然后将请求返回给用户。
 
@@ -39,7 +39,7 @@ copyright_author: Jitwxs
 
 注：透明指不用关心对端的具体实现。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190106212208828.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201901/20190106212208828.png)
 
 ## 二、配置反向代理
 
@@ -66,9 +66,9 @@ wxs@ubuntu:/usr/local$ sudo vim tomcat8-jit/webapps/ROOT/index.jsp
 wxs@ubuntu:/usr/local$ sudo vim tomcat8-wxs/webapps/ROOT/index.jsp 
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180326003422116.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180326003422116.png)
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180326000348638.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180326000348638.png)
 
 分别启动两个 tomcat：
 
@@ -96,7 +96,7 @@ Tomcat started.
  3. 新增一个 `upstream` 节点，名字为刚刚设置的 url 名字
  4. 在 upstream 中新增 `server` 子节点，值为目标服务器 IP
  
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180326010048132.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180326010048132.png)
 
 另一个同理，完整配置如下：
 
@@ -158,6 +158,6 @@ server {
 
 配置完成后，启动 nginx 服务器，访问 `www.jit.com` 和 `www.wxs.com`：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180326010451739.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180326010451739.png)
 
 成功！Nginx 成功帮我们把请求转发给了不同的服务器！

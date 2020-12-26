@@ -31,21 +31,21 @@ copyright_author: Jitwxs
 
 7. 添加一个 Cube，位置如下
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218201741787.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181218201741787.png)
 
 最终 Hierarchy 结构如下：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218221721133.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181218221721133.png)
 
 ## 一、Spatial Sound
 
 开启 Unity 的空间声音设置，在设置菜单中 `Edit/Audio/Spatializer` 启用 `Microsoft HRTF` 拓展。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181119143038972.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201811/20181119143038972.jpg)
 
 为 Cube  添加一个 Audio Souce 组件，配置如下：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018121915375780.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/2018121915375780.png)
 
 每一项具体的含义不再赘述了，可以参考：[《HoloLens 开发笔记（8）——Audio Sound》](/602f136c.html)。使用 Unity 或在真机中运行程序，通过改变和 Cube 的远近，感受声音的变化。
 
@@ -58,4 +58,4 @@ copyright_author: Jitwxs
 
 使用 Unity 运行程序，在 Scene 中通过改变 Sphere 是否遮挡住 Cube，来感受声音的变化。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181219154433368.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181219154433368.png)

@@ -613,11 +613,11 @@ public class NewBuilderTest extends BaseCopyTest {
 | Lombok toBuilder             | 0    | 1    | 10   | 40    | 42    | 263    |
 | Lombok newBuilder            | 0    | 1    | 8    | 40    | 43    | 273    |
 
-![Java 对象浅拷贝](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200830004302.png)
+![Java 对象浅拷贝](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202008/20200830004302.png)
 
 排除掉 BeanUtils 后，结果如下：
 
-![Java 对象浅拷贝](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200830005819.png)
+![Java 对象浅拷贝](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202008/20200830005819.png)
 
 最后简单总结下：
 

@@ -158,11 +158,11 @@ ltp 安装包根目录下的`runltp`脚本是 LTP 自动测试系统的入口，
 
 `PAN` 是 LTP 的一组测试驱动程序，负责实际测试的执行，根据 runltp 传递的参数和测试列表来依次执行测试，输出执行过程中的详细信息，对每个测试用例的执行结果进行统计，并将整体测试结果返回给 runltp。
 
-![整体测试流程](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170923015256124.png)
+![整体测试流程](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170923015256124.png)
 
 #### 1.4.2 测试用例执行流程
 
-![测试用例执行流程](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170923015957024.png)
+![测试用例执行流程](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170923015957024.png)
 
 测试结果的输出类型如下：
 
@@ -179,7 +179,7 @@ ltp 安装包根目录下的`runltp`脚本是 LTP 自动测试系统的入口，
 
 LTP 目前测试库存在新旧测试库交替的情况，本文均采用**新测试库**的框架，具体的更新说明可以参考更新文档 [An update on the Linux Test Project](https://lwn.net/Articles/708182/)。
 
-![测试库](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170923020354339.png)
+![测试库](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170923020354339.png)
 
 | Old Library | New Library |
 | :------------- | :----- |

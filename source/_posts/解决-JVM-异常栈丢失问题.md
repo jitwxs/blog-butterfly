@@ -17,7 +17,7 @@ JVM 默认情况下，当代码的某一个位置高频率抛出同一异常时�
 - ArrayStoreException
 - ClassCastException
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201219221754.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201219221754.png)
 
 往往出现这种情况，只能期望找到最初报错的日志，去找到具体的异常行。
 
@@ -31,6 +31,6 @@ JVM 默认情况下，当代码的某一个位置高频率抛出同一异常时�
 
 在 IDEA 中的话，配置如下即可：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201219222602.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201219222602.png)
 
 另外需要注意的是，不加控制的打印异常栈，对 CPU 和内存都会有影响。最好在出现异常后尽快解决，或对异常打印增加频率控制。总之就是这个思想，懂就行。

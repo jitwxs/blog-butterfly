@@ -26,7 +26,7 @@ copyright_author: Jitwxs
 
 `CyclicBarrier` 是一个同步工具类，它允许一组线程在到达某个栅栏点(common barrier point)互相等待，发生阻塞，直到最后一个线程到达栅栏点，栅栏才会打开，处于阻塞状态的线程恢复继续执行.它非常适用于一组线程之间必需经常互相等待的情况。CyclicBarrier 字面理解是循环的栅栏，之所以称之为循环的是因为在等待线程释放后，该栅栏还可以复用。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2019112423333697.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201911/2019112423333697.png)
 
 建议阅读 CyclicBarrier 源码前，先深入研究一下 ReentrantLock 的原理，搞清楚 Condition 里 await 和 signal 的原理。
 

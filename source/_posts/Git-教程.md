@@ -21,19 +21,19 @@ Git是一款免费、开源的分布式版本控制系统，用于敏捷高效�
 
 集中式的特点是需要联网才能工作，对网速的要求较高。如果中央服务器发生了宕机，所有人都没法工作。
 
-![集中式](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912171557531.png)
+![集中式](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912171557531.png)
 
 分布式版本控制系统没有“中央服务器”，每个人的电脑上都是一个完整的版本库，工作的时候不需要联网。需要彼此的文件，只需要相互推送。实际使用中，分布式版本控制控制系统通常也有一台充当“中央服务器”的电脑，但仅仅是用来方便“交换”大家的修改，没有它大家一样能正常工作，只是交换修改不方便。分布式版本控制工具有：`Git`、Mercurial、Bazaar 等。
 
 分布式的特点是不需要联网就能工作。不依赖中央服务器，安全性高。
 
-![分布式](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912171610347.png)
+![分布式](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912171610347.png)
 
 ### 1.2 安装 Git
 
 测试是否正确安装了 Git：
 
-![Git测试安装](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912171451264.png)
+![Git测试安装](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912171451264.png)
 
 如果像上图这样显示没有安装，通过相应包管理直接安装即可。我的电脑为`CentOs`，因此键入命令
 
@@ -52,7 +52,7 @@ $ git config --global user.email "email@example.com"
 
 注意：`git config` 命令的 `--global` 参数，用了这个参数，表示你这台机器上所有的 Git 仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。
 
-![自报家门](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912180005051.png)
+![自报家门](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912180005051.png)
 
 ### 1.3 工作区和暂存区
 
@@ -62,7 +62,7 @@ Git和其他版本控制系统如SVN有一个不同之处就是有`暂存区`的
 
 就是你在电脑里能看到的目录，比如learngit文件夹就是一个工作区：
 
-![工作区](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912172000402.png)
+![工作区](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912172000402.png)
 
 **版本库（Repository）**
 
@@ -72,7 +72,7 @@ Git和其他版本控制系统如SVN有一个不同之处就是有`暂存区`的
 
 Git的版本库里存了很多东西，其中最重要的就是称为 `stage`（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支 `master`，以及指向master的一个指针叫 `HEAD`。
 
-![版本库](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912172033783.png)
+![版本库](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912172033783.png)
 
 我们把文件往Git版本库里添加的时候，是分两步执行的：
 
@@ -91,7 +91,7 @@ Git的版本库里存了很多东西，其中最重要的就是称为 `stage`（
 
 3. 把本地版本库推送到远程版本库：`git push`
 
-![三大命令](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912172601157.png)
+![三大命令](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912172601157.png)
 
 ## 二、版本控制
 
@@ -99,7 +99,7 @@ Git的版本库里存了很多东西，其中最重要的就是称为 `stage`（
 
 选择合适路径，创建一个空目录，使用 `git init` 初始化 git 管理的目录
 
-![创建版本库](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912175429932.png)
+![创建版本库](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912175429932.png)
 
 然后我们添加文件到版本库：
 
@@ -110,7 +110,7 @@ Git的版本库里存了很多东西，其中最重要的就是称为 `stage`（
 >注1：commit 命令使用 `-m` 参数可以添加本次提交的注释。这非常有用，在团队合作中能够让别人理解你本次提交的修改内容。
 >注2：我们可以用 git add 添加多个文件到暂存区，然后使用 git commit 一次性提交。
 
-![提交文件](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912180656974.png)
+![提交文件](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912180656974.png)
 
 ### 2.2 查看仓库状态
 
@@ -118,23 +118,23 @@ Git的版本库里存了很多东西，其中最重要的就是称为 `stage`（
 
 修改 readme.txt 文件，使用 `git status` 查看仓库状态，下图说明 readme.txt 文件被修改，但还没有提交到仓库。
 
-![查看仓库状态](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912181209719.png)
+![查看仓库状态](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912181209719.png)
 
 **git diff** 查看修改的内容
 
 下图说明 readme.txt，添加了一行内容。
 
-![查看修改](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912181853657.png)
+![查看修改](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912181853657.png)
 
 将 readme.txt 添加到暂存区并提交后，再次使用 `git status` 和 `git diff` 查看。
 
-![查看修改2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912182027811.png)
+![查看修改2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912182027811.png)
 
 **git log** 查看仓库历史纪录
 
 `git log` 命令显示从最近到最远的提交日志。
 
-![查看历史纪录](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912191332442.png)
+![查看历史纪录](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912191332442.png)
 
 ### 2.3 版本回退
 
@@ -144,26 +144,26 @@ Git的版本库里存了很多东西，其中最重要的就是称为 `stage`（
 
 `--soft` 参数告诉 Git 重置 HEAD 到另外一个 commit，但也到此为止。如果你指定 --soft 参数，Git将停止在那里而什么也不会根本变化。这意味着 index, working copy 都不会做任何变化，所有的在 original HEAD 和你重置到的那个 commit 之间的所有变更集仍然在stage(index)区域中。
 
-![git reset --soft](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912190718334.png)
+![git reset --soft](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912190718334.png)
 
 `--hard` 参数将会将重置 HEAD 返回到另外一个 commit，重置 index 以便反映HEAD的变化，并且重置 working copy 也使得其完全匹配起来。这是一个比较危险的动作，具有破坏性，数据因此可能会丢失！如果真是发生了数据丢失又希望找回来，那么只有使用 `git reflog` 命令了。
 
-![git reset --hard](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912190810065.png)
+![git reset --hard](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912190810065.png)
 
 `--mixed` 是 reset 的默认参数，也就是当你不指定任何参数时的参数。它将重置 HEAD 到另外一个 commit,并且重置index 以便和 HEAD比配，但是也到此为止。working copy 不会被更改。所以所有从 original HEAD到你重置到的那个 commit 之间的所有变更仍然保存在 working copy中，被标示为已变更，但是并未staged的状态。
 
-![git reset --mixed](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912190847304.png)
+![git reset --mixed](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912190847304.png)
 
 Git 中，用 HEAD 表示当前版本，上一个版本就是HEAD^ ，上上个版本就是HEAD^^。
 撤销后再查看记录发现提交记录少了一个
 
-![版本撤销](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912191519806.png)
+![版本撤销](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912191519806.png)
 
 也可以指定回滚的版本号。版本号用 `git log` 查看 commit id 前7位。
 
 如果我们忘记回退前的版本号，`git reflog` 命令记录了每一次的命令操作，包含了所有版本的版本号。
 
-![查看操作记录](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912191852220.png)
+![查看操作记录](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912191852220.png)
 
 ### 2.4 撤销修改
 
@@ -176,7 +176,7 @@ Git 中，用 HEAD 表示当前版本，上一个版本就是HEAD^ ，上上个�
 
 注：`--`请不要丢掉，丢掉后就成为了创建分支的命令。
 
-![撤销修改](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912192201582.png)
+![撤销修改](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912192201582.png)
 
 **git reset HEAD file**
 
@@ -190,21 +190,21 @@ Git 中，用 HEAD 表示当前版本，上一个版本就是HEAD^ ，上上个�
 
 如果使用 rm 删除了版本库中的文件 test.txt，然后用 `git status` 查看仓库状态。
 
-![查看删除文件](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912192621199.png)
+![查看删除文件](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912192621199.png)
 
 如果确实要将 test.txt 文件从 Git 仓库删除，使用 `git rm`，并 commit。
 
-![git 中删除](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912192824084.png)
+![git 中删除](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912192824084.png)
 
-![提交删除](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912192851925.png)
+![提交删除](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912192851925.png)
 
 如果误删，使用 `git checkout -- file` 恢复到之前版本。
 
-![误删文件](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912192451959.png)
+![误删文件](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912192451959.png)
 
 ### 2.6 命令小节
 
-![版本控制命令小节](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171126203113510.png)
+![版本控制命令小节](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201711/20171126203113510.png)
 
 ## 三、远程仓库
 
@@ -222,23 +222,23 @@ GitHub需要识别推送者的身份，防止别人冒充。Git支持SSH协议�
 
 >ssh-keygen -t rsa -C "user.email"
 
-![创建密钥](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912195012211.png)
+![创建密钥](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912195012211.png)
 
 然后可以在用户主目录里找到.ssh目录，里面有 `id_rsa` 和 `id_rsa.pub` 两个文件，这两个就是 SSH Key 的秘钥对，`id_rsa` 是私钥，不能泄露出去，`id_rsa.pub` 是公钥，可以放心地告诉任何人。
 
 复制 `~/.ssh/id_rsa.pub` 内容。
 
-![查看公钥](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912195051822.png)
+![查看公钥](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912195051822.png)
 
 第二步，登陆GitHub，打开`Settings` -->`SSH And GPL Keys`-->`New SSH key`--> `Add SSH key`，将之前的内容粘贴上去即可。
 
-![添加Key](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912195530311.png)
+![添加Key](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912195530311.png)
 
 ### 3.2 添加远程库
 
 首先登陆自己的 GitHub，创建一个新的仓库，这里我设置仓库名为 Test。
 
-![创建仓库](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912200351998.png)
+![创建仓库](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912200351998.png)
 
 GitHub 告诉我们有以下几种选择：
 
@@ -248,7 +248,7 @@ GitHub 告诉我们有以下几种选择：
 
 根据提示，我们把本地仓库的内容推送到 GitHub 仓库。在本地仓库下，执行 GitHub 提示我们的命令即可。
 
-![关联仓库](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912200643745.png)
+![关联仓库](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912200643745.png)
 
 由于远程库是空的，我们第一次推送 master 分支时，加上了 `-u` 参数，Git不但会把本地的master分支内容推送的远程新的 master 分支，还会把本地的 master 分支和远程的 master 分支关联起来，在以后的推送或者拉取时就可以不使用 `-u` 参数。
 
@@ -264,18 +264,18 @@ Git 会输出一个警告，告诉你已经把 GitHub 的 Key 添加到本机的
 git clone git@github.com:jitwxs/OJCrawler.git
 ```
 
-![克隆仓库到本地](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912201635992.png)
+![克隆仓库到本地](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912201635992.png)
 
 ### 3.4 命令小节
 
-![远程控制命令小节](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912202555746.png)
+![远程控制命令小节](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912202555746.png)
 
 ## 四、分支管理
 分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习 Git 的时候，另一个你正在另一个平行宇宙里努力学习 SVN。
 
 如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了 Git 又学会了 SVN！
 
-![分支漫画](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912204359273.png)
+![分支漫画](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912204359273.png)
 
 分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了 50% 的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。
 
@@ -292,27 +292,27 @@ Git 将每次提交的内容串成一条时间线，这条时间线就是一个�
 
 一开始的时候，master 分支是一条线，Git 用 master 指向最新的提交，再用 HEAD 指向 master，就能确定当前分支，以及当前分支的提交点：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912205225773.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912205225773.png)
 
 每次提交，master 分支都会向前移动一步，这样，随着你不断提交，master 分支的线也越来越长。
 
 当我们创建新的分支，例如 dev 时，Git 新建了一个指针叫 dev，指向 master 相同的提交，再把 HEAD 指向dev，就表示当前分支在 dev 上。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912205300693.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912205300693.png)
 
 由这个数据结构我们知道，Git 创建一个分支很快，因为除了增加一个 dev 指针，改改 HEAD 的指向，工作区的文件都没有任何变化！
 
 从现在开始，对工作区的修改和提交就是针对 dev 分支了，比如新提交一次后，dev 指针往前移动一步，而master 指针不变。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912205342023.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912205342023.png)
 
 假如我们在 dev 上的工作完成了，就可以把 dev 合并到 master 上。最简单的方法，就是直接把 master 指向 dev 的当前提交，就完成了合并：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912205415023.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912205415023.png)
 
 合并完分支后，甚至可以删除 dev 分支。删除 dev 分支就是把 dev 指针给删掉，删掉后，我们就剩下了一条master 分支：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912205428759.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912205428759.png)
 
 说了这么多理论，下面开始实际操作。
 
@@ -331,25 +331,25 @@ git checkout dev
 
 然后，用 `git branch` 命令查看分支，当前活跃分支前会添加 `*` 号：
 
-![查看分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912210122240.png)
+![查看分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912210122240.png)
 
 下面我们为 readme.txt 文件添加一行，并提交 dev 分支。
 
-![在dev分支修改内容](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912210449417.png)
+![在dev分支修改内容](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912210449417.png)
 
 切换回 master 分支后，再查看一个 readme.txt 文件，刚才添加的内容不见了！
 
-![切换回master](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912210623085.png)
+![切换回master](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912210623085.png)
 
 因为那个提交是在 dev 分支上，而 master 分支此刻的提交点并没有变。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912210710293.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912210710293.png)
 
 现在，我们把 dev 分支的工作成果合并到 master 分支上，`git merge` 命令用于合并指定分支到当前分支。
 
 合并后，再查看 readme.txt 的内容，就可以看到，和 dev 分支的最新提交是完全一样的。
 
-![合并dev分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912210957941.png)
+![合并dev分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912210957941.png)
 
 注意到上面的 Fast-forward 信息，Git 告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。
 
@@ -357,7 +357,7 @@ git checkout dev
 
 删除后，查看 branch，就只剩下 master 分支了：
 
-![删除dev分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912211053186.png)
+![删除dev分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912211053186.png)
 
 因为创建、合并和删除分支非常快，所以 Git 鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在master分支上工作效果是一样的，但过程更安全。
 
@@ -365,7 +365,7 @@ git checkout dev
 
 合并分支并非总是这么一帆风顺，有可能遇上冲突问题。准备新的 feature1 分支，来模拟冲突问题。
 
-![创建feature1分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912212407876.png)
+![创建feature1分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212407876.png)
 
 修改 readme.txt 最后一行，改为：
 
@@ -373,11 +373,11 @@ git checkout dev
 
 在 feature1 分支上提交：
 
-![提交feature1](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912212504122.png)
+![提交feature1](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212504122.png)
 
 切换到 master 分支：
 
-![切换master](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912212541805.png)
+![切换master](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212541805.png)
 
 Git 还会自动提示我们当前 master 分支比远程的 master 分支要超前 1 个提交。
 
@@ -387,25 +387,25 @@ Git 还会自动提示我们当前 master 分支比远程的 master 分支要超
 
 提交：
 
-![提交master](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912212621019.png)
+![提交master](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212621019.png)
 
 现在，master 分支和 feature1 分支各自都分别有新的提交，变成了这样：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912212658873.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212658873.png)
 
 这种情况下，Git 无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突，我们试试看：
 
-![尝试合并冲突](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912212740792.png)
+![尝试合并冲突](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212740792.png)
 
 果然冲突了！Git 告诉我们，readme.txt 文件存在冲突，必须手动解决冲突后再提交。
 
 `git status` 也可以告诉我们冲突的文件：
 
-![git status冲突](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912212832585.png)
+![git status冲突](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212832585.png)
 
 我们可以直接查看 readme.txt 的内容：
 
-![查看冲突内容](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912212910823.png)
+![查看冲突内容](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212910823.png)
 
 Git用`<<<<<<<`，`=======`，`>>>>>>>`标记出不同分支的内容，我们将最后一行修改如下后保存：
 
@@ -413,11 +413,11 @@ Git用`<<<<<<<`，`=======`，`>>>>>>>`标记出不同分支的内容，我们�
 
 再提交：
 
-![查看合并](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912213013874.png)
+![查看合并](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912213013874.png)
 
 现在，master 分支和 feature1 分支变成了下图所示：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912213042282.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912213042282.png)
 
 用带参数的 `git log` 也可以看到分支的合并情况：
 
@@ -425,11 +425,11 @@ Git用`<<<<<<<`，`=======`，`>>>>>>>`标记出不同分支的内容，我们�
 git log --graph --pretty=oneline --abbrev-commit
 ```
 
-![git log冲突](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912213141253.png)
+![git log冲突](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912213141253.png)
 
 最后，删除 feature1 分支：
 
-![删除feature1](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912213230299.png)
+![删除feature1](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912213230299.png)
 
 ### 4.3 分支管理策略
 
@@ -441,27 +441,27 @@ git log --graph --pretty=oneline --abbrev-commit
 
 首先，仍然创建并切换 dev 分支：
 
-![创建dev分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912215225591.png)
+![创建dev分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912215225591.png)
 
 修改 readme.txt 文件，并提交一个新的 commit：
 
-![提交dev分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912215308121.png)
+![提交dev分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912215308121.png)
 
 现在，我们切换回 master：
 
-![切换到master](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912215632518.png)
+![切换到master](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912215632518.png)
 
 准备合并 dev 分支，请注意 `--no-ff` 参数，表示禁用 Fast forward。因为本次合并要创建一个新的 commit，所以加上`-m` 参数，把 commit 描述写进去。
 
-![noff合并分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912215721082.png)
+![noff合并分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912215721082.png)
 
 合并后，我们用 git log 看看分支历史：
 
-![git log历史](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912215805050.png)
+![git log历史](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912215805050.png)
 
 可以看到，不使用 Fast forward 模式，merge 后就像这样：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912215835059.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912215835059.png)
 
 在实际开发中，我们应该按照几个基本原则进行分支管理：
 
@@ -473,41 +473,41 @@ git log --graph --pretty=oneline --abbrev-commit
 
 所以，团队合作的分支看起来就像这样：
 
-![分支策略](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912215858481.png)
+![分支策略](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912215858481.png)
 
 ### 4.4 Bug 分支
 
 当你接到一个修复 bug 的任务时，很自然地，你想创建一个分支来修复它。但是等等，当前分支上进行的工作还没有提交。并不是你不想提交，而是工作只进行到一半，还没法提交。如下图，demo.c 文件还没有完成，无法提交。
 
-![无法提交演示](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912222054549.png)
+![无法提交演示](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222054549.png)
 
 但是，你必须紧急修复该 bug，怎么办？幸好，Git还提供了一个 stash 功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作。
 
-![stash](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912222140963.png)
+![stash](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222140963.png)
 
 现在，用 `git status` 查看工作区，就是干净的（除非有没有被 Git 管理的文件），因此可以放心地创建分支来修复 bug。
 
-![查看隐藏后status](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912222225438.png)
+![查看隐藏后status](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222225438.png)
 
 首先确定要在哪个分支上修复 bug，假定需要在 master 分支上修复，就从 master 创建临时分支：
 
-![创建issue分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912222308258.png)
+![创建issue分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222308258.png)
 
 现在模拟修复 bug，随便修改 readme.txt 内容，然后提交：
 
-![提交issue分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912222622375.png)
+![提交issue分支](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222622375.png)
 
 修复完成后，切换到 master 分支，并完成合并，最后删除 issue 分支：
 
-![删除issue](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912222706173.png)
+![删除issue](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222706173.png)
 
 修复完了 Bug，是时候接着回到 dev 分支干活了！
 
-![返回dev](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912222820410.png)
+![返回dev](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222820410.png)
 
 工作区是干净的，刚才的工作现场存到哪去了？用 `git stash list` 命令看看：
 
-![查看stash](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912222846790.png)
+![查看stash](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222846790.png)
 
 工作现场还在，Git 把 stash 内容存在某个地方了，但是需要恢复一下，有两个办法：
 
@@ -517,7 +517,7 @@ git log --graph --pretty=oneline --abbrev-commit
 
 这里假设我们不需要保留 stash 的内容了，使用 `git stash pop` 命令。再用 `git stash list` 查看，就看不到任何 stash 内容了：
 
-![stash pop](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912222928064.png)
+![stash pop](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222928064.png)
 
 当然了，你可以多次stash，恢复的时候，先用`git stash list`查看，然后恢复指定的stash，用命令：
 
@@ -531,7 +531,7 @@ git stash apply stash@{0}
 
 用 `git remote` 查看远程库的信息,或者，用 `git remote -v` 显示更详细的信息：
 
-![git remote](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912224356423.png)
+![git remote](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912224356423.png)
 
 上面显示了可以抓取和推送的 origin 的地址。如果没有推送权限，就看不到 push 的地址。
 
@@ -559,7 +559,7 @@ git stash apply stash@{0}
 
 ### 4.6 命令小节
 
-![分支命令](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912224607107.png)
+![分支命令](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912224607107.png)
 
 ## 五、标签管理
 
@@ -585,25 +585,25 @@ Git有commit，为什么还要引入tag？
 
 在Git中打标签非常简单，首先，切换到需要打标签的分支上，然后，敲命令 `git tag <name>` 就可以打一个新标签：
 
-![打标签](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912225741049.png)
+![打标签](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912225741049.png)
 
 可以用命令 `git tag` 查看所有标签：
 
-![查看标签](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912232355386.png)
+![查看标签](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912232355386.png)
 
 默认标签是打在最新提交的 commit 上的。如果想要给历史 commit 打标签，可以找到历史提交的 commit id，然后打上就可以了：
 
-![查看git log](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912232446793.png)
+![查看git log](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912232446793.png)
 
 比方说要对 add merge 这次提交打标签，它对应的 commit id 是 3728b64，敲入命令 `git tag v0.1 6224937`：
 
 再用命令 `git tag` 查看标签：
 
-![查看标签2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912232523097.png)
+![查看标签2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912232523097.png)
 
 注意，标签不是按时间顺序列出，而是按字母排序的。可以用 `git show <tagname>` 查看标签信息：
 
-![查看标签具体](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912232613422.png)
+![查看标签具体](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912232613422.png)
 
 可以看到，v0.1 确实打在 add merge 这次提交上。
 
@@ -630,13 +630,13 @@ $ git tag -s v0.2 -m "signed version 0.2 released" fec145a
 git tag -d v0.1
 ```
 
-![删除标签](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912230447892.png)
+![删除标签](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912230447892.png)
 
 因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除。
 
 如果要推送某个标签到远程，使用命令 `git push origin <tagname>`，或者，使用 `git push origin --tags` 一次性推送全部尚未推送到远程的本地标签。
 
-![推送标签](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912230518979.png)
+![推送标签](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912230518979.png)
 
 如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：
 
@@ -654,7 +654,7 @@ git push origin :refs/tags/v0.1
 
 ### 5.3 命令小节
 
-![标签命令](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170912232647503.png)
+![标签命令](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912232647503.png)
 
 ## 六、自定义 Git
 

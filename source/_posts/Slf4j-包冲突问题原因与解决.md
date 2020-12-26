@@ -12,7 +12,7 @@ date: 2020-12-06 23:57:23
 
 在进行 Java 开发时，通常我们会选择 Slf4j 作为日志门面，但日志实现却不尽相同。如果系统运行中同时存在多个日志实现，就会出现类似下图的 Warning。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201206230550.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201206230550.png)
 
 ## 二、问题原因
 
@@ -38,7 +38,7 @@ private final Logger logs = LoggerFactory.getLogger(xxx.class);
 
 我们就可以通过这个作为入口，去看看源码的实现。如下图所示，我标注了需要关注的核心代码。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201206232119.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201206232119.png)
 
 （1）调用 `getILoggerFactory()` 方法得到 LoggerFactory。
 
@@ -50,11 +50,11 @@ private final Logger logs = LoggerFactory.getLogger(xxx.class);
 
 （5）在`findPossibleStaticLoggerBinderPathSet()` 这个方法内，首先通过 classLoader 加载了 `org/slf4j/impl/StaticLoggerBinder.class` 这个类的 path，它可能存在多个，因此使用了 while 获取了所有的 path，并最终返回。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201206232900.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201206232900.png)
 
 （6）`reportActualBinding()` 方法会校验 SET 的 size，如果大于 1，就会打印出一开始我们看见的 Warning 了。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201206233518.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201206233518.png)
 
 ## 三、问题解决
 
@@ -62,19 +62,19 @@ private final Logger logs = LoggerFactory.getLogger(xxx.class);
 
 打开项目的 POM 文件，右键选择 `Diagrams -> Show Dependencies`
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201206233647.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201206233647.png)
 
 假设我们想要排除 logback 依赖，使用 log4j。`Ctrl + F` 搜索 `logback`，可以找到引用该依赖的树形结构。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201206234031.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201206234031.png)
 
 点击窗口左上角的下图中的这个图标，可以只看当前选中的这个依赖的关系。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201206234108.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201206234108.png)
 
 选中后效果如下：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201206234057.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201206234057.png)
 
 如上图所示，logback 由 `spring-boot-starter-logging` 引入，最顶层是由 `spring-boot-starter-web` 和 `spring-boot-starter-test` 引入。
 

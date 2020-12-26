@@ -47,15 +47,15 @@ copyright_author: Jitwxs
 
 （1）在此基准测试中，从配置了最大大小的缓存中，8 个线程并发读：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200626155720837.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202006/20200626155720837.png)
 
 （2）在此基准测试中，从配置了最大大小的缓存中，6个线程并发读、2个线程并发写：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200626155739877.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202006/20200626155739877.png)
 
 （3）在此基准测试中，从配置了最大大小的缓存中，8 个线程并发写：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200626155753328.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202006/20200626155753328.png)
 
 ### 2.3 命中率
 
@@ -85,7 +85,7 @@ TinyLFU 顾名思义，轻量级LFU，相比于 LFU 算法用更小的内存空�
 
 TinyLFU 维护了近期访问记录的频率信息，不同于传统的 LFU 维护整个生命周期的访问记录，所以他可以很好地应对突发性的热点事件（超过一定时间，这些记录不再被维护）。这些访问记录会作为一个过滤器，当新加入的记录（New Item）访问频率高于将被淘汰的缓存记录（Cache Victim）时才会被替换。流程如下：
 
-![tiny-lfu-arch](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200626161439477.svg)
+![tiny-lfu-arch](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202006/20200626161439477.svg)
 
 尽管维护的是近期的访问记录，但仍然是非常昂贵的，TinyLFU 通过 Count-Min Sketch 算法来记录频率信息，它占用空间小且误报率低，关于 Count-Min Sketch 算法可以参考论文：[pproximating Data with the Count-Min Data Structure](http://dimacs.rutgers.edu/~graham/pubs/papers/cmsoft.pdf)
 
@@ -95,11 +95,11 @@ W-TinyLFU 是 Caffeine 提出的一种全新算法，它可以解决频率统计
 
 下图是一个运行了 ERP 应用的数据库服务中各种算法的命中率，实验数据来源于 ARC 算法作者，更多场景的性能测试参见[官网](https://github.com/ben-manes/caffeine/wiki/Efficiency)：
 
-![database](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200626162344340.png)
+![database](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202006/20200626162344340.png)
 
 W-TinyLFU 算法是对 TinyLFU算法的优化，能够很好地解决一些稀疏的突发访问元素。在一些数目很少但突发访问量很大的场景下，TinyLFU将无法保存这类元素，因为它们无法在短时间内积累到足够高的频率，从而被过滤器过滤掉。W-TinyLFU 将新记录暂时放入 Window Cache 里面，只有通过 TinLFU 考察才能进入 Main Cache。大致流程如下图：
 
-![W-TinyLFU](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200626162344355.svg)
+![W-TinyLFU](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202006/20200626162344355.svg)
 
 ## 三、最佳实践
 
@@ -115,7 +115,7 @@ W-TinyLFU 算法是对 TinyLFU算法的优化，能够很好地解决一些稀�
 - 缓存值会变，需要刷新缓存
 - 可以接受任何时间缓存中存在旧数据
 
-![设置 maxSize、refreshAfterWrite，不设置 expireAfterWrite](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200626170347537.png)
+![设置 maxSize、refreshAfterWrite，不设置 expireAfterWrite](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202006/20200626170347537.png)
 
 ### 3.2 实践2
 
@@ -130,7 +130,7 @@ W-TinyLFU 算法是对 TinyLFU算法的优化，能够很好地解决一些稀�
 - 不可以接受缓存中存在旧数据
 - 同步加载数据延迟小（使用 redis 等）
 
-![设置 maxSize、expireAfterWrite，不设置 refreshAfterWrite](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200626170443650.png)
+![设置 maxSize、expireAfterWrite，不设置 refreshAfterWrite](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202006/20200626170443650.png)
 
 ### 3.3 实践3
 
@@ -145,7 +145,7 @@ W-TinyLFU 算法是对 TinyLFU算法的优化，能够很好地解决一些稀�
 - 不可以接受缓存中存在旧数据
 - 同步加载数据延迟可能会很大
 
-![设置 maxSize，不设置 refreshAfterWrite、expireAfterWrite，定时任务异步刷新数据](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200626170550940.png)
+![设置 maxSize，不设置 refreshAfterWrite、expireAfterWrite，定时任务异步刷新数据](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202006/20200626170550940.png)
 
 ### 3.4 实践4
 
@@ -163,7 +163,7 @@ W-TinyLFU 算法是对 TinyLFU算法的优化，能够很好地解决一些稀�
 - 可以接受有限时间缓存中存在旧数据
 - 同步加载数据延迟小（使用 redis 等）
 
-![设置 maxSize、refreshAfterWrite、expireAfterWrite](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20200626170612494.png)
+![设置 maxSize、refreshAfterWrite、expireAfterWrite](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202006/20200626170612494.png)
 
 ## 四、迁移指南
 

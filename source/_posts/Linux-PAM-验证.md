@@ -19,7 +19,7 @@ PAM API是应用程序层与PAM服务模块之间联系的纽带，起着承上�
 
 当应用程序调用PAM API时，应用接口层按照配置文件`pam.conf`的规定，加载相应的PAM服务模块。当PAM服务模块完成相应的认证操作之后，将结果返回给应用接口层。
 
-![PAM层次结构](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171206002942497.png)
+![PAM层次结构](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201712/20171206002942497.png)
 
 ## 三、PAM工作原理
 
@@ -45,7 +45,7 @@ PAM API是应用程序层与PAM服务模块之间联系的纽带，起着承上�
 
 - 认证失败：通知用户
 
-![PAM工作原理](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171206003847251.png)
+![PAM工作原理](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201712/20171206003847251.png)
 
 ---
 
@@ -57,7 +57,7 @@ PAM配置文件有两种写法，第一种是写在`/etc/pam.conf`文件中，�
 
 第二种是在`/etc/pam.d`目录中，**使用应用程序名作为配置文件名：**
 
-![pam.d](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171206004553065.png)
+![pam.d](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201712/20171206004553065.png)
 
 配置格式形如：
 
@@ -111,7 +111,7 @@ PAM使用控制标记来**处理和判断各个模块的返回值**：
 
 （3）常用的PAM模块
 
-![PAM模块](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171206010523465.png)
+![PAM模块](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201712/20171206010523465.png)
 
 ---
 
@@ -261,7 +261,7 @@ int main(void) {
 
 因为该程序要查询`/etc/passwd`和`/etc/shadow文件`，因此要么执行时加上sudo，要么`sudo chown root.root test`，不然可能会出现错误。运行结果如下：
 
-![运行结果1](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171206014820670.png)
+![运行结果1](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201712/20171206014820670.png)
 
 ### 5.3 自定义PAM模块编写登陆验证
 
@@ -794,12 +794,12 @@ account required /lib/x86_64-linux-gnu/security/pam_test_auth.so
 
 因为我们代码逻辑是先判断密码强度再验证正确（这个逻辑并不正确，只是为了演示使用），因此当密码强度不够时：
 
-![运行结果2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171206021153072.png)
+![运行结果2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201712/20171206021153072.png)
 
 当尝试次数超过三次时：
 
-![运行结果3](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171206021630599.png)
+![运行结果3](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201712/20171206021630599.png)
 
 正确输入时：
 
-![运行结果4](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171206021729751.png)
+![运行结果4](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201712/20171206021729751.png)

@@ -467,7 +467,7 @@ Exception in thread "main" java.lang.NoSuchMethodException: SingletonTest$Single
 
 当反射调用构造方法时，抛出异常，这里的根本原因是反射对于枚举类型，无法通过构造方法创建实例。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2019083000150824.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201908/2019083000150824.png)
 
 再来看看它在序列化中的表现：
 

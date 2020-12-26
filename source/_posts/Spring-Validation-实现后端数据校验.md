@@ -105,15 +105,15 @@ public class FooController {
 
 一个最基本的校验就完成了，总结下框架已经提供了哪些校验：
 
-![JSR303规定的校验](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018101119183674.png)
+![JSR303规定的校验](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/2018101119183674.png)
 
-![Hibernate validator扩展校验](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181011191846263.png)
+![Hibernate validator扩展校验](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181011191846263.png)
 
 我们对上面实现的校验入口进行一次测试请求： 访问以下接口可以得到如下的debug信息：
 
 >http://localhost:8080/foo?name=xujingfeng&email=000&age=19
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181011193406506.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201810/20181011193406506.png)
 
 实验告诉我们，校验结果起了作用。并且，可以发现当发生多个错误，Spring Validation不会在第一个错误发生后立即停止，而是继续试错，告诉我们所有的错误。debug可以查看到更多丰富的错误信息，这些都是Spring Validation为我们提供的便捷特性，基本适用于大多数场景。
 

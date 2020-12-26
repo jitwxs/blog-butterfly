@@ -17,25 +17,25 @@ copyright_author: Jitwxs
 
 创建一个新的 Unity 项目 GazeDemo，导入 MRTK 工具包，并将项目应用为 MR 项目。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181121205314130.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201811/20181121205314130.png)
 
 删除掉默认的相机，添加 MRTK 的 `HoloLensCamera` 到 Hierarchy 中。添加 MRTK 中的 `CursorWithFeedback` 到 Hierarchy  中。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218201235184.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181218201235184.png)
 
 ## 一、凝视操作
 
 从 MRTK 中拖拽 `InputManager` 到 Hierarchy 中。这是一个十分重要的 Manager，它将管理我们的凝视等输入事件。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218201814467.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181218201814467.png)
 
 设置 InputManager 的 `SimpleSinglePointerSelector` 脚本的 Cursor 属性为添加的 CursorWithFeedback。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018121821571321.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/2018121821571321.png)
 
 随后添加一个 Cube 到 Hierarchy 中，来实现凝视 Cube 5 秒将其隐藏掉的效果。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218201741787.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181218201741787.png)
 
 新建脚本 `CubeCommand`，并将其添加到 Cube 上。
 
@@ -98,7 +98,7 @@ public class CubeCommand : MonoBehaviour, IFocusable {
 1. 为 Cube 添加 MRTK 包中的 `DirectionIndicator.cs` 脚本。
 2. 选中该脚本，设置 `Cursor` 属性为 Hierarchy 中的 CursorWithFeedback；设置`DirectionIndicatorObject` 属性为 MRTK 包中的 `HeadsUpDirectionIndicatorPointer`。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218203714810.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181218203714810.png)
 
 具体属性含义如下：
 
@@ -112,11 +112,11 @@ public class CubeCommand : MonoBehaviour, IFocusable {
 
 运行程序，你会发现一个巨大的三角箭头指示着 Cube 的方向：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218204119264.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181218204119264.png)
 
 MRTK 默认提供的 DirectionIndicatorObject 实在是太丑了。我这里使用 [MR Input 210: Gaze Chapter 4 - Directional indicator](https://docs.microsoft.com/zh-cn/windows/mixed-reality/holograms-210#chapter-4---directional-indicator) 中提供的方向指示器，效果如下：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218204447980.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181218204447980.png)
 
 ## 三、Billboarding
 
@@ -124,7 +124,7 @@ MRTK 默认提供的 DirectionIndicatorObject 实在是太丑了。我这里使�
 
 为一个 gameObject 添加广告牌效果十分简单，只要为其添加 MRTK 包下的 `Billboard.cs` 脚本，并设置它的 `PivotAxis` 属性为 `Y` 即可，即绕着 Y 轴实现广告牌。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181218204944734.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181218204944734.png)
 
 ## 四、Tag-Along
 
@@ -134,7 +134,7 @@ MRTK 默认提供的 DirectionIndicatorObject 实在是太丑了。我这里使�
 
 这里我添加了一个 3D Text，并为其添加了广告牌和平滑追踪的效果，运行效果如下：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018121820595640.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/2018121820595640.png)
 
 ## 五、Cursor 底层实现
 

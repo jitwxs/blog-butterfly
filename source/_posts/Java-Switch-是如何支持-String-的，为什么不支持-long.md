@@ -170,7 +170,7 @@ class SwitchTest$1 {
 
 首先生成了一个名为 `SwitchTest$1.java` 的链接类，里面定义了两个枚举数组，这两个数组元素添加的顺序完全和测试类中 switch 类调用的顺序一致。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190426174706674.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201904/20190426174706674.png)
 
 枚举元素在数组中的下标由 `ordinal()` 函数决定，该方法就是返回**枚举元素在枚举类中的序号**。
 
@@ -327,4 +327,4 @@ public int integerSwitch(Integer var1) {
 
 答案是 `NPE`，毕竟实际还是包装类型的拆箱，自然就报空指针了。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190426181624225.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201904/20190426181624225.png)

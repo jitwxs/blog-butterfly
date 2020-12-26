@@ -300,7 +300,7 @@ public class LoginController {
 
 ## 五、测试程序
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180320224257488.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180320224257488.png)
 
 我的数据库拥有以下身份和权限：
 
@@ -328,7 +328,7 @@ public String adminCreate() {
     return "只有[admin]身份且具有[create]权限才能看见这句话";
 }
 ```
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180320224642625.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180320224642625.png)
 
 ## 六、番外
 

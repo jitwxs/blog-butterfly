@@ -246,7 +246,7 @@ public class Main {
 
 观察者模式（Observer Pattern）也叫做发布订阅模式（Publish/Subscrible），它定义对象之间一种一对多的依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知并自动更新。
 
-![观察者模式](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190527000410.png)
+![观察者模式](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/20190527000410.png)
 
 观察者模式通用类图如上所示，一般至少包含四个角色。
 

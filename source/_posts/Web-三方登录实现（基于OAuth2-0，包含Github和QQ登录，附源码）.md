@@ -26,19 +26,19 @@ copyright_author: Jitwxs
 
 进入 Github 的 Setting 页面，点击 `Developer settings`，如图所示：
 
-![Developer settings](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180522220116657.png)
+![Developer settings](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/20180522220116657.png)
 
 进入后点击 `New Oauth App`，如图所示：
 
-![New Oauth App](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180522220217602.png)
+![New Oauth App](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/20180522220217602.png)
 
 在其中填写`主页 URL` 和 `回调 URL`，回调 URL 尤为重要，如果不太明白可以先和我一致。
 
-![Register Oahth App](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180522220322239.png)
+![Register Oahth App](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/20180522220322239.png)
 
 点击注册后，上方会生成 `Client ID` 和 `Client Secret`，这两个后面要用到。
 
-![Register Oahth App](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180522220445688.png)
+![Register Oahth App](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/20180522220445688.png)
 
 ### 1.2 HTML 页面
 
@@ -197,13 +197,13 @@ public void githubCallback(String code, String state, HttpServletResponse respon
 
 进入 [QQ 互联管理中心](https://connect.qq.com/manage.html)，创建一个新应用（需要先审核个人身份）：
 
-![QQ 互联管理中心](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180522223423451.png)
+![QQ 互联管理中心](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/20180522223423451.png)
 
 然后注册应用信息，和 GitHub 的步骤大差不差：
 
-![注册应用1](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180522223442610.png)
+![注册应用1](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/20180522223442610.png)
 
-![注册应用2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180522223549819.png)
+![注册应用2](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/20180522223549819.png)
 
 注册后，可以看到应用的 APP ID、APP Key，以及你被允许的接口，当然只有一个获取用户信息。
 
@@ -211,7 +211,7 @@ public void githubCallback(String code, String state, HttpServletResponse respon
 
 >注意：审核状态为审核中和审核失败也是可以使用的，不用担心（只是无法实际上线而已，作为 Demo 足够了）。 
 
-![应用接口](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180522223636727.png)
+![应用接口](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/20180522223636727.png)
 
 ### 2.2 QQ 登录方法
 

@@ -16,7 +16,7 @@ JVM 参数类型主要分为标准参数、X 参数、XX 参数三类。
 
 （1）对于标准参数，在 JVM 的各个版本中基本是不变的，相对是比较稳定的。例如 `-help`、`-version`、`-server`、`-client` 等。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226151819.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226151819.png)
 
 （2）X 参数是非标准化参数，在不同的 JVM 版本中可能会发生变化。例如：
 
@@ -46,7 +46,7 @@ Boolean 类型
 
 使用 `jps -l` 可以获取 Java 进程的包名，例如我启动了一个 SpringBoot 项目，使用该命令后可以拿到它的 PID 是 3007。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226152703.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226152703.png)
 
 ## 三、JINFO
 
@@ -56,13 +56,13 @@ Boolean 类型
 jinfo -flag <name> <pid> 查看进程的某一个 JVM 参数
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226152856.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226152856.png)
 
 ```
 jinfo -flags <pid> 查看进程所有非默认的 JVM 参数
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226153147.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226153147.png)
 
 ## 四、JSTAT
 
@@ -73,14 +73,14 @@ jinfo -flags <pid> 查看进程所有非默认的 JVM 参数
 例如：jstat -class 3007 1000 5
 ```
 
-![查看类加载信息](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226153636.png)
+![查看类加载信息](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226153636.png)
 
 ```
 格式：jstat -gc <pid> <interval> <count> 每隔 Interval 毫秒查看一次进程的 GC 信息，查看 count 次
 例如：jstat -gc 3007 1000 2
 ```
 
-![查看GC(1.8)信息](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226153918.png)
+![查看GC(1.8)信息](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226153918.png)
 
 - S0C、S1C、S0U、S1U：S0 和 S1 的总量与使用量
 - EC、EU：Eden 区总量与使用量
@@ -98,7 +98,7 @@ jinfo -flags <pid> 查看进程所有非默认的 JVM 参数
 例如：jstat -compiler 3007
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226155912.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226155912.png)
 
 - Compiled、Failed、Invalid 将代码编译成本地方法的成功、失败、无效任务量
 - FailedType、FailedMethod 上次编译失败的类型和方法名
@@ -126,17 +126,17 @@ jinfo -flags <pid> 查看进程所有非默认的 JVM 参数
 
 （1）`jps -l` 获取到需要分析的 Java 进程的 PID。【本例中为 3007】
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226152703.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226152703.png)
 
 （2）`top -Hp <PID>` 查看该 Java 进程内部每个线程的 CPU 和占用情况，找到你觉得有问题的那一个线程的 PID，转成十六进制记录下来。【我这个程序只是个 helloword，所以我就随便找一个线程了。比如取 3018，它的十六进制是 0xbca】
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226164440.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226164440.png)
 
 （3）`jstack <PID> <filename>` 获取到线程快照。【本例中输出为 a.out】
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226164611.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226164611.png)
 
 （4）然后在其中搜索你觉得有问题的那个进程 ID。【例子举得不好，找的线程是 GC 线程，知道是这么个流程就行】
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226164652.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226164652.png)
 

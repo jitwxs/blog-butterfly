@@ -35,7 +35,7 @@ copyright_author: Jitwxs
 3. 在这个 Provider 中进行一系列的验证处理，如果验证通过，就会重新构造一个添加了鉴权的 `UsernamePasswordAuthenticationToken`，并将这个 token 传回到 `UsernamePasswordAuthenticationFilter` 中。
 4. 在该 Filter 的父类 `AbstractAuthenticationProcessingFilter` 中，会根据上一步验证的结果，跳转到 successHandler 或者是 failureHandler。
 
-![Spring Security 认证流程（部分）](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20181202095539982.png)
+![Spring Security 认证流程（部分）](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181202095539982.png)
 
 ### 1.2 短信验证码登录逻辑
 
@@ -45,7 +45,7 @@ copyright_author: Jitwxs
 2. 用户名密码登录需要 UsernamePasswordAuthenticationToken，我们搞一个 `SmsAuthenticationToken`，代码粘过来改一改。
 3. 用户名密码登录需要 DaoAuthenticationProvider，我们模仿它也 implenments AuthenticationProvider，叫做 `SmsAuthenticationProvider`。
 
-![短信登录验证逻辑](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2019010916114182.png)
+![短信登录验证逻辑](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201901/2019010916114182.png)
 
 我们自己搞了上面三个类以后，想要实现的效果如上图所示。当我们使用短信验证码登录的时候：
 
@@ -536,16 +536,16 @@ public void sms(String mobile, HttpSession session) {
 
 在控制台就会打印当前用户的 sessionId，以及为哪一个手机号所申请的验证码。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190109170102645.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201901/20190109170102645.png)
 
 当验证码输入错误时：
 
-![验证码输入错误](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190109170349239.png)
+![验证码输入错误](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201901/20190109170349239.png)
 
 当获取验证码的手机号和登陆手机号不一致时：
 
-![验证码的手机号和登陆手机号不一致](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190109170452607.png)
+![验证码的手机号和登陆手机号不一致](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201901/20190109170452607.png)
 
 成功登陆时，执行成功处理逻辑：
 
-![登陆成功](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190109170906743.png)
+![登陆成功](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201901/20190109170906743.png)

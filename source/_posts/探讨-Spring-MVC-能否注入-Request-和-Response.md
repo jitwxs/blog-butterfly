@@ -89,13 +89,13 @@ public class DemoController {
 
 > 因为 request 和 response 的原理是一样的，因此下文只以 request 为例，避免啰嗦。
 
-![注入与形参区别](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905072146306.png)
+![注入与形参区别](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/201905072146306.png)
 
 IDEA十分智能，一上来就告诉我们注入 request 的是 `$Proxy`，形参的 request 是 `RequestFacade` ，初步得知是通过**代理**的方式取出 request。
 
 点开注入的 request，发现它是从 `AutowireUtils` 中的 `ObjectFactoryDelegatingInvocationHandler` 取出了，点进去看看。
 
-![ObjectFactoryDelegatingInvocationHandler](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190507214813216.png)
+![ObjectFactoryDelegatingInvocationHandler](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/20190507214813216.png)
 
 可以看到这个静态内部类具有以下属性：
 
@@ -107,15 +107,15 @@ IDEA十分智能，一上来就告诉我们注入 request 的是 `$Proxy`，形�
 
 那么就去看看这个 `objectFactory.getObject()` 是什么，点进去发现 `ObjectFactory` 是一个接口，根据一开始注入地方的截图，我们知道它的实现类是 `WebApplicationContextUtils` 中的 `RequestObjectFactory`，点进去看看。
 
-![RequestObjectFactory](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190912001318208.png)
+![RequestObjectFactory](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201909/20190912001318208.png)
 
 它通过调用 `currentRequestAttributes().getRequest()` ，取出了 ServletRequest，那么点进去看看，它是怎么取得的。
 
-![WebApplicationContextUtils](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190507214950544.png)
+![WebApplicationContextUtils](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/20190507214950544.png)
 
 经过一系列的调用，可以看到最后是通过 `requestAttributesHolder` 和 `inheritableRequestAttributesHolder` 中取出来的，接着看看这俩的定义。
 
-![RequestContextHolder](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190507215041626.png)
+![RequestContextHolder](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/20190507215041626.png)
 
 看到这相信你已经知道了，是从`ThreadLocal` 中取出来的，这也就说明它是线程隔离的，因此通过注入方式得到的 request 和 response 是线程安全的。
 
@@ -132,15 +132,15 @@ HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.get
 
 在 `DispatcherServlet` 的父类 `FrameworkServlet` 中，我们发现所有请求相关的方法，内部都调用了 `processRequest` 方法。
 
-![FrameworkServlet](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190507215117497.png)
+![FrameworkServlet](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/20190507215117497.png)
 
 看起来这个方法就是实际处理 HTTP 请求的，点进去看看。
 
-![FrameworkServlet#processRequest](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190507215152502.png)
+![FrameworkServlet#processRequest](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/20190507215152502.png)
 
 这个方法逻辑也很明晰，我们看其中最关键的 `initContextHolders` 方法，它将本次请求的 request，以及新初始化的 localContext 和 requestAttributes 传入，点进去看看。
 
-![FrameworkServlet#initContextHolders](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905072152303.png)
+![FrameworkServlet#initContextHolders](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/201905072152303.png)
 
 `initContextHolders` 方法内部分别调用了：
 
@@ -149,7 +149,7 @@ HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.get
 
 两个方法的逻辑大致一致，都是根据 `inheritable` 的取值，来决定 set 进哪个 Holder，remove 出哪个 Holder，下面看下这几个 Holoder 的定义。
 
-![Holder 定义](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2019050721530387.png)
+![Holder 定义](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/2019050721530387.png)
 
 全都是 ThreadLocal，再看看 `RequestContextHolder` 中的那两个，是不是跟文章上一节最后取出来的那两个是同一个，至此就破案了。
 
@@ -161,20 +161,20 @@ HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.get
 
 以 `RequestContextHolder` 中那两个 Holder 为例，看看它的构造类。
 
-![NamedInheritableThreadLocal 与 NamedInheritableThreadLocal](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190507215344783.png)
+![NamedInheritableThreadLocal 与 NamedInheritableThreadLocal](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/20190507215344783.png)
 
 不出所料，它们的父类分别就是 `ThreadLocal` 和 `InheritableThreadLocal`。那么它是咋实现子访问父的呢，我们去 Thread 类里面看一看。
 
-![Thread#init](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190507215420670.png)
+![Thread#init](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/20190507215420670.png)
 
 首先 Thread 类中有两个 ThreadLocalMap，分别是 `threadLocals` 和 `inheritableThreadLocals`。
 
 然后看下它的 `init()` 方法，首先形参传了一个 `inheritThreadLocals`，表示是否是要继承父线程，如果为 true 情况下，调用 `ThreadLocal.createInheritedMap(parent.inheritableThreadLocals)` ，也就是使用了父 `inheritableThreadLocals` 初始化了当前的 `inheritableThreadLocals`，点进去看看。
 
-![ThreadLocal#ThreadLocalMap](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190507215449827.png)
+![ThreadLocal#ThreadLocalMap](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/20190507215449827.png)
 
 代码比较简单，就不细说了，就是一个拷贝。至此为啥 `InheritableThreadLocal` 能够访问父线程中的变量就破案了。
 
 回归正题，既然注入的不存在线程安全问题，那么这个布尔值自然就是 false 了。如果你要手动改为 true 的话，那么这样注入的可就存在线程安全问题了。
 
-![threadContextInheritable](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190507215519437.png)
+![threadContextInheritable](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201905/20190507215519437.png)

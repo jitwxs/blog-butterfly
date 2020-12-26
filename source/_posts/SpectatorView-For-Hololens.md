@@ -6,7 +6,7 @@ date: 2018-11-22 00:34:47
 copyright_author: Microsoft
 ---
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20191212004034809.jpg)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201912/20191212004034809.jpg)
 
 戴上 HoloLens 时，我们通常会忘记这样一件事：没有戴上它的人无法体验到我们所能体验到的神奇感受。 SpectatorView（三方视角，旁观视图）允许其他人通过2D屏幕看到 HoloLens 用户在其世界里看到的东西。有了旁观视图，就可以通过快速且经济的方式在移动设备中录制高清全息影像。 有了它，还可以通过摄像机对全息影像进行专业质量的录制。
 

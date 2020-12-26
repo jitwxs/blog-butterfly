@@ -31,7 +31,7 @@ date: 2020-12-26 18:11:40
 
 使用 Arthas 需要 JDK 版本在 **1.6 以上**。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226184755.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226184755.png)
 
 ## 三、快速安装
 
@@ -77,17 +77,17 @@ java -jar arthas-demo.jar
 
 这个 demo 功能是死循环做质因数分解，并记录下无法分解的次数，如下图所示。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226192147.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226192147.png)
 
 我们首先启动 Arthas 并 attach 上该进程。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226192318.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226192318.png)
 
 > 默认情况下，Arthas只listen 127.0.0.1，所以如果想从远程连接，则可以使用 `--target-ip`参数指定 listen 的IP
 
 另外如果条件允许的话，在 attach 后也可以使用浏览器登录，访问：http://127.0.0.1:3658 即可。也可以填入 IP，远程连接其他机器的 Arthas。
 
-![20201226192716](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226192716.png)
+![20201226192716](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226192716.png)
 
 ### 4.2 常用命令
 
@@ -102,7 +102,7 @@ java -jar arthas-demo.jar
 3. 第三部分显示的是 GC 相关的信息
 4. 第四部分是操作系统的一些信息和Java版本号
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226194318.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226194318.png)
 
 #### 4.2.2 thread
 
@@ -110,11 +110,11 @@ java -jar arthas-demo.jar
 
 使用 `thread` 命令可以查看当前所有的线程信息。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226194023.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226194023.png)
 
 并且可以通过追加 PID 的方式，查看具体某个线程的状态。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226194126.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226194126.png)
 
 #### 4.2.3 jad
 
@@ -122,7 +122,7 @@ java -jar arthas-demo.jar
 
 使用 `jad` 命令可以反编译 class 文件。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226194833.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226194833.png)
 
 #### 4.2.2 watch
 
@@ -130,7 +130,7 @@ java -jar arthas-demo.jar
 
 `watch` 命令可以监控方法的入参出参：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226195701.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226195701.png)
 
 ## 五、退出 Arthas
 

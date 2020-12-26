@@ -39,7 +39,7 @@ public String printUser() {
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180330153402126.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201803/20180330153402126.png)
 
 但是如果我想让 ROLE_ADMIN 用户继承 ROLE_USER 用户的所有权限，该如何做呢？
 
@@ -61,7 +61,7 @@ public RoleHierarchy roleHierarchy() {
 
 让我们使用 ROLE_ADMIN 账号登陆，发现原本无法访问的 `/user` 接口也可以访问了：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190902233036282.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201909/20190902233036282.png)
 
 ## 源码
 

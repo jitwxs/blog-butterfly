@@ -56,7 +56,7 @@ XML DOM将整个XML文档加载到内存中，生成一颗**DOM树**，并获得
 
 经过DOM解析后，生成了一棵树：
 
-![XML树](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171211161640833.png)
+![XML树](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201712/20171211161640833.png)
 
 ## dom4j
 
@@ -64,7 +64,7 @@ XML DOM将整个XML文档加载到内存中，生成一颗**DOM树**，并获得
 
 （1）导入jar包
 
-![导入jar包](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20171211162043978.png)
+![导入jar包](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201712/20171211162043978.png)
 
 （2）API
 

@@ -785,7 +785,7 @@ NOTE: If any of the errors are false positives, please report
 
 我们回到提交前的状态，使用 git log 查看提交日志：
 
-![commit log](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170929215046242.png)
+![commit log](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170929215046242.png)
 
 我们找到最近一次的正确提交，回滚回去：
 
@@ -795,7 +795,7 @@ NOTE: If any of the errors are false positives, please report
 
 回去之后，去 debug 我们的错误：
 
-![debug](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170929215349652.png)
+![debug](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170929215349652.png)
 
 删除 24 行的空行，重新 add、commit 和 patch：
 
@@ -908,4 +908,4 @@ git send-email --to jitwxs@foxmail 0001-commands-echo-Add-new-testcase-to-test-e
 
 没多久我就收到了邮件，但是是从拦截消息中发现的...你没有听错，邮件服务商将其视为了垃圾邮件，所以你只能手动一封封的把它恢复，或者直接将其地址设为白名单。
 
-![post email](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170929221507396.png)
+![post email](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170929221507396.png)

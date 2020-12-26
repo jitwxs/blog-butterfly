@@ -26,7 +26,7 @@ date: 2020-12-26 20:28:17
 
 显示当前系统的实时数据面板，按 `q` 或 `ctrl+c` 退出。
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226194318.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226194318.png)
 
 ### 2.1 数据说明
 
@@ -93,7 +93,7 @@ JVM内部线程包括下面几种：
 thread -n 3
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226205037.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226205037.png)
 
 - 如果没有进程 ID，且包含`[Internal]`表示为 JVM 内部线程，和 dashboard 命令中相同。
 - `cpuUsage` 为采样间隔时间内线程的 CPU 使用率，和 dashboard 命令中相同。
@@ -123,7 +123,7 @@ thread -all
 thread <pid>
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226205725.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226205725.png)
 
 ### 3.6 找出当前阻塞其他线程的线程
 
@@ -146,7 +146,7 @@ thread -b
 thread –state <state>
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226210136.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226210136.png)
 
 ## 四、JVM
 
@@ -185,7 +185,7 @@ sysprop
 sysprop <key>
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226211222.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226211222.png)
 
 （3）修改单个属性
 
@@ -193,7 +193,7 @@ sysprop <key>
 sysprop <key> <value>
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226211538.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226211538.png)
 
 ## 六、sysenv
 
@@ -211,7 +211,7 @@ sysenv
 sysenv <key>
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226211128.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226211128.png)
 
 ## 七、vmoption
 
@@ -229,7 +229,7 @@ vmoption
 vmoption <key>
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226211401.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226211401.png)
 
 3）修改单个选项
 
@@ -237,7 +237,7 @@ vmoption <key>
 vmoption <key> <value>
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226211422.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226211422.png)
 
 ## 八、getstatic
 
@@ -249,7 +249,7 @@ vmoption <key> <value>
 getstatic <class_name> <field_name>
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226211746.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226211746.png)
 
 ## 九、ognl
 
@@ -280,4 +280,4 @@ ognl '@demo.MathGame@random'
 ognl '#value1=@System@getProperty("java.home"), #value2=@System@getProperty("java.runtime.name"), {#value1, #value2}'
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20201226212342.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226212342.png)

@@ -7,7 +7,7 @@ date: 2017-08-03 09:54:24
 copyright_author: Jitwxs
 ---
 
-![成果图](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190123223846216.png)
+![成果图](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201901/20190123223846216.png)
 
 ---
 
@@ -15,7 +15,7 @@ copyright_author: Jitwxs
 
 **Step2:** 选择 `Comments` 标签，配置注释
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20190123222653126.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201901/20190123222653126.png)
 
 - `Files`
 

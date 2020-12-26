@@ -153,7 +153,7 @@ public class TestQueueConsumer {
 
 大功告成，让我们测试一下：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180508233006758.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/20180508233006758.png)
 
 ## 二、发送延时消息
 
@@ -163,7 +163,7 @@ public class TestQueueConsumer {
 
 ActiveMQ 默认没有开启延时消息，编辑 activemq 目录下的 `conf/activemq.xml` 文件，修改第 20 行，在末尾加上 `schedulerSupport="true"`，如图所示：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180508233622423.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/20180508233622423.png)
 
 重新启动 ActiveMQ（`./activemq restart`）即可。
 
@@ -220,6 +220,6 @@ public void receiveQueue(String text) {
 
 大功告成，测试一下：
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/2018050823481217.png)
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/2018050823481217.png)
 
 在参数中，设置了延时5s，消息内容为hello world，输出结果正确！

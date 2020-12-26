@@ -86,7 +86,7 @@ mysql5.7 默认安装了`密码安全检查插件（validate_password）`，默�
 
 > show variables like '%password%';
 
-![MySQL 密码检查策略](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20180511010542698.png)
+![MySQL 密码检查策略](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201805/20180511010542698.png)
 
 | 变量名| 数值 |
 |:------------- |:-------------|

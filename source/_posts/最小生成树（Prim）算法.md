@@ -19,7 +19,7 @@ copyright_author: Jitwxs
 
 **注意：** 选择最小边时，可能有多条同样权值的边可选，此时任选其一。
 
-![Prim](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/20170924022104006.png)
+![Prim](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170924022104006.png)
 
 
 #### 代码实现
