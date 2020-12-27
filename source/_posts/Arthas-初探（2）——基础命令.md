@@ -14,11 +14,11 @@ date: 2020-12-26 20:00:34
 在本章节中，将学习以下 Arthas 的基础命令，同时我也会附上官方文档的链接，方便大家查阅：
 
 - [help、cls、session、version、history、quit、stop](https://arthas.aliyun.com/doc/commands.html#arthas)
-- [cat](https://arthas.aliyun.com/doc/cat.html)
-- [grep](https://arthas.aliyun.com/doc/grep.html)
-- [pwd](https://arthas.aliyun.com/doc/pwd.html)
-- [reset](https://arthas.aliyun.com/doc/reset.html)
-- [keymap](https://arthas.aliyun.com/doc/keymap.html)
+- [cat](https://arthas.aliyun.com/doc/cat.html) 显示文本文件内容
+- [grep](https://arthas.aliyun.com/doc/grep.html) 对内容进行过滤，只显示关心的行
+- [pwd](https://arthas.aliyun.com/doc/pwd.html) 显示当前的工作路径
+- [reset](https://arthas.aliyun.com/doc/reset.html) 重置 arthas 增强的类
+- [keymap](https://arthas.aliyun.com/doc/keymap.html) 显示所有的快捷键
 
 ## 二、基础命令
 
@@ -149,10 +149,22 @@ C:\Users\Jitwxs\Downloads
 
 重置增强类，将被 Arthas 增强过的类全部还原，Arthas 服务端关闭时会重置所有增强过的类。
 
+（1）还原 Test 类
+
 ```shell
-reset Test // 还原指定类
-reset *List // 还原所有以List结尾的类
-reset // 还原所有的类
+reset Test
+```
+
+（2）还原所有以 List 结尾的类
+
+```shell
+reset *List
+```
+
+（3）还原所有的类
+
+```shell
+reset
 ```
 
 ![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226202102.png)

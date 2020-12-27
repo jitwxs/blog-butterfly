@@ -11,16 +11,16 @@ date: 2020-12-26 20:28:17
 
 ## 一、前言
 
-在本章节中，将学习以下 Arthas 的 JVM 命令，同时我也会附上官方文档的链接，方便大家查阅：
+在本章节中，将学习以下 Arthas 的 JVM 相关命令，同时我也会附上官方文档的链接，方便大家查阅：
 
-- [dashboard](https://arthas.aliyun.com/doc/dashboard.html)
-- [thread](https://arthas.aliyun.com/doc/thread.html)
-- [jvm](https://arthas.aliyun.com/doc/jvm.html)
-- [sysprop](https://arthas.aliyun.com/doc/sysprop.html)
-- [sysenv](https://arthas.aliyun.com/doc/sysenv.html)
-- [vmoption](https://arthas.aliyun.com/doc/vmoption.html)
-- [getstatic](https://arthas.aliyun.com/doc/getstatic.html)
-- [ognl](https://arthas.aliyun.com/doc/ognl.html)
+- [dashboard](https://arthas.aliyun.com/doc/dashboard.html) 仪表板，可以显示：线程，内存，堆栈，GC，Runtime 等信息
+- [thread](https://arthas.aliyun.com/doc/thread.html) 显示线程的堆栈
+- [jvm](https://arthas.aliyun.com/doc/jvm.html) 显示 JAVA 虚拟机信息
+- [sysprop](https://arthas.aliyun.com/doc/sysprop.html) 显示 JVM 中系统属性，也可以修改某个属性
+- [sysenv](https://arthas.aliyun.com/doc/sysenv.html) 显示 JVM 中系统环境变量配置信息
+- [vmoption](https://arthas.aliyun.com/doc/vmoption.html) 显示 JVM 中选项信息
+- [getstatic](https://arthas.aliyun.com/doc/getstatic.html) 获取类中静态成员变量
+- [ognl](https://arthas.aliyun.com/doc/ognl.html) 执行一条 ognl 表达式，对象图导航语言
 
 ## 二、dashboard
 
@@ -95,7 +95,7 @@ thread -n 3
 
 ![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202012/20201226205037.png)
 
-- 如果没有进程 ID，且包含`[Internal]`表示为 JVM 内部线程，和 dashboard 命令中相同。
+- 如果没有进程 ID，且包含`[Internal]`表示这是 JVM 内部线程，和 dashboard 命令中相同。
 - `cpuUsage` 为采样间隔时间内线程的 CPU 使用率，和 dashboard 命令中相同。
 
 - `deltaTime`为采样间隔时间内线程的增量 CPU 时间，小于 1ms 时被取整显示为 0ms。
@@ -137,8 +137,8 @@ thread -b
 
 ### 3.7 指定采样间隔
 
-- `thread -i 1000` : 统计最近1000ms 内的线程 CPU 时间。
-- `thread -n 3 -i 1000` : 列出1000ms 内最忙的 3 个线程栈
+- `thread -i 1000` : 统计最近 1000ms 内的线程 CPU 时间
+- `thread -n 3 -i 1000` : 列出 1000ms 内最忙的 3 个线程栈
 
 ### 3.8 指定状态所有线程
 
