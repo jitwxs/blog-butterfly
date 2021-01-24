@@ -1,0 +1,95 @@
+- class_name: 开发必备
+  class_desc: 
+  link_list:
+    - name: Font Awesome
+      link: https://fontawesome.com/icons?d=gallery&q=file
+      avatar: https://fontawesome.com/images/favicons/favicon-32x32.png
+      descr: 使用最广泛的图标库
+    - name: JSON 在线解析
+      link: https://www.json.cn/
+      avatar: https://www.json.cn/favicon.ico
+      descr: JSON 在线解析及格式化验证
+    - name: Diffchecker
+      link: https://www.diffchecker.com/
+      avatar: https://www.diffchecker.com/favicon.ico
+      descr: 十分好用的在线文本比对工具
+    - name: GitHub Download
+      link: https://d.serctl.com/
+      avatar: 
+      descr: GitHub 文件下载
+    - name: Javare
+      link: http://javare.cn/
+      avatar: 
+      descr: Java 在线反编译
+
+- class_name: 实用工具
+  class_desc: 
+  link_list:
+    - name: Snipaste
+      link: https://zh.snipaste.com/
+      avatar: https://zh.snipaste.com/img/logo.svg
+      descr: 全平台的截图、贴图软件
+    - name: IShot
+      link: https://www.better365.cn/ishot.html
+      avatar: https://13315641.s21i.faiusr.com/4/1/ABUIABAEGAAgxfKa7gUo-KKmhwUwtgI40QE.png
+      descr: Mac上最优秀的截图、贴图、录屏软件
+    - name: UTools
+      link: https://u.tools/
+      avatar: https://u.tools/favicon.ico
+      descr: 全平台的生产力工具集
+    - name: FFRenamePro
+      link: https://www.baidu.com/s?wd=FFRenamePro
+      avatar: 
+      descr: 文件重命名工具
+    - name: WizTree
+      link: https://www.baidu.com/s?wd=WizTree
+      avatar: 
+      descr: 磁盘文件分析工具
+
+- class_name: 影音娱乐
+  class_desc: 
+  link_list:
+    - name: VideoFK
+      link: https://www.videofk.com/
+      avatar: https://www.videofk.com/videofk/images/logo2/haokan-video-down.png
+      descr: 国内视频解析下载
+    - name: VIDEO CYBORG
+      link: https://videocyborg.com/
+      avatar: https://videocyborg.com/static/img/navvic.jpg
+      descr: 国际视频解析下载
+    - name: 片源网
+      link: http://www.pianyuan.tv/
+      avatar: 
+      descr: 影视资源 BT
+    - name: 稿定
+      link: https://www.uupoop.com/
+      avatar: https://st-gdx.dancf.com/gaodingx/213/configs/system/20200907-115221-dd97.svg
+      descr: 在线 PS
+    - name: MacWk
+      link: https://www.macwk.com/
+      avatar: https://www.macwk.com/favicon.ico
+      descr: 精品Mac应用破解下载
+    - name: Apk-dl
+      link: https://apk-dl.com/zh
+      avatar: https://cdn.apk-cloud.com/images/favicon.png
+      descr: GooglePlay 应用下载
+    - name: Digital Video Repair
+      link: https://www.baidu.com/s?wd=Digital%20Video%20Repair
+      avatar: 
+      descr: Mp4 视频修复工具
+    - name: videothumbnailsmaker
+      link: https://www.baidu.com/s?wd=videothumbnailsmaker
+      avatar: 
+      descr: 视频缩略图制作器
+    - name: Pazera Free Audio Extractor
+      link: https://www.baidu.com/s?wd=Pazera%20Free%20Audio%20Extractor
+      avatar: 
+      descr: 视频音频提取器
+    - name: Inpaint
+      link: https://theinpaint.com/?move
+      avatar: https://theinpaint.com/favicon.ico
+      descr: 轻量级图片水印去除工具
+    - name: Caesium
+      link: https://saerasoft.com/caesium/
+      avatar: https://saerasoft.com/caesium/favicon/favicon.png
+      descr: 无损图片压缩工具
