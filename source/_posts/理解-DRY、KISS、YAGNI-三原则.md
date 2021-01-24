@@ -5,6 +5,7 @@ tags: 设计原则
 abbrlink: 234befaa
 date: 2019-09-20 00:15:06
 copyright_author: valarchie
+copyright_url: 'https://segmentfault.com/a/1190000020208797'
 references:
   - name: DRY、KISS、YAGNI三原则的理解
     url: https://segmentfault.com/a/1190000020208797

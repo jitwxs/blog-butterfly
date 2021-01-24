@@ -14,10 +14,6 @@ references:
     url: 'https://my.oschina.net/andylucc/blog/648127'
     rel: nofollow noopener noreferrer
     target: _blank
-  - name: 维基百科Pooling(Resource Management)
-    url: resource_management)
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 深入理解Java线程池：ThreadPoolExecutor
     url: 'http://www.ideabuffer.cn/2017/04/04/深入理解Java线程池：ThreadPoolExecutor/'
     rel: nofollow noopener noreferrer

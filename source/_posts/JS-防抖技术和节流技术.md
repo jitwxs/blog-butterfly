@@ -5,6 +5,7 @@ tags: Javascript
 abbrlink: a265bb29
 date: 2019-08-18 11:30:49
 copyright_author: liuliu
+copyright_url: 'https://segmentfault.com/a/1190000020102872'
 ---
 
 在监听窗口进行 resize、scroll 等调用函数频率很高的操作时，如果每次都做相应的处理，则会加重浏览器的负担，导致渲染延迟，甚至是假死，这样会给用户带来非常糟糕的体验。为此我们必须在特定场景下限制调用频率，但是又不影响效果。

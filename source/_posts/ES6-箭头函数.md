@@ -4,6 +4,7 @@ categories: 前端
 abbrlink: '4e410719'
 date: 2019-08-25 21:42:02
 copyright_author: liuliu
+copyright_url: 'https://segmentfault.com/a/1190000020178946'
 ---
 
 ES6 中添加了函数新的定义语法——`箭头函数`，当有大于一个形参的时候，必须使用`()`代表部分参数，函数体大于一行时，必须使用`{}`将函数体括起来，并使用 `return` 返回。

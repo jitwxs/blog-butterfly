@@ -5,6 +5,8 @@ tags: OAuth
 abbrlink: 132293eb
 date: 2018-05-21 14:07:48
 copyright_author: 阮一峰
+copyright_author_href: 'http://www.ruanyifeng.com'
+copyright_url: 'http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html'
 ---
 
 [OAuth](http://en.wikipedia.org/wiki/OAuth)是一个关于授权（authorization）的开放网络标准，在全世界得到广泛应用，目前的版本是2.0版。
