@@ -7,8 +7,8 @@ categories:
 abbrlink: 9af7a6d1
 date: 2018-10-10 19:43:04
 related_repos:
-  - name: springboot_ws
-    url: https://github.com/jitwxs/blog-sample/blob/master/SpringBoot/springboot_ws
+  - name: ws-sample
+    url: https://github.com/jitwxs/blog-sample/blob/master/springboot-sample/ws-sample
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs
@@ -118,8 +118,6 @@ ws.onclose = function(){
 
 
 ## 二、与SpringBoot整合
-
-SpringBoot版本：`2.0.5.RELEASE`，相关代码如下：
 
 ### 2.1 HelloWorld
 

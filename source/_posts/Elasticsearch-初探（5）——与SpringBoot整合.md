@@ -7,8 +7,8 @@ tags: [Elasticsearch, SpringBoot]
 abbrlink: 79a2adb2
 date: 2018-10-09 17:13:33
 related_repos:
-  - name: springboot_es
-    url: https://github.com/jitwxs/blog-sample/tree/master/SpringBoot/springboot_es
+  - name: es-sample
+    url: https://github.com/jitwxs/blog-sample/tree/master/springboot-sample/es-sample
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs

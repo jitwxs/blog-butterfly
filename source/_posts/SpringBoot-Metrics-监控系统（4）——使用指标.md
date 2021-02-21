@@ -9,15 +9,75 @@ categories: 云原生
 abbrlink: dad9ec18
 date: 2020-11-15 21:34:35
 related_repos:
-  - name: springboot_metrics
-    url: https://github.com/jitwxs/blog-sample/tree/master/SpringBoot/springboot_metrics
+  - name: metrics-sample
+    url: https://github.com/jitwxs/blog-sample/tree/master/springboot-sample/metrics-sample
     rel: nofollow noopener noreferrer
     target: _blank
 ---
 
 ## 一、前言
 
-在上一章节，我们已经完成了 SpringBoot Metrics 程序的框架搭建。在本章节中，我们将在程序中进行 Metrics 埋点，并能够被 Prometheus 采集到，且最终在 Grafana 中展示出来。
+在正式讲解之前，我们先把上一节缺省的地方补齐。
+
+### 1.1 枚举类实现
+
+IMetricsEnum 和 IMetricsTagEnum 均为接口定义，下面我直接给出它们的实现类。具体的每个指标含义下面会详细讲解。
+
+```java
+@Getter
+@AllArgsConstructor
+public enum MetricsEnum implements IMetricsEnum {
+    READ_COUNT("read_count", Type.COUNTER, "阅读量统计"),
+    VISITOR_SIZE("visitor_size", Type.GAUGE, "访问量统计"),
+    REQUEST_TIME("request_time",Type.TIMER, "请求耗时");
+
+    private final String name;
+    private final Type type;
+    private final String desc;
+}
+```
+
+```java
+@Getter
+@AllArgsConstructor
+public enum MetricsTagEnum implements IMetricsTagEnum {
+
+    READ_COUNT_1(MetricsEnum.READ_COUNT, new String[]{"video_name", "法外狂徒张三"}),
+    READ_COUNT_2(MetricsEnum.READ_COUNT, new String[]{"video_name", "不讲武德年轻人"}),
+
+    SYSTEM_VISITOR_SIZE(MetricsEnum.VISITOR_SIZE, new String[]{"type", "system"}),
+
+    USERINFO_REQUEST_TIME(MetricsEnum.REQUEST_TIME, new String[]{"url", "/userInfo"}),
+    ;
+
+    private final IMetricsEnum metricsEnum;
+
+    private final String[] tags;
+}
+```
+
+### 1.2 一键注册指标
+
+对于交给 IMetricsTagEnum 类管理的指标，在 `BaseMetricsUtil` 类中提供了一键注册的方法，我们仅需要在程序启动成功后调用下即可。为了方便起见，我就直接写在启动类中了。
+
+```java
+@EnableScheduling
+@SpringBootApplication
+public class MetricsApplication implements ApplicationRunner {
+
+    public static void main(String[] args) {
+        SpringApplication.run(MetricsApplication.class, args);
+    }
+
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        // 注册指标
+        MetricsUtil.init(MetricsTagEnum.class);
+    }
+}
+```
+
+特别需要注意的是，启动类增加了 `@EnableScheduling` 注解，这是因为本节模拟的指标数据都是用定时任务产生的。
 
 ## 二、Metrics 埋点
 
@@ -25,36 +85,31 @@ related_repos:
 
 先来介绍下最简单的 `Counter` 类型，它是不断递增的一种数据结构，你可以将其理解为**计数器**。
 
-假设我们想要统计两部视频的阅读量，首先我们需要在 MetricsEnum 中注册下：
+假设我们想要统计两部视频的阅读量：
+
+（1）在 MetricsEnum 中定义阅读量的指标：
 
 ```java
-READ_COUNT_1("read_count", new String[]{"video_name", "法外狂徒张三"}, "阅读量统计", COUNTER),
-READ_COUNT_2("read_count", new String[]{"video_name", "不讲武德年轻人"}, "阅读量统计", COUNTER),
+READ_COUNT("read_count", Type.COUNTER, "阅读量统计")
 ```
 
-先给大家解释下这个枚举类的几个参数把：
-
 - `name` Metrics 指标的名字
-- `tags` 该 Metrics 对应的 label（在不同系统中叫法不一样，在 java 中就是叫 tag），必须成对出现，其实就是一组组键值对。
-- `description` Metrics 指标的描述
 - `type` 自定义的 Metrics 的类型，用于初始化的时候去 Prometheus 注册哪种 Metrics
+- `description` Metrics 指标的描述
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202011/20201115214053.png)
-
-有小伙伴可能会说，你这两个 metrics 怎么 name 都是一样的啊。这个其实没有关系，因为能够通过后面的 tag 来区分开。
-
-举个例子：所有视频的阅读量统计，使用的都是同一个 metrics，即 `read_count`，如果我想要得到每一部视频的阅读量，我只需要筛选的时候加上 `video_name = xxx` 即可。可以把 metricsName 理解为一个 Map 对象，而其中每一组 tag 就是这个 Map 里面的一个 K-V。
-
-解释完代码后，咱们来写一个定时任务，去模拟阅读量的递增：
+（2）在 MetricsTagEnum 中定义具体的指标实现，如下所以，我们定义了两个 video_name 不同的阅读量指标：
 
 ```java
-import com.github.jitwxs.metrics.enums.MetricsEnum;
-import com.github.jitwxs.metrics.support.CounterMetricsUtil;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Service;
+READ_COUNT_1(MetricsEnum.READ_COUNT, new String[]{"video_name", "法外狂徒张三"}),
+READ_COUNT_2(MetricsEnum.READ_COUNT, new String[]{"video_name", "不讲武德年轻人"})
+```
 
-import java.util.Random;
+- `metricsEnum` 指定所属的 MetricsEnum
+- `tags` 该 Metrics 对应的 label（在不同系统中叫法不一样，在 java 中就是叫 tag），必须成对出现，其实就是一组组键值对。
 
+下面来写一个定时任务，去模拟阅读量的递增：
+
+```java
 @Service
 public class MockReadCountScheduler {
 
@@ -63,11 +118,11 @@ public class MockReadCountScheduler {
         try {
             double value1 = new Random().nextDouble();
             Thread.sleep(new Random().nextInt(1000));
-            CounterMetricsUtil.increment(MetricsEnum.READ_COUNT_1, value1);
+            MetricsUtil.recordCounter(MetricsTagEnum.READ_COUNT_1, value1);
 
             double value2 = new Random().nextDouble();
             Thread.sleep(new Random().nextInt(1000));
-            CounterMetricsUtil.increment(MetricsEnum.READ_COUNT_2, value2);
+            MetricsUtil.recordCounter(MetricsTagEnum.READ_COUNT_2, value2);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -85,13 +140,19 @@ public class MockReadCountScheduler {
 
 因此使用 Gauge 的指标的数值可增可减，没有先后关系。方便用于统计系统的实时信息，例如访客数、每分钟阅读量等等。
 
-假设我们想要统计系统此时的访客数，首先我们需要在 MetricsEnum 中注册下：
+假设我们想要统计系统此时的访客数：
+
+（1）在 MetricsEnum 中定义访问量的指标：
 
 ```java
-VISITOR_SIZE("visitor_size", null, "系统访问量", GAUGE),
+VISITOR_SIZE("visitor_size", Type.GAUGE, "访问量统计")
 ```
 
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202011/20201115215612.png)
+（2）在 MetricsTagEnum 中定义具体的指标实现，如系统访问量：
+
+```java
+SYSTEM_VISITOR_SIZE(MetricsEnum.VISITOR_SIZE, new String[]{"type", "system"})
+```
 
 咱们来写一个定时任务，去模拟实时的访客数：
 
@@ -101,8 +162,7 @@ public class MockVisitorSizeScheduler {
     @Scheduled(initialDelay = 100, fixedDelay = 1500)
     public void mockVisitorSize() {
         int visitorSize = new Random().nextInt(100);
-
-        GaugeMetricsUtil.gauge(MetricsEnum.VISITOR_SIZE, visitorSize);
+        MetricsUtil.recordTimerOrGauge(MetricsTagEnum.SYSTEM_VISITOR_SIZE, visitorSize);
     }
 }
 ```
@@ -121,28 +181,28 @@ Timer 类型的指标，适合用于统计一些耗时，也能够方便的进�
 
 解释完 Timer 和 Gauge 的区别后，开始我们的例子吧。
 
-假设我们想要统计系统某接口的响应时间，首先我们需要在 MetricsEnum 中注册下：
+假设我们想要统计系统某接口的响应时间：
+
+（1）在 MetricsEnum 中定义请求耗时的指标：
 
 ```java
-PORTAL_REQUEST_TIME("portal_request_time", new String[]{"url", "/userInfo"}, "前端请求耗时", TIME),
+REQUEST_TIME("request_time",Type.TIMER, "请求耗时")
+```
+
+（2）在 MetricsTagEnum 中定义具体的指标实现，如 userInfo 这个接口的请求耗时：
+
+```java
+ USERINFO_REQUEST_TIME(MetricsEnum.REQUEST_TIME, new String[]{"url", "/userInfo"})
 ```
 
 咱们来写一个定时任务，去模拟这个接口的响应时间变化：
 
 ```java
-import com.github.jitwxs.metrics.enums.MetricsEnum;
-import com.github.jitwxs.metrics.support.TimerMetricsUtil;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Service;
-
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-
 @Service
 public class MockRequestTimeScheduler {
     @Scheduled(initialDelay = 100, fixedDelay = 1500)
     public void mockVisitorSize() {
-        TimerMetricsUtil.record(MetricsEnum.PORTAL_REQUEST_TIME, new Random().nextInt(1000), TimeUnit.MILLISECONDS);
+        MetricsUtil.recordTimerOrGauge(MetricsTagEnum.USERINFO_REQUEST_TIME, new Random().nextInt(1000));
     }
 }
 ```

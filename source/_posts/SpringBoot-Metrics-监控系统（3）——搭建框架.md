@@ -9,8 +9,8 @@ categories: 云原生
 abbrlink: 527f9dce
 date: 2020-11-15 21:06:13
 related_repos:
-  - name: springboot_metrics
-    url: https://github.com/jitwxs/blog-sample/tree/master/SpringBoot/springboot_metrics
+  - name: metrics-sample
+    url: https://github.com/jitwxs/blog-sample/tree/master/springboot-sample/metrics-sample
     rel: nofollow noopener noreferrer
     target: _blank
 ---
@@ -60,41 +60,50 @@ related_repos:
 
 ## 三、Metrics Enums
 
-对于刚刚入门使用的同学，经常会出现 Metrics 指标的管理混乱的情况。在代码里这处注册一个指标，那处注册一个，很混乱。因此有必要提供一个类，专门管理所有的 Metrics 指标，并统一注册、
+对于刚刚入门使用的同学，经常会出现 Metrics 指标的管理混乱的情况。在代码里这处注册一个指标，那处注册一个，很混乱。因此有必要提供一个类，专门管理所有的 Metrics 指标并统一注册。这里我使用枚举类实现，当然你也可以根据自己需要使用其他方式实现。
 
-这里我使用枚举类实现。当然你也可以根据自己需要使用其他方式实现。一共有以下两个类：
+### 3.1 IMetricsEnum
 
-- `MetricsTypeEnum` 枚举系统支持的所有 Metrics 类型
-- `MetricsEnum` 枚举所有的指标，标识了每一个指标的 name、tags、description、type 等属性
-
-### 3.1 MetricsTypeEnum
+Metrics 监控指标枚举，定义了指标的类型和名称。
 
 ```java
-public enum MetricsTypeEnum {
-    UNKNOWN,
-    COUNTER,
-    GAUGE,
-    TIMER
-    ;
+public interface IMetricsEnum {
+    enum Type {GAUGE, COUNTER, TIMER}
+
+    String getName();
+
+    Type getType();
+
+    String getDesc();
+
+    default IMetricsTagEnum createVirtualMetricsTagEnum(String[] tags) {
+        IMetricsEnum iMetricsEnum = this;
+        return new IMetricsTagEnum() {
+            @Override
+            public IMetricsEnum getMetricsEnum() {
+                return iMetricsEnum;
+            }
+
+            @Override
+            public String[] getTags() {
+                return tags;
+            }
+        };
+    }
 }
 ```
 
-### 3.2 MetricsEnum
+### 3.2 IMetricsTagEnum
+
+负责维护所有的 Metrics 指标，是实际生效的 Metrics 指标。相较于 IMetricsEnum，需要额外指定 tag 属性。
 
 ```java
-@Getter
-@AllArgsConstructor
-public enum MetricsEnum {
-    DEFAULT("default", null, "default description", UNKNOWN),
-    ;
+public interface IMetricsTagEnum {
+    String FUNCTION = "function";
 
-    private final String name;
+    IMetricsEnum getMetricsEnum();
 
-    private final String[] tags;
-
-    private final String description;
-
-    private final MetricsTypeEnum type;
+    String[] getTags();
 }
 ```
 
@@ -104,21 +113,11 @@ public enum MetricsEnum {
 
 - `MetricsRegisterConfig` 交于 Spring 容器管理，负责获取到 Prometheus 的全局实例对象
 - `BaseMetricsUtil` 基础的 Metrics 工具类，抽取一些共用方法
-- `CounterMetricsUtil` Counter 类型的 Metrics 工具类
-- `GaugeMetricsUtil` Gauge 类型的 Metrics 工具类
-- `TimerMetricsUtil` Timer 类型的 Metrics 工具类
+- `MetricsUtil` Metrics 注册和各个类型指标值记录的工具类
 
 ### 4.1 MetricsRegisterConfig
 
 ```java
-import io.micrometer.core.instrument.MeterRegistry;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
-
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class MetricsRegisterConfig implements BeanPostProcessor {
@@ -142,10 +141,7 @@ public class MetricsRegisterConfig implements BeanPostProcessor {
 ### 4.2 BaseMetricsUtil
 
 ```java
-import com.github.jitwxs.metrics.enums.MetricsEnum;
-import io.micrometer.core.instrument.MeterRegistry;
-import org.springframework.util.Assert;
-
+@Slf4j
 public class BaseMetricsUtil {
     public static MeterRegistry meterRegistry;
 
@@ -156,126 +152,161 @@ public class BaseMetricsUtil {
         }
     }.getClassName();
 
-    public static void basicCheck(final MetricsEnum metricsEnum) {
-        Assert.notNull(meterRegistry, CLASS_NAME + " meterRegistry not allow null");
+    public static boolean basicCheck(final IMetricsTagEnum metricsTagEnum) {
+        if (meterRegistry == null) {
+            log.warn("metrics registry is null,class={}", CLASS_NAME);
+            return false;
+        }
 
-        String[] tags = metricsEnum.getTags();
-        if(tags != null && tags.length % 2 != 0) {
-            throw new IllegalArgumentException(CLASS_NAME + "metrics tags must appear in pairs");
+        final String[] tags = metricsTagEnum.getTags();
+
+        if (tags != null && tags.length % 2 != 0) {
+            log.error("metrics count error,class={},tags={}", CLASS_NAME, tags);
+            return false;
+        }
+
+        return true;
+    }
+}
+```
+
+### 4.3 MetricsUtil
+
+```java
+
+@Slf4j
+public class MetricsUtil extends BaseMetricsUtil {
+    private static final Map<IMetricsTagEnum, MetricsWrapper> METRICS_MAP = new HashMap<>();
+
+    static {
+        ThreadPoolUtil.newScheduledExecutor(1, "metrics-manager-thread-pool").scheduleWithFixedDelay(() -> METRICS_MAP.values().stream()
+                .filter(e -> e.getType() != IMetricsEnum.Type.COUNTER).filter(e -> TimeUtils.diffMs(e.getLastTime()) > 10_000)
+                .forEach(e -> e.recordTimerOrGauge(0L)), 15, 15, TimeUnit.SECONDS);
+    }
+
+    /**
+     * For IMetricsTagEnum
+     */
+    public static <T extends IMetricsTagEnum> void init(Class<T> clazz) {
+        try {
+            Method method = clazz.getDeclaredMethod("values");
+            simpleRegister((T[]) method.invoke(null));
+        } catch (final Exception e) {
+            log.error("metrics gauge error,class={}", clazz.getSimpleName(), e);
+        }
+    }
+
+    /**
+     * For RingBuffer
+     */
+    public static void registerGauge(final IMetricsTagEnum metricsTagEnum,
+                                     final Supplier<Number> supplier) {
+        if (!basicCheck(metricsTagEnum)) {
+            return;
+        }
+
+        Gauge.builder(metricsTagEnum.getMetricsEnum().getName(), supplier)
+                .tags(metricsTagEnum.getTags())
+                .description(metricsTagEnum.getMetricsEnum().getDesc())
+                .register(meterRegistry);
+    }
+
+    /**
+     * For Common
+     */
+    public static void simpleRegister(IMetricsTagEnum... metricsTagEnums) {
+        if (metricsTagEnums != null && metricsTagEnums.length > 0) {
+            for (IMetricsTagEnum metricsTagEnum : metricsTagEnums) {
+                if (!basicCheck(metricsTagEnum)) {
+                    continue;
+                }
+
+                final IMetricsEnum.Type type = metricsTagEnum.getMetricsEnum().getType();
+
+                if (type == IMetricsEnum.Type.GAUGE) {
+                    Gauge.builder(metricsTagEnum.getMetricsEnum().getName(), METRICS_MAP, m -> (long) m.get(metricsTagEnum).getMetrics())
+                            .tags(metricsTagEnum.getTags())
+                            .description(metricsTagEnum.getMetricsEnum().getDesc())
+                            .register(meterRegistry);
+
+                    METRICS_MAP.put(metricsTagEnum, MetricsWrapper.newInstance(type, 0L));
+                } else if (type == IMetricsEnum.Type.COUNTER) {
+                    final Counter cnt = Counter.builder(metricsTagEnum.getMetricsEnum().getName())
+                            .tags(metricsTagEnum.getTags())
+                            .description(metricsTagEnum.getMetricsEnum().getDesc())
+                            .register(meterRegistry);
+
+                    METRICS_MAP.put(metricsTagEnum, MetricsWrapper.newInstance(type, cnt));
+                } else if (type == IMetricsEnum.Type.TIMER) {
+                    final Timer timer = Timer.builder(metricsTagEnum.getMetricsEnum().getName())
+                            .tags(metricsTagEnum.getTags())
+                            .description(metricsTagEnum.getMetricsEnum().getDesc())
+                            .publishPercentiles(0.5, 0.9, 0.95, 0.99)
+                            .register(meterRegistry);
+
+                    METRICS_MAP.put(metricsTagEnum, MetricsWrapper.newInstance(type, timer));
+                }
+            }
+        }
+    }
+
+    /**
+     * For Counter
+     */
+    public static void recordCounter(IMetricsTagEnum metricsTagEnum) {
+        recordCounter(metricsTagEnum, 1.0D);
+    }
+
+    /**
+     * For Counter
+     */
+    public static void recordCounter(IMetricsTagEnum metricsTagEnum, double size) {
+        if (METRICS_MAP.containsKey(metricsTagEnum)) {
+            METRICS_MAP.get(metricsTagEnum).recordCounter(size);
+        }
+    }
+
+    /**
+     * For Timer、Gauge
+     */
+    public static void recordTimerOrGauge(final IMetricsTagEnum metricsTagEnum, final long value) {
+        if (METRICS_MAP.containsKey(metricsTagEnum)) {
+            METRICS_MAP.get(metricsTagEnum).recordTimerOrGauge(value);
+        }
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    private static class MetricsWrapper {
+        private IMetricsEnum.Type type;
+
+        private Object metrics;
+
+        private long lastTime = TimeUtils.nowMs();
+
+        public static MetricsWrapper newInstance(IMetricsEnum.Type type, Object metrics) {
+            return new MetricsWrapper(type, metrics, TimeUtils.nowMs());
+        }
+
+        private void recordCounter(final double value) {
+            ((Counter) this.metrics).increment(value);
+            this.lastTime = TimeUtils.nowMs();
+        }
+
+        public void recordTimerOrGauge(final long value) {
+            if (this.type == IMetricsEnum.Type.TIMER) {
+                ((Timer) this.metrics).record(value, TimeUnit.MILLISECONDS);
+            } else if (this.type == IMetricsEnum.Type.GAUGE) {
+                this.metrics = value;
+            }
+            this.lastTime = TimeUtils.nowMs();
         }
     }
 }
 ```
 
-### 4.3 CounterMetricsUtil
-
-```java
-import com.github.jitwxs.metrics.enums.MetricsEnum;
-import io.micrometer.core.instrument.Counter;
-import org.springframework.util.Assert;
-
-import java.util.HashMap;
-import java.util.Map;
-
-public class CounterMetricsUtil extends BaseMetricsUtil {
-    private static final Map<MetricsEnum, Counter> REGISTER_MAP = new HashMap<>();
-
-    public static void register(MetricsEnum metricsEnum) {
-        basicCheck(metricsEnum);
-        Assert.isTrue(!REGISTER_MAP.containsKey(metricsEnum), "this metrics already register");
-
-        Counter counter = Counter.builder(metricsEnum.getName())
-                .tags(metricsEnum.getTags())
-                .description(metricsEnum.getDescription())
-                .register(meterRegistry);
-
-        REGISTER_MAP.put(metricsEnum, counter);
-    }
-
-    public static void increment(MetricsEnum metricsEnum) {
-        increment(metricsEnum, 1.0);
-    }
-
-    public static void increment(MetricsEnum metricsEnum, double value) {
-        Counter counter = REGISTER_MAP.get(metricsEnum);
-        if(counter != null) {
-            counter.increment(value);
-        }
-    }
-}
-```
-
-### 4.4 GaugeMetricsUtil
-
-```java
-import com.github.jitwxs.metrics.enums.MetricsEnum;
-import io.micrometer.core.instrument.Gauge;
-import org.springframework.util.Assert;
-
-import java.util.HashMap;
-import java.util.Map;
-
-public class GaugeMetricsUtil extends BaseMetricsUtil {
-    private static final Map<MetricsEnum, Double> REGISTER_MAP = new HashMap<>();
-
-    public static void register(MetricsEnum metricsEnum) {
-        basicCheck(metricsEnum);
-        Assert.isTrue(!REGISTER_MAP.containsKey(metricsEnum), "this metrics already register");
-
-        Gauge.builder(metricsEnum.getName(), REGISTER_MAP, e -> e.get(metricsEnum))
-                .tags(metricsEnum.getTags())
-                .description(metricsEnum.getDescription())
-                .register(meterRegistry);
-
-        REGISTER_MAP.put(metricsEnum, 0D);
-    }
-
-    public static void gauge(MetricsEnum metricsEnum, double value) {
-        REGISTER_MAP.put(metricsEnum, value);
-    }
-}
-```
-
-### 4.5 TimerMetricsUtil
-
-```java
-import java.util.concurrent.TimeUnit;
-
-import com.github.jitwxs.metrics.enums.MetricsEnum;
-import io.micrometer.core.instrument.Timer;
-import org.springframework.util.Assert;
-
-import java.util.HashMap;
-import java.util.Map;
-
-public class TimerMetricsUtil extends BaseMetricsUtil {
-    private static final Map<MetricsEnum, Timer> REGISTER_MAP = new HashMap<>();
-
-    public static void register(MetricsEnum metricsEnum) {
-        basicCheck(metricsEnum);
-        Assert.isTrue(!REGISTER_MAP.containsKey(metricsEnum), "this metrics already register");
-
-        Timer timer = Timer.builder(metricsEnum.getName())
-                .tags(metricsEnum.getTags())
-                .description(metricsEnum.getDescription())
-                .publishPercentiles(0.5, 0.8, 0.95, 0.99) // 指定百分位数
-                .register(meterRegistry);
-
-        REGISTER_MAP.put(metricsEnum, timer);
-    }
-
-    public static void record(MetricsEnum metricsEnum, long time, TimeUnit unit) {
-        Timer timer = REGISTER_MAP.get(metricsEnum);
-        if(timer != null) {
-            timer.record(time, unit);
-        }
-    }
-}
-```
-
-## 五、程序配置
-
-### 5.1 applicaiton.yaml
+## 五、applicaiton.yaml
 
 编辑程序的配置文件，主要是 `management` 相关的配置。
 
@@ -294,56 +325,9 @@ management:
         include: health, info, prometheus
 spring:
   application:
-    name: springboot_metrics
-
-server:
-  port: 8080
+    name: metrics-sample
 ```
-
-### 5.2 注册 MetricsEnum
-
-前面提到我将所有的指标都注册到了 `MetricsEnum` 中，因此当服务启动时，我需要将它们都注册到 Metrics 里面。
-
-```java
-import com.github.jitwxs.metrics.enums.MetricsEnum;
-import com.github.jitwxs.metrics.support.CounterMetricsUtil;
-import com.github.jitwxs.metrics.support.GaugeMetricsUtil;
-import com.github.jitwxs.metrics.support.TimerMetricsUtil;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.stereotype.Component;
-
-@Component
-public class MetricsApplicationBoot implements ApplicationRunner {
-
-    @Override
-    public void run(ApplicationArguments args) throws Exception {
-        // 注册指标
-        for (MetricsEnum metricsEnum : MetricsEnum.values()) {
-            switch (metricsEnum.getType()) {
-                case COUNTER:
-                    CounterMetricsUtil.register(metricsEnum);
-                    break;
-                case GAUGE:
-                    GaugeMetricsUtil.register(metricsEnum);
-                    break;
-                case TIMER:
-                    TimerMetricsUtil.register(metricsEnum);
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-}
-```
-
-### 5.3 开启定时任务注解
-
-另外后续我将通过定时任务的方式，去模拟 Metrics 数据的产生，因此不要忘记在启动类上方加上注解：`@EnableScheduling`。
 
 ## 六、结语
 
-至此完成 SpringBoot Metrics 监控系统框架的搭建，整个项目的文件结构如下图所示，另外访问 `http://127.0.0.1:7002/prometheus` 应当得到形如下图的数据。
-
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202011/20201115213022.png)
+至此完成 SpringBoot Metrics 监控系统框架的搭建，下一节将开始演示指标的使用。

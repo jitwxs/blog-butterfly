@@ -7,8 +7,8 @@ icons:
 abbrlink: a9fa88a0
 date: 2020-08-30 00:53:01
 related_repos:
-  - name: shallow_copy
-    url: https://github.com/jitwxs/blog-sample/tree/master/SpringBoot/shallow_copy
+  - name: shallow-copy-sample
+    url: https://github.com/jitwxs/blog-sample/blob/master/springboot-sample/shallow-copy-sample
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs

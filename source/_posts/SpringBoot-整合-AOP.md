@@ -7,8 +7,8 @@ categories:
 abbrlink: 77bba914
 date: 2018-12-06 19:04:32
 related_repos:
-  - name: springboot_aop
-    url: https://github.com/jitwxs/blog-sample/blob/master/SpringBoot/springboot_aop
+  - name: aop-sample
+    url: https://github.com/jitwxs/blog-sample/blob/master/springboot-sample/aop-sample
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs
@@ -136,9 +136,10 @@ AOP 的实现是基于`动态代理`技术，一般有**基于 JDK 的动态代�
 
 相关配置只有一项：
 
-```ini
-# 当值为 true 时，使用 Cglib 动态代理，否则使用 JDK 动态代理，默认值为 true
-spring.aop.proxy-target-class=true
+```yaml
+spring:
+  aop:
+    proxy-target-class: true # 当值为 true 时，使用 Cglib 动态代理
 ```
 
 ### 3.2 入门程序
@@ -163,7 +164,7 @@ public class UserServiceImpl implements UserService {
 }
 ```
 
-（2）编写UserController
+（2）编写 UserController
 
 ```java
 @RestController
@@ -186,43 +187,43 @@ public class UserController {
 
 #### 3.2.2 切面表达式
 
-首先复习下 AOP 中的切面表达式，假设 UserController 类位于 jit.wxs.aop.controller 包下，那么如果我们为其 restDelete() 方法 配置切入点，如下：
+首先复习下 AOP 中的切面表达式，假设 UserController 类位于 com.github.jitwxs.sample.aop.controller 包下，那么如果我们为其 restDelete() 方法 配置切入点，如下：
 
 ```java
-public void jit.wxs.aop.controller.UserController.restDelete()
+public void com.github.jitwxs.sample.aop.controller.UserController.restDelete()
 ```
 
 也就是 restDelete() 方法的 reference 路径加上**访问修饰符**和**返回值**，一般来说我们不对非 public 方法添加切入点，也不限制其返回值，因此省略掉访问修饰符（默认值即为 public），并将返回值修改为 *（即任何返回值均可）：
 
 ```java
-* jit.wxs.aop.controller.UserController.restDelete()
+* com.github.jitwxs.sample.aop.controller.UserController.restDelete()
 ```
 
 再将切面方法扩展到 UserController 下的所有方法：
 
 ```java
-* jit.wxs.aop.controller.UserController.*()
+* com.github.jitwxs.sample.aop.controller.UserController.*()
 ```
 
 此时只能对 UserController 下的所有无参 public 方法添加切入点，将其修改为不限制参数：
 
 ```java
 // 将 () 修改为 (..) ，不限制参数
-* jit.wxs.aop.controller.UserController.*(..)
+* com.github.jitwxs.sample.aop.controller.UserController.*(..)
 ```
 
 如果我们想要 controller 包下的所有以 Controller 结尾的类添加切入点，修改为：
 
 ```java
 // 将 controller包下所有以 Controller 结尾的类添加切入点
-* jit.wxs.aop.controller.*Controller.*(..)
+* com.github.jitwxs.sample.aop.controller.*Controller.*(..)
 ```
 
 一般这样就可以了，如果你想为 controller 的子包也添加切入点，修改为：
 
 ```java
 // 在 controller 后多添加一个 . 表示包含它的子包
-* jit.wxs.aop.controller..*Controller.*(..)
+* com.github.jitwxs.sample.aop.controller..*Controller.*(..)
 ```
 
 #### 3.2.3 切面类
@@ -243,7 +244,7 @@ public void jit.wxs.aop.controller.UserController.restDelete()
 public class TestAspect {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Pointcut("execution(* jit.wxs.aop.controller.*Controller.*(..))")
+    @Pointcut("execution(* com.github.jitwxs.sample.aop.controller.*Controller.*(..))")
     public void pointCunt(){}
 
     @Before("pointCunt()")
@@ -334,7 +335,7 @@ public class TestAspect {
 
     private ThreadLocal<Long> threadLocal = new ThreadLocal<>();
 
-    @Pointcut("execution(* jit.wxs.aop.controller.*Controller.*(..))")
+    @Pointcut("execution(* com.github.jitwxs.sample.aop.controller.*Controller.*(..))")
     public void pointCunt(){}
 
     @Before("pointCunt()")

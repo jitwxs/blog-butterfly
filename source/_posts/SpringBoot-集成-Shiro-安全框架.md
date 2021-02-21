@@ -9,8 +9,8 @@ categories:
 abbrlink: 30819bdf
 date: 2018-03-20 23:23:32
 related_repos:
-  - name: springboot_shiro
-    url: https://github.com/jitwxs/blog-sample/blob/master/SpringBoot/springboot_shiro
+  - name: shiro-sample
+    url: https://github.com/jitwxs/blog-sample/blob/master/springboot-sample/shiro-sample
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs

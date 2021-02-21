@@ -8,8 +8,8 @@ abbrlink: 7ac4f061
 date: 2018-05-03 02:25:18
 icons: [fas fa-fire red]
 related_repos:
-  - name: springboot_jwt
-    url: https://github.com/jitwxs/blog-sample/tree/master/SpringBoot/springboot_jwt
+  - name: jwt-sample
+    url: https://github.com/jitwxs/blog-sample/tree/master/springboot-sample/jwt-sample
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs
@@ -546,13 +546,16 @@ INSERT INTO `sys_user_role` VALUES (2, 2);
 
 在配置文件中添加数据库信息：
 
-```ini application.properties
-spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-spring.datasource.url=jdbc:mysql://localhost:3306/test1?useUnicode=true&characterEncoding=utf-8&useSSL=true
-spring.datasource.username=root
-spring.datasource.password=root
-
-mybatis.configuration.map-underscore-to-camel-case=true
+```yaml
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jwt_sample_02?useUnicode=true&characterEncoding=utf-8&useSSL=true
+    password: root
+    username: root
 ```
 
 #### 7.2.2 导入依赖、准备实体、Mapper、Service

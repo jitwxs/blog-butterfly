@@ -9,8 +9,8 @@ categories:
 abbrlink: 33ad9e35
 date: 2018-05-22 22:46:37
 related_repos:
-  - name: third_login
-    url: https://github.com/jitwxs/blog-sample/tree/master/SpringBoot/third_login
+  - name: oauth-sample
+    url: https://github.com/jitwxs/blog-sample/tree/master/springboot-sample/oauth-sample
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs

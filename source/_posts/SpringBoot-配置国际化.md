@@ -7,8 +7,8 @@ categories:
 abbrlink: 885663
 date: 2018-12-02 21:03:43
 related_repos:
-  - name: springboot_i18n
-    url: https://github.com/jitwxs/blog-sample/blob/master/SpringBoot/springboot_i18n
+  - name: i18n-sample
+    url: https://github.com/jitwxs/blog-sample/blob/master/springboot-sample/i18n-sample
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs
@@ -19,13 +19,13 @@ copyright_author: Jitwxs
 国际化的支持中一个重要的类是 LocaleResolver，它提供了四种默认实现：
 
 1. `AcceptHeaderLocaleResolver`
-	没有任何具体实现，通过浏览器头部的语言信息来进行多语言选择。
+    没有任何具体实现，通过浏览器头部的语言信息来进行多语言选择。
 2. `FixedLocaleResolver`
-	设置固定的语言信息，这样整个系统的语言是一成不变的，用处不大。
+    设置固定的语言信息，这样整个系统的语言是一成不变的，用处不大。
 3. `CookieLocaleResolver`
-	将语言信息设置到 Cookie 中，这样整个系统就可以获得语言信息
+    将语言信息设置到 Cookie 中，这样整个系统就可以获得语言信息
 4. `SessionLocaleResolver`
-	将语言信息放到 Session 中，这样整个系统就可以从Session中获得语言信息。
+    将语言信息放到 Session 中，这样整个系统就可以从Session中获得语言信息。
 
 一般来说，我们都使用基于 Cookie 或者是基于 Session 的 LocaleResolver，也可以自定义 LocaleResolver。
 
@@ -37,34 +37,34 @@ Spring 中定义了一个 MessageSource 接口，以用于支持信息的国际�
 
 ```java
 public interface MessageSource {
-	/**
-	 * 解析code对应的信息进行返回，如果对应的code不能被解析则返回默认信息defaultMessage。
-	 * @param 需要进行解析的code，对应资源文件中的一个属性名
-	 * @param 需要用来替换code对应的信息中包含参数的内容，如：{0},{1,date},{2,time}
-	 * @param defaultMessage 当对应code对应的信息不存在时需要返回的默认值
-	 * @param locale 对应的Locale
-	 * @return
-	 */
-	String getMessage(String code, Object[] args, String defaultMessage, Locale locale);
+    /**
+     * 解析code对应的信息进行返回，如果对应的code不能被解析则返回默认信息defaultMessage。
+     * @param 需要进行解析的code，对应资源文件中的一个属性名
+     * @param 需要用来替换code对应的信息中包含参数的内容，如：{0},{1,date},{2,time}
+     * @param defaultMessage 当对应code对应的信息不存在时需要返回的默认值
+     * @param locale 对应的Locale
+     * @return
+     */
+    String getMessage(String code, Object[] args, String defaultMessage, Locale locale);
 
-	/**
-	 * 解析code对应的信息进行返回，如果对应的code不能被解析则抛出异常NoSuchMessageException
-	 * @param code 需要进行解析的code，对应资源文件中的一个属性名
-	 * @param args 需要用来替换code对应的信息中包含参数的内容，如：{0},{1,date},{2,time}
-	 * @param locale 对应的Locale
-	 * @return 
-	 * @throws NoSuchMessageException 如果对应的code不能被解析则抛出该异常
-	 */
-	String getMessage(String code, Object[] args, Locale locale) throws NoSuchMessageException;
+    /**
+     * 解析code对应的信息进行返回，如果对应的code不能被解析则抛出异常NoSuchMessageException
+     * @param code 需要进行解析的code，对应资源文件中的一个属性名
+     * @param args 需要用来替换code对应的信息中包含参数的内容，如：{0},{1,date},{2,time}
+     * @param locale 对应的Locale
+     * @return 
+     * @throws NoSuchMessageException 如果对应的code不能被解析则抛出该异常
+     */
+    String getMessage(String code, Object[] args, Locale locale) throws NoSuchMessageException;
 
-	/**
-	 * 通过传递的MessageSourceResolvable对应来解析对应的信息
-	 * @param resolvable 
-	 * @param locale 对应的Locale
-	 * @return 
-	 * @throws NoSuchMessageException 如不能解析则抛出该异常
-	 */
-	String getMessage(MessageSourceResolvable resolvable, Locale locale) throws NoSuchMessageException;
+    /**
+     * 通过传递的MessageSourceResolvable对应来解析对应的信息
+     * @param resolvable 
+     * @param locale 对应的Locale
+     * @return 
+     * @throws NoSuchMessageException 如不能解析则抛出该异常
+     */
+    String getMessage(MessageSourceResolvable resolvable, Locale locale) throws NoSuchMessageException;
 }
 ```
 
@@ -126,18 +126,16 @@ welcome.msg={0}：Welcome to login
 
 `zh_CN` 和 `en_US` 代表相应语言的文件，而不带后缀的代表默认的语言文件，当出现不能匹配的语言时，从不带后缀的文件中读取。
 
-### 3.2 application.properties
+### 3.2 application.yaml
 
-```ini application.properties
-spring.messages.basename=i18n/messages,i18n/login
-# 加载国际化文件的缓存时间，单位为秒，默认为永久缓存。
-spring.messages.cache-duration=3600
-spring.messages.encoding=UTF-8
-# 当找不到当前语言的资源文件时,如果为true默认找当前系统的语言对应的资源文件如messages_zh_CN.properties
-# 如果为false即加载系统默认的如messages.properties文件。
-spring.messages.fallback-to-system-locale=false
-# MessageFormat定义了如何展示信息的格式；默认：false
-spring.messages.always-use-message-format=false
+```yaml
+spring:
+  messages:
+    encoding: UTF-8
+    cache-duration: 3600 # 加载国际化文件的缓存时间，单位为秒，默认为永久缓存
+    basename: i18n/messages,i18n/login
+    fallback-to-system-locale: false # 当找不到当前语言的资源文件时,如果为true默认找当前系统的语言对应的资源文件，如果为false即加载系统默认的如messages.properties文件
+    always-use-message-format: false # MessageFormat定义了如何展示信息的格式；默认：false
 ```
 
 `spring.messages.basename` 指定了国际化文件的路径，默认在 `resource` 目录下查找。i18n 代表了目录名，messages 代表了国际化文件的前缀，同一个前缀的文件为一组，多组之前使用逗号隔开。

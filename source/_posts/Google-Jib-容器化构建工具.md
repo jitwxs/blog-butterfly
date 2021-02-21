@@ -18,8 +18,8 @@ references:
     rel: nofollow noopener noreferrer
     target: _blank
 related_repos:
-  - name: springboot_jib
-    url: https://github.com/jitwxs/blog-sample/blob/master/SpringBoot/springboot_jib
+  - name: jib-sample
+    url: https://github.com/jitwxs/blog-sample/blob/master/springboot-sample/jib-sample
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs

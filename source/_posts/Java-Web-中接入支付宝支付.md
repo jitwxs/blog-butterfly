@@ -7,8 +7,8 @@ categories:
 abbrlink: ea57cb90
 date: 2018-06-05 00:29:21
 related_repos:
-  - name: springboot_alipay
-    url: https://github.com/jitwxs/blog-sample/blob/master/SpringBoot/springboot_alipay
+  - name: alipay-sample
+    url: https://github.com/jitwxs/blog-sample/blob/master/springboot-sample/alipay-sample
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs
