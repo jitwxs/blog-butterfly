@@ -7,7 +7,7 @@ abbrlink: 5f5715e6
 date: 2018-05-09 09:47:49
 related_repos:
   - name: springboot_security01
-    url: https://github.com/jitwxs/blog-sample/blob/master/SpringBoot/springboot_security/springboot_security01
+    url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security01
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs

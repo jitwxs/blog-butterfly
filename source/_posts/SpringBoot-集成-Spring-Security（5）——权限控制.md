@@ -8,7 +8,7 @@ date: 2018-05-15 19:09:28
 icons: [fas fa-fire red]
 related_repos:
   - name: springboot_security05
-    url: https://github.com/jitwxs/blog-sample/blob/master/SpringBoot/springboot_security/springboot_security05
+    url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security05
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs

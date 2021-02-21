@@ -7,11 +7,11 @@ abbrlink: 59f4016e
 date: 2018-11-29 19:47:20
 related_repos:
   - name: springboot_security06
-    url: https://github.com/jitwxs/blog-sample/blob/master/SpringBoot/springboot_security/springboot_security06
+    url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security06
     rel: nofollow noopener noreferrer
     target: _blank
   - name: springboot_security06_share
-    url: https://github.com/jitwxs/blog-sample/blob/master/SpringBoot/springboot_security/springboot_security06_share
+    url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security06_share
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs

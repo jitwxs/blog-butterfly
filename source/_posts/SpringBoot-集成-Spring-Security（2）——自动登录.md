@@ -7,7 +7,7 @@ abbrlink: 8e248ac0
 date: 2018-05-09 10:22:57
 related_repos:
   - name: springboot_security02
-    url: https://github.com/jitwxs/blog-sample/blob/master/SpringBoot/springboot_security/springboot_security02
+    url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security02
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs

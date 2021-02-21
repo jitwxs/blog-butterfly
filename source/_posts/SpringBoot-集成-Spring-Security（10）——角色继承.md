@@ -7,7 +7,7 @@ abbrlink: '7886e906'
 date: 2019-09-03 00:11:30
 related_repos:
   - name: springboot_security10
-    url: https://github.com/jitwxs/blog-sample/blob/master/SpringBoot/springboot_security/springboot_security10
+    url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security10
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs

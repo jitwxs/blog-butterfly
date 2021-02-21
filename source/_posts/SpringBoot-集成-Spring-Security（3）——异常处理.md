@@ -9,11 +9,11 @@ date: 2018-05-09 10:48:06
 icons: [fas fa-fire red]
 related_repos:
   - name: springboot_security03
-    url: https://github.com/jitwxs/blog-sample/blob/master/SpringBoot/springboot_security/springboot_security03
+    url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security03
     rel: nofollow noopener noreferrer
     target: _blank
   - name: springboot_security03_filter
-    url: https://github.com/jitwxs/blog-sample/blob/master/SpringBoot/springboot_security/springboot_security03_filter
+    url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security03_filter
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs
