@@ -21,6 +21,10 @@
       link: http://javare.cn/
       avatar: 
       descr: Java 在线反编译
+    - name: Java Generator
+      link: http://java.bejson.com/generator/
+      avatar: 
+      descr: JAVA 代码生成平台
 
 - class_name: 实用工具
   class_desc: 
