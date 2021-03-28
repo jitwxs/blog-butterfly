@@ -10,10 +10,10 @@ type: "about"
 
 ---
 
-| 描述     | 地址 / 名称                  |                       长期支持                        |
-| :------- | :--------------------------- | :---------------------------------------------------: |
-| 个人主站 | https://www.jitwxs.cn        | <i class="fa fa-check-circle" aria-hidden="true"></i> |
-| CSDN     | https://jitwxs.blog.csdn.net | <i class="fa fa-check-circle" aria-hidden="true"></i> |
-| GitHub   | https://github.com/jitwxs    | <i class="fa fa-check-circle" aria-hidden="true"></i> |
-| 微信     | jitwxs                       | <i class="fa fa-minus-circle" aria-hidden="true"></i> |
-| Email    | jitwxs@foxmail.com           | <i class="fa fa-check-circle" aria-hidden="true"></i> |
+| 描述     | 地址 / 名称                            |                       长期支持                        |
+| :------- | :------------------------------------- | :---------------------------------------------------: |
+| 个人主站 | https://www.jitwxs.cn                  | <i class="fa fa-check-circle" aria-hidden="true"></i> |
+| CSDN     | https://jitwxs.blog.csdn.net           | <i class="fa fa-check-circle" aria-hidden="true"></i> |
+| GitHub   | https://github.com/jitwxs              | <i class="fa fa-check-circle" aria-hidden="true"></i> |
+| 微信     | jitwxs                                 | <i class="fa fa-minus-circle" aria-hidden="true"></i> |
+| Email    | jitwxs@foxmail.com<br>jitwxs@gmail.com | <i class="fa fa-check-circle" aria-hidden="true"></i> |
