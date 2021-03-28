@@ -6,10 +6,11 @@
     "deploy": "hexo clean && hexo generate && hexo algolia"
   },
   "hexo": {
-    "version": "5.2.0"
+    "version": "5.4.0"
   },
   "dependencies": {
     "@upupming/hexo-renderer-markdown-it-plus": "^2.0.2",
+    "algoliasearch": "^4.8.6",
     "hexo": "^5.0.0",
     "hexo-abbrlink": "^2.2.1",
     "hexo-algoliasearch": "^1.0.0",
@@ -19,6 +20,7 @@
     "hexo-generator-index": "^2.0.0",
     "hexo-generator-tag": "^1.0.0",
     "hexo-renderer-ejs": "^1.0.0",
+    "hexo-renderer-markdown-it-plus": "^1.0.4",
     "hexo-renderer-pug": "^1.0.0",
     "hexo-renderer-stylus": "^2.0.1",
     "hexo-server": "^2.0.0",
