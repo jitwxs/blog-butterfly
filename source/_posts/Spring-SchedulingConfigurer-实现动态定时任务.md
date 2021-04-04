@@ -127,6 +127,7 @@ public interface IDSTaskInfo {
   - ScheduledTask：暂存当初注册时生成的任务，如果需要取消任务的话，需要拿到该对象
   - Semaphore：确保每个任务实际执行时只有一个线程执行，不会产生并发问题
 - `taskRegistrar`：Spring 的任务注册管理器，用于注册任务到 Spring 容器中
+- `name`：调用方提供的类名
 
 具有以下成员方法：
 
@@ -150,6 +151,11 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Semaphore;
 
+/**
+ * 存放 IDSTaskInfo 容器
+ * @author jitwxs
+ * @date 2021年03月27日 16:29
+ */
 @Slf4j
 public class DSContainer<T extends IDSTaskInfo> {
     /**
@@ -161,8 +167,11 @@ public class DSContainer<T extends IDSTaskInfo> {
 
     private final ScheduledTaskRegistrar taskRegistrar;
 
-    public DSContainer(ScheduledTaskRegistrar scheduledTaskRegistrar) {
+    private final String name;
+
+    public DSContainer(ScheduledTaskRegistrar scheduledTaskRegistrar, final String name) {
         this.taskRegistrar = scheduledTaskRegistrar;
+        this.name = name;
     }
 
     /**
@@ -178,17 +187,17 @@ public class DSContainer<T extends IDSTaskInfo> {
                 final T oldTaskInfo = scheduleMap.get(taskId).getLeft();
 
                 if(oldTaskInfo.isChange(taskInfo)) {
-                    log.info("DSContainer will register again because task config change, taskId: {}", taskId);
+                    log.info("DSContainer will register {} again because task config change, taskId: {}", name, taskId);
                     cancelTask(taskId);
                     registerTask(taskInfo, triggerTask);
                 }
             } else {
-                log.info("DSContainer will cancelTask because task not valid, taskId: {}", taskId);
+                log.info("DSContainer will cancelTask {} because task not valid, taskId: {}", name, taskId);
                 cancelTask(taskId);
             }
         } else {
             if (taskInfo.isValid()) {
-                log.info("DSContainer will registerTask, taskId: {}", taskId);
+                log.info("DSContainer will register {} task, taskId: {}", name, taskId);
                 registerTask(taskInfo, triggerTask);
             }
         }
@@ -221,7 +230,6 @@ public class DSContainer<T extends IDSTaskInfo> {
 
 具有以下抽象方法：
 
-- `ExecutorService getWorkerExecutor()`：提供用于真正执行任务时的线程池。
 - `List<T> listTaskInfo()`：获取所有的任务信息。
 - `void doProcess(T taskInfo)`：实现实际执行任务的业务逻辑。
 
@@ -241,10 +249,14 @@ import org.springframework.scheduling.support.CronTrigger;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 抽象 Dynamic Schedule 实现，基于 SchedulingConfigurer 实现
+ * @author jitwxs
+ * @date 2021年03月27日 16:41
+ */
 @Slf4j
 public abstract class AbstractDSHandler<T extends IDSTaskInfo> implements SchedulingConfigurer {
 
@@ -253,23 +265,20 @@ public abstract class AbstractDSHandler<T extends IDSTaskInfo> implements Schedu
     private final String CLASS_NAME = getClass().getSimpleName();
 
     /**
-     * 获取用于执行任务的线程池
-     */
-    protected abstract ExecutorService getWorkerExecutor();
-
-    /**
      * 获取所有的任务信息
      */
     protected abstract List<T> listTaskInfo();
 
     /**
      * 做具体的任务逻辑
+     *
+     * <p/> 该方法执行时位于跟 SpringBoot @Scheduled 注解相同的线程池内。如果内部仍需要开子线程池执行，请务必同步等待子线程池执行完毕，否则可能会影响预期效果。
      */
-    protected abstract void doProcess(T taskInfo);
+    protected abstract void doProcess(T taskInfo) throws Throwable;
 
     @Override
     public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
-        dsContainer = new DSContainer<>(taskRegistrar);
+        dsContainer = new DSContainer<>(taskRegistrar, CLASS_NAME);
         // 每隔 100ms 调度一次，用于读取所有任务
         taskRegistrar.addFixedDelayTask(this::scheduleTask, 1000);
     }
@@ -278,8 +287,8 @@ public abstract class AbstractDSHandler<T extends IDSTaskInfo> implements Schedu
      * 调度任务，加载所有任务并注册
      */
     private void scheduleTask() {
-        CollectionUtils.emptyIfNull(listTaskInfo()).forEach(taskInfo -> 
-                dsContainer.checkTask(taskInfo, new TriggerTask(() -> 
+        CollectionUtils.emptyIfNull(listTaskInfo()).forEach(taskInfo ->
+                dsContainer.checkTask(taskInfo, new TriggerTask(() ->
                         this.execute(taskInfo), triggerContext -> new CronTrigger(taskInfo.getCron()).nextExecutionTime(triggerContext)
                 ))
         );
@@ -296,7 +305,9 @@ public abstract class AbstractDSHandler<T extends IDSTaskInfo> implements Schedu
             }
             if (semaphore.tryAcquire(3, TimeUnit.SECONDS)) {
                 try {
-                    getWorkerExecutor().execute(() -> doProcess(taskInfo));
+                    doProcess(taskInfo);
+                } catch (Throwable throwable) {
+                    log.error("{} doProcess error, taskId: {}", CLASS_NAME, taskId, throwable);
                 } finally {
                     semaphore.release();
                 }
@@ -369,13 +380,11 @@ public class SchedulerTestTaskInfo implements IDSTaskInfo {
 
 有几个需要关注的：
 
-（1）`getWorkerExecutor()` 我随便写了个 2，其实 SchedulerTestTaskInfo 对象只有一个（即调用 foo() 方法的定时任务）。
+（1）`listTaskInfo()` 返回值我使用了 volatile 变量，便于我修改它，模拟任务信息数据的改变。
 
-（2）`listTaskInfo()` 返回值我使用了 volatile 变量，便于我修改它，模拟任务信息数据的改变。
+（2）`doProcess()` 方法中，读取到 reference 后，使用反射进行调用，模拟定时任务的执行。
 
-（3）`doProcess()` 方法中，读取到 reference 后，使用反射进行调用，模拟定时任务的执行。
-
-（4）额外实现了 `ApplicationListener` 接口，当服务启动后，每隔一段时间修改下任务信息，模拟业务中调整配置。
+（3）额外实现了 `ApplicationListener` 接口，当服务启动后，每隔一段时间修改下任务信息，模拟业务中调整配置。
 
 - 服务启动后，foo() 定时任务将每 10s 执行一次。
 - 10s 后，将 foo() 定时任务执行周期从每 10s 执行调整为 1s 执行。
@@ -391,11 +400,14 @@ import org.springframework.stereotype.Component;
 import java.lang.reflect.Method;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.LockSupport;
 
+/**
+ * @author jitwxs
+ * @date 2021年03月27日 21:54
+ */
 @Component
 public class SchedulerTestDSHandler extends AbstractDSHandler<SchedulerTestTaskInfo> implements ApplicationListener {
     public volatile List<SchedulerTestTaskInfo> taskInfoList = Collections.singletonList(
@@ -408,17 +420,12 @@ public class SchedulerTestDSHandler extends AbstractDSHandler<SchedulerTestTaskI
     );
 
     @Override
-    protected ExecutorService getWorkerExecutor() {
-        return Executors.newFixedThreadPool(2);
-    }
-
-    @Override
     protected List<SchedulerTestTaskInfo> listTaskInfo() {
         return taskInfoList;
     }
 
     @Override
-    protected void doProcess(SchedulerTestTaskInfo taskInfo) {
+    protected void doProcess(SchedulerTestTaskInfo taskInfo) throws Throwable {
         final String reference = taskInfo.getReference();
         final String[] split = reference.split("#");
         if(split.length != 2) {

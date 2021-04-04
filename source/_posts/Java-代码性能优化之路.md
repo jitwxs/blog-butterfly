@@ -8,8 +8,8 @@ date: 2020-05-01 20:21:12
 tags:
 icons: [fas fa-fire red]
 related_repos:
-  - name: performance_optimized
-    url: https://github.com/jitwxs/blog-sample/blob/master/Java/performance_optimized
+  - name: performance-optimized
+    url: https://github.com/jitwxs/blog-sample/tree/master/javase-sample/performance-optimized
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs

@@ -7,8 +7,8 @@ tags: [Protobuf, gRPC]
 abbrlink: d6535904
 date: 2019-12-26 21:30:04
 related_repos:
-  - name: grpc_demo
-    url: https://github.com/jitwxs/blog-sample/tree/master/Java/grpc_demo
+  - name: grpc-sample
+    url: https://github.com/jitwxs/blog-sample/tree/master/javase-sample/grpc-sample
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs

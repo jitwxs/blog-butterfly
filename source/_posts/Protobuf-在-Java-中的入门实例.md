@@ -7,8 +7,8 @@ tags: Protobuf
 abbrlink: a5b690ac
 date: 2019-12-23 00:43:58
 related_repos:
-  - name: protocol_buffers
-    url: https://github.com/jitwxs/blog-sample/blob/master/Java/protocol_buffers
+  - name: protobuf-sample
+    url: https://github.com/jitwxs/blog-sample/tree/master/javase-sample/protobuf-sample
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs

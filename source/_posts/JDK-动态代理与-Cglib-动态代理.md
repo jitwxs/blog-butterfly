@@ -7,8 +7,8 @@ categories: Java
 abbrlink: 8ee3adf6
 date: 2018-03-09 10:03:36
 related_repos:
-  - name: dynamic_proxy
-    url: https://github.com/jitwxs/blog-sample/blob/master/Java/dynamic_proxy
+  - name: dynamic-proxy-sample
+    url: https://github.com/jitwxs/blog-sample/tree/master/javase-sample/dynamic-proxy-sample
     rel: nofollow noopener noreferrer
     target: _blank
 copyright_author: Jitwxs
