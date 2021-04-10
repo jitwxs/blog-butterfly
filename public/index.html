@@ -1,0 +1,602 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jitwxs</title><meta name="author" content="Jitwxs"><meta name="copyright" content="Jitwxs"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="不忘初心，砥砺前行">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jitwxs">
+<meta property="og:url" content="https://jitwxs.cn/index.html">
+<meta property="og:site_name" content="Jitwxs">
+<meta property="og:description" content="不忘初心，砥砺前行">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/avatar.jpg">
+<meta property="article:author" content="Jitwxs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/avatar.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/favicon.ico"><link rel="canonical" href="https://jitwxs.cn/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?053091e29f160d71ed2f65a774cfeac1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-40VH67TNSM"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-40VH67TNSM');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"POGNXMLA2T","apiKey":"2013ebed0f76818838d693c9c40cb1fd","indexName":"blog","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Jitwxs","link":"链接: ","source":"来源: Jitwxs","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-right"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-04-10 15:02:59'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Jitwxs" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">224</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">132</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">39</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fas fa-ellipsis-v"></i><span> 更多</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/favorites/"><i class="fa-fw fas fa-meteor"></i><span> 收藏夹</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tools.jitwxs.cn"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-cogs"></i><span> 管理</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/changes/"><i class="fa-fw fas fa-location-arrow"></i><span> 更新日志</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://analytics.google.com/"><i class="fa-fw fab fa-google"></i><span> 谷歌统计</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tongji.baidu.com/"><i class="fa-fw fas fa-globe-asia"></i><span> 百度统计</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/index.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Jitwxs</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fas fa-ellipsis-v"></i><span> 更多</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/favorites/"><i class="fa-fw fas fa-meteor"></i><span> 收藏夹</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tools.jitwxs.cn"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-cogs"></i><span> 管理</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/changes/"><i class="fa-fw fas fa-location-arrow"></i><span> 更新日志</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://analytics.google.com/"><i class="fa-fw fab fa-google"></i><span> 谷歌统计</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tongji.baidu.com/"><i class="fa-fw fas fa-globe-asia"></i><span> 百度统计</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Jitwxs</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/jitwxs" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=Ujg7JiUqIRI0PSo-Mzs_fDE9Pw" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="https://jitwxs.blog.csdn.net" target="_blank" title="CSDN"><i class="fab fa-cuttlefish flat-btn"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/e4d53ddb.html" title="Spring SchedulingConfigurer 实现动态定时任务">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring SchedulingConfigurer 实现动态定时任务"></a></div><div class="recent-post-info"><a class="article-title" href="/e4d53ddb.html" title="Spring SchedulingConfigurer 实现动态定时任务">Spring SchedulingConfigurer 实现动态定时任务</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-user article-meta__icon"></i><span class="article-meta-label">Jitwxs</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-27T15:23:41.000Z" title="发表于 2021-03-27 23:23:41">2021-03-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java-Web/">Java Web</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Java-Web/SpringBoot/">SpringBoot</a></span></div><div class="content"> 一、前言
+大家在日常工作中，一定使用过 Spring 的 @Scheduled 注解吧，通过该注解可以非常方便的帮助我们实现任务的定时执行。
+但是该注解是不支持运行时动态修改执行间隔的，不知道你在业务中有没有这些需求和痛点：
+
+在服务运行时能够动态修改定时任务的执行频率和执行开关，而无需重启服务和修改代码
+能够基于配置，在不同环境/机器上，实现定时任务执行频率的差异化
+
+这些都可以通过 Spring 的 SchedulingConfigurer 注解来实现。
+这个注解其实大家并不陌生，如果有使用过 @Scheduled 的话，因为 @Scheduled 默认是单线程执行的，因此如果存在多个任务同时触发，可能触发阻塞。使用 SchedulingConfigurer 可以配置用于执行 @Scheduled 的线程池，来避免这个问题。
+12345678@Configurationpublic class ScheduleConfig implements SchedulingConfigurer &#123;    @Override    public void configureTas ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/9f878221.html" title="Java 双亲委派机制">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java 双亲委派机制"></a></div><div class="recent-post-info"><a class="article-title" href="/9f878221.html" title="Java 双亲委派机制">Java 双亲委派机制</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-user article-meta__icon"></i><span class="article-meta-label">Jitwxs</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-14T03:26:34.000Z" title="发表于 2021-03-14 11:26:34">2021-03-14</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content"> 一、ClassLoader
+在介绍双亲委派机制之前，必须先要了解类加载器 ClassLoader，当 .java 文件经过编译生成 .class 文件后，需要通过 ClassLoader 将其加载入 JVM 中。
+Java 中包括以下四类 ClassLoader：
+
+Bootstrap ClassLoader 启动类加载器【主要负责加载核心类库（java,lang.*）等】
+Extension ClassLoader 扩展类加载器【主要负责加载 jre/lib/ext 目录下的扩展类库】
+Application ClassLoader 应用程序类加载器【主要负责加载当前应用程序的类】
+Custom ClassLoader 自定义类加载器
+
+ 1.1 获取 ClassLoader
+通过 java.lang.Class#getClassLoader 方法就能够知道加载某个类的具体 ClassLoader，如下面代码所示：
+12345678910111213import sun.net.spi.nameservice.dns.DNSNameService;public class Clas ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/bef70352.html" title="图解 | 你管这破玩意儿叫TCP？">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover13.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图解 | 你管这破玩意儿叫TCP？"></a></div><div class="recent-post-info"><a class="article-title" href="/bef70352.html" title="图解 | 你管这破玩意儿叫TCP？">图解 | 你管这破玩意儿叫TCP？</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-user article-meta__icon"></i><span class="article-meta-label">低并发编程</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-24T07:19:23.000Z" title="发表于 2021-01-24 15:19:23">2021-01-24</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a></span></div><div class="content">你是一台电脑，你的名字叫 A
+
+经过《如果让你来设计网络》这篇文章中的一番折腾，只要你知道另一位伙伴 B 的 IP 地址，且你们之间的网络是通的，无论多远，你都可以将一个数据包发送给你的伙伴 B
+
+这就是物理层、数据链路层、网络层这三层所做的事情。
+站在第四层的你，就可以不要脸地利用下三层所做的铺垫，随心所欲地发送数据，而不必担心找不到对方了。
+
+虽然你此时还什么都没干，但你还是给自己这一层起了个响亮的名字，叫做传输层。
+你本以为自己所在的第四层万事大吉，啥事没有，但很快问题就接踵而至。
+ 问题来了
+前三层协议只能把数据包从一个主机搬到另外一台主机，但是，到了目的地以后，数据包具体交给哪个程序（进程）呢？
+
+所以，你需要把通信的进程区分开来，于是就给每个进程分配一个数字编号，你给它起了一个响亮的名字：端口号。
+
+然后你在要发送的数据包上，增加了传输层的头部，源端口号与目标端口号。
+
+OK，这样你将原本主机到主机的通信，升级为了进程和进程之间的通信。
+你没有意识到，你不知不觉实现了 UDP 协议！
+（当然 UDP 协议中不光有源端口和目标端口，还有数据包长度和校验值，我们暂且略过）
+就这 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/c376af5e.html" title="图解 | 你管这破玩意叫线程池？">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover21.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图解 | 你管这破玩意叫线程池？"></a></div><div class="recent-post-info"><a class="article-title" href="/c376af5e.html" title="图解 | 你管这破玩意叫线程池？">图解 | 你管这破玩意叫线程池？</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-user article-meta__icon"></i><span class="article-meta-label">低并发编程</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-23T11:23:54.000Z" title="发表于 2021-01-23 19:23:54">2021-01-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">并发编程</a></span></div><div class="content">小宇：闪客，我最近看到线程池，被里边乱七八槽的参数给搞晕了，你能不能给我讲讲呀？
+
+闪客：没问题，这个我擅长，咱们从一个最简单的情况开始，假设有一段代码，你希望异步执行它，是不是要写出这样的代码？
+1new Thread(r).start();
+小宇：嗯嗯，最简单的写法似乎就是这样呢。
+闪客：这种写法当然可以完成功能，可是你这样写，老王这样写，老张也这样写，程序中到处都是这样创建线程的方法，能不能写一个统一的工具类让大家调用呢？
+小宇：可以的，感觉有一个统一的工具类，更优雅一些。
+闪客：那如果让你来设计这个工具类，你会怎么写呢？我先给你定一个接口，你来实现。
+123public interface Executor &#123;    public void execute(Runnable r);&#125;
+小宇：emmm，我可能先定义几个成员变量，比如核心线程数、最大线程数 …反正就是那些乱七八糟的参数。
+闪客：STOP！小宇呀，你现在深受面试手册的毒害，你先把这些全部的概念忘掉，就说让你写一个最简单的工具类，第一反应，你会怎么写？
+ 第一版
+小宇：那我可能会这样
+123456/ ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/93fdc2b.html" title="如果让你来设计网络">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover1.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如果让你来设计网络"></a></div><div class="recent-post-info"><a class="article-title" href="/93fdc2b.html" title="如果让你来设计网络">如果让你来设计网络</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-user article-meta__icon"></i><span class="article-meta-label">低并发编程</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-23T07:39:03.000Z" title="发表于 2021-01-23 15:39:03">2021-01-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a></span></div><div class="content">你是一台电脑，你的名字叫 A
+很久很久之前，你不与任何其他电脑相连接，孤苦伶仃。
+
+直到有一天，你希望与另一台电脑 B 建立通信，于是你们各开了一个网口，用一根网线连接了起来。
+
+用一根网线连接起来怎么就能&quot;通信&quot;了呢？我可以给你讲 IO、讲中断、讲缓冲区，但这不是研究网络时该关心的问题。
+如果你纠结，要么去研究一下操作系统是如何处理网络 IO 的，要么去研究一下包是如何被网卡转换成电信号发送出去的，要么就仅仅把它当做电脑里有个小人在开枪吧~
+
+反正，你们就是连起来了，并且可以通信。
+ 第一层
+有一天，一个新伙伴 C 加入了，但聪明的你们很快发现，可以每个人开两个网口，用一共三根网线，彼此相连。
+
+随着越来越多的人加入，你发现身上开的网口实在太多了，而且网线密密麻麻，混乱不堪。（而实际上一台电脑根本开不了这么多网口，所以这种连线只在理论上可行，所以连不上的我就用红色虚线表示了，就是这么严谨哈哈~）
+
+于是你们发明了一个中间设备，你们将网线都插到这个设备上，由这个设备做转发，就可以彼此之间通信了，本质上和原来一样，只不过网口的数量和网线的数量减少了，不再那么混乱。
+
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/744744f8.html" title="Arthas 初探（6）——火焰图">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Arthas 初探（6）——火焰图"></a></div><div class="recent-post-info"><a class="article-title" href="/744744f8.html" title="Arthas 初探（6）——火焰图">Arthas 初探（6）——火焰图</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-user article-meta__icon"></i><span class="article-meta-label">Jitwxs</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-27T13:36:24.000Z" title="发表于 2020-12-27 21:36:24">2020-12-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Java/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/">性能分析</a></span></div><div class="content"> 一、前言
+profiler 命令支持生成应用热点的火焰图。本质上是通过不断的采样，然后把收集到的采样结果生成火焰图。
+目前 profiler 命令还不支持在 Windows 下执行。
+12[arthas@18132]$ profiler listAsyncProfiler error: Current OS do not support AsyncProfiler, Only support Linux/Mac.
+ 二、基本使用
+profiler 命令基本运行结构是 profiler action [actionArg]
+ 2.1 参数说明
+
+
+
+参数名称
+参数说明
+
+
+
+
+action
+要执行的操作
+
+
+actionArg
+属性名模式
+
+
+[i:]
+采样间隔（单位：ns）（默认值：10’000’000，即10 ms）
+
+
+[f:]
+将输出转储到指定路径
+
+
+[d:]
+运行评测指定秒
+
+
+[e:]
+要跟踪哪个事件（cpu, alloc, lock, cache-misses等），默认是 cpu
+
+
+
+ 2.2 采样
+（1）启动 profiler
+12[arthas@44]$ prof ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/5ed3293c.html" title="Arthas 初探（5）——核心命令">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Arthas 初探（5）——核心命令"></a></div><div class="recent-post-info"><a class="article-title" href="/5ed3293c.html" title="Arthas 初探（5）——核心命令">Arthas 初探（5）——核心命令</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-user article-meta__icon"></i><span class="article-meta-label">Jitwxs</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-27T12:01:49.000Z" title="发表于 2020-12-27 20:01:49">2020-12-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Java/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/">性能分析</a></span></div><div class="content"> 一、前言
+在本章节中，将学习以下 Arthas 的核心命令，同时我也会附上官方文档的链接，方便大家查阅：
+
+
+monitor 方法执行监控
+
+
+watch 方法执行数据观测
+
+
+trace 方法内部调用路径，并输出方法路径上的每个节点上耗时
+
+
+stack 输出当前方法被调用的调用路径
+
+
+tt 记录下指定方法每次调用的入参和返回信息，并能对这些不同时间下调用的信息进行观测
+
+
+watch/trace/monitor/stack/tt 命令都支持 -v 参数。当命令执行之后，没有输出结果。有两种可能：
+
+匹配到的函数没有被执行
+条件表达式结果是 false
+
+但用户区分不出是哪种情况。使用 -v 选项，则会打印 Condition express 的具体值和执行结果，方便确认。
+ 二、monitor
+对匹配 class-pattern／method-pattern／condition-express的类、方法的调用进行监控。
+monitor 命令是一个非实时返回命令。
+
+实时返回命令是输入之后立即返回，而非实时返回的命令，则是不断的等待目标 Java 进程返回信息，直到用户输入 Ct ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/43dc34ff.html" title="Arthas 初探（4）——Class 命令">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover2.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Arthas 初探（4）——Class 命令"></a></div><div class="recent-post-info"><a class="article-title" href="/43dc34ff.html" title="Arthas 初探（4）——Class 命令">Arthas 初探（4）——Class 命令</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-user article-meta__icon"></i><span class="article-meta-label">Jitwxs</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-27T08:55:36.000Z" title="发表于 2020-12-27 16:55:36">2020-12-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Java/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/">性能分析</a></span></div><div class="content"> 一、前言
+在本章节中，将学习以下 Arthas 的 Class 相关命令，同时我也会附上官方文档的链接，方便大家查阅：
+
+sc Search Class 查看运行中的类信息
+sm Search Method 查看类中方法的信息
+jad 反编译字节码为源代码
+mc Memory Compile 将源代码编译成字节码
+redefine 将编译好的字节码文件加载到 JVM 中运行
+dump 将已加载类的 bytecode 下载到特定目录
+classloader 查看 classloader 的继承树，urls，类加载信息
+
+ 二、sc
+sc 是 Search-Class 的缩写，用于查看 JVM 已加载的类信息，这个命令能搜索出所有已经加载到 JVM 中的 Class 信息。
+
+class-pattern支持全限定名，如com.taobao.test.AAA，也支持com/taobao/test/AAA 这样的格式，这样，我们从异常堆栈里面把类名拷贝过来的时候，不需要在手动把 / 替换为 .
+sc 默认开启了子类匹配功能，也就是说所有当前类的子类也会被搜索出来，想要精确的匹配，请打开 op ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/e88e6355.html" title="Arthas 初探（3）——JVM 命令">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover2.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Arthas 初探（3）——JVM 命令"></a></div><div class="recent-post-info"><a class="article-title" href="/e88e6355.html" title="Arthas 初探（3）——JVM 命令">Arthas 初探（3）——JVM 命令</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-user article-meta__icon"></i><span class="article-meta-label">Jitwxs</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-26T12:28:17.000Z" title="发表于 2020-12-26 20:28:17">2020-12-26</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Java/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/">性能分析</a></span></div><div class="content"> 一、前言
+在本章节中，将学习以下 Arthas 的 JVM 相关命令，同时我也会附上官方文档的链接，方便大家查阅：
+
+dashboard 仪表板，可以显示：线程，内存，堆栈，GC，Runtime 等信息
+thread 显示线程的堆栈
+jvm 显示 JAVA 虚拟机信息
+sysprop 显示 JVM 中系统属性，也可以修改某个属性
+sysenv 显示 JVM 中系统环境变量配置信息
+vmoption 显示 JVM 中选项信息
+getstatic 获取类中静态成员变量
+ognl 执行一条 ognl 表达式，对象图导航语言
+
+ 二、dashboard
+显示当前系统的实时数据面板，按 q 或 ctrl+c 退出。
+
+ 2.1 数据说明
+
+
+
+列名
+描述
+
+
+
+
+ID
+Java 级别的线程ID，注意这个 ID 不能跟 jstack 中的 nativeID 一一对应
+
+
+NAME
+线程名
+
+
+GROUP
+线程组名
+
+
+PRIORITY
+线程优先级, 1~10之间的数字，越大表示优先级越高
+
+
+STATE
+线程的状态
+
+
+%CPU
+线程消耗的 CPU 占比，采样 100ms，将所有线程在这 100 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/85dcbb69.html" title="Arthas 初探（2）——基础命令">     <img class="post_bg" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover4.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Arthas 初探（2）——基础命令"></a></div><div class="recent-post-info"><a class="article-title" href="/85dcbb69.html" title="Arthas 初探（2）——基础命令">Arthas 初探（2）——基础命令</a><div class="article-meta-wrap"><span class="article-meta"><i class="fas fa-user article-meta__icon"></i><span class="article-meta-label">Jitwxs</span><span class="article-meta__separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-12-26T12:00:34.000Z" title="发表于 2020-12-26 20:00:34">2020-12-26</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Java/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/">性能分析</a></span></div><div class="content"> 一、前言
+在本章节中，将学习以下 Arthas 的基础命令，同时我也会附上官方文档的链接，方便大家查阅：
+
+help、cls、session、version、history、quit、stop
+cat 显示文本文件内容
+grep 对内容进行过滤，只显示关心的行
+pwd 显示当前的工作路径
+reset 重置 arthas 增强的类
+keymap 显示所有的快捷键
+
+ 二、基础命令
+ 2.1 help、cls、session、version、quit、stop
+（1）help
+查看命令帮助信息。
+
+（2）cls
+清空当前屏幕区域。
+（3）session
+查看当前会话的信息。
+12345[arthas@8452]$ session Name        Value-------------------------------------------------- JAVA_PID    8452 SESSION_ID  1434a3fe-8bbe-44ad-90d8-1a0bf2c7e461
+（4）version
+输出当前目标 Java 进程所加载的 Arthas 版本号。
+12[art ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/#content-inner">23</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Jitwxs</div><div class="author-info__description">不忘初心，砥砺前行</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">224</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">132</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">39</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/jitwxs"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/jitwxs" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=Ujg7JiUqIRI0PSo-Mzs_fDE9Pw" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="https://jitwxs.blog.csdn.net" target="_blank" title="CSDN"><i class="fab fa-cuttlefish flat-btn"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">专注 Java 后端开发，内容涵盖 SpringBoot、并发编程、微服务、容器化、Linux 等技术分享。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/e4d53ddb.html" title="Spring SchedulingConfigurer 实现动态定时任务"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring SchedulingConfigurer 实现动态定时任务"/></a><div class="content"><a class="title" href="/e4d53ddb.html" title="Spring SchedulingConfigurer 实现动态定时任务">Spring SchedulingConfigurer 实现动态定时任务</a><time datetime="2021-03-27T15:23:41.000Z" title="发表于 2021-03-27 23:23:41">2021-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/9f878221.html" title="Java 双亲委派机制"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java 双亲委派机制"/></a><div class="content"><a class="title" href="/9f878221.html" title="Java 双亲委派机制">Java 双亲委派机制</a><time datetime="2021-03-14T03:26:34.000Z" title="发表于 2021-03-14 11:26:34">2021-03-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/bef70352.html" title="图解 | 你管这破玩意儿叫TCP？"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover13.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图解 | 你管这破玩意儿叫TCP？"/></a><div class="content"><a class="title" href="/bef70352.html" title="图解 | 你管这破玩意儿叫TCP？">图解 | 你管这破玩意儿叫TCP？</a><time datetime="2021-01-24T07:19:23.000Z" title="发表于 2021-01-24 15:19:23">2021-01-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/c376af5e.html" title="图解 | 你管这破玩意叫线程池？"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover21.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图解 | 你管这破玩意叫线程池？"/></a><div class="content"><a class="title" href="/c376af5e.html" title="图解 | 你管这破玩意叫线程池？">图解 | 你管这破玩意叫线程池？</a><time datetime="2021-01-23T11:23:54.000Z" title="发表于 2021-01-23 19:23:54">2021-01-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/93fdc2b.html" title="如果让你来设计网络"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover1.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如果让你来设计网络"/></a><div class="content"><a class="title" href="/93fdc2b.html" title="如果让你来设计网络">如果让你来设计网络</a><time datetime="2021-01-23T07:39:03.000Z" title="发表于 2021-01-23 15:39:03">2021-01-23</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-bolt"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/HoloLens/"><span class="card-category-list-name">HoloLens</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">58</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/Disruptor/"><span class="card-category-list-name">Disruptor</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/Protobuf/"><span class="card-category-list-name">Protobuf</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">并发编程</span><span class="card-category-list-count">15</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/"><span class="card-category-list-name">性能分析</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6/"><span class="card-category-list-name">日志框架</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="card-category-list-name">设计模式</span><span class="card-category-list-count">3</span></a></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Value/" style="font-size: 1.1em; color: #999">@Value</a> <a href="/tags/AOP/" style="font-size: 1.17em; color: #999c9f">AOP</a> <a href="/tags/AQS/" style="font-size: 1.17em; color: #999c9f">AQS</a> <a href="/tags/ActiveMQ/" style="font-size: 1.23em; color: #999ea6">ActiveMQ</a> <a href="/tags/Ajax/" style="font-size: 1.1em; color: #999">Ajax</a> <a href="/tags/Apollo/" style="font-size: 1.1em; color: #999">Apollo</a> <a href="/tags/ArrayBlockingQueue/" style="font-size: 1.1em; color: #999">ArrayBlockingQueue</a> <a href="/tags/Arthas/" style="font-size: 1.43em; color: #99a6b9">Arthas</a> <a href="/tags/Axiso/" style="font-size: 1.1em; color: #999">Axiso</a> <a href="/tags/BigDecimal/" style="font-size: 1.1em; color: #999">BigDecimal</a> <a href="/tags/Cache/" style="font-size: 1.23em; color: #999ea6">Cache</a> <a href="/tags/Caffeine/" style="font-size: 1.1em; color: #999">Caffeine</a> <a href="/tags/CountdownLatch/" style="font-size: 1.1em; color: #999">CountdownLatch</a> <a href="/tags/Cron/" style="font-size: 1.1em; color: #999">Cron</a> <a href="/tags/CyclicBarrier/" style="font-size: 1.1em; color: #999">CyclicBarrier</a> <a href="/tags/DCEP/" style="font-size: 1.17em; color: #999c9f">DCEP</a> <a href="/tags/Dijkstra/" style="font-size: 1.1em; color: #999">Dijkstra</a> <a href="/tags/Disruptor/" style="font-size: 1.3em; color: #99a1ac">Disruptor</a> <a href="/tags/Dubbo/" style="font-size: 1.1em; color: #999">Dubbo</a> <a href="/tags/Eclipse/" style="font-size: 1.1em; color: #999">Eclipse</a> <a href="/tags/Elasticsearch/" style="font-size: 1.37em; color: #99a4b2">Elasticsearch</a> <a href="/tags/Fail-Fast/" style="font-size: 1.1em; color: #999">Fail Fast</a> <a href="/tags/Fail-Safe/" style="font-size: 1.1em; color: #999">Fail Safe</a> <a href="/tags/Freemarker/" style="font-size: 1.1em; color: #999">Freemarker</a> <a href="/tags/GCC/" style="font-size: 1.1em; color: #999">GCC</a> <a href="/tags/Git/" style="font-size: 1.5em; color: #99a9bf">Git</a> <a href="/tags/Grafana/" style="font-size: 1.3em; color: #99a1ac">Grafana</a> <a href="/tags/Guava/" style="font-size: 1.17em; color: #999c9f">Guava</a> <a href="/tags/HTTP/" style="font-size: 1.1em; color: #999">HTTP</a> <a href="/tags/HTTPS/" style="font-size: 1.1em; color: #999">HTTPS</a> <a href="/tags/IDEA/" style="font-size: 1.1em; color: #999">IDEA</a> <a href="/tags/IO%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">IO模型</a> <a href="/tags/JVM/" style="font-size: 1.17em; color: #999c9f">JVM</a> <a href="/tags/JWT/" style="font-size: 1.1em; color: #999">JWT</a> <a href="/tags/Javascript/" style="font-size: 1.17em; color: #999c9f">Javascript</a> <a href="/tags/Jedis/" style="font-size: 1.17em; color: #999c9f">Jedis</a> <a href="/tags/LCS/" style="font-size: 1.1em; color: #999">LCS</a> <a href="/tags/LIS/" style="font-size: 1.1em; color: #999">LIS</a> <a href="/tags/LinkedBlockingQueue/" style="font-size: 1.1em; color: #999">LinkedBlockingQueue</a> <a href="/tags/Linux/" style="font-size: 1.1em; color: #999">Linux</a></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">224</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2016-11-12T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">558.8k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-04-10T07:02:57.143Z"></div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient(135deg,"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By Jitwxs</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href='http://www.beian.miit.gov.cn/state/outPortal/loginPortal.action'><img class='icp-icon entered loading' src='/img/icp.png' alt='ICP' data-ll-status='loading'>苏 ICP 备 16061429 号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(function (result) {
+      if (true) {
+        var sub = "".length == 0 ? new Array() : "".split(',')
+        var content = result.data.content
+        var both = sub.unshift(content)
+        var typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: false,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = result.data.content
+      }
+    })
+  })
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const findTrueUrl = (array) => {
+    let url = ''
+    Promise.all(array.map(item =>
+      fetch(item.url).then(resp => resp.json()).then(data => {
+        if (data.user.login === 'utterances-bot') {
+          url = data.body.match(/https?\:\/\/[^\" ]+/ig).slice(-1)
+          return url[0]
+        } else {
+          url = data.body.match(/https?\:\/\/[^\" ]+/i)
+          return url[0]
+        }
+      })
+    )).then(res => {
+        array = array.map((i,index)=> {
+          return {
+            ...i,
+            url: res[index]
+          }
+        })
+
+        saveToLocal.set('github-newest-comments', JSON.stringify(array), 10/(60*24))
+        generateHtml(array)
+    });
+  }
+
+  const getComment = () => {
+    fetch('https://api.github.com/repos/jitwxs/blog-comment/issues/comments?sort=updated&direction=desc&per_page=6&page=1',{
+      "headers": {
+        Accept: 'application/vnd.github.v3.html+json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        const githubArray = data.map(item => {
+          return {
+            'avatar': item.user.avatar_url,
+            'content': changeContent(item.body_html),
+            'nick': item.user.login,
+            'url': item.issue_url,
+            'date': item.updated_at,
+            'githubUrl': item.html_url
+          }
+        })
+        findTrueUrl(githubArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('github-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="5273081683" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" data-lrctype="1" muted></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.17.0/js/md5.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-40VH67TNSM', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

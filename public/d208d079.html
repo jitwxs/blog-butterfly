@@ -1,0 +1,509 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SpringBoot 集成 Spring Security（8）——短信验证码登录 | Jitwxs</title><meta name="author" content="Jitwxs"><meta name="copyright" content="Jitwxs"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="经过前面七章的学习，我们已经算入门 Spring Security 了，下面我们学习如何对 Spring Security 进行扩展，来实现短信验证码方式登录。 注意： 为了方便讲解，本篇文章代码直接在 《SpringBoot集成Spring Security（1）——入门程序》 上进行开发。 并且为了省去与本篇主题无关的代码，短信验证码只是一个模拟。如果你需要具体的实际例子，在下面的源码链接中除">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot 集成 Spring Security（8）——短信验证码登录">
+<meta property="og:url" content="https://jitwxs.cn/d208d079.html">
+<meta property="og:site_name" content="Jitwxs">
+<meta property="og:description" content="经过前面七章的学习，我们已经算入门 Spring Security 了，下面我们学习如何对 Spring Security 进行扩展，来实现短信验证码方式登录。 注意： 为了方便讲解，本篇文章代码直接在 《SpringBoot集成Spring Security（1）——入门程序》 上进行开发。 并且为了省去与本篇主题无关的代码，短信验证码只是一个模拟。如果你需要具体的实际例子，在下面的源码链接中除">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover22.jpg">
+<meta property="article:published_time" content="2019-01-09T09:10:43.000Z">
+<meta property="article:modified_time" content="2021-02-21T15:05:25.476Z">
+<meta property="article:author" content="Jitwxs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover22.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/favicon.ico"><link rel="canonical" href="https://jitwxs.cn/d208d079"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?053091e29f160d71ed2f65a774cfeac1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-40VH67TNSM"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-40VH67TNSM');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"POGNXMLA2T","apiKey":"2013ebed0f76818838d693c9c40cb1fd","indexName":"blog","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Jitwxs","link":"链接: ","source":"来源: Jitwxs","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-right"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-02-21 23:05:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Jitwxs" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">224</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">132</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">39</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fas fa-ellipsis-v"></i><span> 更多</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/favorites/"><i class="fa-fw fas fa-meteor"></i><span> 收藏夹</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tools.jitwxs.cn"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-cogs"></i><span> 管理</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/changes/"><i class="fa-fw fas fa-location-arrow"></i><span> 更新日志</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://analytics.google.com/"><i class="fa-fw fab fa-google"></i><span> 谷歌统计</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tongji.baidu.com/"><i class="fa-fw fas fa-globe-asia"></i><span> 百度统计</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover22.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Jitwxs</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fas fa-ellipsis-v"></i><span> 更多</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/favorites/"><i class="fa-fw fas fa-meteor"></i><span> 收藏夹</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tools.jitwxs.cn"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-cogs"></i><span> 管理</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/changes/"><i class="fa-fw fas fa-location-arrow"></i><span> 更新日志</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://analytics.google.com/"><i class="fa-fw fab fa-google"></i><span> 谷歌统计</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tongji.baidu.com/"><i class="fa-fw fas fa-globe-asia"></i><span> 百度统计</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SpringBoot 集成 Spring Security（8）——短信验证码登录<a class="post-edit-link" href="https://github.com/jitwxs/blog-source/tree/master/source/_posts/SpringBoot-集成-Spring-Security（8）——短信验证码登录.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="article-meta"><i class="fas fa-user post-meta-icon"></i><span class="article-meta-label">Jitwxs</span><span class="post-meta-separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-01-09T09:10:43.000Z" title="发表于 2019-01-09 17:10:43">2019-01-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-21T15:05:25.476Z" title="更新于 2021-02-21 23:05:25">2021-02-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/">安全框架</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/Spring-Security/">Spring Security</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SpringBoot 集成 Spring Security（8）——短信验证码登录"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/d208d079.html#post-comment"><span class="gitalk-comment-count"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>经过前面七章的学习，我们已经算入门 Spring Security 了，下面我们学习如何对 Spring Security 进行扩展，来实现短信验证码方式登录。</p>
+<p><strong>注意：</strong></p>
+<p>为了方便讲解，本篇文章代码直接在 <a href="/5f5715e6.html">《SpringBoot集成Spring Security（1）——入门程序》</a> 上进行开发。</p>
+<p>并且为了省去与本篇主题无关的代码，<strong>短信验证码只是一个模拟</strong>。如果你需要具体的实际例子，在下面的源码链接中除了包括每一章的代码外，还包括从头到尾的完整整合代码，方便大家参考学习。</p>
+<h2 id="一-理论说明"><a class="markdownIt-Anchor" href="#一-理论说明"></a> 一、理论说明</h2>
+<p>在开始编码前，先理解下短信验证码的实现流程。如果你能对<a href="/a28c0db7.html">《SpringBoot集成Spring Security（7）——认证流程》</a>这篇文章有一定的了解的话，那么这篇文章的学习你会轻松许多。</p>
+<h3 id="11-用户名密码登录逻辑"><a class="markdownIt-Anchor" href="#11-用户名密码登录逻辑"></a> 1.1 用户名密码登录逻辑</h3>
+<p>废话不多说，在上一篇文章中，以标准的用户名密码登录为例，讲解了整个认证流程。大致流程如下：</p>
+<ol>
+<li>先进入 <code>UsernamePasswordAuthenticationFilter</code> 中，根据输入的用户名和密码信息，构造出一个暂时没有鉴权的 <code>UsernamePasswordAuthenticationToken</code>，并将 UsernamePasswordAuthenticationToken 交给 <code>AuthenticationManager</code> 处理。</li>
+<li><code>AuthenticationManager</code> 本身并不做验证处理，他通过 for-each 遍历找到符合当前登录方式的一个 AuthenticationProvider，并交给它进行验证处理，对于用户名密码登录方式，这个 Provider 就是 <code>DaoAuthenticationProvider</code>。</li>
+<li>在这个 Provider 中进行一系列的验证处理，如果验证通过，就会重新构造一个添加了鉴权的 <code>UsernamePasswordAuthenticationToken</code>，并将这个 token 传回到 <code>UsernamePasswordAuthenticationFilter</code> 中。</li>
+<li>在该 Filter 的父类 <code>AbstractAuthenticationProcessingFilter</code> 中，会根据上一步验证的结果，跳转到 successHandler 或者是 failureHandler。</li>
+</ol>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201812/20181202095539982.png" alt="Spring Security 认证流程（部分）" /></p>
+<h3 id="12-短信验证码登录逻辑"><a class="markdownIt-Anchor" href="#12-短信验证码登录逻辑"></a> 1.2 短信验证码登录逻辑</h3>
+<p>我们可以仿照用户名密码登录的逻辑，来实现短信验证码的登陆逻辑。</p>
+<ol>
+<li>用户名密码登录有个 UsernamePasswordAuthenticationFilter ，我们搞一个 <code>SmsAuthenticationFilter</code>，代码粘过来改一改。</li>
+<li>用户名密码登录需要 UsernamePasswordAuthenticationToken，我们搞一个 <code>SmsAuthenticationToken</code>，代码粘过来改一改。</li>
+<li>用户名密码登录需要 DaoAuthenticationProvider，我们模仿它也 implenments AuthenticationProvider，叫做 <code>SmsAuthenticationProvider</code>。</li>
+</ol>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201901/2019010916114182.png" alt="短信登录验证逻辑" /></p>
+<p>我们自己搞了上面三个类以后，想要实现的效果如上图所示。当我们使用短信验证码登录的时候：</p>
+<ol>
+<li>先经过 <code>SmsAuthenticationFilter</code>，构造一个没有鉴权的 <code>SmsAuthenticationToken</code>，然后交给 AuthenticationManager 处理。</li>
+<li>AuthenticationManager 通过 for-each 挑选出一个合适的 provider 进行处理，当然我们希望这个 provider 要是 <code>SmsAuthenticationProvider</code>。</li>
+<li>验证通过后，重新构造一个有鉴权的 <code>SmsAuthenticationToken</code>，并返回给 <code>SmsAuthenticationFilter</code>。</li>
+<li>filter 根据上一步的验证结果，跳转到成功或者失败的处理逻辑。</li>
+</ol>
+<h2 id="二-代码实战"><a class="markdownIt-Anchor" href="#二-代码实战"></a> 二、代码实战</h2>
+<p>请通过 github 链接下载第一章代码，或者参看<a href="/5f5715e6.html">《SpringBoot集成Spring Security（1）——入门程序》</a>初始化项目，这里就不再赘述了。</p>
+<h3 id="21-smsauthenticationtoken"><a class="markdownIt-Anchor" href="#21-smsauthenticationtoken"></a> 2.1 SmsAuthenticationToken</h3>
+<p>首先我们编写 <code>SmsAuthenticationToken</code>，这里直接参考 <code>UsernamePasswordAuthenticationToken</code> 源码，直接粘过来，改一改。</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li><code>principal</code> 原本代表用户名，这里保留，只是代表了手机号码。</li>
+<li><code>credentials</code> 原本代码密码，短信登录用不到，直接删掉。</li>
+<li><code>SmsCodeAuthenticationToken()</code> 两个构造方法一个是构造没有鉴权的，一个是构造有鉴权的。</li>
+<li>剩下的几个方法去除无用属性即可。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.security.authentication.AbstractAuthenticationToken;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.GrantedAuthority;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.SpringSecurityCoreVersion;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 短信登录 AuthenticationToken，模仿 UsernamePasswordAuthenticationToken 实现</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> jitwxs</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 2019/1/9 13:47</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmsCodeAuthenticationToken</span> <span class="keyword">extends</span> <span class="title">AbstractAuthenticationToken</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = SpringSecurityCoreVersion.SERIAL_VERSION_UID;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 在 UsernamePasswordAuthenticationToken 中该字段代表登录的用户名，</span></span><br><span class="line"><span class="comment">     * 在这里就代表登录的手机号码</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Object principal;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 构建一个没有鉴权的 SmsCodeAuthenticationToken</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SmsCodeAuthenticationToken</span><span class="params">(Object principal)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">this</span>.principal = principal;</span><br><span class="line">        setAuthenticated(<span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 构建拥有鉴权的 SmsCodeAuthenticationToken</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SmsCodeAuthenticationToken</span><span class="params">(Object principal, Collection&lt;? extends GrantedAuthority&gt; authorities)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(authorities);</span><br><span class="line">        <span class="keyword">this</span>.principal = principal;</span><br><span class="line">        <span class="comment">// must use super, as we override</span></span><br><span class="line">        <span class="keyword">super</span>.setAuthenticated(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getCredentials</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getPrincipal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.principal;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAuthenticated</span><span class="params">(<span class="keyword">boolean</span> isAuthenticated)</span> <span class="keyword">throws</span> IllegalArgumentException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isAuthenticated) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(</span><br><span class="line">                    <span class="string">&quot;Cannot set this token to trusted - use constructor which takes a GrantedAuthority list instead&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">super</span>.setAuthenticated(<span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eraseCredentials</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.eraseCredentials();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="22-smsauthenticationfilter"><a class="markdownIt-Anchor" href="#22-smsauthenticationfilter"></a> 2.2 SmsAuthenticationFilter</h3>
+<p>然后编写 <code>SmsAuthenticationFilter</code>，参考 UsernamePasswordAuthenticationFilter 的源码，直接粘过来，改一改。</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>原本的静态字段有 username 和 password，都干掉，换成我们的手机号字段。</li>
+<li><code>SmsCodeAuthenticationFilter()</code> 中指定了这个 filter 的拦截 Url，我指定为 post 方式的 <code>/sms/login</code>。</li>
+<li>剩下来的方法把无效的删删改改就好了。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.security.authentication.AuthenticationServiceException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.Authentication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.AuthenticationException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.web.util.matcher.AntPathRequestMatcher;</span><br><span class="line"><span class="keyword">import</span> org.springframework.util.Assert;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 短信登录的鉴权过滤器，模仿 UsernamePasswordAuthenticationFilter 实现</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> jitwxs</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 2019/1/9 13:52</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmsCodeAuthenticationFilter</span> <span class="keyword">extends</span> <span class="title">AbstractAuthenticationProcessingFilter</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * form表单中手机号码的字段name</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String SPRING_SECURITY_FORM_MOBILE_KEY = <span class="string">&quot;mobile&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String mobileParameter = SPRING_SECURITY_FORM_MOBILE_KEY;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 是否仅 POST 方式</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> postOnly = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SmsCodeAuthenticationFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 短信登录的请求 post 方式的 /sms/login</span></span><br><span class="line">        <span class="keyword">super</span>(<span class="keyword">new</span> AntPathRequestMatcher(<span class="string">&quot;/sms/login&quot;</span>, <span class="string">&quot;POST&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Authentication <span class="title">attemptAuthentication</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> AuthenticationException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (postOnly &amp;&amp; !request.getMethod().equals(<span class="string">&quot;POST&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> AuthenticationServiceException(</span><br><span class="line">                    <span class="string">&quot;Authentication method not supported: &quot;</span> + request.getMethod());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        String mobile = obtainMobile(request);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (mobile == <span class="keyword">null</span>) &#123;</span><br><span class="line">            mobile = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        mobile = mobile.trim();</span><br><span class="line"></span><br><span class="line">        SmsCodeAuthenticationToken authRequest = <span class="keyword">new</span> SmsCodeAuthenticationToken(mobile);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Allow subclasses to set the &quot;details&quot; property</span></span><br><span class="line">        setDetails(request, authRequest);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.getAuthenticationManager().authenticate(authRequest);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> String <span class="title">obtainMobile</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> request.getParameter(mobileParameter);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">setDetails</span><span class="params">(HttpServletRequest request, SmsCodeAuthenticationToken authRequest)</span> </span>&#123;</span><br><span class="line">        authRequest.setDetails(authenticationDetailsSource.buildDetails(request));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMobileParameter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mobileParameter;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMobileParameter</span><span class="params">(String mobileParameter)</span> </span>&#123;</span><br><span class="line">        Assert.hasText(mobileParameter, <span class="string">&quot;Mobile parameter must not be empty or null&quot;</span>);</span><br><span class="line">        <span class="keyword">this</span>.mobileParameter = mobileParameter;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPostOnly</span><span class="params">(<span class="keyword">boolean</span> postOnly)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.postOnly = postOnly;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="23-smsauthenticationprovider"><a class="markdownIt-Anchor" href="#23-smsauthenticationprovider"></a> 2.3 SmsAuthenticationProvider</h3>
+<p>这个方法比较重要，这个方法首先能够在使用短信验证码登陆时候被 <code>AuthenticationManager</code> 挑中，其次要在这个类中处理验证逻辑。</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>实现 AuthenticationProvider 接口，实现 authenticate() 和 supports() 方法。</li>
+<li><code>supports()</code> 方法决定了这个 Provider 要怎么被 AuthenticationManager 挑中，我这里通过 <code>return SmsCodeAuthenticationToken.class.isAssignableFrom(authentication)</code>，处理所有 SmsCodeAuthenticationToken 及其子类或子接口。</li>
+<li><code>authenticate()</code> 方法处理验证逻辑。
+<ol>
+<li>首先将 authentication 强转为 <code>SmsCodeAuthenticationToken</code>。</li>
+<li>从中取出登录的 principal，也就是手机号。</li>
+<li>调用自己写的 checkSmsCode() 方法，进行验证码校验，如果不合法，抛出 AuthenticationException 异常。</li>
+<li>如果此时仍然没有异常，通过调用 <code>loadUserByUsername(mobile)</code> 读取出数据库中的用户信息。</li>
+<li>如果仍然能够成功读取，没有异常，这里验证就完成了。</li>
+<li>重新构造鉴权后的 SmsCodeAuthenticationToken，并返回给 SmsCodeAuthenticationFilter 。</li>
+</ol>
+</li>
+<li>SmsCodeAuthenticationFilter 的父类在 <code>doFilter()</code> 方法中处理是否有异常，是否成功，根据处理结果跳转到登录成功/失败逻辑。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.security.authentication.AuthenticationProvider;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.authentication.BadCredentialsException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.Authentication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.AuthenticationException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.userdetails.UserDetails;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.userdetails.UserDetailsService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.context.request.RequestContextHolder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.context.request.ServletRequestAttributes;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 短信登陆鉴权 Provider，要求实现 AuthenticationProvider 接口</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> jitwxs</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 2019/1/9 13:59</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmsCodeAuthenticationProvider</span> <span class="keyword">implements</span> <span class="title">AuthenticationProvider</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> UserDetailsService userDetailsService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Authentication <span class="title">authenticate</span><span class="params">(Authentication authentication)</span> <span class="keyword">throws</span> AuthenticationException </span>&#123;</span><br><span class="line">        SmsCodeAuthenticationToken authenticationToken = (SmsCodeAuthenticationToken) authentication;</span><br><span class="line"></span><br><span class="line">        String mobile = (String) authenticationToken.getPrincipal();</span><br><span class="line"></span><br><span class="line">        checkSmsCode(mobile);</span><br><span class="line"></span><br><span class="line">        UserDetails userDetails = userDetailsService.loadUserByUsername(mobile);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 此时鉴权成功后，应当重新 new 一个拥有鉴权的 authenticationResult 返回</span></span><br><span class="line">        SmsCodeAuthenticationToken authenticationResult = <span class="keyword">new</span> SmsCodeAuthenticationToken(userDetails, userDetails.getAuthorities());</span><br><span class="line"></span><br><span class="line">        authenticationResult.setDetails(authenticationToken.getDetails());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> authenticationResult;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">checkSmsCode</span><span class="params">(String mobile)</span> </span>&#123;</span><br><span class="line">        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();</span><br><span class="line">        String inputCode = request.getParameter(<span class="string">&quot;smsCode&quot;</span>);</span><br><span class="line"></span><br><span class="line">        Map&lt;String, Object&gt; smsCode = (Map&lt;String, Object&gt;) request.getSession().getAttribute(<span class="string">&quot;smsCode&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(smsCode == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> BadCredentialsException(<span class="string">&quot;未检测到申请验证码&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        String applyMobile = (String) smsCode.get(<span class="string">&quot;mobile&quot;</span>);</span><br><span class="line">        <span class="keyword">int</span> code = (<span class="keyword">int</span>) smsCode.get(<span class="string">&quot;code&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(!applyMobile.equals(mobile)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> BadCredentialsException(<span class="string">&quot;申请的手机号码与登录手机号码不一致&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(code != Integer.parseInt(inputCode)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> BadCredentialsException(<span class="string">&quot;验证码错误&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">supports</span><span class="params">(Class&lt;?&gt; authentication)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 判断 authentication 是不是 SmsCodeAuthenticationToken 的子类或子接口</span></span><br><span class="line">        <span class="keyword">return</span> SmsCodeAuthenticationToken.class.isAssignableFrom(authentication);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserDetailsService <span class="title">getUserDetailsService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> userDetailsService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserDetailsService</span><span class="params">(UserDetailsService userDetailsService)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.userDetailsService = userDetailsService;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="24-成功与失败处理逻辑"><a class="markdownIt-Anchor" href="#24-成功与失败处理逻辑"></a> 2.4 成功与失败处理逻辑</h3>
+<p>上面最后说到，在 SmsCodeAuthenticationFilter 的父类，会根据验证结果跳转到成功或失败处理逻辑，现在我们就编写下这个的处理。</p>
+<p>这里之前也说过了，直接贴代码了，如果有疑问，请参考<a href="/59f4016e.html">《SpringBoot集成Spring Security（6）——登录管理》</a>。</p>
+<p><strong>验证成功处理：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomAuthenticationSuccessHandler</span> <span class="keyword">implements</span> <span class="title">AuthenticationSuccessHandler</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ObjectMapper objectMapper;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Logger logger = LoggerFactory.getLogger(getClass());</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAuthenticationSuccess</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Authentication authentication)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        logger.info(<span class="string">&quot;登录成功&quot;</span>);</span><br><span class="line"></span><br><span class="line">        response.setContentType(<span class="string">&quot;application/json;charset=UTF-8&quot;</span>);</span><br><span class="line">        response.getWriter().write(objectMapper.writeValueAsString(authentication));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>验证失败处理：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomAuthenticationFailureHandler</span> <span class="keyword">implements</span> <span class="title">AuthenticationFailureHandler</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ObjectMapper objectMapper;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Logger logger = LoggerFactory.getLogger(getClass());</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAuthenticationFailure</span><span class="params">(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        logger.info(<span class="string">&quot;登陆失败&quot;</span>);</span><br><span class="line"></span><br><span class="line">        response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());</span><br><span class="line">        response.setContentType(<span class="string">&quot;application/json;charset=UTF-8&quot;</span>);</span><br><span class="line">        response.getWriter().write(objectMapper.writeValueAsString(exception.getMessage()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="25-smscodeauthenticationsecurityconfig"><a class="markdownIt-Anchor" href="#25-smscodeauthenticationsecurityconfig"></a> 2.5 SmsCodeAuthenticationSecurityConfig</h3>
+<p>下面我们需要把我们自己写的这么多类添加进 Spring Security 框架中，在以往，我们都是直接往 WebSecurityConfig 中加，但是这样会导致 WebSecurityConfig 内容太多，难以维护。</p>
+<p>因此我们可以为每种登录方式都建议一个专属于它的配置文件，再把这个配置文件加入到 WebSecurityConfig 中，进行解耦。</p>
+<p>因此建立短信验证码登录的配置文件 <code>SmsCodeAuthenticationSecurityConfig</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.authentication.AuthenticationManager;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.SecurityConfigurerAdapter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.userdetails.UserDetailsService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.web.DefaultSecurityFilterChain;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SmsCodeAuthenticationSecurityConfig</span> <span class="keyword">extends</span> <span class="title">SecurityConfigurerAdapter</span>&lt;<span class="title">DefaultSecurityFilterChain</span>, <span class="title">HttpSecurity</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserDetailsService userDetailsService;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> CustomAuthenticationFailureHandler customAuthenticationFailureHandler;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        SmsCodeAuthenticationFilter smsCodeAuthenticationFilter = <span class="keyword">new</span> SmsCodeAuthenticationFilter();</span><br><span class="line">        smsCodeAuthenticationFilter.setAuthenticationManager(http.getSharedObject(AuthenticationManager.class));</span><br><span class="line">        smsCodeAuthenticationFilter.setAuthenticationSuccessHandler(customAuthenticationSuccessHandler);</span><br><span class="line">        smsCodeAuthenticationFilter.setAuthenticationFailureHandler(customAuthenticationFailureHandler);</span><br><span class="line"></span><br><span class="line">        SmsCodeAuthenticationProvider smsCodeAuthenticationProvider = <span class="keyword">new</span> SmsCodeAuthenticationProvider();</span><br><span class="line">        smsCodeAuthenticationProvider.setUserDetailsService(userDetailsService);</span><br><span class="line"></span><br><span class="line">        http.authenticationProvider(smsCodeAuthenticationProvider)</span><br><span class="line">                .addFilterAfter(smsCodeAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个配置文件中，首先给 SmsCodeAuthenticationFilter 指定了：</p>
+<ol>
+<li>AuthenticationManager：不指定这个上面的流程图就断掉了。</li>
+<li>指定登录成功/失败处理逻辑，方便其父类调用。</li>
+</ol>
+<p>然后指定了 SmsCodeAuthenticationProvider，并指定了 UserDetailsService ，方便在验证处理时候通过 <code>loadUserByUsername()</code> 读取出数据库中的用户信息。</p>
+<p>最后将 filter 和 provider 都加入 HttpSecurity 配置中。</p>
+<p><strong>另外说两句：</strong></p>
+<blockquote>
+<p>开头就说过了，为了方便介绍，写最少的代码，因此这是一个假的短信登录。如果你看这里的 UserDetailsService 的代码话，你会发现它是从数据库中根据 name 获取信息的，我其实就是把用户名来当手机号用。<br />
+<br>因此，如果你想根据数据库中其他字段，例如 phone 来得到用户信息，可以再写一个叫做 SmsUserDetailsService，在这里注入到 provider 中。<br />
+<br>你也可以参考 github 中的完整例子的实现。</p>
+</blockquote>
+<h3 id="26-websecurityconfig"><a class="markdownIt-Anchor" href="#26-websecurityconfig"></a> 2.6 WebSecurityConfig</h3>
+<p>下面我们就需要把自己写的 SmsCodeAuthenticationSecurityConfig 加入到 WebSecurityConfig 中了。</p>
+<p>首先将 SmsCodeAuthenticationSecurityConfig 注入进来，然后通过 <code>http.apply(xxx)</code> 添加进去。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebSecurity</span></span><br><span class="line"><span class="meta">@EnableGlobalMethodSecurity(prePostEnabled = true)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebSecurityConfig</span> <span class="keyword">extends</span> <span class="title">WebSecurityConfigurerAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        http.apply(smsCodeAuthenticationSecurityConfig).and().authorizeRequests()</span><br><span class="line">                <span class="comment">// 如果有允许匿名的url，填在下面</span></span><br><span class="line">                .antMatchers(<span class="string">&quot;/sms/**&quot;</span>).permitAll()</span><br><span class="line">                .anyRequest().authenticated()</span><br><span class="line">                .and()</span><br><span class="line">                <span class="comment">// 设置登陆页</span></span><br><span class="line">                .formLogin().loginPage(<span class="string">&quot;/login&quot;</span>)</span><br><span class="line">                <span class="comment">// 设置登陆成功页</span></span><br><span class="line">                .defaultSuccessUrl(<span class="string">&quot;/&quot;</span>).permitAll()</span><br><span class="line">                .and()</span><br><span class="line">                .logout().permitAll();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 关闭CSRF跨域</span></span><br><span class="line">        http.csrf().disable();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(WebSecurity web)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// 设置拦截忽略文件夹，可以对静态资源放行</span></span><br><span class="line">        web.ignoring().antMatchers(<span class="string">&quot;/css/**&quot;</span>, <span class="string">&quot;/js/**&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="27-接口与页面"><a class="markdownIt-Anchor" href="#27-接口与页面"></a> 2.7 接口与页面</h3>
+<p>然后在 controller 中写一个读取验证码的接口，注意这个接口在 <code>WebSecurityConfig</code> 中要放行：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/sms/code&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sms</span><span class="params">(String mobile, HttpSession session)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> code = (<span class="keyword">int</span>) Math.ceil(Math.random() * <span class="number">9000</span> + <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;(<span class="number">16</span>);</span><br><span class="line">    map.put(<span class="string">&quot;mobile&quot;</span>, mobile);</span><br><span class="line">    map.put(<span class="string">&quot;code&quot;</span>, code);</span><br><span class="line"></span><br><span class="line">    session.setAttribute(<span class="string">&quot;smsCode&quot;</span>, map);</span><br><span class="line"></span><br><span class="line">    logger.info(<span class="string">&quot;&#123;&#125;：为 &#123;&#125; 设置短信验证码：&#123;&#125;&quot;</span>, session.getId(), mobile, code);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后修改 login.html 页面，添加短信登录的内容：</p>
+<blockquote>
+<p>注意这里的登录 Url <code>/sms/login</code> 是配置在 SmsAuthenticationFilter 中的 Url。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>登陆<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>登陆<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">action</span>=<span class="string">&quot;/login&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>立即登陆<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">action</span>=<span class="string">&quot;/sms/login&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        手机号：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;mobile&quot;</span> <span class="attr">name</span>=<span class="string">&quot;mobile&quot;</span> <span class="attr">value</span>=<span class="string">&quot;jitwxs&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        验证码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;smsCode&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:;&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;sendSms()&quot;</span>&gt;</span>获取验证码<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>立即登陆<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">sendSms</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.location.href = <span class="string">&#x27;/sms/code?mobile=&#x27;</span> + <span class="built_in">document</span>.getElementById(<span class="string">&quot;mobile&quot;</span>).value;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="三-测试代码"><a class="markdownIt-Anchor" href="#三-测试代码"></a> 三、测试代码</h2>
+<p>因此只是测试，所以页面懒得弄了，当你输入手机号（实际上就是用户名），点击获取验证码，页面会跳转出去，然后自己再按一下浏览器的后退键退回来。</p>
+<p>在控制台就会打印当前用户的 sessionId，以及为哪一个手机号所申请的验证码。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201901/20190109170102645.png" alt="" /></p>
+<p>当验证码输入错误时：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201901/20190109170349239.png" alt="验证码输入错误" /></p>
+<p>当获取验证码的手机号和登陆手机号不一致时：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201901/20190109170452607.png" alt="验证码的手机号和登陆手机号不一致" /></p>
+<p>成功登陆时，执行成功处理逻辑：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201901/20190109170906743.png" alt="登陆成功" /></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Jitwxs</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://jitwxs.cn/d208d079.html">https://jitwxs.cn/d208d079.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://jitwxs.cn" target="_blank">Jitwxs</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover22.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/wechat_donate.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/wechat_donate.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/alipay_donate.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/alipay_donate.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/9c7c62cc.html"><img class="prev-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover8.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">RESTful API 设计规范</div></div></a></div><div class="next-post pull-right"><a href="/b24ff848.html"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover19.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">详细解读《个人所得税专项附加扣除暂行办法》</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Jitwxs</div><div class="author-info__description">不忘初心，砥砺前行</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">224</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">132</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">39</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/jitwxs"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/jitwxs" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=Ujg7JiUqIRI0PSo-Mzs_fDE9Pw" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="https://jitwxs.blog.csdn.net" target="_blank" title="CSDN"><i class="fab fa-cuttlefish flat-btn"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">专注 Java 后端开发，内容涵盖 SpringBoot、并发编程、微服务、容器化、Linux 等技术分享。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E7%90%86%E8%AE%BA%E8%AF%B4%E6%98%8E"><span class="toc-text"> 一、理论说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E7%94%A8%E6%88%B7%E5%90%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E9%80%BB%E8%BE%91"><span class="toc-text"> 1.1 用户名密码登录逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%A0%81%E7%99%BB%E5%BD%95%E9%80%BB%E8%BE%91"><span class="toc-text"> 1.2 短信验证码登录逻辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E4%BB%A3%E7%A0%81%E5%AE%9E%E6%88%98"><span class="toc-text"> 二、代码实战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#21-smsauthenticationtoken"><span class="toc-text"> 2.1 SmsAuthenticationToken</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-smsauthenticationfilter"><span class="toc-text"> 2.2 SmsAuthenticationFilter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-smsauthenticationprovider"><span class="toc-text"> 2.3 SmsAuthenticationProvider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24-%E6%88%90%E5%8A%9F%E4%B8%8E%E5%A4%B1%E8%B4%A5%E5%A4%84%E7%90%86%E9%80%BB%E8%BE%91"><span class="toc-text"> 2.4 成功与失败处理逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25-smscodeauthenticationsecurityconfig"><span class="toc-text"> 2.5 SmsCodeAuthenticationSecurityConfig</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26-websecurityconfig"><span class="toc-text"> 2.6 WebSecurityConfig</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#27-%E6%8E%A5%E5%8F%A3%E4%B8%8E%E9%A1%B5%E9%9D%A2"><span class="toc-text"> 2.7 接口与页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="toc-text"> 三、测试代码</span></a></li></ol></div></div><div class="card-widget card-post-link"><div class="card-content"><div class="item-headline"><i class="fab fa-github"></i><span>源码</span></div><div class="aside-list"><div class="aside-list-item"><div class="content"><a class="title" target="_blank" rel="noopener" href="https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security08" title="springboot_security08">springboot_security08</a></div></div></div></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/e4d53ddb.html" title="Spring SchedulingConfigurer 实现动态定时任务"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring SchedulingConfigurer 实现动态定时任务"/></a><div class="content"><a class="title" href="/e4d53ddb.html" title="Spring SchedulingConfigurer 实现动态定时任务">Spring SchedulingConfigurer 实现动态定时任务</a><time datetime="2021-03-27T15:23:41.000Z" title="发表于 2021-03-27 23:23:41">2021-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/9f878221.html" title="Java 双亲委派机制"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java 双亲委派机制"/></a><div class="content"><a class="title" href="/9f878221.html" title="Java 双亲委派机制">Java 双亲委派机制</a><time datetime="2021-03-14T03:26:34.000Z" title="发表于 2021-03-14 11:26:34">2021-03-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/bef70352.html" title="图解 | 你管这破玩意儿叫TCP？"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover13.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图解 | 你管这破玩意儿叫TCP？"/></a><div class="content"><a class="title" href="/bef70352.html" title="图解 | 你管这破玩意儿叫TCP？">图解 | 你管这破玩意儿叫TCP？</a><time datetime="2021-01-24T07:19:23.000Z" title="发表于 2021-01-24 15:19:23">2021-01-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/c376af5e.html" title="图解 | 你管这破玩意叫线程池？"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover21.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图解 | 你管这破玩意叫线程池？"/></a><div class="content"><a class="title" href="/c376af5e.html" title="图解 | 你管这破玩意叫线程池？">图解 | 你管这破玩意叫线程池？</a><time datetime="2021-01-23T11:23:54.000Z" title="发表于 2021-01-23 19:23:54">2021-01-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/93fdc2b.html" title="如果让你来设计网络"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover1.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如果让你来设计网络"/></a><div class="content"><a class="title" href="/93fdc2b.html" title="如果让你来设计网络">如果让你来设计网络</a><time datetime="2021-01-23T07:39:03.000Z" title="发表于 2021-01-23 15:39:03">2021-01-23</time></div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient(135deg,"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By Jitwxs</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href='http://www.beian.miit.gov.cn/state/outPortal/loginPortal.action'><img class='icp-icon entered loading' src='/img/icp.png' alt='ICP' data-ll-status='loading'>苏 ICP 备 16061429 号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    let id = md5(decodeURI(window.location.pathname));
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '1abf6b8c844664e07e3e',
+      clientSecret: '49e497f91b34805a5d19dd73b6d4493d84020782',
+      repo: 'blog-comment',
+      owner: 'jitwxs',
+      admin: ['jitwxs'],
+      id: id,
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const findTrueUrl = (array) => {
+    let url = ''
+    Promise.all(array.map(item =>
+      fetch(item.url).then(resp => resp.json()).then(data => {
+        if (data.user.login === 'utterances-bot') {
+          url = data.body.match(/https?\:\/\/[^\" ]+/ig).slice(-1)
+          return url[0]
+        } else {
+          url = data.body.match(/https?\:\/\/[^\" ]+/i)
+          return url[0]
+        }
+      })
+    )).then(res => {
+        array = array.map((i,index)=> {
+          return {
+            ...i,
+            url: res[index]
+          }
+        })
+
+        saveToLocal.set('github-newest-comments', JSON.stringify(array), 10/(60*24))
+        generateHtml(array)
+    });
+  }
+
+  const getComment = () => {
+    fetch('https://api.github.com/repos/jitwxs/blog-comment/issues/comments?sort=updated&direction=desc&per_page=6&page=1',{
+      "headers": {
+        Accept: 'application/vnd.github.v3.html+json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        const githubArray = data.map(item => {
+          return {
+            'avatar': item.user.avatar_url,
+            'content': changeContent(item.body_html),
+            'nick': item.user.login,
+            'url': item.issue_url,
+            'date': item.updated_at,
+            'githubUrl': item.html_url
+          }
+        })
+        findTrueUrl(githubArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('github-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="5273081683" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" data-lrctype="1" muted></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.17.0/js/md5.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-40VH67TNSM', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

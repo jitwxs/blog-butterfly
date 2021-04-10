@@ -1,0 +1,436 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>深度解读央行数字货币 DCEP | Jitwxs</title><meta name="keywords" content="区块链,DCEP"><meta name="author" content="Jitwxs"><meta name="copyright" content="Jitwxs"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="继上篇谈了下自己对 DCEP 的看法后，再分享一篇 DCEP 的文章，希望能够帮助大家更加了解 DCEP。  自从区块链技术被国家队提名以来，刷屏之势有如泄洪。各大行业企业纷纷响应号召，喊着“推动区块链技术和产业创新”的口号开始撸起袖子加油干。而与区块链紧密相关的就是“数字货币”概念，在时代大趋势的推动下，近几年全球许多国家都在筹备着研究和发行自己的央行数字货币，中国人民银行也不例外，甚至已经走">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度解读央行数字货币 DCEP">
+<meta property="og:url" content="https://jitwxs.cn/fd57551a.html">
+<meta property="og:site_name" content="Jitwxs">
+<meta property="og:description" content="继上篇谈了下自己对 DCEP 的看法后，再分享一篇 DCEP 的文章，希望能够帮助大家更加了解 DCEP。  自从区块链技术被国家队提名以来，刷屏之势有如泄洪。各大行业企业纷纷响应号召，喊着“推动区块链技术和产业创新”的口号开始撸起袖子加油干。而与区块链紧密相关的就是“数字货币”概念，在时代大趋势的推动下，近几年全球许多国家都在筹备着研究和发行自己的央行数字货币，中国人民银行也不例外，甚至已经走">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover11.jpg">
+<meta property="article:published_time" content="2019-11-03T14:19:12.000Z">
+<meta property="article:modified_time" content="2020-12-26T13:52:06.963Z">
+<meta property="article:author" content="Jitwxs">
+<meta property="article:tag" content="区块链">
+<meta property="article:tag" content="DCEP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover11.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/favicon.ico"><link rel="canonical" href="https://jitwxs.cn/fd57551a"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?053091e29f160d71ed2f65a774cfeac1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-40VH67TNSM"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-40VH67TNSM');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"POGNXMLA2T","apiKey":"2013ebed0f76818838d693c9c40cb1fd","indexName":"blog","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Jitwxs","link":"链接: ","source":"来源: Jitwxs","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-right"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-12-26 21:52:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Jitwxs" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">224</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">132</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">39</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fas fa-ellipsis-v"></i><span> 更多</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/favorites/"><i class="fa-fw fas fa-meteor"></i><span> 收藏夹</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tools.jitwxs.cn"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-cogs"></i><span> 管理</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/changes/"><i class="fa-fw fas fa-location-arrow"></i><span> 更新日志</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://analytics.google.com/"><i class="fa-fw fab fa-google"></i><span> 谷歌统计</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tongji.baidu.com/"><i class="fa-fw fas fa-globe-asia"></i><span> 百度统计</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover11.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Jitwxs</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fas fa-ellipsis-v"></i><span> 更多</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/favorites/"><i class="fa-fw fas fa-meteor"></i><span> 收藏夹</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tools.jitwxs.cn"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-cogs"></i><span> 管理</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/changes/"><i class="fa-fw fas fa-location-arrow"></i><span> 更新日志</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://analytics.google.com/"><i class="fa-fw fab fa-google"></i><span> 谷歌统计</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tongji.baidu.com/"><i class="fa-fw fas fa-globe-asia"></i><span> 百度统计</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">深度解读央行数字货币 DCEP<a class="post-edit-link" href="https://github.com/jitwxs/blog-source/tree/master/source/_posts/深度解读央行数字货币-DCEP.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="article-meta"><i class="fas fa-user post-meta-icon"></i><span class="article-meta-label">区块链情报速递</span><span class="post-meta-separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-11-03T14:19:12.000Z" title="发表于 2019-11-03 22:19:12">2019-11-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-12-26T13:52:06.963Z" title="更新于 2020-12-26 21:52:06">2020-12-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="深度解读央行数字货币 DCEP"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/fd57551a.html#post-comment"><span class="gitalk-comment-count"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>继上篇谈了下自己对 DCEP 的看法后，再分享一篇 DCEP 的文章，希望能够帮助大家更加了解 DCEP。</p>
+</blockquote>
+<p>自从区块链技术被国家队提名以来，刷屏之势有如泄洪。各大行业企业纷纷响应号召，喊着“推动区块链技术和产业创新”的口号开始撸起袖子加油干。而与区块链紧密相关的就是“数字货币”概念，在时代大趋势的推动下，近几年全球许多国家都在筹备着研究和发行自己的央行数字货币，中国人民银行也不例外，甚至已经走在了世界的前沿。</p>
+<p>此前原中国人民银行支付结算司副司长、现中国人民银行数字货币研究所所长穆长春表示，央行数字货币的研究已进行五年，现在呼之欲出。一方面，这确实是一个浩大的工程，另一方面，央行可能也是在观望中探索。但就在 Facebook 计划推出 Libra 项目及其数字货币之后，央行数字货币的研发似乎就进入了加速通道。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20191103222347378.png" alt="" /></p>
+<p>相信大家还记得10月23日晚上扎克伯格在听证会上表示，Libra 旨在成为全球支付系统，为了让监管机构松口他甚至还设立假想敌，将矛头指向中国央行数字货币：“我们需要讨论不创新的风险，尤其需要考虑中国央行数字货币……如果中国的金融系统成为越来越多国家的标准，那未来美国很难实施制裁和各种保护措施。”</p>
+<p>结果就在10月28日，中国国际经济交流中心副理事长黄奇帆发表演讲称，不太相信 Libra 会成功，中国人民银行很可能是全球第一个推出数字货币的央行。</p>
+<p>由此可见，各国央行迫切推出数字货币一方面是为了提升货币的便携性和安全性，顺应支付趋势的改变，另一方面，更为重要的是要维护货币主权体系和金融稳定，这将是一场在金融创新领域的竞赛和角逐。</p>
+<p>虽说我们之前也推出过几期写央行数字货币的情报分析，但是依然发现很多人对于央行数字货币的相关具体信息还是很模糊，不太清楚，也有很多疑问。比如它的运行逻辑是怎样的？它和 Libra 这类稳定币以及现有的支付宝、微信支付的电子现金性质有什么区别？它会对我们的生活将会产生什么影响？下面我们一起更全面地重新认识一下即将面世的中国央行数字货币 DCEP，解答大家的疑惑。</p>
+<h3 id="一-dcep-本质和特点是什么"><a class="markdownIt-Anchor" href="#一-dcep-本质和特点是什么"></a> 一、DCEP 本质和特点是什么？</h3>
+<p>中国央行数字货币的英文全称是 <code>Digital Currency Electronic Payment</code>，简称是“DC/EP”。“DC”是“<code>Digital Currency</code>（数字货币）”的缩写，“EP”是“<code>Electronic Payment</code>（电子支付）”的缩写。这里大家要区分一下，谈央行数字货币的时候我们还会听到 <code>CBDC</code> 这样的词，这是国际货币基金组织IMF对全球所有央行数字货币（不限国家）的统称，英文是“<code>Central Bank Digital Currency</code>”, 而 <code>DECP</code> 则是中国央行数字货币的特有名称。</p>
+<p>按照规范的定义解释，中国央行数字货币的本质是<strong>由中国央行发行的法定货币，是中央银行的负债，由中央银行进行信用担保，具有无限法偿性，是现有货币体系的有效补充</strong>。</p>
+<p>从性质和功能上，它和现在的人民币一样，但是是数字货币的形式。并且是由央行发行，有央行的信用担保，所以资产具有高度安全性。而无限法偿性指的就是不论支付数额多大，对方都不能拒绝接受。</p>
+<h3 id="二-dcep-和电子现金-稳定币有什么区别"><a class="markdownIt-Anchor" href="#二-dcep-和电子现金-稳定币有什么区别"></a> 二、DCEP 和电子现金、稳定币有什么区别？</h3>
+<p><strong>首先，来看 DCEP 和电子现金的区别。</strong> 根据黄奇帆上次发言阐述，DCEP是M0（指的是流通于银行体系之外的现金）的替代，简单而言就是人民币现金的数字化，所以央行数字货币的发行意味着我们要真正拥抱“无现金时代”。有人会问现在我们使用支付宝、微信支付不是已经取代现金了吗？那么央行数字货币于我们而言的真实需求大吗？</p>
+<p>支付宝、微信中的余额是你在绑定某张银行卡之后直接使用的账户余额，它是基于商业银行的账户体系，所以支付宝和微信这个层面上的无现金支付指的是 M1 和 M2 的电子化和数字化 ，和 DCEP 是不一样的。</p>
+<blockquote>
+<p>注：M1是<strong>狭义货币</strong>，“M1=M0+企业在银行的活期存款”；M2 是<strong>广义货币</strong>，“M2=M1+准货币”，这里的准货币包括定期存款、居民储蓄存款、其他存款、证券公司客户保证金、住房公积金中心存款、非存款类金融机构在存款类金融机构的存款等。</p>
+</blockquote>
+<p>而且支付宝和微信支付是由企业信用背书，同时加上稳健的运营和法律约定的抵押资产（如保证金）进行赎回，才形成的支付渠道。假设相关企业破产、商业银行倒闭，那么余额中的电子现金就无法保证正常使用甚至直接清算，所以它的资产安全性是有一定风险的。</p>
+<p>其次，再来看看号称要打造全球支付体系的 Libra。DCEP 和它也有本质的区别，Libra 协会准备发行的稳定币是基于一篮子法定货币，而DCEP是直接和人民币挂钩。另外，Libra 目前仍然是一种尚未得到监管认可的数字货币，如果发行出去，在很大程度上是挤占现有各国法定货币的使用空间，所以和各国央行数字货币都是对立面的关系，更何况于 DCEP。</p>
+<p><strong>其次，再来看看号称要打造全球支付体系的 Libra。</strong> DCEP 和它也有本质的区别，Libra 协会准备发行的稳定币是基于一篮子法定货币，而 DCEP 是直接和人民币挂钩。另外，Libra 目前仍然是一种尚未得到监管认可的数字货币，如果发行出去，在很大程度上是挤占现有各国法定货币的使用空间，所以和各国央行数字货币都是对立面的关系，更何况于 DCEP。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20191103222745342.jpg" alt="" /></p>
+<p>那还有人会问，DCEP 会影响支付宝和微信支付的地位吗？穆长春给出的答案是不会影响，因为目前支付宝、微信使用的也是人民币，而DCEP 只不过换成了数字人民币。但是我认为如果真的能像现在设想的这样，做到替代纸钞，做到双离线支付的话，多少还是会影响支付宝和微信的使用比例的，因为毕竟从资产安全性上支付宝和微信也不及 DCEP 的水平，另外，在断网、没有信号等极端情况下，支付宝和微信也是使用不了的，但 DCEP 能应付这种极端情况。优势这么明显的话，不可能没有影响，就看人们支付习惯的选择了。</p>
+<h3 id="三-dcep-的运行逻辑和区块链有什么关系"><a class="markdownIt-Anchor" href="#三-dcep-的运行逻辑和区块链有什么关系"></a> 三、DCEP 的运行逻辑和区块链有什么关系？</h3>
+<p>首先，DCEP 的运行结构是“双层运营体系”，上一层是央行对商业银行发行，下一层是商业银行对老百姓。商业银行在中央银行开户，按照100%全额缴纳准备金，个人或者企业通过商业银行或者商业机构开设数字货币钱包。</p>
+<p>对于用户来说，也不一定要跑到商业银行去，只需要下载一个钱包 APP，注册使用就行，接受别人付款或者进行数字货币兑换，用自己的银行卡进行兑换即可。（为了防止挤兑，小额可以直接兑换，大额可能需要到银行预约）</p>
+<p>很多人对 DCEP 到底采不采用区块链技术以及技术细节还有疑问，比如它要怎么同时兼顾安全性、匿名性和双花的问题，我们来探究一下。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20191103222911378.png" alt="" /></p>
+<p><strong>根据 IMF 的分类，央行数字货币一般分为账户版和 Token 版。</strong> 账户版指的是账户要开在央行而不是商业银行，这就是中国人民银行否定掉的“单层结构”，因为这样会增加商业银行的融资成本，也会导致金融脱媒等问题。Token 版的央行数字货币对交易双方的鉴别真伪则会复杂和困难一些，因此交易中往往需要引入外部的认证机制来验证真伪，也导致了交易可能无法像现金一样实现100%的匿名性，它的匿名的程度取决于数字钱包注册信息的披露情况。</p>
+<p>那至于采不采用分布式账本技术这一点，目前央行没有对技术路线做预设。央行不会干预商业机构的技术路线选择，区块链技术或者传统账户体系都行。如果采用分布式账本技术的话则需要在央行参与管理的联盟链上来对 DCEP 进行验证和结算管理。如果是中心化的结算技术也可以有解决方案，比如每转账一次 DCEP 时给它重新分配一个序列号。目前能确定的是，区块链技术会被应用在 DCEP 的钱包地址管理以及交易信息的监管上。</p>
+<p>另外，还有一点值得注意，DCEP 将采用“双离线支付”，不需要账户就能够实现价值转移。这就意味着，DCEP 在使用的时候不需要绑定银行账户，无需联网，只要手机上装有 DCEP 数字钱包，只要手机有电，互相碰一碰，就能实现转账。所以据此说法，未来 DCEP 能像纸钞一样流通，可以把它看成纸钞的替代。</p>
+<p>那至于采不采用分布式账本技术这一点，目前央行没有对技术路线做预设。央行不会干预商业机构的技术路线选择，区块链技术或者传统账户体系都行。如果采用分布式账本技术的话则需要在央行参与管理的联盟链上来对 DCEP 进行验证和结算管理。如果是中心化的结算技术也可以有解决方案，比如每转账一次 DCEP 时给它重新分配一个序列号。目前能确定的是，区块链技术会被应用在 DCEP 的钱包地址管理以及交易信息的监管上。</p>
+<p>另外，还有一点值得注意，DCEP 将采用“双离线支付”，不需要账户就能够实现价值转移。这就意味着，DCEP 在使用的时候不需要绑定银行账户，无需联网，只要手机上装有 DCEP 数字钱包，只要手机有电，互相碰一碰，就能实现转账。所以据此说法，未来 DCEP 能像纸钞一样流通，可以把它看成纸钞的替代。</p>
+<h3 id="四-dcep-有何影响和意义"><a class="markdownIt-Anchor" href="#四-dcep-有何影响和意义"></a> 四、DCEP 有何影响和意义？</h3>
+<p><strong>1）从个人层面看，DCEP 改写个人支付方式，开启下一个支付新时代。</strong></p>
+<p>过去，在移动手机的影响下，我们已经由纸钞、储蓄卡、信用卡支付转变到“无现金”的手机移动支付，颠覆了传统支付方式。当下，随着区块链技术在金融领域的逐步渗透，DCEP 的诞生或许又将带我们重新改写个人支付方式，提高效率、便捷性、安全性，开启下一个支付新时代。</p>
+<p><strong>2）从企业和国家层面，DCEP 将颠覆贸易结算体系，促进金融科技创新。</strong></p>
+<p>区块链技术的特点决定了它在清结算方面有着透明、安全、可信的天然优势。借助区块链核心技术，DCEP 不仅改变个人支付方式，还将重塑企业间、国家间的支付结算方式，构建一个新的清结算网络也已经成为当前许多国家的共识。DCEP 的支付功能在跨境结算上将发挥积极作用，促进国际金融业务的发展。</p>
+<p><strong>3）从货币体系层面，DCEP 是维护主权货币体系稳定和防范金融风险的重要工具。</strong></p>
+<p>在现阶段虚拟货币和 Libra 这类稳定币的发展和影响下，很多国家感受到货币体系遭受威胁或冲击，希望通过法定数字货币来稳定国内现有货币体系，将其作为现有法币体系的补充，确保央行对国内货币的控制权。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">区块链情报速递</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://jitwxs.cn/fd57551a.html">https://jitwxs.cn/fd57551a.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://jitwxs.cn" target="_blank">Jitwxs</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a><a class="post-meta__tags" href="/tags/DCEP/">DCEP</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover11.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/wechat_donate.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/wechat_donate.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/alipay_donate.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/alipay_donate.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/b4a74645.html"><img class="prev-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover10.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">理解蓝绿发布、灰度发布和滚动发布</div></div></a></div><div class="next-post pull-right"><a href="/67173ef2.html"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover8.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">浅谈央行数字货币 DCEP</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/67173ef2.html" title="浅谈央行数字货币 DCEP"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover8.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-02</div><div class="title">浅谈央行数字货币 DCEP</div></div></a></div><div><a href="/b0727585.html" title="白话比特币与区块链"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover13.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-04</div><div class="title">白话比特币与区块链</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Jitwxs</div><div class="author-info__description">不忘初心，砥砺前行</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">224</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">132</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">39</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/jitwxs"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/jitwxs" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=Ujg7JiUqIRI0PSo-Mzs_fDE9Pw" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="https://jitwxs.blog.csdn.net" target="_blank" title="CSDN"><i class="fab fa-cuttlefish flat-btn"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">专注 Java 后端开发，内容涵盖 SpringBoot、并发编程、微服务、容器化、Linux 等技术分享。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-dcep-%E6%9C%AC%E8%B4%A8%E5%92%8C%E7%89%B9%E7%82%B9%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text"> 一、DCEP 本质和特点是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-dcep-%E5%92%8C%E7%94%B5%E5%AD%90%E7%8E%B0%E9%87%91-%E7%A8%B3%E5%AE%9A%E5%B8%81%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-text"> 二、DCEP 和电子现金、稳定币有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-dcep-%E7%9A%84%E8%BF%90%E8%A1%8C%E9%80%BB%E8%BE%91%E5%92%8C%E5%8C%BA%E5%9D%97%E9%93%BE%E6%9C%89%E4%BB%80%E4%B9%88%E5%85%B3%E7%B3%BB"><span class="toc-text"> 三、DCEP 的运行逻辑和区块链有什么关系？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-dcep-%E6%9C%89%E4%BD%95%E5%BD%B1%E5%93%8D%E5%92%8C%E6%84%8F%E4%B9%89"><span class="toc-text"> 四、DCEP 有何影响和意义？</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/e4d53ddb.html" title="Spring SchedulingConfigurer 实现动态定时任务"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring SchedulingConfigurer 实现动态定时任务"/></a><div class="content"><a class="title" href="/e4d53ddb.html" title="Spring SchedulingConfigurer 实现动态定时任务">Spring SchedulingConfigurer 实现动态定时任务</a><time datetime="2021-03-27T15:23:41.000Z" title="发表于 2021-03-27 23:23:41">2021-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/9f878221.html" title="Java 双亲委派机制"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java 双亲委派机制"/></a><div class="content"><a class="title" href="/9f878221.html" title="Java 双亲委派机制">Java 双亲委派机制</a><time datetime="2021-03-14T03:26:34.000Z" title="发表于 2021-03-14 11:26:34">2021-03-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/bef70352.html" title="图解 | 你管这破玩意儿叫TCP？"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover13.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图解 | 你管这破玩意儿叫TCP？"/></a><div class="content"><a class="title" href="/bef70352.html" title="图解 | 你管这破玩意儿叫TCP？">图解 | 你管这破玩意儿叫TCP？</a><time datetime="2021-01-24T07:19:23.000Z" title="发表于 2021-01-24 15:19:23">2021-01-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/c376af5e.html" title="图解 | 你管这破玩意叫线程池？"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover21.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图解 | 你管这破玩意叫线程池？"/></a><div class="content"><a class="title" href="/c376af5e.html" title="图解 | 你管这破玩意叫线程池？">图解 | 你管这破玩意叫线程池？</a><time datetime="2021-01-23T11:23:54.000Z" title="发表于 2021-01-23 19:23:54">2021-01-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/93fdc2b.html" title="如果让你来设计网络"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover1.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如果让你来设计网络"/></a><div class="content"><a class="title" href="/93fdc2b.html" title="如果让你来设计网络">如果让你来设计网络</a><time datetime="2021-01-23T07:39:03.000Z" title="发表于 2021-01-23 15:39:03">2021-01-23</time></div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient(135deg,"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By Jitwxs</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href='http://www.beian.miit.gov.cn/state/outPortal/loginPortal.action'><img class='icp-icon entered loading' src='/img/icp.png' alt='ICP' data-ll-status='loading'>苏 ICP 备 16061429 号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    let id = md5(decodeURI(window.location.pathname));
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '1abf6b8c844664e07e3e',
+      clientSecret: '49e497f91b34805a5d19dd73b6d4493d84020782',
+      repo: 'blog-comment',
+      owner: 'jitwxs',
+      admin: ['jitwxs'],
+      id: id,
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const findTrueUrl = (array) => {
+    let url = ''
+    Promise.all(array.map(item =>
+      fetch(item.url).then(resp => resp.json()).then(data => {
+        if (data.user.login === 'utterances-bot') {
+          url = data.body.match(/https?\:\/\/[^\" ]+/ig).slice(-1)
+          return url[0]
+        } else {
+          url = data.body.match(/https?\:\/\/[^\" ]+/i)
+          return url[0]
+        }
+      })
+    )).then(res => {
+        array = array.map((i,index)=> {
+          return {
+            ...i,
+            url: res[index]
+          }
+        })
+
+        saveToLocal.set('github-newest-comments', JSON.stringify(array), 10/(60*24))
+        generateHtml(array)
+    });
+  }
+
+  const getComment = () => {
+    fetch('https://api.github.com/repos/jitwxs/blog-comment/issues/comments?sort=updated&direction=desc&per_page=6&page=1',{
+      "headers": {
+        Accept: 'application/vnd.github.v3.html+json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        const githubArray = data.map(item => {
+          return {
+            'avatar': item.user.avatar_url,
+            'content': changeContent(item.body_html),
+            'nick': item.user.login,
+            'url': item.issue_url,
+            'date': item.updated_at,
+            'githubUrl': item.html_url
+          }
+        })
+        findTrueUrl(githubArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('github-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="5273081683" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" data-lrctype="1" muted></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.17.0/js/md5.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-40VH67TNSM', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

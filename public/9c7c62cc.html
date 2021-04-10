@@ -1,0 +1,811 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RESTful API 设计规范 | Jitwxs</title><meta name="keywords" content="RESTful"><meta name="author" content="Jitwxs"><meta name="copyright" content="Jitwxs"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、关于「能愿动词」的使用 为了避免歧义，文档大量使用了「能愿动词」，对应的解释如下：  必须 (MUST)：绝对，严格遵循，请照做，无条件遵守； 一定不可 (MUST NOT)：禁令，严令禁止； 应该 (SHOULD) ：强烈建议这样做，但是不强求； 不该 (SHOULD NOT)：强烈不建议这样做，但是不强求； 可以 (MAY) 和 可选 (OPTIONAL) ：选择性高一点，在这个文档内，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RESTful API 设计规范">
+<meta property="og:url" content="https://jitwxs.cn/9c7c62cc.html">
+<meta property="og:site_name" content="Jitwxs">
+<meta property="og:description" content="一、关于「能愿动词」的使用 为了避免歧义，文档大量使用了「能愿动词」，对应的解释如下：  必须 (MUST)：绝对，严格遵循，请照做，无条件遵守； 一定不可 (MUST NOT)：禁令，严令禁止； 应该 (SHOULD) ：强烈建议这样做，但是不强求； 不该 (SHOULD NOT)：强烈不建议这样做，但是不强求； 可以 (MAY) 和 可选 (OPTIONAL) ：选择性高一点，在这个文档内，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover8.jpg">
+<meta property="article:published_time" content="2019-01-21T15:18:05.000Z">
+<meta property="article:modified_time" content="2020-12-26T13:52:06.940Z">
+<meta property="article:author" content="Jitwxs">
+<meta property="article:tag" content="RESTful">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover8.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/favicon.ico"><link rel="canonical" href="https://jitwxs.cn/9c7c62cc"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?053091e29f160d71ed2f65a774cfeac1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-40VH67TNSM"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-40VH67TNSM');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"POGNXMLA2T","apiKey":"2013ebed0f76818838d693c9c40cb1fd","indexName":"blog","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Jitwxs","link":"链接: ","source":"来源: Jitwxs","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-right"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-12-26 21:52:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Jitwxs" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">224</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">132</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">39</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fas fa-ellipsis-v"></i><span> 更多</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/favorites/"><i class="fa-fw fas fa-meteor"></i><span> 收藏夹</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tools.jitwxs.cn"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-cogs"></i><span> 管理</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/changes/"><i class="fa-fw fas fa-location-arrow"></i><span> 更新日志</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://analytics.google.com/"><i class="fa-fw fab fa-google"></i><span> 谷歌统计</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tongji.baidu.com/"><i class="fa-fw fas fa-globe-asia"></i><span> 百度统计</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover8.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Jitwxs</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fas fa-ellipsis-v"></i><span> 更多</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/favorites/"><i class="fa-fw fas fa-meteor"></i><span> 收藏夹</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tools.jitwxs.cn"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-cogs"></i><span> 管理</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/changes/"><i class="fa-fw fas fa-location-arrow"></i><span> 更新日志</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://analytics.google.com/"><i class="fa-fw fab fa-google"></i><span> 谷歌统计</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tongji.baidu.com/"><i class="fa-fw fas fa-globe-asia"></i><span> 百度统计</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">RESTful API 设计规范<a class="post-edit-link" href="https://github.com/jitwxs/blog-source/tree/master/source/_posts/RESTful-API-设计规范.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="article-meta"><i class="fas fa-user post-meta-icon"></i><span class="article-meta-label">godruoyi</span><span class="post-meta-separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-01-21T15:18:05.000Z" title="发表于 2019-01-21 23:18:05">2019-01-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-12-26T13:52:06.940Z" title="更新于 2020-12-26 21:52:06">2020-12-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>21分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="RESTful API 设计规范"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/9c7c62cc.html#post-comment"><span class="gitalk-comment-count"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="一-关于能愿动词的使用"><a class="markdownIt-Anchor" href="#一-关于能愿动词的使用"></a> 一、关于「能愿动词」的使用</h2>
+<p>为了避免歧义，文档大量使用了「能愿动词」，对应的解释如下：</p>
+<ul>
+<li><code>必须 (MUST)</code>：绝对，严格遵循，请照做，无条件遵守；</li>
+<li><code>一定不可 (MUST NOT)</code>：禁令，严令禁止；</li>
+<li><code>应该 (SHOULD)</code> ：强烈建议这样做，但是不强求；</li>
+<li><code>不该 (SHOULD NOT)</code>：强烈不建议这样做，但是不强求；</li>
+<li><code>可以 (MAY)</code> 和 <code>可选 (OPTIONAL)</code> ：选择性高一点，在这个文档内，此词语使用较少；</li>
+</ul>
+<blockquote>
+<p>参见：<a target="_blank" rel="noopener" href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a></p>
+</blockquote>
+<h2 id="二-protocol"><a class="markdownIt-Anchor" href="#二-protocol"></a> 二、Protocol</h2>
+<p>客户端在通过 <code>API</code> 与后端服务通信的过程中，<code>应该</code> 使用 <code>HTTPS</code> 协议。</p>
+<h2 id="三-api-root-url"><a class="markdownIt-Anchor" href="#三-api-root-url"></a> 三、API Root URL</h2>
+<p><code>API</code> 的根入口点应尽可能保持足够简单，这里有两个常见的 <code>URL</code> 根例子：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://api.example.com/*">api.example.com/*</a></li>
+<li><a target="_blank" rel="noopener" href="http://example.com/api/*">example.com/api/*</a></li>
+</ul>
+<blockquote>
+<p>如果你的应用很庞大或者你预计它将会变的很庞大，那 <code>应该</code> 将 <code>API</code> 放到子域下（<code>api.example.com</code>）。这种做法可以保持某些规模化上的灵活性。</p>
+</blockquote>
+<h2 id="四-versioning"><a class="markdownIt-Anchor" href="#四-versioning"></a> 四、Versioning</h2>
+<p>所有的 <code>API</code> 必须保持向后兼容，你 <code>必须</code> 在引入新版本 <code>API</code> 的同时确保旧版本 <code>API</code> 仍然可用。所以 <code>应该</code> 为其提供版本支持。</p>
+<p>目前比较常见的两种版本号形式：</p>
+<h3 id="在-url-中嵌入版本编号"><a class="markdownIt-Anchor" href="#在-url-中嵌入版本编号"></a> 在 URL 中嵌入版本编号</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api.example.com/v1/*</span><br></pre></td></tr></table></figure>
+<p>这种做法是版本号直观、易于调试；另一种做法是，将版本号放在 <code>HTTP Header</code> 头中：</p>
+<h3 id="通过媒体类型来指定版本信息"><a class="markdownIt-Anchor" href="#通过媒体类型来指定版本信息"></a> 通过媒体类型来指定版本信息</h3>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Accept</span><span class="punctuation">: </span>application/vnd.example.com.v1+json</span><br></pre></td></tr></table></figure>
+<p>其中 <code>vnd</code> 表示 <code>Standards Tree</code> 标准树类型，有三个不同的树: <code>x</code>，<code>prs</code> 和 <code>vnd</code>。你使用的标准树需要取决于你开发的项目</p>
+<ul>
+<li>未注册的树（<code>x</code>）主要表示本地和私有环境</li>
+<li>私有树（<code>prs</code>）主要表示没有商业发布的项目</li>
+<li>供应商树（<code>vnd</code>）主要表示公开发布的项目</li>
+</ul>
+<blockquote>
+<p>后面几个参数依次为应用名称（一般为应用域名）、版本号、期望的返回格式。</p>
+</blockquote>
+<p>至于具体把版本号放在什么地方，这个问题一直存在很大的争议，但由于我们大多数时间都在使用 <code>Laravel</code> 开发，<code>应该</code> 使用 <a target="_blank" rel="noopener" href="https://github.com/dingo/api">dingo/api</a> 来快速构建应用，它采用第二种方式来管理 <code>API</code> 版本，并且已集成了标准的 <code>HTTP Response</code>。</p>
+<h2 id="五-endpoints"><a class="markdownIt-Anchor" href="#五-endpoints"></a> 五、Endpoints</h2>
+<p>端点就是指向特定资源或资源集合的 <code>URL</code>。在端点的设计中，你 <code>必须</code> 遵守下列约定：</p>
+<ul>
+<li>URL 的命名 <code>必须</code> 全部小写</li>
+<li>URL 中资源（<code>resource</code>）的命名 <code>必须</code> 是名词，并且 <code>必须</code> 是复数形式</li>
+<li><code>必须</code> 优先使用 <code>Restful</code> 类型的 URL</li>
+<li>URL <code>必须</code> 是易读的</li>
+<li>URL <code>一定不可</code> 暴露服务器架构</li>
+</ul>
+<blockquote>
+<p>至于 URL 是否必须使用连字符（<code>-</code>） 或下划线（<code>_</code>），不做硬性规定，但 <code>必须</code> 根据团队情况统一一种风格。</p>
+</blockquote>
+<p>来看一个反例</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://api.example.com/getUserInfo?userid=1">https://api.example.com/getUserInfo?userid=1</a></li>
+<li><a target="_blank" rel="noopener" href="https://api.example.com/getusers">https://api.example.com/getusers</a></li>
+<li><a target="_blank" rel="noopener" href="https://api.example.com/sv/u">https://api.example.com/sv/u</a></li>
+<li><a target="_blank" rel="noopener" href="https://api.example.com/cgi-bin/users/get_user.php?userid=1">https://api.example.com/cgi-bin/users/get_user.php?userid=1</a></li>
+</ul>
+<p>再来看一个正列</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://api.example.com/zoos">https://api.example.com/zoos</a></li>
+<li><a target="_blank" rel="noopener" href="https://api.example.com/animals">https://api.example.com/animals</a></li>
+<li><a target="_blank" rel="noopener" href="https://api.example.com/zoos/%7Bzoo%7D/animals">https://api.example.com/zoos/{zoo}/animals</a></li>
+<li><a target="_blank" rel="noopener" href="https://api.example.com/animal_types">https://api.example.com/animal_types</a></li>
+<li><a target="_blank" rel="noopener" href="https://api.example.com/employees">https://api.example.com/employees</a></li>
+</ul>
+<h2 id="六-http-动词"><a class="markdownIt-Anchor" href="#六-http-动词"></a> 六、HTTP 动词</h2>
+<p>对于资源的具体操作类型，由 <code>HTTP</code> 动词表示。常用的 <code>HTTP</code> 动词有下面五个（括号里是对应的 <code>SQL</code> 命令）。</p>
+<ul>
+<li>GET（SELECT）：从服务器取出资源（一项或多项）。</li>
+<li>POST（CREATE）：在服务器新建一个资源。</li>
+<li>PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。</li>
+<li>PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。</li>
+<li>DELETE（DELETE）：从服务器删除资源。</li>
+</ul>
+<p>其中：</p>
+<p>1 删除资源 <code>必须</code> 用 <code>DELETE</code> 方法<br />
+2 创建新的资源 <code>必须</code> 使用 <code>POST</code> 方法<br />
+3 更新资源 <code>应该</code> 使用 <code>PUT</code> 方法<br />
+4 获取资源信息 <code>必须</code> 使用 <code>GET</code> 方法</p>
+<p>针对每一个端点来说，下面列出所有可行的 <code>HTTP</code> 动词和端点的组合</p>
+<table>
+<thead>
+<tr>
+<th>请求方法</th>
+<th>URL</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>/zoos</td>
+<td>列出所有的动物园(ID和名称，不要太详细)</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/zoos</td>
+<td>新增一个新的动物园</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/zoos/{zoo}</td>
+<td>获取指定动物园详情</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/zoos/{zoo}</td>
+<td>更新指定动物园(整个对象)</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>/zoos/{zoo}</td>
+<td>更新动物园(部分对象)</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/zoos/{zoo}</td>
+<td>删除指定动物园</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/zoos/{zoo}/animals</td>
+<td>检索指定动物园下的动物列表(ID和名称，不要太详细)</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/animals</td>
+<td>列出所有动物(ID和名称)。</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/animals</td>
+<td>新增新的动物</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/animals/{animal}</td>
+<td>获取指定的动物详情</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/animals/{animal}</td>
+<td>更新指定的动物(整个对象)</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>/animals/{animal}</td>
+<td>更新指定的动物(部分对象)</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/animal_types</td>
+<td>获取所有动物类型(ID和名称，不要太详细)</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/animal_types/{type}</td>
+<td>获取指定的动物类型详情</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/employees</td>
+<td>检索整个雇员列表</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/employees/{employee}</td>
+<td>检索指定特定的员工</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/zoos/{zoo}/employees</td>
+<td>检索在这个动物园工作的雇员的名单(身份证和姓名)</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/employees</td>
+<td>新增指定新员工</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/zoos/{zoo}/employees</td>
+<td>在特定的动物园雇佣一名员工</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/zoos/{zoo}/employees/{employee}</td>
+<td>从某个动物园解雇一名员工</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>超出 <code>Restful</code> 端点的，<code>应该</code> 模仿上表的方式来定义端点。</p>
+</blockquote>
+<h2 id="七-filtering"><a class="markdownIt-Anchor" href="#七-filtering"></a> 七、Filtering</h2>
+<blockquote>
+<p>如果记录数量很多，服务器不可能都将它们返回给用户。API <code>应该</code> 提供参数，过滤返回结果。下面是一些常见的参数。</p>
+</blockquote>
+<ul>
+<li>?limit=10：指定返回记录的数量</li>
+<li>?offset=10：指定返回记录的开始位置。</li>
+<li>?page=2&amp;per_page=100：指定第几页，以及每页的记录数。</li>
+<li>?sortby=name&amp;order=asc：指定返回结果按照哪个属性排序，以及排序顺序。</li>
+<li>?animal_type_id=1：指定筛选条件</li>
+</ul>
+<p>所有 <code>URL</code> 参数 <code>必须</code> 是全小写，<code>必须</code> 使用下划线类型的参数形式。</p>
+<blockquote>
+<p>分页参数 <code>必须</code> 固定为 <code>page</code>、<code>per_page</code></p>
+</blockquote>
+<p>经常使用的、复杂的查询 <code>应该</code> 标签化，降低维护成本。如</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET /trades?status=closed&amp;sort=sortby=name&amp;order=asc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可为其定制快捷方式</span></span><br><span class="line">GET /trades/recently_closed</span><br></pre></td></tr></table></figure>
+<h2 id="八-authentication"><a class="markdownIt-Anchor" href="#八-authentication"></a> 八、Authentication</h2>
+<p><code>应该</code> 使用 <code>OAuth2.0</code> 的方式为 API 调用者提供登录认证。<code>必须</code> 先通过登录接口获取 <code>Access Token</code> 后再通过该 <code>token</code> 调用需要身份认证的 <code>API</code>。</p>
+<p>Oauth 的端点设计示列</p>
+<ul>
+<li>RFC 6749   /token</li>
+<li>Twitter    /oauth2/token</li>
+<li>Fackbook   /oauth/access_token</li>
+<li>Google     /o/oauth2/token</li>
+<li>Github     /login/oauth/access_token</li>
+<li>Instagram  /oauth/authorize</li>
+</ul>
+<p>客户端在获得 <code>access token</code> 的同时 <code>必须</code> 在响应中包含一个名为 <code>expires_in</code> 的数据，它表示当前获得的 <code>token</code> 会在多少 <code>秒</code> 后失效。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;access_token&quot;</span>: <span class="string">&quot;token....&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;token_type&quot;</span>: <span class="string">&quot;Bearer&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;expires_in&quot;</span>: <span class="number">3600</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>客户端在请求需要认证的 <code>API</code> 时，<code>必须</code> 在请求头 <code>Authorization</code> 中带上 <code>access_token</code>。</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Authorization</span><span class="punctuation">: </span>Bearer token...</span><br></pre></td></tr></table></figure>
+<p>当超过指定的秒数后，<code>access token</code> 就会过期，再次用过期/或无效的 <code>token</code> 访问时，服务端 <code>应该</code> 返回 <code>invalid_token</code> 的错误或 <code>401</code> 错误码。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">401</span> Unauthorized</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-store</span><br><span class="line"><span class="attribute">Pragma</span><span class="punctuation">: </span>no-cache</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;error&quot;: &quot;invalid_token&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Laravel 开发中，<code>应该</code> 使用 <a target="_blank" rel="noopener" href="https://github.com/tymondesigns/jwt-auth">JWT</a> 来为管理你的 Token，并且 <code>一定不可</code> 在 <code>api</code> 中间件中开启请求 <code>session</code>。</p>
+</blockquote>
+<h2 id="九-response"><a class="markdownIt-Anchor" href="#九-response"></a> 九、Response</h2>
+<p>所有的 <code>API</code> 响应，<code>必须</code> 遵守 <code>HTTP</code> 设计规范，<code>必须</code> 选择合适的 <code>HTTP</code> 状态码。<code>一定不可</code> 所有接口都返回状态码为 <code>200</code> 的 <code>HTTP</code> 响应，如：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">200</span> ok</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>example.com</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;code&quot;: 0,</span><br><span class="line">    &quot;msg&quot;: &quot;success&quot;,</span><br><span class="line">    &quot;data&quot;: &#123;</span><br><span class="line">        &quot;username&quot;: &quot;username&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">200</span> ok</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>example.com</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;code&quot;: -1,</span><br><span class="line">    &quot;msg&quot;: &quot;该活动不存在&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下表列举了常见的 <code>HTTP</code> 状态码：</p>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1xx</td>
+<td>代表请求已被接受，需要继续处理</td>
+</tr>
+<tr>
+<td>2xx</td>
+<td>请求已成功，请求所希望的响应头或数据体将随此响应返回</td>
+</tr>
+<tr>
+<td>3xx</td>
+<td>重定向</td>
+</tr>
+<tr>
+<td>4xx</td>
+<td>客户端原因引起的错误</td>
+</tr>
+<tr>
+<td>5xx</td>
+<td>服务端原因引起的错误</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>只有来自客户端的请求被正确的处理后才能返回 <code>2xx</code> 的响应，所以当 API 返回 <code>2xx</code> 类型的状态码时，前端 <code>必须</code> 认定该请求已处理成功。</p>
+</blockquote>
+<p>必须强调的是，所有 <code>API</code> <code>一定不可</code> 返回 <code>1xx</code> 类型的状态码。当 <code>API</code> 发生错误时，<code>必须</code> 返回出错时的详细信息。目前常见返回错误信息的方法有两种：</p>
+<p>1、将错误详细放入 <code>HTTP</code> 响应首部；</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">X-MYNAME-ERROR-CODE</span><span class="punctuation">: </span>4001</span><br><span class="line"><span class="attribute">X-MYNAME-ERROR-MESSAGE</span><span class="punctuation">: </span>Bad authentication token</span><br><span class="line"><span class="attribute">X-MYNAME-ERROR-INFO</span><span class="punctuation">: </span>http://docs.example.com/api/v1/authentication</span><br></pre></td></tr></table></figure>
+<p>2、直接放入响应实体中；</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">401</span> Unauthorized</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache, private</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 10:02:59 GMT</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br><span class="line"></span><br><span class="line">&#123;&quot;error_code&quot;:40100,&quot;message&quot;:&quot;Unauthorized&quot;&#125;</span><br></pre></td></tr></table></figure>
+<p>考虑到易读性和客户端的易处理性，我们 <code>必须</code> 把错误信息直接放到响应实体中，并且错误格式 <code>应该</code> 满足如下格式：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;message&quot;</span>: <span class="string">&quot;您查找的资源不存在&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;error_code&quot;</span>: <span class="number">404001</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中错误码（<code>error_code</code>）<code>必须</code> 和 <code>HTTP</code> 状态码对应，也方便错误码归类，如：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">429</span> Too Many Requests</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache, private</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 10:15:52 GMT</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br><span class="line"></span><br><span class="line">&#123;&quot;error_code&quot;:429001,&quot;message&quot;:&quot;你操作太频繁了&quot;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">403</span> Forbidden</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache, private</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 10:19:27 GMT</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br><span class="line"></span><br><span class="line">&#123;&quot;error_code&quot;:403002,&quot;message&quot;:&quot;用户已禁用&quot;&#125;</span><br></pre></td></tr></table></figure>
+<p><code>应该</code> 在返回的错误信息中，同时包含面向开发者和面向用户的提示信息，前者可方便开发人员调试，后者可直接展示给终端用户查看如：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;message&quot;</span>: <span class="string">&quot;直接展示给终端用户的错误信息&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;error_code&quot;</span>: <span class="string">&quot;业务错误码&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;error&quot;</span>: <span class="string">&quot;供开发者查看的错误信息&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;debug&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;错误堆栈，必须开启 debug 才存在&quot;</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面详细列举了各种情况 API 的返回说明。</p>
+<h3 id="200-ok"><a class="markdownIt-Anchor" href="#200-ok"></a> 200 ok</h3>
+<p><code>200</code> 状态码是最常见的 <code>HTTP</code> 状态码，在所有 <strong>成功</strong> 的 <code>GET</code> 请求中，<code>必须</code> 返回此状态码。<code>HTTP</code> 响应实体部分 <code>必须</code> 直接就是数据，不要做多余的包装。</p>
+<p>错误示例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">200</span> ok</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>example.com</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;user&quot;: &#123;</span><br><span class="line">        &quot;id&quot;:1,</span><br><span class="line">        &quot;nickname&quot;:&quot;fwest&quot;,</span><br><span class="line">        &quot;username&quot;: &quot;example&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>正确示例：</p>
+<p>1、获取单个资源详情</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;id&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">&quot;username&quot;</span>: <span class="string">&quot;godruoyi&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;age&quot;</span>: <span class="number">88</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2、获取资源集合</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">&quot;id&quot;</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">&quot;username&quot;</span>: <span class="string">&quot;godruoyi&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;age&quot;</span>: <span class="number">88</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">&quot;id&quot;</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="attr">&quot;username&quot;</span>: <span class="string">&quot;foo&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;age&quot;</span>: <span class="number">88</span>,</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>3、额外的媒体信息</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;data&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;id&quot;</span>: <span class="number">1</span>,</span><br><span class="line">            <span class="attr">&quot;avatar&quot;</span>: <span class="string">&quot;https://lorempixel.com/640/480/?32556&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;nickname&quot;</span>: <span class="string">&quot;fwest&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;last_logined_time&quot;</span>: <span class="string">&quot;2018-05-29 04:56:43&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;has_registed&quot;</span>: <span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;id&quot;</span>: <span class="number">2</span>,</span><br><span class="line">            <span class="attr">&quot;avatar&quot;</span>: <span class="string">&quot;https://lorempixel.com/640/480/?86144&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;nickname&quot;</span>: <span class="string">&quot;zschowalter&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;last_logined_time&quot;</span>: <span class="string">&quot;2018-06-16 15:18:34&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;has_registed&quot;</span>: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;meta&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;pagination&quot;</span>: &#123;</span><br><span class="line">            <span class="attr">&quot;total&quot;</span>: <span class="number">101</span>,</span><br><span class="line">            <span class="attr">&quot;count&quot;</span>: <span class="number">2</span>,</span><br><span class="line">            <span class="attr">&quot;per_page&quot;</span>: <span class="number">2</span>,</span><br><span class="line">            <span class="attr">&quot;current_page&quot;</span>: <span class="number">1</span>,</span><br><span class="line">            <span class="attr">&quot;total_pages&quot;</span>: <span class="number">51</span>,</span><br><span class="line">            <span class="attr">&quot;links&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;next&quot;</span>: <span class="string">&quot;http://api.example.com?page=2&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其中，分页和其他额外的媒体信息，必须放到 <code>meta</code> 字段中。</p>
+</blockquote>
+<h3 id="201-created"><a class="markdownIt-Anchor" href="#201-created"></a> 201 Created</h3>
+<p>当服务器创建数据成功时，<code>应该</code> 返回此状态码。常见的应用场景是使用 <code>POST</code> 提交用户信息，如：</p>
+<ul>
+<li>添加了新用户</li>
+<li>上传了图片</li>
+<li>创建了新活动</li>
+</ul>
+<p>等，都可以返回 <code>201</code> 状态码。需要注意的是，你可以选择在用户创建成功后返回新用户的数据</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">201</span> Created</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 09:13:40 GMT</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;id&quot;: 1,</span><br><span class="line">    &quot;avatar&quot;: &quot;https:\/\/lorempixel.com\/640\/480\/?32556&quot;,</span><br><span class="line">    &quot;nickname&quot;: &quot;fwest&quot;,</span><br><span class="line">    &quot;last_logined_time&quot;: &quot;2018-05-29 04:56:43&quot;,</span><br><span class="line">    &quot;created_at&quot;: &quot;2018-06-16 17:55:55&quot;,</span><br><span class="line">    &quot;updated_at&quot;: &quot;2018-06-16 17:55:55&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以返回一个响应实体为空的 <code>HTTP Response</code> 如：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">201</span> Created</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>text/html; charset=UTF-8</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 09:12:20 GMT</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里我们 <code>应该</code> 采用第二种方式，因为大多数情况下，客户端只需要知道该请求操作成功与否，并不需要返回新资源的信息。</p>
+</blockquote>
+<h3 id="202-accepted"><a class="markdownIt-Anchor" href="#202-accepted"></a> 202 Accepted</h3>
+<p>该状态码表示服务器已经接受到了来自客户端的请求，但还未开始处理。常用短信发送、邮件通知、模板消息推送等这类很耗时需要队列支持的场景中；</p>
+<blockquote>
+<p>返回该状态码时，响应实体 <code>必须</code> 为空。</p>
+</blockquote>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">202</span> Accepted</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>text/html; charset=UTF-8</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 09:25:15 GMT</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br></pre></td></tr></table></figure>
+<h3 id="204-no-content"><a class="markdownIt-Anchor" href="#204-no-content"></a> 204 No Content</h3>
+<p>该状态码表示响应实体不包含任何数据，其中：</p>
+<ul>
+<li>在使用 <code>DELETE</code> 方法删除资源 <strong>成功</strong> 时，<code>必须</code> 返回该状态码</li>
+<li>使用 <code>PUT</code>、<code>PATCH</code> 方法更新数据 <strong>成功</strong> 时，也 <code>应该</code> 返回此状态码</li>
+</ul>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">204</span> No Content</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 09:29:12 GMT</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br></pre></td></tr></table></figure>
+<h3 id="3xx-重定向"><a class="markdownIt-Anchor" href="#3xx-重定向"></a> 3xx 重定向</h3>
+<p>所有 <code>API</code> <code>不该</code> 返回 <code>3xx</code> 类型的状态码。因为 <code>3xx</code> 类型的响应格式一般为下列格式：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">302</span> Found</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>text/html; charset=UTF-8</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache, private</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 09:41:50 GMT</span><br><span class="line"><span class="attribute">Location</span><span class="punctuation">: </span>https://example.com</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=&quot;UTF-8&quot; /&gt;</span><br><span class="line">        &lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=https://example.com&quot; /&gt;</span><br><span class="line"></span><br><span class="line">        &lt;title&gt;Redirecting to https://example.com&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        Redirecting to &lt;a href=&quot;https://example.com&quot;&gt;https://example.com&lt;/a&gt;.</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>所有 <code>API</code> <code>一定不可</code> 返回纯 <code>HTML</code> 结构的响应；若一定要使用重定向功能，<code>可以</code> 返回一个响应实体为空的 <code>3xx</code> 响应，并在响应头中加上 <code>Location</code> 字段:</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">302</span> Found</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>text/html; charset=UTF-8</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 09:52:50 GMT</span><br><span class="line"><span class="attribute">Location</span><span class="punctuation">: </span>https://godruoyi.com</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br></pre></td></tr></table></figure>
+<h3 id="400-bad-request"><a class="markdownIt-Anchor" href="#400-bad-request"></a> 400 Bad Request</h3>
+<p>由于明显的客户端错误（例如，请求语法格式错误、无效的请求、无效的签名等），服务器 <code>应该</code> 放弃该请求。</p>
+<blockquote>
+<p>当服务器无法从其他 4xx 类型的状态码中找出合适的来表示错误类型时，都 <code>必须</code> 返回该状态码。</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">400</span> Bad Request</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache, private</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 13:22:36 GMT</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br><span class="line"></span><br><span class="line">&#123;&quot;error_code&quot;:40000,&quot;message&quot;:&quot;无效的签名&quot;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="401-unauthorized"><a class="markdownIt-Anchor" href="#401-unauthorized"></a> 401 Unauthorized</h3>
+<p>该状态码表示当前请求需要身份认证，以下情况都 <code>必须</code> 返回该状态码。</p>
+<ul>
+<li>未认证用户访问需要认证的 API</li>
+<li>access_token 无效/过期</li>
+</ul>
+<blockquote>
+<p>客户端在收到 <code>401</code> 响应后，都 <code>应该</code> 提示用户进行下一步的登录操作。</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">401</span> Unauthorized</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">WWW-Authenticate</span><span class="punctuation">: </span>JWTAuth</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache, private</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 13:17:02 GMT</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br><span class="line"></span><br><span class="line">&#123;&quot;message&quot;:&quot;Token Signature could not be verified.&quot;,&quot;error_code&quot;: &quot;40100&quot;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="403-forbidden"><a class="markdownIt-Anchor" href="#403-forbidden"></a> 403 Forbidden</h3>
+<p>该状态码可以简单的理解为没有权限访问该请求，服务器收到请求但拒绝提供服务。</p>
+<p>如当普通用户请求操作管理员用户时，<code>必须</code> 返回该状态码。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">403</span> Forbidden</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache, private</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 13:05:34 GMT</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br><span class="line"></span><br><span class="line">&#123;&quot;error_code&quot;:40301,&quot;message&quot;:&quot;权限不足&quot;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="404-not-found"><a class="markdownIt-Anchor" href="#404-not-found"></a> 404 Not Found</h3>
+<p>该状态码表示用户请求的资源不存在，如</p>
+<ul>
+<li>获取不存在的用户信息 （get /users/9999999）</li>
+<li>访问不存在的端点</li>
+</ul>
+<p>都 <code>必须</code> 返回该状态码，若该资源已永久不存在，则 <code>应该</code> 返回 <code>410</code> 响应。</p>
+<h3 id="405-method-not-allowed"><a class="markdownIt-Anchor" href="#405-method-not-allowed"></a> 405 Method Not Allowed</h3>
+<p>当客户端使用的 <code>HTTP</code> 请求方法不被服务器允许时，<code>必须</code> 返回该状态码。</p>
+<blockquote>
+<p>如客户端调用了 <code>POST</code> 方法来访问只支持 GET 方法的 API</p>
+</blockquote>
+<p>该响应 <code>必须</code> 返回一个 <code>Allow</code> 头信息用以表示出当前资源能够接受的请求方法的列表。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">405</span> Method Not Allowed</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Allow</span><span class="punctuation">: </span>GET, HEAD</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache, private</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 12:30:57 GMT</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br><span class="line"></span><br><span class="line">&#123;&quot;message&quot;:&quot;405 Method Not Allowed&quot;,&quot;error_code&quot;: 40500&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="406-not-acceptable"><a class="markdownIt-Anchor" href="#406-not-acceptable"></a> 406 Not Acceptable</h3>
+<p><code>API</code> 在不支持客户端指定的数据格式时，应该返回此状态码。如支持 <code>JSON</code> 和 <code>XML</code> 输出的 <code>API</code> 被指定返回 <code>YAML</code> 格式的数据时。</p>
+<blockquote>
+<p>Http 协议一般通过请求首部的 Accept 来指定数据格式</p>
+</blockquote>
+<h3 id="408-request-timeout"><a class="markdownIt-Anchor" href="#408-request-timeout"></a> 408 Request Timeout</h3>
+<p>客户端请求超时时 <code>必须</code> 返回该状态码，需要注意的时，该状态码表示 <strong>客户端请求超时</strong>，在涉及第三方 <code>API</code> 调用超时时，<code>一定不可</code> 返回该状态码。</p>
+<h3 id="409-confilct"><a class="markdownIt-Anchor" href="#409-confilct"></a> 409 Confilct</h3>
+<p>该状态码表示因为请求存在冲突无法处理。如通过手机号码提供注册功能的 <code>API</code>，当用户提交的手机号已存在时，<code>必须</code> 返回此状态码。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">409</span> Conflict</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache, private</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 12:19:04 GMT</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br><span class="line"></span><br><span class="line">&#123;&quot;error_code&quot;:40900,&quot;message&quot;:&quot;手机号已存在&quot;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="410-gone"><a class="markdownIt-Anchor" href="#410-gone"></a> 410 Gone</h3>
+<p>和 <code>404</code> 类似，该状态码也表示请求的资源不存在，只是 <code>410</code> 状态码进一步表示所请求的资源已不存在，并且未来也不会存在。在收到 <code>410</code> 状态码后，客户端 <code>应该</code> 停止再次请求该资源。</p>
+<h3 id="413-request-entity-too-large"><a class="markdownIt-Anchor" href="#413-request-entity-too-large"></a> 413 Request Entity Too Large</h3>
+<p>该状态码表示服务器拒绝处理当前请求，因为该请求提交的实体数据大小超过了服务器愿意或者能够处理的范围。</p>
+<blockquote>
+<p>此种情况下，服务器可以关闭连接以免客户端继续发送此请求。</p>
+</blockquote>
+<p>如果这个状况是临时的，服务器 <code>应该</code> 返回一个 <code>Retry-After</code> 的响应头，以告知客户端可以在多少时间以后重新尝试。</p>
+<h3 id="414-request-uri-too-long"><a class="markdownIt-Anchor" href="#414-request-uri-too-long"></a> 414 Request-URI Too Long</h3>
+<p>该状态码表示请求的 <code>URI</code> 长度超过了服务器能够解释的长度，因此服务器拒绝对该请求提供服务。</p>
+<h3 id="415-unsupported-media-type"><a class="markdownIt-Anchor" href="#415-unsupported-media-type"></a> 415 Unsupported Media Type</h3>
+<p>通常表示服务器不支持客户端请求首部 <code>Content-Type</code> 指定的数据格式。如在只接受 <code>JSON</code> 格式的 <code>API</code> 中放入 <code>XML</code> 类型的数据并向服务器发送，都 <code>应该</code> 返回该状态码。</p>
+<p>该状态码也可用于如：只允许上传图片格式的文件，但是客户端提交媒体文件非法或不是图片类型，这时 <code>应该</code> 返回该状态码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">415</span> Unsupported Media Type</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache, private</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 12:09:40 GMT</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br><span class="line"></span><br><span class="line">&#123;&quot;error_code&quot;:41500,&quot;message&quot;:&quot;不允许上传的图片格式&quot;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="429-too-many-requests"><a class="markdownIt-Anchor" href="#429-too-many-requests"></a> 429 Too Many Requests</h3>
+<p>该状态码表示用户请求次数超过允许范围。如 <code>API</code> 设定为 <code>60次/分钟</code>，当用户在一分钟内请求次数超过 60 次后，都 <code>应该</code> 返回该状态码。并且也 <code>应该</code> 在响应首部中加上下列头部：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">X-RateLimit-Limit</span><span class="punctuation">: </span>10 请求速率（由应用设定，其单位一般为小时/分钟等，这里是 10次/5分钟）</span><br><span class="line"><span class="attribute">X-RateLimit-Remaining</span><span class="punctuation">: </span>0 当前剩余的请求数量</span><br><span class="line"><span class="attribute">X-RateLimit-Reset</span><span class="punctuation">: </span>1529839462 重置时间</span><br><span class="line"><span class="attribute">Retry-After</span><span class="punctuation">: </span>120 下一次访问应该等待的时间（秒）</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">429</span> Too Many Requests</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">X-RateLimit-Limit</span><span class="punctuation">: </span>10</span><br><span class="line"><span class="attribute">X-RateLimit-Remaining</span><span class="punctuation">: </span>0</span><br><span class="line"><span class="attribute">X-RateLimit-Reset</span><span class="punctuation">: </span>1529839462</span><br><span class="line"><span class="attribute">Retry-After</span><span class="punctuation">: </span>290</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache, private</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 11:19:32 GMT</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br><span class="line"></span><br><span class="line">&#123;&quot;message&quot;:&quot;You have exceeded your rate limit.&quot;,&quot;error_code&quot;:42900&#125;</span><br></pre></td></tr></table></figure>
+<p><code>必须</code> 为所有的 API 设置 Rate Limit 支持。</p>
+<h3 id="500-internal-server-error"><a class="markdownIt-Anchor" href="#500-internal-server-error"></a> 500 Internal Server Error</h3>
+<p>该状态码 <code>必须</code> 在服务器出错时抛出，对于所有的 <code>500</code> 错误，都 <code>应该</code> 提供完整的错误信息支持，也方便跟踪调试。</p>
+<h3 id="503-service-unavailable"><a class="markdownIt-Anchor" href="#503-service-unavailable"></a> 503 Service Unavailable</h3>
+<p>该状态码表示服务器暂时处理不可用状态，当服务器需要维护或第三方 <code>API</code> 请求超时/不可达时，都 <code>应该</code> 返回该状态码，其中若是主动关闭 API 服务，<code>应该</code>在返回的响应首部加上 <code>Retry-After</code> 头部，表示多少秒后可以再次访问。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">503</span> Service Unavailable</span><br><span class="line"><span class="attribute">Server</span><span class="punctuation">: </span>nginx/1.11.9</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache, private</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Sun, 24 Jun 2018 10:56:20 GMT</span><br><span class="line"><span class="attribute">Retry-After</span><span class="punctuation">: </span>60</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br><span class="line"></span><br><span class="line">&#123;&quot;error_code&quot;:50300,&quot;message&quot;:&quot;服务维护中&quot;&#125;</span><br></pre></td></tr></table></figure>
+<p>其他 <code>HTTP</code> 状态码请参考 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/HTTP%E7%8A%B6%E6%80%81%E7%A0%81">HTTP 状态码- 维基百科</a>。</p>
+<h2 id="十-版权声明"><a class="markdownIt-Anchor" href="#十-版权声明"></a> 十、版权声明</h2>
+<blockquote>
+<p>版权声明：自由转载-非商用-非衍生-保持署名（<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>）</p>
+</blockquote>
+<h2 id="十一-建议参考"><a class="markdownIt-Anchor" href="#十一-建议参考"></a> 十一、建议参考</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/aisuhua/restful-api-design-references">restful-api-design-references</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/moonz-wu/p/4211626.html">Principles of good RESTful API Design（译）</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2011/09/restful.html">理解 RESTful 架构</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html">RESTful API 设计指南</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/HTTP%E7%8A%B6%E6%80%81%E7%A0%81">HTTP 状态码- 维基百科</a></p>
+<h2 id="十二-license"><a class="markdownIt-Anchor" href="#十二-license"></a> 十二、LICENSE</h2>
+<p>MIT License</p>
+<p>Copyright © 2018 godruoyi</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">godruoyi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://jitwxs.cn/9c7c62cc.html">https://jitwxs.cn/9c7c62cc.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://jitwxs.cn" target="_blank">Jitwxs</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/RESTful/">RESTful</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover8.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/wechat_donate.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/wechat_donate.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/alipay_donate.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/alipay_donate.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/fd886217.html"><img class="prev-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">HoloLens 开发笔记（11）——Spatial Mapping</div></div></a></div><div class="next-post pull-right"><a href="/d208d079.html"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover22.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SpringBoot 集成 Spring Security（8）——短信验证码登录</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Jitwxs</div><div class="author-info__description">不忘初心，砥砺前行</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">224</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">132</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">39</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/jitwxs"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/jitwxs" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=Ujg7JiUqIRI0PSo-Mzs_fDE9Pw" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="https://jitwxs.blog.csdn.net" target="_blank" title="CSDN"><i class="fab fa-cuttlefish flat-btn"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">专注 Java 后端开发，内容涵盖 SpringBoot、并发编程、微服务、容器化、Linux 等技术分享。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%85%B3%E4%BA%8E%E8%83%BD%E6%84%BF%E5%8A%A8%E8%AF%8D%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text"> 一、关于「能愿动词」的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-protocol"><span class="toc-text"> 二、Protocol</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-api-root-url"><span class="toc-text"> 三、API Root URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-versioning"><span class="toc-text"> 四、Versioning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-url-%E4%B8%AD%E5%B5%8C%E5%85%A5%E7%89%88%E6%9C%AC%E7%BC%96%E5%8F%B7"><span class="toc-text"> 在 URL 中嵌入版本编号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%AA%92%E4%BD%93%E7%B1%BB%E5%9E%8B%E6%9D%A5%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-text"> 通过媒体类型来指定版本信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-endpoints"><span class="toc-text"> 五、Endpoints</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD-http-%E5%8A%A8%E8%AF%8D"><span class="toc-text"> 六、HTTP 动词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83-filtering"><span class="toc-text"> 七、Filtering</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB-authentication"><span class="toc-text"> 八、Authentication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D-response"><span class="toc-text"> 九、Response</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#200-ok"><span class="toc-text"> 200 ok</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#201-created"><span class="toc-text"> 201 Created</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#202-accepted"><span class="toc-text"> 202 Accepted</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#204-no-content"><span class="toc-text"> 204 No Content</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3xx-%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-text"> 3xx 重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#400-bad-request"><span class="toc-text"> 400 Bad Request</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#401-unauthorized"><span class="toc-text"> 401 Unauthorized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#403-forbidden"><span class="toc-text"> 403 Forbidden</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#404-not-found"><span class="toc-text"> 404 Not Found</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#405-method-not-allowed"><span class="toc-text"> 405 Method Not Allowed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#406-not-acceptable"><span class="toc-text"> 406 Not Acceptable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#408-request-timeout"><span class="toc-text"> 408 Request Timeout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#409-confilct"><span class="toc-text"> 409 Confilct</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#410-gone"><span class="toc-text"> 410 Gone</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#413-request-entity-too-large"><span class="toc-text"> 413 Request Entity Too Large</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#414-request-uri-too-long"><span class="toc-text"> 414 Request-URI Too Long</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#415-unsupported-media-type"><span class="toc-text"> 415 Unsupported Media Type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#429-too-many-requests"><span class="toc-text"> 429 Too Many Requests</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#500-internal-server-error"><span class="toc-text"> 500 Internal Server Error</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#503-service-unavailable"><span class="toc-text"> 503 Service Unavailable</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81-%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E"><span class="toc-text"> 十、版权声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80-%E5%BB%BA%E8%AE%AE%E5%8F%82%E8%80%83"><span class="toc-text"> 十一、建议参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C-license"><span class="toc-text"> 十二、LICENSE</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/e4d53ddb.html" title="Spring SchedulingConfigurer 实现动态定时任务"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring SchedulingConfigurer 实现动态定时任务"/></a><div class="content"><a class="title" href="/e4d53ddb.html" title="Spring SchedulingConfigurer 实现动态定时任务">Spring SchedulingConfigurer 实现动态定时任务</a><time datetime="2021-03-27T15:23:41.000Z" title="发表于 2021-03-27 23:23:41">2021-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/9f878221.html" title="Java 双亲委派机制"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java 双亲委派机制"/></a><div class="content"><a class="title" href="/9f878221.html" title="Java 双亲委派机制">Java 双亲委派机制</a><time datetime="2021-03-14T03:26:34.000Z" title="发表于 2021-03-14 11:26:34">2021-03-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/bef70352.html" title="图解 | 你管这破玩意儿叫TCP？"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover13.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图解 | 你管这破玩意儿叫TCP？"/></a><div class="content"><a class="title" href="/bef70352.html" title="图解 | 你管这破玩意儿叫TCP？">图解 | 你管这破玩意儿叫TCP？</a><time datetime="2021-01-24T07:19:23.000Z" title="发表于 2021-01-24 15:19:23">2021-01-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/c376af5e.html" title="图解 | 你管这破玩意叫线程池？"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover21.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图解 | 你管这破玩意叫线程池？"/></a><div class="content"><a class="title" href="/c376af5e.html" title="图解 | 你管这破玩意叫线程池？">图解 | 你管这破玩意叫线程池？</a><time datetime="2021-01-23T11:23:54.000Z" title="发表于 2021-01-23 19:23:54">2021-01-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/93fdc2b.html" title="如果让你来设计网络"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover1.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如果让你来设计网络"/></a><div class="content"><a class="title" href="/93fdc2b.html" title="如果让你来设计网络">如果让你来设计网络</a><time datetime="2021-01-23T07:39:03.000Z" title="发表于 2021-01-23 15:39:03">2021-01-23</time></div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient(135deg,"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By Jitwxs</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href='http://www.beian.miit.gov.cn/state/outPortal/loginPortal.action'><img class='icp-icon entered loading' src='/img/icp.png' alt='ICP' data-ll-status='loading'>苏 ICP 备 16061429 号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    let id = md5(decodeURI(window.location.pathname));
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '1abf6b8c844664e07e3e',
+      clientSecret: '49e497f91b34805a5d19dd73b6d4493d84020782',
+      repo: 'blog-comment',
+      owner: 'jitwxs',
+      admin: ['jitwxs'],
+      id: id,
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const findTrueUrl = (array) => {
+    let url = ''
+    Promise.all(array.map(item =>
+      fetch(item.url).then(resp => resp.json()).then(data => {
+        if (data.user.login === 'utterances-bot') {
+          url = data.body.match(/https?\:\/\/[^\" ]+/ig).slice(-1)
+          return url[0]
+        } else {
+          url = data.body.match(/https?\:\/\/[^\" ]+/i)
+          return url[0]
+        }
+      })
+    )).then(res => {
+        array = array.map((i,index)=> {
+          return {
+            ...i,
+            url: res[index]
+          }
+        })
+
+        saveToLocal.set('github-newest-comments', JSON.stringify(array), 10/(60*24))
+        generateHtml(array)
+    });
+  }
+
+  const getComment = () => {
+    fetch('https://api.github.com/repos/jitwxs/blog-comment/issues/comments?sort=updated&direction=desc&per_page=6&page=1',{
+      "headers": {
+        Accept: 'application/vnd.github.v3.html+json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        const githubArray = data.map(item => {
+          return {
+            'avatar': item.user.avatar_url,
+            'content': changeContent(item.body_html),
+            'nick': item.user.login,
+            'url': item.issue_url,
+            'date': item.updated_at,
+            'githubUrl': item.html_url
+          }
+        })
+        findTrueUrl(githubArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('github-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="5273081683" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" data-lrctype="1" muted></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.17.0/js/md5.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-40VH67TNSM', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

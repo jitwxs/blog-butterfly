@@ -1,0 +1,810 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Git 教程 | Jitwxs</title><meta name="keywords" content="Git"><meta name="author" content="Jitwxs"><meta name="copyright" content="Jitwxs"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。本文为廖雪峰的Git教程的个人笔记，欢迎指正。  一、Git 基础  1.1 版本控制系统 版本控制系统系统分为集中式和分布式两种。 集中式是集中存放在中央服务器中，工作的时候，先用自己的电脑从中央服务器取得最新的版本，完工后，再把自己的工作推送到中央服务器。集中式版本控制工具有：CVS、SVN 等。 集中式的特点是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 教程">
+<meta property="og:url" content="https://jitwxs.cn/2121b11b.html">
+<meta property="og:site_name" content="Jitwxs">
+<meta property="og:description" content="Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。本文为廖雪峰的Git教程的个人笔记，欢迎指正。  一、Git 基础  1.1 版本控制系统 版本控制系统系统分为集中式和分布式两种。 集中式是集中存放在中央服务器中，工作的时候，先用自己的电脑从中央服务器取得最新的版本，完工后，再把自己的工作推送到中央服务器。集中式版本控制工具有：CVS、SVN 等。 集中式的特点是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover21.jpg">
+<meta property="article:published_time" content="2017-09-16T08:04:00.000Z">
+<meta property="article:modified_time" content="2020-12-26T13:52:06.883Z">
+<meta property="article:author" content="Jitwxs">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover21.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/favicon.ico"><link rel="canonical" href="https://jitwxs.cn/2121b11b"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?053091e29f160d71ed2f65a774cfeac1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-40VH67TNSM"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-40VH67TNSM');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"POGNXMLA2T","apiKey":"2013ebed0f76818838d693c9c40cb1fd","indexName":"blog","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Jitwxs","link":"链接: ","source":"来源: Jitwxs","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-right"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-12-26 21:52:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Jitwxs" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">224</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">132</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">39</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fas fa-ellipsis-v"></i><span> 更多</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/favorites/"><i class="fa-fw fas fa-meteor"></i><span> 收藏夹</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tools.jitwxs.cn"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-cogs"></i><span> 管理</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/changes/"><i class="fa-fw fas fa-location-arrow"></i><span> 更新日志</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://analytics.google.com/"><i class="fa-fw fab fa-google"></i><span> 谷歌统计</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tongji.baidu.com/"><i class="fa-fw fas fa-globe-asia"></i><span> 百度统计</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover21.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Jitwxs</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fas fa-ellipsis-v"></i><span> 更多</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/favorites/"><i class="fa-fw fas fa-meteor"></i><span> 收藏夹</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tools.jitwxs.cn"><i class="fa-fw fas fa-tools"></i><span> 工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-cogs"></i><span> 管理</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/changes/"><i class="fa-fw fas fa-location-arrow"></i><span> 更新日志</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://analytics.google.com/"><i class="fa-fw fab fa-google"></i><span> 谷歌统计</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://tongji.baidu.com/"><i class="fa-fw fas fa-globe-asia"></i><span> 百度统计</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Git 教程<a class="post-edit-link" href="https://github.com/jitwxs/blog-source/tree/master/source/_posts/Git-教程.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="article-meta"><i class="fas fa-user post-meta-icon"></i><span class="article-meta-label">Jitwxs</span><span class="post-meta-separator">|</span></span><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2017-09-16T08:04:00.000Z" title="发表于 2017-09-16 16:04:00">2017-09-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-12-26T13:52:06.883Z" title="更新于 2020-12-26 21:52:06">2020-12-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Git/">Git</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">7.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>25分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Git 教程"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2121b11b.html#post-comment"><span class="gitalk-comment-count"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。本文为廖雪峰的Git教程的个人笔记，欢迎指正。</p>
+<h2 id="一-git-基础"><a class="markdownIt-Anchor" href="#一-git-基础"></a> 一、Git 基础</h2>
+<h3 id="11-版本控制系统"><a class="markdownIt-Anchor" href="#11-版本控制系统"></a> 1.1 版本控制系统</h3>
+<p>版本控制系统系统分为<strong>集中式</strong>和<strong>分布式</strong>两种。</p>
+<p>集中式是集中存放在中央服务器中，工作的时候，先用自己的电脑从中央服务器取得最新的版本，完工后，再把自己的工作推送到中央服务器。集中式版本控制工具有：CVS、SVN 等。</p>
+<p>集中式的特点是需要联网才能工作，对网速的要求较高。如果中央服务器发生了宕机，所有人都没法工作。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912171557531.png" alt="集中式" /></p>
+<p>分布式版本控制系统没有“中央服务器”，每个人的电脑上都是一个完整的版本库，工作的时候不需要联网。需要彼此的文件，只需要相互推送。实际使用中，分布式版本控制控制系统通常也有一台充当“中央服务器”的电脑，但仅仅是用来方便“交换”大家的修改，没有它大家一样能正常工作，只是交换修改不方便。分布式版本控制工具有：<code>Git</code>、Mercurial、Bazaar 等。</p>
+<p>分布式的特点是不需要联网就能工作。不依赖中央服务器，安全性高。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912171610347.png" alt="分布式" /></p>
+<h3 id="12-安装-git"><a class="markdownIt-Anchor" href="#12-安装-git"></a> 1.2 安装 Git</h3>
+<p>测试是否正确安装了 Git：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912171451264.png" alt="Git测试安装" /></p>
+<p>如果像上图这样显示没有安装，通过相应包管理直接安装即可。我的电脑为<code>CentOs</code>，因此键入命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br></pre></td></tr></table></figure>
+<p>安装完成后，还需要最后一步设置，在命令行输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config --global user.name <span class="string">&quot;Your Name&quot;</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config --global user.email <span class="string">&quot;email@example.com&quot;</span></span></span><br></pre></td></tr></table></figure>
+<p>因为 Git 是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和 Email 地址。</p>
+<p>注意：<code>git config</code> 命令的 <code>--global</code> 参数，用了这个参数，表示你这台机器上所有的 Git 仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912180005051.png" alt="自报家门" /></p>
+<h3 id="13-工作区和暂存区"><a class="markdownIt-Anchor" href="#13-工作区和暂存区"></a> 1.3 工作区和暂存区</h3>
+<p>Git和其他版本控制系统如SVN有一个不同之处就是有<code>暂存区</code>的概念。首先我们先了解以下概念的意义。</p>
+<p><strong>工作区（Working Directory）</strong></p>
+<p>就是你在电脑里能看到的目录，比如learngit文件夹就是一个工作区：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912172000402.png" alt="工作区" /></p>
+<p><strong>版本库（Repository）</strong></p>
+<p>版本库可以理解为一个目录，在目录中的所有文件都可以被 Git 管理起来，每个文件的修改、删除，Git 都能跟踪，一边任何时刻都可以追踪历史，或者在将来进行还原。</p>
+<p>工作区有一个隐藏目录 <code>.git</code>，这个不算工作区，而是 Git 的版本库。</p>
+<p>Git的版本库里存了很多东西，其中最重要的就是称为 <code>stage</code>（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支 <code>master</code>，以及指向master的一个指针叫 <code>HEAD</code>。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912172033783.png" alt="版本库" /></p>
+<p>我们把文件往Git版本库里添加的时候，是分两步执行的：</p>
+<ol>
+<li><code>git add</code> 把文件添加进去，实际上就是把文件修改添加到暂存区；</li>
+<li><code>git commit</code> 提交更改，实际上就是把暂存区的所有内容提交到当前分支。</li>
+</ol>
+<p>因为我们创建 Git 版本库时，Git 自动为我们创建了唯一一个 master 分支，所以，现在，<code>git commit</code> 就是往 master分支上提交更改。</p>
+<p>你可以简单理解为，<strong>需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改</strong>。</p>
+<h3 id="14-三个具有代表性的命令"><a class="markdownIt-Anchor" href="#14-三个具有代表性的命令"></a> 1.4 三个具有代表性的命令</h3>
+<ol>
+<li>
+<p>添加到版本库：<code>git add</code></p>
+</li>
+<li>
+<p>提交到版本库：<code>git commit</code></p>
+</li>
+<li>
+<p>把本地版本库推送到远程版本库：<code>git push</code></p>
+</li>
+</ol>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912172601157.png" alt="三大命令" /></p>
+<h2 id="二-版本控制"><a class="markdownIt-Anchor" href="#二-版本控制"></a> 二、版本控制</h2>
+<h3 id="21-创建版本库"><a class="markdownIt-Anchor" href="#21-创建版本库"></a> 2.1 创建版本库</h3>
+<p>选择合适路径，创建一个空目录，使用 <code>git init</code> 初始化 git 管理的目录</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912175429932.png" alt="创建版本库" /></p>
+<p>然后我们添加文件到版本库：</p>
+<ol>
+<li>编辑文本文件 readme.txt</li>
+<li>添加到版本库：<code>git add</code></li>
+<li>提交到版本库：<code>git commit</code></li>
+</ol>
+<blockquote>
+<p>注1：commit 命令使用 <code>-m</code> 参数可以添加本次提交的注释。这非常有用，在团队合作中能够让别人理解你本次提交的修改内容。<br />
+注2：我们可以用 git add 添加多个文件到暂存区，然后使用 git commit 一次性提交。</p>
+</blockquote>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912180656974.png" alt="提交文件" /></p>
+<h3 id="22-查看仓库状态"><a class="markdownIt-Anchor" href="#22-查看仓库状态"></a> 2.2 查看仓库状态</h3>
+<p><strong>git status</strong> 查看当前仓库状态。</p>
+<p>修改 readme.txt 文件，使用 <code>git status</code> 查看仓库状态，下图说明 readme.txt 文件被修改，但还没有提交到仓库。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912181209719.png" alt="查看仓库状态" /></p>
+<p><strong>git diff</strong> 查看修改的内容</p>
+<p>下图说明 readme.txt，添加了一行内容。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912181853657.png" alt="查看修改" /></p>
+<p>将 readme.txt 添加到暂存区并提交后，再次使用 <code>git status</code> 和 <code>git diff</code> 查看。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912182027811.png" alt="查看修改2" /></p>
+<p><strong>git log</strong> 查看仓库历史纪录</p>
+<p><code>git log</code> 命令显示从最近到最远的提交日志。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912191332442.png" alt="查看历史纪录" /></p>
+<h3 id="23-版本回退"><a class="markdownIt-Anchor" href="#23-版本回退"></a> 2.3 版本回退</h3>
+<p><strong>git reset</strong> 回退到指定版本</p>
+<p><code>git reset</code> 具有三个参数，分别是 <code>soft</code>、<code>hard</code> 和 <code>mixed</code>。</p>
+<p><code>--soft</code> 参数告诉 Git 重置 HEAD 到另外一个 commit，但也到此为止。如果你指定 --soft 参数，Git将停止在那里而什么也不会根本变化。这意味着 index, working copy 都不会做任何变化，所有的在 original HEAD 和你重置到的那个 commit 之间的所有变更集仍然在stage(index)区域中。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912190718334.png" alt="git reset --soft" /></p>
+<p><code>--hard</code> 参数将会将重置 HEAD 返回到另外一个 commit，重置 index 以便反映HEAD的变化，并且重置 working copy 也使得其完全匹配起来。这是一个比较危险的动作，具有破坏性，数据因此可能会丢失！如果真是发生了数据丢失又希望找回来，那么只有使用 <code>git reflog</code> 命令了。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912190810065.png" alt="git reset --hard" /></p>
+<p><code>--mixed</code> 是 reset 的默认参数，也就是当你不指定任何参数时的参数。它将重置 HEAD 到另外一个 commit,并且重置index 以便和 HEAD比配，但是也到此为止。working copy 不会被更改。所以所有从 original HEAD到你重置到的那个 commit 之间的所有变更仍然保存在 working copy中，被标示为已变更，但是并未staged的状态。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912190847304.png" alt="git reset --mixed" /></p>
+<p>Git 中，用 HEAD 表示当前版本，上一个版本就是HEAD^ ，上上个版本就是HEAD^^。<br />
+撤销后再查看记录发现提交记录少了一个</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912191519806.png" alt="版本撤销" /></p>
+<p>也可以指定回滚的版本号。版本号用 <code>git log</code> 查看 commit id 前7位。</p>
+<p>如果我们忘记回退前的版本号，<code>git reflog</code> 命令记录了每一次的命令操作，包含了所有版本的版本号。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912191852220.png" alt="查看操作记录" /></p>
+<h3 id="24-撤销修改"><a class="markdownIt-Anchor" href="#24-撤销修改"></a> 2.4 撤销修改</h3>
+<p><strong>git checkout - - file</strong></p>
+<p>该命令会把文件在工作区的修改全部撤销，回到最近一次 <code>git commit</code> 或 <code>git add</code> 时的状态。</p>
+<ul>
+<li>文件自修改后还没有被放到暂存区，撤销修改就回到和版本库一模一样的状态</li>
+<li>文件已经添加到了暂存区后。又做了修改，撤销修改就回到添加到暂存区后的状态。</li>
+</ul>
+<p>注：<code>--</code>请不要丢掉，丢掉后就成为了创建分支的命令。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912192201582.png" alt="撤销修改" /></p>
+<p><strong>git reset HEAD file</strong></p>
+<p>该命令会把暂存区的修改撤销掉，重新放回工作区中。</p>
+<p>我们之前在回退版本时已经介绍了<code>git reset</code>命令，该命令既可以回退版本，也可以把工作区的某些文件替换为版本库中的文件。使用HEAD表示为最新的版本。</p>
+<h3 id="25-删除文件"><a class="markdownIt-Anchor" href="#25-删除文件"></a> 2.5 删除文件</h3>
+<p><strong>git rm file</strong></p>
+<p>如果使用 rm 删除了版本库中的文件 test.txt，然后用 <code>git status</code> 查看仓库状态。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912192621199.png" alt="查看删除文件" /></p>
+<p>如果确实要将 test.txt 文件从 Git 仓库删除，使用 <code>git rm</code>，并 commit。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912192824084.png" alt="git 中删除" /></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912192851925.png" alt="提交删除" /></p>
+<p>如果误删，使用 <code>git checkout -- file</code> 恢复到之前版本。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912192451959.png" alt="误删文件" /></p>
+<h3 id="26-命令小节"><a class="markdownIt-Anchor" href="#26-命令小节"></a> 2.6 命令小节</h3>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201711/20171126203113510.png" alt="版本控制命令小节" /></p>
+<h2 id="三-远程仓库"><a class="markdownIt-Anchor" href="#三-远程仓库"></a> 三、远程仓库</h2>
+<p>远程仓库即远程的Git服务器仓库，每个用户都能从这个服务器仓库克隆一份到自己的电脑上，并且各自把各自的提交推送到服务器仓库中，也可以从服务器仓库中获取别人的提交。</p>
+<h3 id="31-创建和设置远程仓库"><a class="markdownIt-Anchor" href="#31-创建和设置远程仓库"></a> 3.1 创建和设置远程仓库</h3>
+<p>我们可以使用自己的服务器创建一个Git仓库，也可以使用GitHub为我们提供的仓库。这里使用GitHub，首先注册<a target="_blank" rel="noopener" href="https://github.com">GitHub</a>账号。</p>
+<p>GitHub需要识别推送者的身份，防止别人冒充。Git支持SSH协议，因此GitHub只要知道了你的公钥，就可以确认推送者的身份。GitHub允许添加多个Key，确保用户可以在多台电脑上进行推送。</p>
+<p><s>需要注意的是，GitHub只免费提供公开的Git库，因此你提交的内容所有人都可以查看，因此敏感信息尽量不要出现。如果不想让别人看到，可以选择GitHub付费服务或者自己搭建Git服务器。</s>（2019年1月 Github 推出了私有仓库）</p>
+<p>首先创建SSH Key密钥。一路回车使用默认值即可（如果没有特殊需求无需设置密码）：</p>
+<blockquote>
+<p>ssh-keygen -t rsa -C “user.email”</p>
+</blockquote>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912195012211.png" alt="创建密钥" /></p>
+<p>然后可以在用户主目录里找到.ssh目录，里面有 <code>id_rsa</code> 和 <code>id_rsa.pub</code> 两个文件，这两个就是 SSH Key 的秘钥对，<code>id_rsa</code> 是私钥，不能泄露出去，<code>id_rsa.pub</code> 是公钥，可以放心地告诉任何人。</p>
+<p>复制 <code>~/.ssh/id_rsa.pub</code> 内容。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912195051822.png" alt="查看公钥" /></p>
+<p>第二步，登陆GitHub，打开<code>Settings</code> --&gt;<code>SSH And GPL Keys</code>–&gt;<code>New SSH key</code>–&gt; <code>Add SSH key</code>，将之前的内容粘贴上去即可。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912195530311.png" alt="添加Key" /></p>
+<h3 id="32-添加远程库"><a class="markdownIt-Anchor" href="#32-添加远程库"></a> 3.2 添加远程库</h3>
+<p>首先登陆自己的 GitHub，创建一个新的仓库，这里我设置仓库名为 Test。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912200351998.png" alt="创建仓库" /></p>
+<p>GitHub 告诉我们有以下几种选择：</p>
+<ul>
+<li>从这个仓库克隆出新的仓库</li>
+<li>把一个已有的本地仓库与之关联</li>
+<li>从其他仓库导入代码。</li>
+</ul>
+<p>根据提示，我们把本地仓库的内容推送到 GitHub 仓库。在本地仓库下，执行 GitHub 提示我们的命令即可。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912200643745.png" alt="关联仓库" /></p>
+<p>由于远程库是空的，我们第一次推送 master 分支时，加上了 <code>-u</code> 参数，Git不但会把本地的master分支内容推送的远程新的 master 分支，还会把本地的 master 分支和远程的 master 分支关联起来，在以后的推送或者拉取时就可以不使用 <code>-u</code> 参数。</p>
+<p>我们发现上图中出现了 Warning，这是因为当你第一次使用 Git 的 clone 或者 push 命令连接 GitHub 时，由于我们使用 SSH 连接，而 SSH 连接在第一次验证 GitHub 服务器的 Key 时，需要你确认 GitHub 的 Key 的指纹信息是否真的来自 GitHub 的服务器，输入 yes 回车即可。</p>
+<p>Git 会输出一个警告，告诉你已经把 GitHub 的 Key 添加到本机的一个信任列表里了，这个警告只会出现一次，后面的操作就不会有任何警告了。</p>
+<h3 id="33-从远程库克隆"><a class="markdownIt-Anchor" href="#33-从远程库克隆"></a> 3.3 从远程库克隆</h3>
+<p>这里用我已经存在的 OJCrawler 项目为例，用命令 <code>git clone</code> 将该项目克隆到本地。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:jitwxs/OJCrawler.git</span><br></pre></td></tr></table></figure>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912201635992.png" alt="克隆仓库到本地" /></p>
+<h3 id="34-命令小节"><a class="markdownIt-Anchor" href="#34-命令小节"></a> 3.4 命令小节</h3>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912202555746.png" alt="远程控制命令小节" /></p>
+<h2 id="四-分支管理"><a class="markdownIt-Anchor" href="#四-分支管理"></a> 四、分支管理</h2>
+<p>分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习 Git 的时候，另一个你正在另一个平行宇宙里努力学习 SVN。</p>
+<p>如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了 Git 又学会了 SVN！</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912204359273.png" alt="分支漫画" /></p>
+<p>分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了 50% 的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。</p>
+<p>现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。</p>
+<p>其他版本控制系统如 SVN 等都有分支管理，但是用过之后你会发现，这些版本控制系统创建和切换分支比蜗牛还慢，简直让人无法忍受，结果分支功能成了摆设，大家都不去用。</p>
+<p>但Git的分支是与众不同的，得益于它的数据结构，使得无论创建、切换和删除分支，Git 在很短时间就能完成。</p>
+<h3 id="41-创建与合并分支"><a class="markdownIt-Anchor" href="#41-创建与合并分支"></a> 4.1 创建与合并分支</h3>
+<p>Git 将每次提交的内容串成一条时间线，这条时间线就是一个分支。在默认情况下只有一个分支，这个分支叫主分支，即 master 分支。HEAD 严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。</p>
+<p>一开始的时候，master 分支是一条线，Git 用 master 指向最新的提交，再用 HEAD 指向 master，就能确定当前分支，以及当前分支的提交点：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912205225773.png" alt="" /></p>
+<p>每次提交，master 分支都会向前移动一步，这样，随着你不断提交，master 分支的线也越来越长。</p>
+<p>当我们创建新的分支，例如 dev 时，Git 新建了一个指针叫 dev，指向 master 相同的提交，再把 HEAD 指向dev，就表示当前分支在 dev 上。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912205300693.png" alt="" /></p>
+<p>由这个数据结构我们知道，Git 创建一个分支很快，因为除了增加一个 dev 指针，改改 HEAD 的指向，工作区的文件都没有任何变化！</p>
+<p>从现在开始，对工作区的修改和提交就是针对 dev 分支了，比如新提交一次后，dev 指针往前移动一步，而master 指针不变。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912205342023.png" alt="" /></p>
+<p>假如我们在 dev 上的工作完成了，就可以把 dev 合并到 master 上。最简单的方法，就是直接把 master 指向 dev 的当前提交，就完成了合并：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912205415023.png" alt="" /></p>
+<p>合并完分支后，甚至可以删除 dev 分支。删除 dev 分支就是把 dev 指针给删掉，删掉后，我们就剩下了一条master 分支：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912205428759.png" alt="" /></p>
+<p>说了这么多理论，下面开始实际操作。</p>
+<p>首先，我们创建 dev 分支，然后切换到 dev 分支：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev</span><br></pre></td></tr></table></figure>
+<p><code>git checkout</code> 命令加上 <code>-b</code> 参数表示创建并切换，相当于以下两条命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch dev</span><br><span class="line">git checkout dev</span><br></pre></td></tr></table></figure>
+<p>然后，用 <code>git branch</code> 命令查看分支，当前活跃分支前会添加 <code>*</code> 号：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912210122240.png" alt="查看分支" /></p>
+<p>下面我们为 readme.txt 文件添加一行，并提交 dev 分支。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912210449417.png" alt="在dev分支修改内容" /></p>
+<p>切换回 master 分支后，再查看一个 readme.txt 文件，刚才添加的内容不见了！</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912210623085.png" alt="切换回master" /></p>
+<p>因为那个提交是在 dev 分支上，而 master 分支此刻的提交点并没有变。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912210710293.png" alt="" /></p>
+<p>现在，我们把 dev 分支的工作成果合并到 master 分支上，<code>git merge</code> 命令用于合并指定分支到当前分支。</p>
+<p>合并后，再查看 readme.txt 的内容，就可以看到，和 dev 分支的最新提交是完全一样的。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912210957941.png" alt="合并dev分支" /></p>
+<p>注意到上面的 Fast-forward 信息，Git 告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。</p>
+<p>合并完成后，就可以放心地删除 dev 分支了 使用 <code>git branch -d 分支名</code>。</p>
+<p>删除后，查看 branch，就只剩下 master 分支了：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912211053186.png" alt="删除dev分支" /></p>
+<p>因为创建、合并和删除分支非常快，所以 Git 鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在master分支上工作效果是一样的，但过程更安全。</p>
+<h3 id="42-解决冲突"><a class="markdownIt-Anchor" href="#42-解决冲突"></a> 4.2 解决冲突</h3>
+<p>合并分支并非总是这么一帆风顺，有可能遇上冲突问题。准备新的 feature1 分支，来模拟冲突问题。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212407876.png" alt="创建feature1分支" /></p>
+<p>修改 readme.txt 最后一行，改为：</p>
+<blockquote>
+<p>this changed by feature1 branch…</p>
+</blockquote>
+<p>在 feature1 分支上提交：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212504122.png" alt="提交feature1" /></p>
+<p>切换到 master 分支：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212541805.png" alt="切换master" /></p>
+<p>Git 还会自动提示我们当前 master 分支比远程的 master 分支要超前 1 个提交。</p>
+<p>在 master 分支上把 readme.txt 文件的最后一行改为：</p>
+<blockquote>
+<p>this changed by master branch…</p>
+</blockquote>
+<p>提交：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212621019.png" alt="提交master" /></p>
+<p>现在，master 分支和 feature1 分支各自都分别有新的提交，变成了这样：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212658873.png" alt="" /></p>
+<p>这种情况下，Git 无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突，我们试试看：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212740792.png" alt="尝试合并冲突" /></p>
+<p>果然冲突了！Git 告诉我们，readme.txt 文件存在冲突，必须手动解决冲突后再提交。</p>
+<p><code>git status</code> 也可以告诉我们冲突的文件：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212832585.png" alt="git status冲突" /></p>
+<p>我们可以直接查看 readme.txt 的内容：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912212910823.png" alt="查看冲突内容" /></p>
+<p>Git用<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>，<code>=======</code>，<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>标记出不同分支的内容，我们将最后一行修改如下后保存：</p>
+<blockquote>
+<p>this changed by master and dev branch…</p>
+</blockquote>
+<p>再提交：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912213013874.png" alt="查看合并" /></p>
+<p>现在，master 分支和 feature1 分支变成了下图所示：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912213042282.png" alt="" /></p>
+<p>用带参数的 <code>git log</code> 也可以看到分支的合并情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --graph --pretty&#x3D;oneline --abbrev-commit</span><br></pre></td></tr></table></figure>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912213141253.png" alt="git log冲突" /></p>
+<p>最后，删除 feature1 分支：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912213230299.png" alt="删除feature1" /></p>
+<h3 id="43-分支管理策略"><a class="markdownIt-Anchor" href="#43-分支管理策略"></a> 4.3 分支管理策略</h3>
+<p>通常，合并分支时，如果可能，Git 会用 Fast forward 模式，但这种模式下，删除分支后，会丢掉分支信息。</p>
+<p>我们可以强制禁用 Fast forward 模式，Git 就会在 merge 时生成一个新的 commit，这样，从分支历史上就可以看出分支信息。</p>
+<p>下面我们实战一下 non-fast-forward 方式的 merge。</p>
+<p>首先，仍然创建并切换 dev 分支：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912215225591.png" alt="创建dev分支" /></p>
+<p>修改 readme.txt 文件，并提交一个新的 commit：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912215308121.png" alt="提交dev分支" /></p>
+<p>现在，我们切换回 master：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912215632518.png" alt="切换到master" /></p>
+<p>准备合并 dev 分支，请注意 <code>--no-ff</code> 参数，表示禁用 Fast forward。因为本次合并要创建一个新的 commit，所以加上<code>-m</code> 参数，把 commit 描述写进去。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912215721082.png" alt="noff合并分支" /></p>
+<p>合并后，我们用 git log 看看分支历史：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912215805050.png" alt="git log历史" /></p>
+<p>可以看到，不使用 Fast forward 模式，merge 后就像这样：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912215835059.png" alt="" /></p>
+<p>在实际开发中，我们应该按照几个基本原则进行分支管理：</p>
+<p>首先，master 分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活，干活都在 dev 分支上。</p>
+<p>也就是说，dev 分支是不稳定的，到某个时候，比如 1.0 版本发布时，再把 dev 分支合并到 master 上，在 master 分支发布1.0版本；</p>
+<p>你和你的小伙伴们每个人都在 dev 分支上干活，每个人都有自己的分支，时不时地往 dev 分支上合并就可以了。</p>
+<p>所以，团队合作的分支看起来就像这样：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912215858481.png" alt="分支策略" /></p>
+<h3 id="44-bug-分支"><a class="markdownIt-Anchor" href="#44-bug-分支"></a> 4.4 Bug 分支</h3>
+<p>当你接到一个修复 bug 的任务时，很自然地，你想创建一个分支来修复它。但是等等，当前分支上进行的工作还没有提交。并不是你不想提交，而是工作只进行到一半，还没法提交。如下图，demo.c 文件还没有完成，无法提交。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222054549.png" alt="无法提交演示" /></p>
+<p>但是，你必须紧急修复该 bug，怎么办？幸好，Git还提供了一个 stash 功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222140963.png" alt="stash" /></p>
+<p>现在，用 <code>git status</code> 查看工作区，就是干净的（除非有没有被 Git 管理的文件），因此可以放心地创建分支来修复 bug。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222225438.png" alt="查看隐藏后status" /></p>
+<p>首先确定要在哪个分支上修复 bug，假定需要在 master 分支上修复，就从 master 创建临时分支：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222308258.png" alt="创建issue分支" /></p>
+<p>现在模拟修复 bug，随便修改 readme.txt 内容，然后提交：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222622375.png" alt="提交issue分支" /></p>
+<p>修复完成后，切换到 master 分支，并完成合并，最后删除 issue 分支：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222706173.png" alt="删除issue" /></p>
+<p>修复完了 Bug，是时候接着回到 dev 分支干活了！</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222820410.png" alt="返回dev" /></p>
+<p>工作区是干净的，刚才的工作现场存到哪去了？用 <code>git stash list</code> 命令看看：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222846790.png" alt="查看stash" /></p>
+<p>工作现场还在，Git 把 stash 内容存在某个地方了，但是需要恢复一下，有两个办法：</p>
+<ul>
+<li>
+<p>用 <code>git stash apply</code> 恢复，但是恢复后，stash 内容并不删除，你需要用 <code>git stash drop</code> 来删除。</p>
+</li>
+<li>
+<p>用 <code>git stash pop</code>，恢复的同时把 stash 内容也删了。</p>
+</li>
+</ul>
+<p>这里假设我们不需要保留 stash 的内容了，使用 <code>git stash pop</code> 命令。再用 <code>git stash list</code> 查看，就看不到任何 stash 内容了：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912222928064.png" alt="stash pop" /></p>
+<p>当然了，你可以多次stash，恢复的时候，先用<code>git stash list</code>查看，然后恢复指定的stash，用命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash apply stash@&#123;0&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="45-多人协作"><a class="markdownIt-Anchor" href="#45-多人协作"></a> 4.5 多人协作</h3>
+<p>你从远程仓库克隆时，实际上 Git 自动把本地的 master 分支和远程的 master 分支对应起来了，并且，远程仓库的默认名称是 origin。</p>
+<p>用 <code>git remote</code> 查看远程库的信息,或者，用 <code>git remote -v</code> 显示更详细的信息：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912224356423.png" alt="git remote" /></p>
+<p>上面显示了可以抓取和推送的 origin 的地址。如果没有推送权限，就看不到 push 的地址。</p>
+<p>多人协作时，大家都会往 master 和 dev 分支上推送各自的修改。</p>
+<p>当你的小伙伴从远程库 clone 时，默认情况下，你的小伙伴只能看到本地的 master 分支。</p>
+<p>现在，你的小伙伴要在 dev 分支上开发，就必须创建远程 origin 的 dev 分支到本地，于是他用 <code>git checkout -b dev origin/dev</code> 创建本地 dev 分支：</p>
+<p>现在，他就可以在dev上继续修改，然后，时不时地把 dev 分支 push 到远程。</p>
+<p>碰巧你也对同样的文件作了修改，并试图推送就会出错失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，先用git pull把最新的提交从 <code>origin/dev</code> 克隆下来，然后，在本地合并，解决冲突，再推送：</p>
+<p>以上就是多人协作的工作模式，下面来总结一下：</p>
+<ul>
+<li>
+<p>首先，可以试图用 <code>git push origin branch-name</code> 推送自己的修改；</p>
+</li>
+<li>
+<p>如果推送失败，则因为远程分支比你的本地更新，需要先用<code>git pull</code>试图合并；</p>
+</li>
+<li>
+<p>如果合并有冲突，则解决冲突，并在本地提交；</p>
+</li>
+<li>
+<p>没有冲突或者解决掉冲突后，再用 <code>git push origin branch-name</code> 推送就能成功！</p>
+</li>
+<li>
+<p>如果 <code>git pull</code> 提示 “no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令 <code>git branch --set-upstream branch-name origin/branch-name</code>。</p>
+</li>
+</ul>
+<h3 id="46-命令小节"><a class="markdownIt-Anchor" href="#46-命令小节"></a> 4.6 命令小节</h3>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912224607107.png" alt="分支命令" /></p>
+<h2 id="五-标签管理"><a class="markdownIt-Anchor" href="#五-标签管理"></a> 五、标签管理</h2>
+<p>发布一个版本时，我们通常先在版本库中打一个标签（tag），这样，就唯一确定了打标签时刻的版本。将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。所以，标签也是版本库的一个快照。</p>
+<p>Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（与分支很像但是分支可以移动，标签不能移动）。</p>
+<p>Git有commit，为什么还要引入tag？</p>
+<p>“请把上周一的那个版本打包发布，commit号是6a5819e…”</p>
+<p>“一串乱七八糟的数字不好找！”</p>
+<p>如果换一个办法：</p>
+<p>“请把上周一的那个版本打包发布，版本号是v1.2”</p>
+<p>“好的，按照tag v1.2查找commit就行！”</p>
+<p>所以，tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。</p>
+<h3 id="51-创建标签"><a class="markdownIt-Anchor" href="#51-创建标签"></a> 5.1 创建标签</h3>
+<p>在Git中打标签非常简单，首先，切换到需要打标签的分支上，然后，敲命令 <code>git tag &lt;name&gt;</code> 就可以打一个新标签：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912225741049.png" alt="打标签" /></p>
+<p>可以用命令 <code>git tag</code> 查看所有标签：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912232355386.png" alt="查看标签" /></p>
+<p>默认标签是打在最新提交的 commit 上的。如果想要给历史 commit 打标签，可以找到历史提交的 commit id，然后打上就可以了：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912232446793.png" alt="查看git log" /></p>
+<p>比方说要对 add merge 这次提交打标签，它对应的 commit id 是 3728b64，敲入命令 <code>git tag v0.1 6224937</code>：</p>
+<p>再用命令 <code>git tag</code> 查看标签：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912232523097.png" alt="查看标签2" /></p>
+<p>注意，标签不是按时间顺序列出，而是按字母排序的。可以用 <code>git show &lt;tagname&gt;</code> 查看标签信息：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912232613422.png" alt="查看标签具体" /></p>
+<p>可以看到，v0.1 确实打在 add merge 这次提交上。</p>
+<p>还可以创建带有说明的标签，用 <code>-a</code> 指定标签名，<code>-m</code> 指定说明文字，例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a v0.1 -m &quot;version 0.1 released&quot; 3628164</span><br></pre></td></tr></table></figure>
+<p>还可以通过 <code>-s</code> 用私钥签名一个标签：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git tag -s v0.2 -m <span class="string">&quot;signed version 0.2 released&quot;</span> fec145a</span></span><br></pre></td></tr></table></figure>
+<p>签名采用 PGP 签名，因此，必须首先安装 gpg（GnuPG）,用 PGP 签名的标签是不可伪造的，因为可以验证 PGP 签名。</p>
+<h3 id="52-操作标签"><a class="markdownIt-Anchor" href="#52-操作标签"></a> 5.2 操作标签</h3>
+<p>如果标签打错了，也可以删除：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d v0.1</span><br></pre></td></tr></table></figure>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912230447892.png" alt="删除标签" /></p>
+<p>因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除。</p>
+<p>如果要推送某个标签到远程，使用命令 <code>git push origin &lt;tagname&gt;</code>，或者，使用 <code>git push origin --tags</code> 一次性推送全部尚未推送到远程的本地标签。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912230518979.png" alt="推送标签" /></p>
+<p>如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d v0.1</span><br></pre></td></tr></table></figure>
+<p>然后，从远程删除。删除命令也是 push，但是格式如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin :refs/tags/v0.1</span><br></pre></td></tr></table></figure>
+<p>要看看是否真的从远程库删除了标签，可以登陆 GitHub 查看。</p>
+<h3 id="53-命令小节"><a class="markdownIt-Anchor" href="#53-命令小节"></a> 5.3 命令小节</h3>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201709/20170912232647503.png" alt="标签命令" /></p>
+<h2 id="六-自定义-git"><a class="markdownIt-Anchor" href="#六-自定义-git"></a> 六、自定义 Git</h2>
+<h3 id="61-搭建-git-服务器"><a class="markdownIt-Anchor" href="#61-搭建-git-服务器"></a> 6.1 搭建 Git 服务器</h3>
+<h4 id="611-搭建环境"><a class="markdownIt-Anchor" href="#611-搭建环境"></a> 6.1.1 搭建环境</h4>
+<p>GitHub 就是一个免费托管开源代码的远程仓库。但是对于某些视源代码如生命的商业公司来说，既不想公开源代码，又舍不得给 GitHub 交保护费，那就只能自己搭建一台 Git 服务器作为私有仓库使用。</p>
+<p>搭建 Git 服务器需要准备一台运行 Linux 的机器或服务器。</p>
+<p>假设你已经有 sudo 权限的用户账号，下面，正式开始安装。</p>
+<p>第一步，安装 git</p>
+<p>第二步，创建一个 git 用户，用来运行 git 服务：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser git</span><br></pre></td></tr></table></figure>
+<p>第三步，创建证书登录：</p>
+<p>收集所有需要登录的用户的公钥，就是他们自己的 <code>id_rsa.pub</code> 文件，把所有公钥导入到 <code>/home/git/.ssh/authorized_keys</code> 文件里，一行一个。</p>
+<p>第四步，初始化 Git 仓库：</p>
+<p>先选定一个目录作为 Git 仓库，假定是 /srv/sample.git，在 /srv 目录下输入命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo git init --bare sample.git</span><br></pre></td></tr></table></figure>
+<p>Git 就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以.git结尾。然后，把owner改为git：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R git:git sample.git</span><br></pre></td></tr></table></figure>
+<p>第五步，禁用 shell 登录：</p>
+<p>出于安全考虑，第二步创建的 git 用户不允许登录shell，这可以通过编辑 <code>/etc/passwd</code> 文件完成。找到类似下面的一行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git:x:1001:1001:,,,:/home/git:/bin/bash</span><br></pre></td></tr></table></figure>
+<p>改为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</span><br></pre></td></tr></table></figure>
+<p>这样，git 用户可以正常通过 ssh 使用 git，但无法登录 shell，因为我们为 git 用户指定的 git-shell 每次一登录就自动退出。</p>
+<p>第六步，克隆远程仓库：</p>
+<p>现在，可以通过 git clone 命令克隆远程仓库了，在各自的电脑上运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@server:/srv/sample.git</span><br></pre></td></tr></table></figure>
+<p>剩下的推送就简单了。</p>
+<h4 id="612-管理公钥"><a class="markdownIt-Anchor" href="#612-管理公钥"></a> 6.1.2 管理公钥</h4>
+<p>如果团队很小，把每个人的公钥收集起来放到服务器的/home/git/.ssh/authorized_keys文件里就是可行的。如果团队有几百号人，可以用Gitosis来管理公钥。</p>
+<h3 id="62-设置忽略文件"><a class="markdownIt-Anchor" href="#62-设置忽略文件"></a> 6.2 设置忽略文件</h3>
+<p>有些时候，你必须把某些文件放到 Git 工作目录中，但又不能提交它们，比如保存了数据库密码的配置文件啦，等等，每次 <code>git status</code> 都会显示 <code>Untracked files ...</code>。</p>
+<p>好在 Git 考虑到了大家的感受，这个问题解决起来也很简单，在 Git 工作区的根目录下创建一个特殊的 <code>.gitignore</code> 文件，然后把要忽略的文件名填进去，Git 就会自动忽略这些文件。</p>
+<p>GitHub 已经为我们准备了各种配置文件，只需要组合一下就可以使用了。所有配置文件可以直接在线浏览：<a target="_blank" rel="noopener" href="https://github.com/github/gitignore">https://github.com/github/gitignore</a> 。</p>
+<p>忽略文件的原则是：</p>
+<ul>
+<li>
+<p>忽略操作系统自动生成的文件，比如缩略图等；</p>
+</li>
+<li>
+<p>忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如Java编译产生的.class文件；</p>
+</li>
+<li>
+<p>忽略你自己的带有敏感信息的配置文件，比如存放口令的配置文件。</p>
+</li>
+</ul>
+<p>举个例子：</p>
+<p>假设你在Windows下进行Python开发，Windows会自动在有图片的目录下生成隐藏的缩略图文件，如果有自定义目录，目录下就会有Desktop.ini文件，因此你需要忽略Windows自动生成的垃圾文件：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows:</span></span><br><span class="line">Thumbs.db</span><br><span class="line">ehthumbs.db</span><br><span class="line">Desktop.ini</span><br></pre></td></tr></table></figure>
+<p>然后，继续忽略Python编译产生的.pyc、.pyo、dist等文件或目录：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Python:</span></span><br><span class="line">*.py[cod]</span><br><span class="line">*.so</span><br><span class="line">*.egg</span><br><span class="line">*.egg-info</span><br><span class="line">dist</span><br><span class="line">build</span><br></pre></td></tr></table></figure>
+<p>加上你自己定义的文件，最终得到一个完整的.gitignore文件，内容如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows:</span></span><br><span class="line">Thumbs.db</span><br><span class="line">ehthumbs.db</span><br><span class="line">Desktop.ini</span><br><span class="line"></span><br><span class="line"><span class="comment"># Python:</span></span><br><span class="line">*.py[cod]</span><br><span class="line">*.so</span><br><span class="line">*.egg</span><br><span class="line">*.egg-info</span><br><span class="line">dist</span><br><span class="line">build</span><br><span class="line"></span><br><span class="line"><span class="comment"># My configurations:</span></span><br><span class="line">db.ini</span><br><span class="line">deploy_key_rsa</span><br></pre></td></tr></table></figure>
+<p>最后一步就是把 <code>.gitignore</code> 也提交到 Git，就完成了！当然检验 .gitignore 的标准是 <code>git status</code> 命令是不是说 <code>working directory clean</code>。</p>
+<p>有些时候，你想添加一个文件到 Git，但发现添加不了，原因是这个文件被 .gitignore 忽略了：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git add App.class</span></span><br><span class="line">The following paths are ignored by one of your .gitignore files:</span><br><span class="line">App.class</span><br><span class="line">Use -f if you really want to add them.</span><br></pre></td></tr></table></figure>
+<p>如果你确实想添加该文件，可以用-f强制添加到Git：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git add -f App.class</span></span><br></pre></td></tr></table></figure>
+<p>或者你发现，可能是 .gitignore 写得有问题，需要找出来到底哪个规则写错了，可以用 <code>git check-ignore</code> 命令检查：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git check-ignore -v App.class</span></span><br><span class="line">.gitignore:3:*.class    App.class</span><br></pre></td></tr></table></figure>
+<p>Git 会告诉我们，.gitignore 的第3行规则忽略了该文件，于是我们就可以知道应该修订哪个规则。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Jitwxs</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://jitwxs.cn/2121b11b.html">https://jitwxs.cn/2121b11b.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://jitwxs.cn" target="_blank">Jitwxs</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Git/">Git</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover21.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/wechat_donate.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/wechat_donate.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/alipay_donate.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/alipay_donate.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/51dc9e04.html"><img class="prev-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover24.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">LTP 第一章 LTP 介绍及内部机制</div></div></a></div><div class="next-post pull-right"><a href="/c9e92657.html"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Eclipse 配置注释模板</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/6533bf70.html" title="Git Fork 后与源作者同步更新"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover16.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-11-04</div><div class="title">Git Fork 后与源作者同步更新</div></div></a></div><div><a href="/8bef605.html" title="Git Submodule 使用技巧"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover3.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-07-11</div><div class="title">Git Submodule 使用技巧</div></div></a></div><div><a href="/33ebef44.html" title="Git 修改已经被覆盖的提交"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover21.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-07-11</div><div class="title">Git 修改已经被覆盖的提交</div></div></a></div><div><a href="/dc78acac.html" title="Git 多用户配置"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover17.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-07-12</div><div class="title">Git 多用户配置</div></div></a></div><div><a href="/7dda603c.html" title="Gitmoji 速查指南"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover11.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-14</div><div class="title">Gitmoji 速查指南</div></div></a></div><div><a href="/9a10ca4e.html" title="从 Git 仓库的 Commit 历史中移除敏感文件"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover6.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-05-06</div><div class="title">从 Git 仓库的 Commit 历史中移除敏感文件</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Jitwxs</div><div class="author-info__description">不忘初心，砥砺前行</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">224</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">132</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">39</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/jitwxs"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/jitwxs" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=Ujg7JiUqIRI0PSo-Mzs_fDE9Pw" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="https://jitwxs.blog.csdn.net" target="_blank" title="CSDN"><i class="fab fa-cuttlefish flat-btn"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">专注 Java 后端开发，内容涵盖 SpringBoot、并发编程、微服务、容器化、Linux 等技术分享。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-git-%E5%9F%BA%E7%A1%80"><span class="toc-text"> 一、Git 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text"> 1.1 版本控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-%E5%AE%89%E8%A3%85-git"><span class="toc-text"> 1.2 安装 Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%92%8C%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="toc-text"> 1.3 工作区和暂存区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-%E4%B8%89%E4%B8%AA%E5%85%B7%E6%9C%89%E4%BB%A3%E8%A1%A8%E6%80%A7%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="toc-text"> 1.4 三个具有代表性的命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6"><span class="toc-text"> 二、版本控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#21-%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93"><span class="toc-text"> 2.1 创建版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-%E6%9F%A5%E7%9C%8B%E4%BB%93%E5%BA%93%E7%8A%B6%E6%80%81"><span class="toc-text"> 2.2 查看仓库状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80"><span class="toc-text"> 2.3 版本回退</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24-%E6%92%A4%E9%94%80%E4%BF%AE%E6%94%B9"><span class="toc-text"> 2.4 撤销修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25-%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-text"> 2.5 删除文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26-%E5%91%BD%E4%BB%A4%E5%B0%8F%E8%8A%82"><span class="toc-text"> 2.6 命令小节</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-text"> 三、远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#31-%E5%88%9B%E5%BB%BA%E5%92%8C%E8%AE%BE%E7%BD%AE%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-text"> 3.1 创建和设置远程仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#32-%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E5%BA%93"><span class="toc-text"> 3.2 添加远程库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#33-%E4%BB%8E%E8%BF%9C%E7%A8%8B%E5%BA%93%E5%85%8B%E9%9A%86"><span class="toc-text"> 3.3 从远程库克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#34-%E5%91%BD%E4%BB%A4%E5%B0%8F%E8%8A%82"><span class="toc-text"> 3.4 命令小节</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="toc-text"> 四、分支管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#41-%E5%88%9B%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF"><span class="toc-text"> 4.1 创建与合并分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#42-%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="toc-text"> 4.2 解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#43-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E7%AD%96%E7%95%A5"><span class="toc-text"> 4.3 分支管理策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#44-bug-%E5%88%86%E6%94%AF"><span class="toc-text"> 4.4 Bug 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#45-%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C"><span class="toc-text"> 4.5 多人协作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#46-%E5%91%BD%E4%BB%A4%E5%B0%8F%E8%8A%82"><span class="toc-text"> 4.6 命令小节</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E6%A0%87%E7%AD%BE%E7%AE%A1%E7%90%86"><span class="toc-text"> 五、标签管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#51-%E5%88%9B%E5%BB%BA%E6%A0%87%E7%AD%BE"><span class="toc-text"> 5.1 创建标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#52-%E6%93%8D%E4%BD%9C%E6%A0%87%E7%AD%BE"><span class="toc-text"> 5.2 操作标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#53-%E5%91%BD%E4%BB%A4%E5%B0%8F%E8%8A%82"><span class="toc-text"> 5.3 命令小节</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD-%E8%87%AA%E5%AE%9A%E4%B9%89-git"><span class="toc-text"> 六、自定义 Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#61-%E6%90%AD%E5%BB%BA-git-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text"> 6.1 搭建 Git 服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#611-%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83"><span class="toc-text"> 6.1.1 搭建环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#612-%E7%AE%A1%E7%90%86%E5%85%AC%E9%92%A5"><span class="toc-text"> 6.1.2 管理公钥</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#62-%E8%AE%BE%E7%BD%AE%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="toc-text"> 6.2 设置忽略文件</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/e4d53ddb.html" title="Spring SchedulingConfigurer 实现动态定时任务"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring SchedulingConfigurer 实现动态定时任务"/></a><div class="content"><a class="title" href="/e4d53ddb.html" title="Spring SchedulingConfigurer 实现动态定时任务">Spring SchedulingConfigurer 实现动态定时任务</a><time datetime="2021-03-27T15:23:41.000Z" title="发表于 2021-03-27 23:23:41">2021-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/9f878221.html" title="Java 双亲委派机制"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java 双亲委派机制"/></a><div class="content"><a class="title" href="/9f878221.html" title="Java 双亲委派机制">Java 双亲委派机制</a><time datetime="2021-03-14T03:26:34.000Z" title="发表于 2021-03-14 11:26:34">2021-03-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/bef70352.html" title="图解 | 你管这破玩意儿叫TCP？"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover13.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图解 | 你管这破玩意儿叫TCP？"/></a><div class="content"><a class="title" href="/bef70352.html" title="图解 | 你管这破玩意儿叫TCP？">图解 | 你管这破玩意儿叫TCP？</a><time datetime="2021-01-24T07:19:23.000Z" title="发表于 2021-01-24 15:19:23">2021-01-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/c376af5e.html" title="图解 | 你管这破玩意叫线程池？"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover21.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图解 | 你管这破玩意叫线程池？"/></a><div class="content"><a class="title" href="/c376af5e.html" title="图解 | 你管这破玩意叫线程池？">图解 | 你管这破玩意叫线程池？</a><time datetime="2021-01-23T11:23:54.000Z" title="发表于 2021-01-23 19:23:54">2021-01-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/93fdc2b.html" title="如果让你来设计网络"><img data-lazy-src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/top/cover1.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如果让你来设计网络"/></a><div class="content"><a class="title" href="/93fdc2b.html" title="如果让你来设计网络">如果让你来设计网络</a><time datetime="2021-01-23T07:39:03.000Z" title="发表于 2021-01-23 15:39:03">2021-01-23</time></div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient(135deg,"><div id="footer-wrap"><div class="copyright">&copy;2016 - 2021 By Jitwxs</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href='http://www.beian.miit.gov.cn/state/outPortal/loginPortal.action'><img class='icp-icon entered loading' src='/img/icp.png' alt='ICP' data-ll-status='loading'>苏 ICP 备 16061429 号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    let id = md5(decodeURI(window.location.pathname));
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '1abf6b8c844664e07e3e',
+      clientSecret: '49e497f91b34805a5d19dd73b6d4493d84020782',
+      repo: 'blog-comment',
+      owner: 'jitwxs',
+      admin: ['jitwxs'],
+      id: id,
+      language: 'en',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const findTrueUrl = (array) => {
+    let url = ''
+    Promise.all(array.map(item =>
+      fetch(item.url).then(resp => resp.json()).then(data => {
+        if (data.user.login === 'utterances-bot') {
+          url = data.body.match(/https?\:\/\/[^\" ]+/ig).slice(-1)
+          return url[0]
+        } else {
+          url = data.body.match(/https?\:\/\/[^\" ]+/i)
+          return url[0]
+        }
+      })
+    )).then(res => {
+        array = array.map((i,index)=> {
+          return {
+            ...i,
+            url: res[index]
+          }
+        })
+
+        saveToLocal.set('github-newest-comments', JSON.stringify(array), 10/(60*24))
+        generateHtml(array)
+    });
+  }
+
+  const getComment = () => {
+    fetch('https://api.github.com/repos/jitwxs/blog-comment/issues/comments?sort=updated&direction=desc&per_page=6&page=1',{
+      "headers": {
+        Accept: 'application/vnd.github.v3.html+json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        const githubArray = data.map(item => {
+          return {
+            'avatar': item.user.avatar_url,
+            'content': changeContent(item.body_html),
+            'nick': item.user.login,
+            'url': item.issue_url,
+            'date': item.updated_at,
+            'githubUrl': item.html_url
+          }
+        })
+        findTrueUrl(githubArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('github-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="5273081683" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" data-lrctype="1" muted></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.17.0/js/md5.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-40VH67TNSM', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
