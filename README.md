@@ -6,5 +6,10 @@
 - 网站小工具：https://github.com/jitwxs/blog-tools
 - 网站文章源码：https://github.com/jitwxs/blog-sample
 - 网站评论仓库：https://github.com/jitwxs/blog-comment
-
 - 全站 CDN：https://github.com/jitwxs/cdn
+
+# Deploy
+
+```bash
+npm run deploy
+```
