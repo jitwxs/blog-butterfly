@@ -4,13 +4,17 @@ date: 2020-12-12 21:14:58
 type: "about"
 ---
 
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=jitwxs)](#)
+## Self Introduction
 
 一枚年轻的码农，老家位于蓝鲸，高中开始接触了计算机硬件和 C 语言知识，高中毕业后，进入当地某不入流本科就读 CS 专业。
 
 19 年毕业后，成为一名北漂，成为一名 Java 程序猿，目前工作方向是衍生品交易系统，欢迎同行一起探讨 ~
 
----
+## GitHub Introduce
+
+<div id="about-github-calendar"></div>
+
+## Contract Me
 
 | 描述     | 地址 / 名称                            |                       长期支持                        |
 | :------- | :------------------------------------- | :---------------------------------------------------: |
