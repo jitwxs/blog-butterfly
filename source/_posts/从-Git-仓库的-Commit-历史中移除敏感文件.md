@@ -70,16 +70,12 @@ git push origin --force --tags
 
 除了使用 git 自带的 filter-barch 命令，还有一个更加方便的命令工具， 可以帮助我们删除 commit history 中的敏感信息。 这就是 [BFG](https://rtyley.github.io/bfg-repo-cleaner/)。
 
-首先下载 BFG 工具：
-
-```shell
-wget http://repo1.maven.org/maven2/com/madgag/bfg/1.12.16/bfg-1.12.16.jar
-```
+首先下载 BFG 工具：https://rtyley.github.io/bfg-repo-cleaner
 
 执行命令：
 
 ```shell
-javar -jar bfg-1.12.16.jar --delete-files YOUR-FILE-WITH-SENSITIVE-DATA
+java -jar bfg-1.12.16.jar --delete-files YOUR-FILE-WITH-SENSITIVE-DATA
 ```
 
 和使用 `filter-branch` 一样，将 `YOUR-FILE-WITH-SENSITIVE-DATA` 替换为你要删除的文件路径，然后执行命令提交到仓库中：
