@@ -4,7 +4,6 @@ tags: 反序列化
 categories: Java
 abbrlink: b9d809ac
 date: 2018-03-28 01:08:56
-copyright_author: Jitwxs
 ---
 
 2015年11月6日FoxGlove Security安全团队的@breenmachine 发布了一篇长博客，阐述了利用Java反序列化和Apache Commons Collections这一基础类库实现远程命令执行的真实案例，各大Java Web Server纷纷躺枪，这个漏洞横扫WebLogic、WebSphere、JBoss、Jenkins、OpenNMS的最新版。而在将近10个月前， Gabriel Lawrence 和Chris Frohoff 就已经在AppSecCali上的一个报告里提到了这个漏洞利用思路。　

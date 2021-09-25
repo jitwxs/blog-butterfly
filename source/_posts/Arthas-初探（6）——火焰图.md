@@ -1,6 +1,5 @@
 ---
 title: Arthas 初探（6）——火焰图
-copyright_author: Jitwxs
 tags:
   - Arthas
   - 火焰图

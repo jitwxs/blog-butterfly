@@ -26,7 +26,6 @@ references:
     url: https://msd.misuland.com/pd/3148108429789238982
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、单例模式的介绍

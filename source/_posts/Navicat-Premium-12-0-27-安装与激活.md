@@ -4,7 +4,6 @@ tags: Navicat
 categories: 开发工具
 abbrlink: 4be9221b
 date: 2018-05-04 15:50:59
-copyright_author: Jitwxs
 ---
 
 首先下载 `Navicat Premium 12.0.27` 安装包和破解工具：

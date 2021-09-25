@@ -6,7 +6,6 @@ categories:
   - Redis
 abbrlink: 4c90598b
 date: 2018-03-03 21:33:35
-copyright_author: Jitwxs
 ---
 
 Redis 的高性能是由其将所有数据都存储在了内存中，需要使用时直接从内存调用即可。为了使 Redis 在重启之后仍然能保证数据不丢失，需要将数据从内存同步到内存中，这一过程就是`持久化`。

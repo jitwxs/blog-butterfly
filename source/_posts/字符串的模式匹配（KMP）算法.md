@@ -19,7 +19,6 @@ references:
     url: https://www.bilibili.com/video/av11866460?zw
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、背景

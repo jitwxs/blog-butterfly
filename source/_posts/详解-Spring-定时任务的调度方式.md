@@ -14,7 +14,6 @@ references:
     url: https://yanbin.blog/understand-spring-schedule-fixedrate-fixeddelay/
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 在 Spring 中，我们可以使用 `@Scheduled` 方便的进行定时任务的执行，其支持以下三种调度方式：Cron、FixedDelay、FixedRate。下面分别介绍在标准模式下和异步模式下这三种调度方式的不同。

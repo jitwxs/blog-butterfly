@@ -4,7 +4,6 @@ tags: 文件系统
 categories: Linux
 abbrlink: 63a050cf
 date: 2017-11-06 23:47:27
-copyright_author: Jitwxs
 ---
 
 ## 一、Ext2文件系统

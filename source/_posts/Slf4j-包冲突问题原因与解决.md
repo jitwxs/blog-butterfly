@@ -1,6 +1,5 @@
 ---
 title: Slf4j 包冲突问题原因与解决
-copyright_author: Jitwxs
 categories:
   - Java
   - 日志框架

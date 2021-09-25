@@ -1,10 +1,14 @@
 ---
 title: Mockito 源码分析（1）——基础概念
-categories: Unit Test
+categories: 单元测试
 tags: Mockito
-copyright_author: Jitwxs
 abbrlink: f9625997
 date: 2021-09-20 09:02:35
+related_repos:
+  - name: mock-sample
+    url: https://github.com/jitwxs/blog-sample/tree/master/javase-sample/mock-sample
+    rel: nofollow noopener noreferrer
+    target: _blank
 ---
 
 ## 前言

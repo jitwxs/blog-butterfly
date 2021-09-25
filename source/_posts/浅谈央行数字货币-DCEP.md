@@ -4,7 +4,6 @@ categories: 区块链
 tags: [区块链, DCEP]
 abbrlink: 67173ef2
 date: 2019-11-02 18:19:53
-copyright_author: Jitwxs
 ---
 
 ## 一、前言

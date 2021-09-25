@@ -6,7 +6,6 @@ categories:
 tags: Git
 abbrlink: 8bef605
 date: 2019-07-11 12:11:15
-copyright_author: Jitwxs
 ---
 
 有的时候我们会遇到仓库嵌套的问题，即一个 Git 仓库内部还有一个 Git 仓库，这里我们可以使用 Git 的模块化。

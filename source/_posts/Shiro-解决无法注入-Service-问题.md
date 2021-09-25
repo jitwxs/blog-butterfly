@@ -6,7 +6,6 @@ categories:
 toc: false
 abbrlink: 6a006994
 date: 2018-03-20 16:38:23
-copyright_author: Jitwxs
 ---
 
 今天在使用`Spring Boot`集成`Shiro`时出现了无法注入`Service`的问题，解决后来记录一下。

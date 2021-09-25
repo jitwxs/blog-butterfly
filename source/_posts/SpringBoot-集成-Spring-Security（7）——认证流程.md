@@ -6,7 +6,6 @@ categories:
 abbrlink: a28c0db7
 date: 2018-12-02 14:14:03
 icons: [fas fa-fire red]
-copyright_author: Jitwxs
 ---
 
 在前面的六章中，介绍了 Spring Security 的基础使用，在继续深入向下的学习前，有必要理解清楚 Spring Security 的认证流程，这样才能理解为什么要这样写代码，也方便后续的扩展。

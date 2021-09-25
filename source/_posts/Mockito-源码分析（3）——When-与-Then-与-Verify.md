@@ -1,10 +1,14 @@
 ---
 title: Mockito 源码分析（3）——When 与 Then 与 Verify
-categories: Unit Test
+categories: 单元测试
 tags: Mockito
-copyright_author: Jitwxs
 abbrlink: 921b3e8a
 date: 2021-09-20 20:32:05
+related_repos:
+  - name: mock-sample
+    url: https://github.com/jitwxs/blog-sample/tree/master/javase-sample/mock-sample
+    rel: nofollow noopener noreferrer
+    target: _blank
 ---
 
 先问大家一个问题，下图中我使用框子标出的代码，你觉得是红色、绿色、蓝色，执行的顺序是怎样的呢？

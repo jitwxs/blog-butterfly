@@ -17,7 +17,6 @@ references:
     url: https://myslide.cn/slides/10035
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、前言

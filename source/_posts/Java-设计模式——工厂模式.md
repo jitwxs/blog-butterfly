@@ -18,7 +18,6 @@ references:
     url: https://blog.csdn.net/qq_17242957/article/details/52766885
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、什么是工厂模式

@@ -5,7 +5,6 @@ categories: Java
 toc_number: true
 abbrlink: aa870a3e
 date: 2017-12-11 17:00:07
-copyright_author: Jitwxs
 ---
 
 ## XML解析方式

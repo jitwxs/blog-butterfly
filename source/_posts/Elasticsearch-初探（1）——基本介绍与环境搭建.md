@@ -6,7 +6,6 @@ categories:
 tags: Elasticsearch
 abbrlink: 513d7aa1
 date: 2018-10-08 11:56:23
-copyright_author: Jitwxs
 ---
 
 ## 一、Elasticsearch简介

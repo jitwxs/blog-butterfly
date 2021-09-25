@@ -5,7 +5,6 @@ categories:
   - Solr
 abbrlink: 2b682855
 date: 2018-03-07 00:30:48
-copyright_author: Jitwxs
 ---
 
 ##  一、Solr 简介

@@ -5,7 +5,6 @@ categories:
   - Solr
 abbrlink: ea6efdc6
 date: 2018-04-10 15:31:06
-copyright_author: Jitwxs
 ---
 
 在上一节中，我们已经成功搭建了 Solr 后台，并且在后台中新建了一个`核（core）`，本节将介绍Solr配置域。

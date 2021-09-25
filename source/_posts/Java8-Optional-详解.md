@@ -4,7 +4,6 @@ tags: Optional
 categories: Java
 abbrlink: c6a78a53
 date: 2018-03-14 10:37:35
-copyright_author: Jitwxs
 ---
 
 在Java8中新增了一个`Optional`类，官方描述是该类是一个容器对象，其中可能**包含一个空或非空的值**。如果存在一个值，`isPresent()`将返回true，`get()`将返回该值。

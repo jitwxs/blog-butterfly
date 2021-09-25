@@ -1,12 +1,8 @@
 ---
 title: Nginx 初探（2）——配置虚拟主机
-tags: 虚拟主机
-categories:
-  - 服务器
-  - Nginx
+categories: Nginx
 abbrlink: 133d8a57
 date: 2018-03-23 15:37:13
-copyright_author: Jitwxs
 ---
 
 ## 一、引入

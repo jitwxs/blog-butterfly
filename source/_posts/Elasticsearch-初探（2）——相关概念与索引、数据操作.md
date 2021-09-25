@@ -6,7 +6,6 @@ categories:
 tags: [索引, Elasticsearch]
 abbrlink: 404d3073
 date: 2018-10-08 18:12:43
-copyright_author: Jitwxs
 ---
 
 ## 一、基本概念

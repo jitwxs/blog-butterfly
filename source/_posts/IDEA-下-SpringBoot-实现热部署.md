@@ -6,7 +6,6 @@ categories:
   - IDEA
 abbrlink: 893ce85e
 date: 2018-08-01 09:11:30
-copyright_author: Jitwxs
 ---
 
 **Step1：** 按照下图所示，勾选`Build project automatically`:

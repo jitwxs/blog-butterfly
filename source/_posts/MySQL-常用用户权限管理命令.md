@@ -5,7 +5,6 @@ categories:
   - MySQL
 abbrlink: 5aeb4f97
 date: 2020-05-12 22:25:12
-copyright_author: Jitwxs
 ---
 
 ## 一、用户

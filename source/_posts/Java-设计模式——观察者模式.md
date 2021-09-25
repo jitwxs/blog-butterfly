@@ -5,7 +5,6 @@ categories:
   - 设计模式
 abbrlink: 57c88403
 date: 2019-05-27 00:12:09
-copyright_author: Jitwxs
 ---
 
 ## 一、前言

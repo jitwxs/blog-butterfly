@@ -6,7 +6,6 @@ categories:
 tags: Elasticsearch
 abbrlink: d459272e
 date: 2018-10-09 10:16:18
-copyright_author: Jitwxs
 ---
 
 Elasticsearch的一大优势就是能够十分轻松的进行分布式/集群部署，本文将主要讲解Elastic的集群搭建。

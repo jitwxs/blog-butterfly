@@ -23,7 +23,6 @@ references:
     url: https://juejin.im/post/59361f79a22b9d0058fdc725
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、Override

@@ -1,6 +1,5 @@
 ---
 title: SpringBoot Metrics 监控系统（3）——搭建框架
-copyright_author: Jitwxs
 tags:
   - SpringBoot
   - Prometheus

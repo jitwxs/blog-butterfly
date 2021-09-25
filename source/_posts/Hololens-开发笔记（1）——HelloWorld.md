@@ -3,7 +3,6 @@ title: HoloLens 开发笔记（1）——HelloWorld
 categories: HoloLens
 abbrlink: e42fdabb
 date: 2018-11-19 15:38:31
-copyright_author: Jitwxs
 ---
 
 HoloLens是微软在2015年推出的一款混合现实（MR）眼镜，官方网站[点击这里](https://www.microsoft.com/zh-cn/hololens)。这个眼镜具体能干啥，文字表述总是太过乏力，下面给出一些相关视频，帮助大家感受下。

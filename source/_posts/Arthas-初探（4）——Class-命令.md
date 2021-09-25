@@ -1,6 +1,5 @@
 ---
 title: Arthas 初探（4）——Class 命令
-copyright_author: Jitwxs
 tags: Arthas
 categories:
   - Java

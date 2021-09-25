@@ -5,7 +5,6 @@ tags: Markdown
 abbrlink: 69ded3af
 katex: true
 date: 2019-03-14 21:44:57
-copyright_author: Jitwxs
 ---
 
 ## 一、为什么要学习 Markdown？

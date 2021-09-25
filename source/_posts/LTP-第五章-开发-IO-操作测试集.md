@@ -10,7 +10,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/blob/master/LTP/LTP_05
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 在本章中，我们将编写以下几个测试：

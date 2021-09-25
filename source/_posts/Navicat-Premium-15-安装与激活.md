@@ -5,7 +5,6 @@ categories: 开发工具
 abbrlink: ecc43537
 date: 2020-02-14 23:00:50
 icons: [fas fa-fire red]
-copyright_author: Jitwxs
 ---
 
 偶然发现 Navicat 已经更新到了15 了，今天就来把 Navicat 升级一下。Navicat15 的激活和 Navicat12 一致，可以参考[《Navicat Premium 12.0.27 安装与激活》](/4be9221b.html)。

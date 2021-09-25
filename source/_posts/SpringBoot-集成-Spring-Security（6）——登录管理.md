@@ -14,7 +14,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security06_share
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 在本篇中，主要关注**登录的管理**，因此代码使用最原始版本的即可，即《[SpringBoot集成Spring Security（1）——入门程序](/5f5715e6.html)》源码即可。

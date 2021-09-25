@@ -1,10 +1,9 @@
 ---
 title: Linux 配置多个 Tomcat
-categories: 服务器
+categories: Linux
 tags: Tomcat
 abbrlink: 13892bf0
 date: 2018-03-26 01:26:05
-copyright_author: Jitwxs
 ---
 
 我的系统里面原本就有一份 Tomcat ，名称为 `tomcat8` ：

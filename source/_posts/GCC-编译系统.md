@@ -4,7 +4,6 @@ categories: Linux
 tags: GCC
 abbrlink: 29703731
 date: 2017-07-05 14:21:59
-copyright_author: Jitwxs
 ---
 
 ## 一、文件名后缀

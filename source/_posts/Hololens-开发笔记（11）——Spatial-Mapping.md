@@ -3,7 +3,6 @@ title: HoloLens 开发笔记（11）——Spatial Mapping
 categories: HoloLens
 abbrlink: fd886217
 date: 2019-01-25 17:40:36
-copyright_author: Jitwxs
 ---
 
 HoloLens 作为一款混合现实设备，其与传统 VR/AR 设备最大的区别是，能够和现实世界进行交互。

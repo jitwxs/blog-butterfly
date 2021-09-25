@@ -12,7 +12,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/tree/master/springboot-sample/jwt-sample
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、Session 与 JWT

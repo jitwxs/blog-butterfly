@@ -5,7 +5,6 @@ categories:
   - Redis
 abbrlink: '63e66407'
 date: 2018-03-02 01:23:21
-copyright_author: Jitwxs
 ---
 
 在[《Redis 初探（1）——Redis 的安装》](/e331e26a.html)中，我们说过，Redis支持以下五种数据类型，本章进行详解：

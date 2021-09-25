@@ -6,7 +6,6 @@ categories:
   - 算法
 abbrlink: 2d931a86
 date: 2018-03-28 01:32:23
-copyright_author: Jitwxs
 ---
 
 #### 算法思想

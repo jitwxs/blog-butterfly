@@ -6,7 +6,6 @@ categories:
 tags: Git
 abbrlink: 7dda603c
 date: 2019-11-14 23:24:37
-copyright_author: Jitwxs
 ---
 
 在日常使用 Git 提交过程中，是否觉得提交记录太过单调了呢，如果你也有这种想法，那么就赶紧 Get 下 Gitmoji 吧。

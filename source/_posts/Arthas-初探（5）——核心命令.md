@@ -1,6 +1,5 @@
 ---
 title: Arthas 初探（5）——核心命令
-copyright_author: Jitwxs
 tags: Arthas
 categories:
   - Java

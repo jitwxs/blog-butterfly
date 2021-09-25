@@ -10,7 +10,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/blob/master/LTP/LTP_01
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ### 1.1 LTP介绍

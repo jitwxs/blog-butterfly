@@ -11,7 +11,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-sample/i18n-sample
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、LocaleResolver

@@ -4,7 +4,6 @@ tags: Vim
 categories: 开发工具
 abbrlink: 8ab971cd
 date: 2017-10-31 00:00:17
-copyright_author: Jitwxs
 ---
 
 ## 一、Vim 简介

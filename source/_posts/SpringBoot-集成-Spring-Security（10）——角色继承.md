@@ -10,7 +10,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security10
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 在本节中，补充下**角色继承**的知识点。角色继承其实是一个十分常见的需求，因为一般系统中角色权限呈金字塔型，高层用户拥有底层用户的权限。

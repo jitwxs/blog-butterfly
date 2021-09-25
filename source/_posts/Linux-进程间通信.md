@@ -10,7 +10,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/blob/master/Linux/process_comm
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 我们知道，进程是一个程序的一次执行，是系统资源分配的最小单元。这里所说的进程一般是指运行在用户态的进程，而由于处于用户态的不同进程间是彼此隔离的，但是它们很可能需要相互发送一些信息，好让对方知道自己的进度等情况，像这样进程间传递信息就叫`进程间通信`。

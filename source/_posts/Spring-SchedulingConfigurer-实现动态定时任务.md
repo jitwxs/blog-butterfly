@@ -1,6 +1,5 @@
 ---
 title: Spring SchedulingConfigurer 实现动态定时任务
-copyright_author: Jitwxs
 tags:
   - SchedulingConfigurer
   - 定时任务

@@ -15,7 +15,6 @@ references:
     url: http://www.cnblogs.com/jiqingwu/p/linux_dynamic_lib_create.html
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 在 Windows 平台和 Linux 平台下都大量存在着库。本质上来说库是一种可执行的二进制代码(但不可以独立执行)，可以被操作系统载入内存执行。

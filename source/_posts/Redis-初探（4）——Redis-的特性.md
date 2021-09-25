@@ -5,7 +5,6 @@ categories:
   - Redis
 abbrlink: 125289ae
 date: 2018-03-03 20:30:41
-copyright_author: Jitwxs
 ---
 
 ## 一、多数据库

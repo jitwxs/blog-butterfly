@@ -9,7 +9,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/tree/master/ActiveMQ/activemq03
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、发送即时消息

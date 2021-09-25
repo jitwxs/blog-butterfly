@@ -11,7 +11,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security08
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 经过前面七章的学习，我们已经算入门 Spring Security 了，下面我们学习如何对 Spring Security 进行扩展，来实现短信验证码方式登录。

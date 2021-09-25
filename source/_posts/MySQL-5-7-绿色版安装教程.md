@@ -5,7 +5,6 @@ categories:
   - MySQL
 abbrlink: f5cfbb3c
 date: 2017-11-29 01:36:57
-copyright_author: Jitwxs
 ---
 
 ## 一、下载安装包

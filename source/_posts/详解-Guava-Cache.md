@@ -18,7 +18,6 @@ references:
     url: https://www.cnblogs.com/vikde/p/8045226.html
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 ## 一、Guava Cache
 

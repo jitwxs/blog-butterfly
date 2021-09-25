@@ -25,7 +25,6 @@ references:
     url: https://blog.csdn.net/fdbvm/article/details/79324718
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 HoloLens 实现全息体验的一个特性就是**场景保持**。当用户离开场景或关闭应用时，场景中的全息图会被保存在所放置的位置，当用户回到场景或重新打开应用时，能够准确的还原之前场景内的全息内容。

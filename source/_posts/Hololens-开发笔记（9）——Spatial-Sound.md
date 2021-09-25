@@ -8,7 +8,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/tree/master/HoloLens
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 在前面我们学习了HoloLens的基础部分，包括 `Gaze`、`Gesure`、`Voice`、`Audio Souce` 等学习，下面开始进阶部分。

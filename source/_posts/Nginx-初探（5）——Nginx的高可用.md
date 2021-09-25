@@ -1,11 +1,8 @@
 ---
 title: Nginx 初探（5）——Nginx的高可用
-categories:
-  - 服务器
-  - Nginx
+categories: Nginx
 abbrlink: 55fecdc1
 date: 2018-03-27 00:32:41
-copyright_author: Jitwxs
 ---
 
 ## 一、回顾

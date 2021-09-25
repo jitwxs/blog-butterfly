@@ -4,7 +4,6 @@ tags: PAM
 categories: Linux
 abbrlink: a0b678d2
 date: 2017-12-06 02:33:51
-copyright_author: Jitwxs
 ---
 
 ## 一、什么是PAM验证

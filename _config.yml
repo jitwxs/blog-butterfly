@@ -5,7 +5,7 @@
 # Site
 title: Jitwxs
 subtitle: ''
-description: '不忘初心，砥砺前行'
+description: '和我一起，走上资深BUG工程师之路'
 keywords:
 author: Jitwxs
 language: zh-CN
@@ -108,7 +108,7 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/jitwxs/jitwxs.github.io
+  repo: git@github.com:jitwxs/jitwxs.github.io.git
   branch: "master"
   message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
 

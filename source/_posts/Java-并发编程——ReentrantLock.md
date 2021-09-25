@@ -21,7 +21,6 @@ references:
     url: 重入锁
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、简介

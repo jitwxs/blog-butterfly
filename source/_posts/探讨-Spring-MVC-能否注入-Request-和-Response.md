@@ -24,7 +24,6 @@ references:
     url: https://my.oschina.net/sluggarddd/blog/678603
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、引言

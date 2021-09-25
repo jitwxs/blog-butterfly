@@ -4,7 +4,6 @@ categories: Java
 abbrlink: 6f3eddff
 date: 2019-04-26 18:23:31
 icons: [fas fa-fire red]
-copyright_author: Jitwxs
 ---
 
 我们知道 Java Switch 支持byte、short、int 类型，在 JDK 1.5 时，支持了枚举类型，在 JDK 1.7 时，又支持了 String类型。那么它为什么就不能支持 long 类型呢，明明它跟 byte、short、int 一样都是数值型，它又是咋支持 String 类型的呢？

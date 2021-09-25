@@ -5,7 +5,6 @@ categories:
   - Redis
 abbrlink: 5907c9b5
 date: 2018-04-10 01:32:07
-copyright_author: Jitwxs
 ---
 
 在[《Redis初探（7）——Jedis操纵集群》](/5108d6b6.html)中，我们已经学会了搭建 Redis 集群，以及使用策略模式，在xml文件中灵活切换单机版和集群版。

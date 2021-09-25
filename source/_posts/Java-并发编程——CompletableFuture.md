@@ -1,6 +1,5 @@
 ---
 title: Java 并发编程——CompletableFuture
-copyright_author: Jitwxs
 categories:
   - Java
   - 并发编程

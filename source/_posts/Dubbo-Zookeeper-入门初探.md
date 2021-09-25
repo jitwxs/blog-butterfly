@@ -6,7 +6,6 @@ tags:
 categories: 中间件
 abbrlink: 5def036a
 date: 2018-03-22 14:55:13
-copyright_author: Jitwxs
 ---
 
 >2018年2月15日，阿里巴巴的dubbo进入了Apache孵化器，社区的加入，希望dubbo能变得更好...

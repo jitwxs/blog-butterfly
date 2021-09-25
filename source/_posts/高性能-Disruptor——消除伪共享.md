@@ -29,7 +29,6 @@ references:
     url: https://www.jianshu.com/p/e1a1b950fc4a
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、CPU Cache

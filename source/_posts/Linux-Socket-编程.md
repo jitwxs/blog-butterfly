@@ -10,7 +10,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/blob/master/Linux/linux_socket
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 前言

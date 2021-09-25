@@ -1,6 +1,5 @@
 ---
 title: 详解 JDK 常用监控工具
-copyright_author: Jitwxs
 tags: JVM
 categories:
   - Java

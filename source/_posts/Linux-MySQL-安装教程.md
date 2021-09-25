@@ -5,7 +5,6 @@ categories:
   - MySQL
 abbrlink: 783eb9d
 date: 2017-12-09 17:46:34
-copyright_author: Jitwxs
 ---
 
 ## 一、Ubuntu 16.04

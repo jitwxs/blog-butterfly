@@ -1,6 +1,5 @@
 ---
 title: Protobuf 与 JSON 的互相转换
-copyright_author: Jitwxs
 categories:
   - Java
   - Protobuf

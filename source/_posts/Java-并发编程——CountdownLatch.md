@@ -13,7 +13,6 @@ references:
     url: https://www.jianshu.com/p/128476015902
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、前言

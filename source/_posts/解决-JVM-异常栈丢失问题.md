@@ -1,6 +1,5 @@
 ---
 title: 解决 JVM 异常栈丢失问题
-copyright_author: Jitwxs
 tags:
   - JVM
   - OmitStackTraceInFastThrow

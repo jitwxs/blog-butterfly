@@ -4,7 +4,6 @@ tags: Windows Terminal
 categories: Windows
 abbrlink: 644b4cd9
 date: 2020-05-30 16:56:33
-copyright_author: Jitwxs
 ---
 
 Windows 平台的终端一直以来的确不好用，被 mac 和 linux 吊着锤。历经了 cmd、powershell、FluentTerminal，微软最新的 `Windows Terminal` 终于算是进入可用状态，今天就来把玩把玩。

@@ -1,6 +1,5 @@
 ---
 title: Java 双亲委派机制
-copyright_author: Jitwxs
 tags: 双亲委派
 categories: Java
 abbrlink: 9f878221

@@ -5,7 +5,6 @@ categories:
   - Spring MVC
 abbrlink: 6da44730
 date: 2018-04-17 00:45:50
-copyright_author: Jitwxs
 ---
 
 在一般Java Web项目中，406错误，是比较少见的错误，导致原因一般是以下两种：

@@ -1,11 +1,8 @@
 ---
 title: Nginx 初探（1）——搭建环境
-categories:
-  - 服务器
-  - Nginx
+categories: Nginx
 abbrlink: dbe6db6e
 date: 2018-03-23 09:21:22
-copyright_author: Jitwxs
 ---
 
 ## 一、安装依赖

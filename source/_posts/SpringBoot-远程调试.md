@@ -29,7 +29,6 @@ references:
     url: https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 在配合 QA 进行代码测试，以及处理线上 BUG 时，代码往往已经被部署于服务器端，因此服务器端程序支持远程调试功能就尤为重要。

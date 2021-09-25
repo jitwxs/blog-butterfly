@@ -3,7 +3,6 @@ title: Mac 安装 brew
 tags: Mac
 categories: 开发工具
 abbrlink: c9822fb1
-copyright_author: Jitwxs
 date: 2020-09-26 10:36:17
 ---
 

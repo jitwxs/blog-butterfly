@@ -7,7 +7,6 @@ tags: Git
 abbrlink: 33ebef44
 date: 2019-07-11 22:35:42
 icons: [fas fa-fire red]
-copyright_author: Jitwxs
 ---
 
 如果你不想看详细的描述，直接看步骤即可：

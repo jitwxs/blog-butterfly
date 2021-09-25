@@ -3,7 +3,6 @@ title: Java8 日期处理
 categories: Java
 abbrlink: 2fc7970f
 date: 2018-03-18 19:38:43
-copyright_author: Jitwxs
 ---
 
 java中做时间处理时一般会采用`java.util.Date`，但是在Java 8中新增了对日期的处理类，包括`java.time.LocalDate`、`java.time.LocalTime`、`java.time.LocalDateTime`等。

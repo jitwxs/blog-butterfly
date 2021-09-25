@@ -12,7 +12,6 @@ related_repos:
     url: httphttps://github.com/jitwxs/blog-sample/tree/master/HoloLens
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、什么是 MRTK？

@@ -7,7 +7,6 @@ categories:
 toc: false
 abbrlink: b381cc92
 date: 2018-04-10 16:03:17
-copyright_author: Jitwxs
 ---
 
 Solr 配置第三方分词器也是十分简单，这里以IK分词器为例。[点击下载](https://download.csdn.net/download/yuanlaijike/10270713)我自编译的 `IK 分词器`，支持到 JDK 1.8 + Lucene 6.6.2。

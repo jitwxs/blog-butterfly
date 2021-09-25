@@ -1,12 +1,8 @@
 ---
 title: 全面了解 Nginx 到底能做什么
-categories:
-  - 服务器
-  - Nginx
-tags: Nginx
+categories: Nginx
 abbrlink: 90f4b8f6
 date: 2018-09-09 21:49:21
-copyright_author: ll
 ---
 
 ## 1. 前言

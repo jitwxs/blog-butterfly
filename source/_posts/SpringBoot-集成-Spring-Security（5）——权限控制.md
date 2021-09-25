@@ -11,7 +11,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security05
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 在第一篇中，我们说过，**用户<–>角色<–>权限**三层中，暂时不考虑权限，在这一篇，是时候把它完成了。

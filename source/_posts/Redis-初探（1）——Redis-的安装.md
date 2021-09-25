@@ -5,7 +5,6 @@ categories:
   - Redis
 abbrlink: e331e26a
 date: 2018-02-27 00:57:43
-copyright_author: Jitwxs
 ---
 
 ### 1.1 什么是 Redis

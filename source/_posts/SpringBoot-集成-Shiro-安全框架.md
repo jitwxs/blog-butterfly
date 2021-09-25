@@ -13,7 +13,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-sample/shiro-sample
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 Shiro 是在 Java Web 开发中，比较常见的安全框架技术，在本文章，将介绍如何在 SpringBoot 中去使用 Shiro。在本篇文章中，使用的技术为：SpringBoot 2.0、Shiro 和 MyBatis-Plus，下面就跟着我来一步步实践吧。

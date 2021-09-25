@@ -4,7 +4,6 @@ tags: Zookeeper
 categories: 中间件
 abbrlink: 820a29b
 date: 2018-04-12 17:08:26
-copyright_author: Jitwxs
 ---
 
 在[《Dubbo + Zookeeper入门初探》](/5def036a.html)这篇文章中，我们已经搭建了 `Zookeeper` 单机版，本篇文章将介绍如何搭建 `Zookeeper` 集群。
@@ -113,8 +112,7 @@ root@ubuntu:/usr/local/zookeeper-cluster/zookeeper01/conf# cp zoo_sample.cfg zoo
 
 ```bash
 #!/bin/bash
-#@copyright_author: jitwxs
-#@description: zookeeper cluster manager script
+#@#@description: zookeeper cluster manager script
 
 if [ $# -eq 0 ]
 then

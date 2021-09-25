@@ -11,7 +11,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-sample/alipay-sample
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 >注：因为没有企业账号，所以本篇文章为**沙箱环境**中，但是其逻辑和真实环境是一样的。

@@ -5,7 +5,6 @@ categories:
   - MySQL
 abbrlink: bc240583
 date: 2019-03-06 00:11:09
-copyright_author: Jitwxs
 ---
 
 >阅读本文前，请务必查看先导文章：[数据库基础理论](/1c73b076.html)

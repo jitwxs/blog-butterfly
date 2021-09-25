@@ -1,6 +1,5 @@
 ---
 title: Arthas 初探（2）——基础命令
-copyright_author: Jitwxs
 tags: Arthas
 categories:
   - Java

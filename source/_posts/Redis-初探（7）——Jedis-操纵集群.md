@@ -6,7 +6,6 @@ categories:
   - Redis
 abbrlink: 5108d6b6
 date: 2018-04-09 15:57:55
-copyright_author: Jitwxs
 ---
 
 在[《Redis 初探（2）——Jedis 的使用》](/baef2507.html)中，我们已经学会了Jedis操纵单机Redis的简单使用，本章将继续深入，介绍Jedis对集群的操纵。

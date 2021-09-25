@@ -5,7 +5,6 @@ categories:
   - Solr
 abbrlink: 46ffa9b2
 date: 2018-04-10 20:27:39
-copyright_author: Jitwxs
 ---
 
 ## 一、导入依赖

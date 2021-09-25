@@ -5,7 +5,6 @@ categories:
   - Lucene
 abbrlink: 44bf5506
 date: 2018-03-04 14:25:39
-copyright_author: Jitwxs
 ---
 
 ## 一、Lucene简介

@@ -1,6 +1,5 @@
 ---
 title: Arthas 初探（1）——快速入门
-copyright_author: Jitwxs
 tags: Arthas
 categories:
   - Java

@@ -13,7 +13,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/blob/master/Vue/vue3_axios
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 首先请检查下你的 Vue 版本，Vue2 和 Vue3 跨域方式不同，在命令行中输入 `vue -V`，可以查看当前的 Vue 版本。

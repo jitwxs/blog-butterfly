@@ -4,7 +4,6 @@ categories: Java
 tags: [BigDecimal, RoundingMode]
 abbrlink: f789a6b2
 date: 2019-05-08 23:42:31
-copyright_author: Jitwxs
 ---
 
 在金融等对数据精度计算要求较高的领域，传统 double 运算无法满足要求， `BigDecimal` 类应运而生。实际使用中，`RoundingMode` 这个枚举类控制着小数的舍位原则，本文对该枚举类进行介绍。

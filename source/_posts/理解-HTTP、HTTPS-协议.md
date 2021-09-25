@@ -13,7 +13,6 @@ references:
     url: https://github.com/frank-lam/2019_campus_apply/blob/master/notes/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.md
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、主要特点

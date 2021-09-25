@@ -11,7 +11,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/tree/master/springboot-sample/es-sample
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、环境搭建

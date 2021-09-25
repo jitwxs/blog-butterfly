@@ -6,7 +6,6 @@ tags:
 categories: Linux
 abbrlink: a804ec35
 date: 2017-10-30 23:10:27
-copyright_author: Jitwxs
 ---
 
 在项目中，数据往往是十分重要的，这就要求我们对数据库进行实时备份。幸运的是，Linux 支持这样的功能。本文将讲述如何定时实现数据库的备份。

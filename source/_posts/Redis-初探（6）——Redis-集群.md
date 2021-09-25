@@ -6,7 +6,6 @@ categories:
   - Redis
 abbrlink: bcdf2003
 date: 2018-04-08 23:59:45
-copyright_author: Jitwxs
 ---
 
 之前我们所学习的都是 Redis 的单机版，我们知道 Redis 之所以读取速度快是因为它是**存储在内存**中的。内存的容量是有限的，单台 Redis 会碰到性能瓶颈，这就需要使用 `Redis集群（Redis-cluster）`。

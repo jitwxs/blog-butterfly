@@ -6,7 +6,6 @@ categories:
   - 算法
 abbrlink: 38f549b
 date: 2018-03-28 01:33:50
-copyright_author: Jitwxs
 ---
 
 ## 一、最长公共字串与最长公共子序列

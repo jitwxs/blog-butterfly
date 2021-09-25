@@ -5,7 +5,6 @@ tags:
   - Prometheus
   - Grafana
 categories: 云原生
-copyright_author: Jitwxs
 abbrlink: b8c50183
 date: 2020-11-14 16:42:32
 ---

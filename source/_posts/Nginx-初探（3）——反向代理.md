@@ -1,12 +1,8 @@
 ---
 title: Nginx 初探（3）——反向代理
-tags: 反向代理
-categories:
-  - 服务器
-  - Nginx
+categories: Nginx
 abbrlink: a2c06ed5
 date: 2018-03-26 01:07:10
-copyright_author: Jitwxs
 ---
 
 ## 一、什么是反向代理

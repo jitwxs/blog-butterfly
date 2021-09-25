@@ -6,7 +6,6 @@ categories:
 tags: Elasticsearch
 abbrlink: c4b4d780
 date: 2018-10-08 19:43:51
-copyright_author: Jitwxs
 ---
 
 ## 一、简单查询

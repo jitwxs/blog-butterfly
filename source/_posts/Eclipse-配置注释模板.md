@@ -4,7 +4,6 @@ tags: Eclipse
 categories: 开发工具
 abbrlink: c9e92657
 date: 2017-08-03 09:54:24
-copyright_author: Jitwxs
 ---
 
 ![成果图](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201901/20190123223846216.png)
@@ -22,8 +21,7 @@ copyright_author: Jitwxs
 ```ini
 /** 
  * @fileName: ${file_name}  
- * @copyright_author: jitwxs
- * @date: ${date} ${time} 
+ * @ * @date: ${date} ${time} 
  */
 ```
 
@@ -77,8 +75,7 @@ ${type_declaration}
  * ${tags}
  */</template><template autoinsert="false" context="filecomment_context" deleted="false" description="Comment for created Java files" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.filecomment" name="filecomment">/** 
  * @fileName: ${file_name}  
- * @copyright_author: jitwxs
- * @date: ${date} ${time} 
+ * @ * @date: ${date} ${time} 
  */</template><template autoinsert="true" context="overridecomment_context" deleted="false" description="Comment for overriding methods" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.overridecomment" name="overridecomment">/* (non-Javadoc)
  * ${see_to_overridden}
  */</template><template autoinsert="false" context="typecomment_context" deleted="false" description="Comment for created types" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.typecomment" name="typecomment">/** 

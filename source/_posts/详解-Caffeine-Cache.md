@@ -10,7 +10,6 @@ references:
     url: https://zhouxinghang.github.io/caffeine.html
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、前言

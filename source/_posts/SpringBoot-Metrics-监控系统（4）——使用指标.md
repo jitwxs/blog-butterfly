@@ -1,6 +1,5 @@
 ---
 title: SpringBoot Metrics 监控系统（4）——使用指标
-copyright_author: Jitwxs
 tags:
   - SpringBoot
   - Prometheus

@@ -6,7 +6,6 @@ categories:
   - Redis
 abbrlink: baef2507
 date: 2018-02-28 00:13:53
-copyright_author: Jitwxs
 ---
 
 ### 2.1 准备工作

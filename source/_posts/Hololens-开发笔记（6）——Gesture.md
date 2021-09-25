@@ -8,7 +8,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/tree/master/HoloLens
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 本篇文章来学习 HoloLens 的基础开发之手势操作。

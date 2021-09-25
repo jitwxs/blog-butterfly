@@ -22,7 +22,6 @@ references:
     url: https://www.ibm.com/developerworks/cn/java/j-lo-jta/
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、引言

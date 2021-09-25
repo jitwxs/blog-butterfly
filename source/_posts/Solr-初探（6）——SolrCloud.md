@@ -6,7 +6,6 @@ categories:
   - Solr
 abbrlink: 96601bd
 date: 2018-04-12 13:46:50
-copyright_author: Jitwxs
 ---
 
 Solr 集群，即 `SolrCloud` 是 Solr 提供的分布式搜索方案，当你需要**大规模，容错，分布式索引和检索能力**时使用 `SolrCloud`。`SolrCloud` 是基于 `Solr` 和 `Zookeeper` 的分布式搜索方案，它的主要思想是**使用 Zookeeper 作为集群的配置信息中心**。
@@ -252,8 +251,7 @@ config    connect
 
 ```bash
 #!/bin/bash
-#@copyright_author: jitwxs
-#@description: tomcat cluster manager script
+#@#@description: tomcat cluster manager script
 
 if [ $# -eq 0 ]
 then

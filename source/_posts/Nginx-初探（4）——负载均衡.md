@@ -1,12 +1,8 @@
 ---
 title: Nginx 初探（4）——负载均衡
-tags: 负载均衡
-categories:
-  - 服务器
-  - Nginx
+categories: Nginx
 abbrlink: 2801cb42
 date: 2018-03-26 23:52:20
-copyright_author: Jitwxs
 ---
 
 ## 一、回顾

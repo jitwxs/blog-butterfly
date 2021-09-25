@@ -10,7 +10,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/tree/master/Linux/io_mode
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、概念

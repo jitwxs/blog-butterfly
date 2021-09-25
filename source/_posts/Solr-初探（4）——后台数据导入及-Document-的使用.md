@@ -5,7 +5,6 @@ categories:
   - Solr
 abbrlink: 7aa79ad1
 date: 2018-04-10 19:14:28
-copyright_author: Jitwxs
 ---
 
 进入Solr后台页面，选择一个核，点击 `Documents`，进入 `Document` 管理标签：

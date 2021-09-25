@@ -15,7 +15,6 @@ references:
     url: https://my.oschina.net/7001/blog/1475500
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、前言

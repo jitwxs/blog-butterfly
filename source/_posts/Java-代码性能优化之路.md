@@ -12,7 +12,6 @@ related_repos:
     url: https://github.com/jitwxs/blog-sample/tree/master/javase-sample/performance-optimized
     rel: nofollow noopener noreferrer
     target: _blank
-copyright_author: Jitwxs
 ---
 
 ## 一、前言
