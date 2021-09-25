@@ -11,11 +11,9 @@ menu:
   时间轴: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
+  收藏夹: /favorites/ || fas fa-meteor
   友链: /links/ || fas fa-link
   关于: /about/ || fas fa-heart
-  更多||fa fas fa-ellipsis-v:
-    书籍: /books/ || fa fa-book
-    收藏夹: /favorites/ || fas fa-meteor
   管理||fas fa-cogs:
     更新日志: /changes/ || fas fa-location-arrow
     站点统计: /statistical/ || fas fa-globe-asia
@@ -656,7 +654,7 @@ subtitle:
   # source: 3  調用一句網（簡體）
   # source: 4  調用今日詩詞（簡體）
   # subtitle 會先顯示 source , 再顯示 sub 的內容
-  source: 4
+  source: false
   # 如果有英文逗號' , ',請使用轉義字元 &#44;
   # 如果有英文雙引號' " ',請使用轉義字元 &quot;
   # 開頭不允許轉義字元，如需要，請把整個句子用雙引號包住
