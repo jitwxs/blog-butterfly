@@ -8,9 +8,10 @@
 
 menu:
   首页: / || fas fa-home
-  时间轴: /archives/ || fas fa-archive
-  标签: /tags/ || fas fa-tags
-  分类: /categories/ || fas fa-folder-open
+  文章||fa-fw far fa-newspaper:
+    时间轴: /archives/ || fas fa-archive
+    标签: /tags/ || fas fa-tags
+    分类: /categories/ || fas fa-folder-open
   收藏夹: /favorites/ || fas fa-meteor
   友链: /links/ || fas fa-link
   关于: /about/ || fas fa-heart
@@ -683,7 +684,7 @@ aside:
       link: https://github.com/jitwxs
   card_announcement:
     enable: true
-    content: 专注 Java 后端开发，内容涵盖 SpringBoot、并发编程、微服务、容器化、Linux 等技术分享。
+    content: '<span style="display:inline-block;text-indent:2em">专注Java后端开发，内容涵盖SpringBoot、并发编程、微服务、容器化、Linux等技术分享。</span>'
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
