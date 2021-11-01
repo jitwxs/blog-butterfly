@@ -9,8 +9,6 @@ date: 2018-12-02 21:03:43
 related_repos:
   - name: i18n-sample
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-sample/i18n-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、LocaleResolver

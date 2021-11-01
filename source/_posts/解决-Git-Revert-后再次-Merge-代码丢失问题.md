@@ -6,7 +6,6 @@ categories:
 tags: Git
 abbrlink: 38727be2
 date: 2019-11-30 23:26:18
-icons: [fas fa-fire red]
 ---
 
 ## 一、问题场景

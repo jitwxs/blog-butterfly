@@ -6,12 +6,8 @@ date: 2018-11-21 21:01:06
 related_repos:
   - name: MixedRealityToolkit-Unity
     url: https://github.com/Microsoft/MixedRealityToolkit-Unity
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: HoloLens Demo
     url: httphttps://github.com/jitwxs/blog-sample/tree/master/HoloLens
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、什么是 MRTK？

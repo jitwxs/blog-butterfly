@@ -7,8 +7,6 @@ date: 2018-05-08 22:50:53
 related_repos:
   - name: activemq02
     url: https://github.com/jitwxs/blog-sample/tree/master/ActiveMQ/activemq02
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、环境准备

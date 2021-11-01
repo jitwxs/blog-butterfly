@@ -11,8 +11,6 @@ date: 2018-05-22 22:46:37
 related_repos:
   - name: oauth-sample
     url: https://github.com/jitwxs/blog-sample/tree/master/springboot-sample/oauth-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 关于 OAuth2.0 的理论基础参考阮一峰老师的[《理解 OAuth 2.0》](/132293eb.html)，其中关于`授权码模式`就是本篇文章的重点。

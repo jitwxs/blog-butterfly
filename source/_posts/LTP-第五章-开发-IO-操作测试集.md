@@ -8,8 +8,6 @@ date: 2017-11-11 12:59:58
 related_repos:
   - name: LTP_05
     url: https://github.com/jitwxs/blog-sample/blob/master/LTP/LTP_05
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 在本章中，我们将编写以下几个测试：

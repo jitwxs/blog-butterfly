@@ -4,24 +4,15 @@ categories: Java Web
 tags: [事务, Spring]
 abbrlink: a6bbd9cb
 date: 2019-05-26 16:35:07
-icons: [fas fa-fire red]
 references:
   - name: Spring事务管理（详解+实例）
     url: https://blog.csdn.net/trigl/article/details/50968079
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Spring 事务 readOnly 到底是怎么回事？
     url: https://www.cnblogs.com/hackem/p/3890656.html
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 透彻的掌握 Spring 中@transactional 的使用
     url: https://www.ibm.com/developerworks/cn/java/j-master-spring-transactional-use/index.html
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: JTA 深度历险 - 原理与实现
     url: https://www.ibm.com/developerworks/cn/java/j-lo-jta/
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、引言

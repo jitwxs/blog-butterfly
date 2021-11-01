@@ -9,8 +9,6 @@ date: 2018-10-10 19:43:04
 related_repos:
   - name: ws-sample
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-sample/ws-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、WebSocket

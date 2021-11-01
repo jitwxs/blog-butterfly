@@ -6,7 +6,8 @@ categories:
   - 并发编程
 abbrlink: a916fbe8
 date: 2018-09-27 19:35:33
-copyright_author: 海子
+copyright_author: Matrix海子
+copyright_url: https://www.cnblogs.com/dolphin0520/p/3932921.html
 ---
 
 >本文基于 JDK 1.6，在高版本 JDK 中源码有所出入。

@@ -7,8 +7,6 @@ date: 2021-09-20 09:48:47
 related_repos:
   - name: mock-sample
     url: https://github.com/jitwxs/blog-sample/tree/master/javase-sample/mock-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## Mock

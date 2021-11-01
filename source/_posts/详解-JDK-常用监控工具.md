@@ -6,7 +6,6 @@ categories:
   - 性能分析
 abbrlink: c72fb74
 date: 2020-12-26 14:23:54
-icons: [fas fa-fire red]
 ---
 
 ## 一、JVM 参数

@@ -8,8 +8,6 @@ date: 2018-05-09 10:22:57
 related_repos:
   - name: springboot_security02
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security02
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 在上一章：[《SpringBoot集成Spring Security（1）——入门程序》](/5f5715e6.html)中，我们实现了入门程序，本篇为该程序加上自动登录的功能。

@@ -9,16 +9,10 @@ date: 2019-11-24 23:34:29
 references:
   - name: 【细谈Java并发】谈谈CyclicBarrier
     url: http://benjaminwhx.com/2018/05/03/【细谈Java并发】谈谈CyclicBarrier/
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Java并发编程--CyclicBarrier
     url: https://www.cnblogs.com/zaizhoumo/p/7787064.html
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Java并发之CyclicBarrier-栅栏详解
     url: https://blog.csdn.net/weixin_38003389/article/details/85117646
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、简介

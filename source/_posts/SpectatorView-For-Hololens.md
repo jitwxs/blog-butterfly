@@ -3,7 +3,8 @@ title: SpectatorView For HoloLens
 categories: HoloLens
 abbrlink: c93fa54c
 date: 2018-11-22 00:34:47
-copyright_author: Microsoft
+copyright_author: Microsoft Docs
+copyright_url: https://docs.microsoft.com/en-us/windows/mixed-reality/design/spectator-view
 ---
 
 ![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/201912/20191212004034809.jpg)

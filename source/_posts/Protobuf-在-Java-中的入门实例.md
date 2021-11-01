@@ -9,8 +9,6 @@ date: 2019-12-23 00:43:58
 related_repos:
   - name: protobuf-sample
     url: https://github.com/jitwxs/blog-sample/tree/master/javase-sample/protobuf-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 `Protobuf`[^1] 是一种语言中立、平台无关、可扩展的**序列化数据的格式**，可用于通信协议，数据存储等。

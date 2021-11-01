@@ -5,12 +5,9 @@ categories:
   - Spring Security
 abbrlink: 71543ef6
 date: 2018-05-15 19:09:28
-icons: [fas fa-fire red]
 related_repos:
   - name: springboot_security05
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security05
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 在第一篇中，我们说过，**用户<–>角色<–>权限**三层中，暂时不考虑权限，在这一篇，是时候把它完成了。

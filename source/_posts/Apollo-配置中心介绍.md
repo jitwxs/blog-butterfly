@@ -7,16 +7,10 @@ categories: 中间件
 references:
   - name: Apollo WIKI
     url: https://github.com/ctripcorp/apollo/wiki
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 微服务架构~携程Apollo配置中心架构剖析
     url: https://mp.weixin.qq.com/s/-hUaQPzfsl9Lm3IqQW3VDQ
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 配置中心，让微服务更『智能』
     url: https://myslide.cn/slides/10035
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、前言

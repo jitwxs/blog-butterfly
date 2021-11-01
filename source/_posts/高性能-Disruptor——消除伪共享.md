@@ -6,29 +6,18 @@ categories:
 tags: Disruptor
 abbrlink: 13836b16
 date: 2020-03-15 20:49:06
-icons: [fas fa-fire red]
 related_repos:
   - name: Test Demo
     url: https://github.com/jitwxs/disruptor-study/tree/master/disruptor-demo/src/test/java/jit/wxs/disruptor/demo/flashsharing
-    rel: nofollow noopener noreferrer
-    target: _blank
 references:
   - name: Mechanical Sympathy
     url: http://mechanical-sympathy.blogspot.com/
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Java专家系列：CPU Cache与高性能编程
     url: https://blog.csdn.net/karamos/article/details/80126704
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 剖析Disruptor:为什么会这么快？（二）神奇的缓存行填充
     url: http://ifeve.com/disruptor-cacheline-padding/
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Disruptor 缓冲行填充的进一步解释
     url: https://www.jianshu.com/p/e1a1b950fc4a
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、CPU Cache

@@ -3,7 +3,8 @@ title: HoloLens 开发笔记（3）——Windows Device Portal
 categories: HoloLens
 abbrlink: b9c9d468
 date: 2018-11-22 11:43:29
-copyright_author: Microsoft
+copyright_author: Microsoft Docs
+copyright_url: https://docs.microsoft.com/en-us/windows/mixed-reality/develop/advanced-concepts/using-the-windows-device-portal
 ---
 
 Windows设备控制台允许你通过 Wi-Fi 或 USB 来远程控制你的 HoloLens 设备。设备控制台是 HoloLens 上的一个 Web Server，你可以通过PC的浏览器来连接到它。设备控制台包含了很多帮助你管理、调试和优化 HoloLens 设备的工具。

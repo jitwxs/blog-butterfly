@@ -6,16 +6,11 @@ categories:
 tags: 异常处理
 abbrlink: eb7552c8
 date: 2018-05-09 10:48:06
-icons: [fas fa-fire red]
 related_repos:
   - name: springboot_security03
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security03
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: springboot_security03_filter
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security03_filter
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 不知道你有没有注意到，当我们登陆失败时候，Spring security 帮我们跳转到了 `/login?error` Url，奇怪的是不管是控制台还是网页上都没有打印错误信息。

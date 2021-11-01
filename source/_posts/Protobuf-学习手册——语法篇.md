@@ -9,20 +9,12 @@ date: 2019-12-24 22:58:39
 references:
   - name: 高效的数据压缩编码方式 Protobuf
     url: https://halfrost.com/protobuf_encode
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Language Guide (proto3)
     url: https://developers.google.com/protocol-buffers/docs/proto3
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Protocol Buffer 3学习笔记
     url:  https://www.cntofu.com/book/116/index.html
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Protocol Buffers 学习（6）：文件 | 字段选项介绍
     url: https://juejin.im/post/59361f79a22b9d0058fdc725
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、Override

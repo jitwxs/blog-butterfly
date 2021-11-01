@@ -6,16 +6,10 @@ date: 2018-11-26 11:29:15
 references:
   - name: Coordinate systems
     url: https://docs.microsoft.com/zh-cn/windows/mixed-reality/coordinate-systems
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Spatial anchors
     url: https://docs.microsoft.com/zh-cn/windows/mixed-reality/spatial-anchors
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Microsoft HoloLens 开发上手(4)
     url: 4
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 混合现实应用的核心就是如何在现实世界中放置看起来真实的全息影像，这涉及到全息图的精确定位，无论是在现实世界还是在虚拟世界中，HoloLens 为我们提供了空间坐标系统（spatial coordinate systems）来方便几何图形的定位。

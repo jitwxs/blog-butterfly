@@ -10,8 +10,6 @@ date: 2020-11-15 21:06:13
 related_repos:
   - name: metrics-sample
     url: https://github.com/jitwxs/blog-sample/tree/master/springboot-sample/metrics-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、前言

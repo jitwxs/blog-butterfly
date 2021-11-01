@@ -11,24 +11,14 @@ date: 2019-05-25 00:07:21
 references:
   - name: 如何使用 Idea 远程调试 Java 代码
     url: https://www.liangzl.com/get-article-detail-969.html
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Java应用程序是否会因-Xdebug的存在而放慢速度，或者仅在逐步完成代码时才放慢速度？
     url: https://cloud.tencent.com/developer/ask/55182
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Java远程调试各参数说明
     url: https://blog.csdn.net/chenpeng19910926/article/details/82529116
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: How to Remotely Debug Application Running on Tomcat From Within Intellij IDEA
     url: https://blog.trifork.com/2014/07/14/how-to-remotely-debug-application-running-on-tomcat-from-within-intellij-idea/
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: -X Command-line Options
     url: https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 在配合 QA 进行代码测试，以及处理线上 BUG 时，代码往往已经被部署于服务器端，因此服务器端程序支持远程调试功能就尤为重要。

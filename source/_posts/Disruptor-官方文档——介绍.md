@@ -7,6 +7,7 @@ tags: Disruptor
 abbrlink: a7ed43af
 date: 2019-12-16 22:43:27
 copyright_author: LMAX-Exchange
+copyright_url: https://lmax-exchange.github.io/disruptor/user-guide/index.html#_introduction
 ---
 
 理解 Disruptor 是什么最好方式就是将其与现有的比较好理解的东西比较 。Disruptor 就相当于 Java 中 `BlockingQueue`。同队列一样，Disruptor 用于在不同的线程之间进行数据交互，然而 Disruptor 也提供了一些关键的不同于队列的特性，如： 

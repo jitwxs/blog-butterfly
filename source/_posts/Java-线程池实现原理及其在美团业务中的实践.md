@@ -4,20 +4,15 @@ tags: 线程池
 categories:
   - Java
   - 并发编程
-copyright_author: 陆晨
+copyright_author: 美团技术团队
+copyright_url: https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html
 references:
   - name: 维基百科-线程池
     url: 'https://zh.wikipedia.org/wiki/线程池'
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 更好的使用Java线程池
     url: 'https://my.oschina.net/andylucc/blog/648127'
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 深入理解Java线程池：ThreadPoolExecutor
     url: 'http://www.ideabuffer.cn/2017/04/04/深入理解Java线程池：ThreadPoolExecutor/'
-    rel: nofollow noopener noreferrer
-    target: _blank
 abbrlink: b1734c1
 date: 2020-06-06 14:14:45
 ---

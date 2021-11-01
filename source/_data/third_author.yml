@@ -1,0 +1,72 @@
+- class_name: 第三方作者
+  class_desc: 博客中涉及的第三方作者
+  link_list:
+    - name: 美团技术团队
+      link: https://tech.meituan.com
+      avatar: https://awps-assets.meituan.net/mit/blog/v20190629/asset/icon/android-icon-192x192.png
+      descr: 美团技术团队,欢迎更多优秀的技术人才加入!
+    - name: 低并发编程
+      link: https://www.cnblogs.com/flashsun
+      avatar: https://mp.weixin.qq.com/mp/qrcode?scene=10000005&size=102&__biz=Mzk0MjE3NDE0Ng==&mid=2247489907&idx=1&sn=a296cb42467cab6f0a7847be32f52dae&send_time=
+      descr: 战略上藐视技术，战术上重视技术
+    - name: LMAX-Exchange
+      link: https://www.lmax.com/
+      avatar: https://www.lmax.com/wp-content/themes/lmax/img/favicon/apple-touch-icon.png
+      descr: LMAX Group is a global, high-growth, award-winning financial technology company. We operate one global marketplace for FX – enabling transparency, open access and a level playing field for all market participants.
+    - name: 何甜甜在吗
+      link: https://juejin.im/user/2576910985986056
+      avatar: https://p3-passport.byteacctimg.com/img/user-avatar/6ad319f2df0c4a870349a373de88e4e8~300x300.image
+      descr: 何甜甜他说他不在并对你放了个屁🌚
+    - name: benjaminwhx
+      link: https://github.com/benjaminwhx
+      avatar: https://avatars.githubusercontent.com/u/10692698?v=4
+      descr: 在改变自己的道路上一直努力着。
+    - name: valarchie
+      link: https://segmentfault.com/u/valarchie
+      avatar: https://avatar-static.segmentfault.com/276/071/2760710894-5d62a53b3701a_huge256
+      descr: 
+    - name: 江南一点雨
+      link: http://www.javaboy.org
+      avatar: https://www.javaboy.org/images/sb/javaboy.jpg
+      descr: 
+    - name: liuliu
+      link: https://segmentfault.com/u/liuliuliuchang
+      avatar: https://avatar-static.segmentfault.com/224/046/2240461012-5c2d9cb709063_huge256
+      descr: 
+    - name: IBM Developer
+      link: https://developer.ibm.com/
+      avatar: https://www.ibm.com/favicon.ico
+      descr: Learn in-demand skills, build solutions with real sample code, and connect with a global community of developers
+    - name: 田小波
+      link: https://www.tianxiaobo.com/
+      avatar: https://www.tianxiaobo.com/images/avatar.jpg
+      descr: 愿乘风破万里浪
+    - name: godruoyi
+      link: https://github.com/godruoyi
+      avatar: https://avatars.githubusercontent.com/u/16079222?v=4
+      descr: good good study, day day up.
+    - name: frank-lam
+      link: https://github.com/frank-lam/
+      avatar: https://avatars.githubusercontent.com/u/19153458?v=4
+      descr: 潜伏在黎明之前，混迹于互联网江湖。
+    - name: crossoverJie
+      link: https://crossoverjie.top
+      avatar: https://crossoverjie.top/uploads/crossoverjie.jpg
+      descr: 
+    - name: Microsoft Docs
+      link: https://docs.microsoft.com/
+      avatar: https://docs.microsoft.com/favicon.ico
+      descr: 面向开发人员和技术专业人员的 Microsoft 文档和学习主页
+    - name: 卢争超
+      link: http://www.woshipm.com/u/295437
+      avatar: https://static.woshipm.com/WX_U_201707_20170719093435_5736.jpg?imageView2/1/w/240/h/240/q/100
+      descr: 
+    - name: Matrix海子
+      link: https://www.cnblogs.com/dolphin0520/
+      avatar: 
+      descr: 分享技术与生活！
+    - name: 阮一峰
+      link: http://www.ruanyifeng.com
+      avatar: http://www.ruanyifeng.com/favicon.ico
+      descr: 
+

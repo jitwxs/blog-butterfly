@@ -5,6 +5,7 @@ tags: 集合框架
 abbrlink: b2a8247c
 date: 2018-12-08 14:28:31
 copyright_author: frank-lam
+copyright_url: https://github.com/frank-lam/fullstack-tutorial/blob/master/notes/JavaArchitecture/02-Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6.md
 ---
 
 Java集合框架 (Java Collections Framework, JCF) 也称容器，在这里主要对如下部分进行源码分析，及在面试中常见的问题。例如，在阿里面试常问到的 HashMap 和 ConcurrentHashMap 原理等等。深入源码分析是面试中必备的技能，通过本文的阅读会对集合框架有更深一步的了解。

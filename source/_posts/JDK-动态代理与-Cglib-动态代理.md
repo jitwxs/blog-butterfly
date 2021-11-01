@@ -9,8 +9,6 @@ date: 2018-03-09 10:03:36
 related_repos:
   - name: dynamic-proxy-sample
     url: https://github.com/jitwxs/blog-sample/tree/master/javase-sample/dynamic-proxy-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、前言

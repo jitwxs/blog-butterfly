@@ -4,8 +4,8 @@ categories: Java Web
 tags: 事务
 abbrlink: cb257e6d
 date: 2019-05-26 22:03:22
-copyright_author: 肖国一
-copyright_url: 'https://www.ibm.com/developerworks/cn/java/j-lo-jta'
+copyright_author: IBM Developer
+copyright_url: https://www.ibm.com/developerworks/cn/java/j-lo-jta
 ---
 
 ## 一、利用 JTA 处理事务

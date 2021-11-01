@@ -5,12 +5,9 @@ categories:
   - Spring Security
 abbrlink: d208d079
 date: 2019-01-09 17:10:43
-icons: [fas fa-fire red]
 related_repos:
   - name: springboot_security08
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security08
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 经过前面七章的学习，我们已经算入门 Spring Security 了，下面我们学习如何对 Spring Security 进行扩展，来实现短信验证码方式登录。

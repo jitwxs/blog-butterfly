@@ -6,7 +6,6 @@ categories:
 tags: Git
 abbrlink: 6533bf70
 date: 2018-11-04 23:17:30
-copyright_author: Wayss_S
 ---
 
 ## 一、图形化操作

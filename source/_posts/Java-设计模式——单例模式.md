@@ -8,24 +8,14 @@ date: 2018-09-26 17:54:29
 references:
   - name: Java设计模式之单例模式详解
     url: https://www.cnblogs.com/garryfu/p/7976546.html
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 常见的几种单例模式
     url: https://www.cnblogs.com/Ycheng/p/7169381.html
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 单例模式唯一实例为什么必须为静态变量
     url: https://zhidao.baidu.com/question/2206072272164938188.html
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 为什么用枚举类来实现单例模式越来越流行？
     url: https://juejin.im/post/5d64ca62f265da03b638bb47
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 为什么强烈建议大家使用枚举来实现单例
     url: https://msd.misuland.com/pd/3148108429789238982
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、单例模式的介绍

@@ -3,7 +3,7 @@ title: Nginx 缓存使用官方指南
 categories: Nginx
 abbrlink: cd6f6a52
 date: 2018-05-11 14:11:17
-copyright_author: 张帆
+copyright_url: https://www.nginx.com/blog/nginx-caching-guide/
 ---
 
 我们都知道，应用程序和网站一样，其性能关乎生存。但如何使你的应用程序或者网站性能更好，并没有一个明确的答案。代码质量和架构是其中的一个原因，但是在很多例子中我们看到，你可以通过关注一些十分基础的应用内容分发技术，来提高终端用户的体验。其中一个例子就是实现和调整应用栈（application stack）的缓存。这篇文章，通过几个例子来讲述如何使用Nginx缓存。此外，结尾处还列举了一些常见问题及解答。

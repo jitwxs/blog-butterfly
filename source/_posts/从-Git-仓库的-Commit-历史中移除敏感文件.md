@@ -7,12 +7,8 @@ date: 2019-05-06 11:55:08
 references:
   - name: Git移除敏感数据
     url: https://blog.csdn.net/y550918116j/article/details/49913631
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 从Github中的Commit历史移除敏感文件
     url: https://blog.csdn.net/duandianR/article/details/78843582
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 在很多情况，我们由于疏忽会将一些敏感信息误传到 Git 仓库上面去。 尽管我们可以使用 `git rm` 将包含敏感信息文件删除掉，然后重新提交上传，文件就不会在仓库文件列表显示。 但是这并不能完全将敏感信息文件从仓库中完全删除， commit history 仍然会有敏感信息的文件的残留,我们仍然可以从仓库中的 commit history 中访问到文件。

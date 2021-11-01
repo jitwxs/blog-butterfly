@@ -6,8 +6,6 @@ date: 2018-12-08 16:47:49
 related_repos:
   - name: HoloLens Demo
     url: https://github.com/jitwxs/blog-sample/tree/master/HoloLens
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、音频资源

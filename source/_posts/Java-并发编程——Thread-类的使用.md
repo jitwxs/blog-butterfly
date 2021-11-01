@@ -6,7 +6,8 @@ categories:
   - 并发编程
 abbrlink: 29b9a7ac
 date: 2018-10-02 11:59:46
-copyright_author: 海子
+copyright_author: Matrix海子
+copyright_url: https://www.cnblogs.com/dolphin0520/p/3920357.html
 ---
 
 在学习Thread类之前，先介绍与线程相关知识：线程的几种状态、上下文切换，然后接着介绍Thread类中的方法的具体使用。

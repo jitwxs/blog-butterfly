@@ -7,8 +7,6 @@ date: 2021-09-21 21:52:51
 related_repos:
   - name: mock-sample
     url: https://github.com/jitwxs/blog-sample/tree/master/javase-sample/mock-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 在本篇文章中，将主要对 Mockito 中 @Mock、@Spy、@InjectMocks 这三个主要注解进行源码分析。

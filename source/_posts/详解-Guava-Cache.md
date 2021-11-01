@@ -4,20 +4,13 @@ categories: Java
 tags: [Cache, Guava]
 abbrlink: 8fec5912
 date: 2019-04-19 21:19:30
-icons: [fas fa-fire red]
 references:
   - name: Guava -CachesExplained
     url: https://github.com/google/guava/wiki/CachesExplained
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Google Guava 3-缓存
     url: http://ifeve.com/google-guava-cachesexplained
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: google guava cache缓存基本使用讲解
     url: https://www.cnblogs.com/vikde/p/8045226.html
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 ## 一、Guava Cache
 

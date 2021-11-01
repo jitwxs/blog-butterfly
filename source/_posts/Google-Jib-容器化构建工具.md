@@ -3,25 +3,16 @@ title: Google Jib 容器化构建工具
 categories: 云原生
 abbrlink: a526485e
 date: 2019-12-17 21:50:11
-icons: [fas fa-fire red]
 references:
   - name: jib-maven-plugin
     url: https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 谷歌开源 Java 镜像构建工具 Jib
     url: https://www.infoq.cn/article/2018%2F07%2Fgoogle-opensource-Jib
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 还在用 Dockerfile 部署 Spring Boot？out 啦！试试谷歌的大杀器 Jib
     url: https://www.javaboy.org/2019/1107/docker-springboot.html
-    rel: nofollow noopener noreferrer
-    target: _blank
 related_repos:
   - name: jib-sample
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-sample/jib-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、前言

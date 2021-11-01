@@ -8,40 +8,22 @@ copyright_url: https://tech.meituan.com/2018/11/15/java-lock.html
 references:
   - name: Java中的锁
     url: https://blog.csdn.net/u013256816/article/details/51204385
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Java CAS 原理剖析
     url: https://juejin.im/post/5a73cbbff265da4e807783f5
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Java并发——关键字synchronized解析
     url: https://juejin.im/post/5b42c2546fb9a04f8751eabc
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Java synchronized原理总结
     url: https://zhuanlan.zhihu.com/p/29866981
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 聊聊并发（二）——Java SE1.6中的Synchronized
     url: http://www.infoq.com/cn/articles/java-se-16-synchronized
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 深入理解读写锁—ReadWriteLock源码分析
     url: https://blog.csdn.net/qq_19431333/article/details/70568478
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 【JUC】JDK1.8源码分析之ReentrantReadWriteLock
     url: https://www.cnblogs.com/twoheads/p/9635309.html
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Java多线程（十）之ReentrantReadWriteLock深入分析
     url: https://my.oschina.net/adan1/blog/158107
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Java–读写锁的实现原理
     url: https://mrdear.cn/2018/06/23/java/java--readwritelock
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、前言

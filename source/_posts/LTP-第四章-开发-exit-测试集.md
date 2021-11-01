@@ -8,8 +8,6 @@ date: 2017-10-27 19:08:58
 related_repos:
   - name: LTP_04
     url: https://github.com/jitwxs/blog-sample/blob/master/LTP/LTP_04
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 本章我们将结合前三章所学知识，开发一个完整的新规测试用例，在开始项目之前，请保证项目源码包的干净。

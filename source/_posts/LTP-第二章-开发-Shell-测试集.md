@@ -8,8 +8,6 @@ date: 2017-09-30 00:59:58
 related_repos:
   - name: LTP_02
     url: https://github.com/jitwxs/blog-sample/blob/master/LTP/LTP_02
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ### 2.1 准备环境

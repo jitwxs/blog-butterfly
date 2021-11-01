@@ -5,7 +5,6 @@ categories:
   - Spring Security
 abbrlink: f420faae
 date: 2018-05-09 15:05:40
-icons: [fas fa-fire red]
 ---
 
 通过前面三篇文章，你应该大致了解了 Spring Security 的流程。你应该发现了，真正的 login 请求是由 Spring Security 帮我们处理的，那么我们如何实现自定义表单登录呢，比如添加一个验证码...

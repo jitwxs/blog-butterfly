@@ -9,8 +9,6 @@ date: 2018-12-06 19:04:32
 related_repos:
   - name: aop-sample
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-sample/aop-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、前言

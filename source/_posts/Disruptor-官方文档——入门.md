@@ -7,6 +7,7 @@ tags: Disruptor
 abbrlink: 4ae6dc03
 date: 2019-12-16 22:45:52
 copyright_author: LMAX-Exchange
+copyright_url: https://lmax-exchange.github.io/disruptor/user-guide/index.html#_getting_started
 ---
 
 ## 一、Getting the Disruptor

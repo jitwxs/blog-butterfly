@@ -5,6 +5,7 @@ tags: RESTful
 abbrlink: 9c7c62cc
 date: 2019-01-21 23:18:05
 copyright_author: godruoyi
+copyright_url: https://github.com/godruoyi/restful-api-specification
 ---
 
 ## 一、关于「能愿动词」的使用

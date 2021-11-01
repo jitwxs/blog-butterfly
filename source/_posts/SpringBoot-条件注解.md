@@ -9,12 +9,8 @@ date: 2019-08-25 21:32:47
 references:
   - name: 条件注解，Spring Boot 的基石！
     url: https://www.javaboy.org/2019/0802/springboot-conditional.html
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: SpringBoot基础篇Bean之条件注入@Condition使用姿势
     url: https://my.oschina.net/u/566591/blog/2250290
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、引言

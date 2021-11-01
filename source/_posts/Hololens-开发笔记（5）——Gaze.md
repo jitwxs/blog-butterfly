@@ -6,8 +6,6 @@ date: 2018-11-28 11:53:40
 related_repos:
   - name: HoloLens Demo
     url: https://github.com/jitwxs/blog-sample/tree/master/HoloLens
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 在前面我们粗略了解了 HoloLens，包括 `Hello World`、`MRTK`、`Windows Device Portal`、`坐标系统`。

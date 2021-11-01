@@ -11,16 +11,10 @@ tags:
 references:
   - name: Java并发编程之ReentrantLock详解
     url: https://blog.csdn.net/qq_38293564/article/details/80515718
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: fullstack-tutorial
     url: https://frank-lam.github.io/fullstack-tutorial
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: ReentrantLock(重入锁)功能详解和应用演示
     url: 重入锁
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、简介

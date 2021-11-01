@@ -9,8 +9,6 @@ date: 2018-10-09 17:13:33
 related_repos:
   - name: es-sample
     url: https://github.com/jitwxs/blog-sample/tree/master/springboot-sample/es-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、环境搭建

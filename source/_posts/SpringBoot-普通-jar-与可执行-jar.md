@@ -7,6 +7,7 @@ tags: SpringBoot
 abbrlink: 348efd64
 date: 2019-09-02 22:35:57
 copyright_author: 江南一点雨
+copyright_url: http://www.javaboy.org/2019/0709/springboot-jar.html
 ---
 
 前两天被人问到这样一个问题:

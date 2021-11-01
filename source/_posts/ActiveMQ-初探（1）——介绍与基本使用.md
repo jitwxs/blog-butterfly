@@ -7,8 +7,6 @@ date: 2018-04-15 16:24:45
 related_repos:
   - name: activemq01
     url: https://github.com/jitwxs/blog-sample/tree/master/ActiveMQ/activemq01
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、ActiveMQ

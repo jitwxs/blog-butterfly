@@ -9,12 +9,8 @@ copyright_url: 'https://segmentfault.com/a/1190000020208797'
 references:
   - name: DRY、KISS、YAGNI三原则的理解
     url: https://segmentfault.com/a/1190000020208797
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 3 Key Software Principles You Must Understand
     url: https://code.tutsplus.com/tutorials/3-key-software-principles-you-must-understand--net-25161
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 在软件的设计当中前人已经总结了许多的设计原则和设计模式。例如 `SOLID`，`GRASP` 设计原则，这些原则都是基于面向对象设计总结而来的。而 `GOF23` 是基于许多常见的场景总结出了一套设计模式，在我们遇到类似的场景，都可以套用设计模式。

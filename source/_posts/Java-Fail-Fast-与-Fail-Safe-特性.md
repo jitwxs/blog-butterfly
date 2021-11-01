@@ -9,12 +9,8 @@ icons:
 references:
   - name: Fail Fast and Fail Safe Iterators in Java
     url: 'https://www.geeksforgeeks.org/fail-fast-fail-safe-iterators-java/'
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: fail-fast与fail-safe在Java集合中的应用
     url: 'https://segmentfault.com/a/1190000014541691'
-    rel: nofollow noopener noreferrer
-    target: _blank
 abbrlink: ae176768
 date: 2020-08-22 23:08:12
 ---

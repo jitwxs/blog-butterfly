@@ -4,12 +4,9 @@ tags: IO模型
 categories: Linux
 abbrlink: 3b3bd025
 date: 2017-11-28 01:23:44
-icons: [fas fa-fire red]
 related_repos:
   - name: io_mode
     url: https://github.com/jitwxs/blog-sample/tree/master/Linux/io_mode
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、概念

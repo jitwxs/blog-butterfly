@@ -8,8 +8,6 @@ date: 2017-09-23 03:21:58
 related_repos:
   - name: LTP_01
     url: https://github.com/jitwxs/blog-sample/blob/master/LTP/LTP_01
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ### 1.1 LTP介绍

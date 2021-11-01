@@ -6,24 +6,15 @@ categories:
 tags: Spring
 abbrlink: 6078a4e1
 date: 2019-05-07 21:57:35
-icons: [fas fa-fire red]
 references:
   - name: SpringMVC之自动注入Request对象
     url: https://blog.csdn.net/zknxx/article/details/77917290
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 在SpringMVC Controller中注入Request成员域
     url: https://www.cnblogs.com/abcwt112/p/7777258.html
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Springmvc中在controller注入request会有线程安全问题吗
     url: https://segmentfault.com/q/1010000005139036
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: SpringMVC在Controller层中注入request的坑
     url: https://my.oschina.net/sluggarddd/blog/678603
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、引言

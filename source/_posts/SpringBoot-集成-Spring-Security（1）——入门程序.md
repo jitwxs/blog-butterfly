@@ -8,8 +8,6 @@ date: 2018-05-09 09:47:49
 related_repos:
   - name: springboot_security01
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-security/springboot_security01
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 因为项目需要，第一次接触 `Spring Security`，早就听闻 Spring Security 功能强大但上手困难，学习了几天出入门道，特整理这篇文章希望能让后来者少踩一点坑（**本文附带实例程序，请放心食用**）

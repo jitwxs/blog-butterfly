@@ -4,7 +4,6 @@ categories: 区块链
 tags: [区块链, DCEP]
 abbrlink: fd57551a
 date: 2019-11-03 22:19:12
-copyright_author: 区块链情报速递
 ---
 
 >继上篇谈了下自己对 DCEP 的看法后，再分享一篇 DCEP 的文章，希望能够帮助大家更加了解 DCEP。

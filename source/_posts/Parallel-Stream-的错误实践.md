@@ -9,12 +9,8 @@ date: 2020-01-19 22:27:27
 references:
   - name: JAVA使用并行流(ParallelStream)时要注意的一些问题
     url: https://blog.csdn.net/xuxiaoyinliu/article/details/73040808
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 记一次java8 parallelStream使用不当引发的血案
     url: https://my.oschina.net/7001/blog/1475500
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、前言

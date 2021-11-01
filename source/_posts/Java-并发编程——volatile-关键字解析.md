@@ -6,7 +6,8 @@ categories:
   - 并发编程
 abbrlink: dc6706eb
 date: 2018-10-02 10:33:44
-copyright_author: 海子
+copyright_author: Matrix海子
+copyright_url: https://www.cnblogs.com/dolphin0520/p/3920373.html
 ---
 
 volatile这个关键字可能很多朋友都听说过，或许也都用过。在Java 5之前，它是一个备受争议的关键字，因为在程序中使用它往往会导致出人意料的结果。在Java 5之后，volatile关键字才得以重获生机。

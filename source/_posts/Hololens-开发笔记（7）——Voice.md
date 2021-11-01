@@ -6,8 +6,6 @@ date: 2018-12-03 12:41:39
 related_repos:
   - name: HoloLens Demo
     url: https://github.com/jitwxs/blog-sample/tree/master/HoloLens
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 本篇文章来学习 HoloLens 的基础开发之语音操作。

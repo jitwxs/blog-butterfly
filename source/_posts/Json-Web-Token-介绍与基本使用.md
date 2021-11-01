@@ -6,12 +6,9 @@ categories:
   - SpringBoot
 abbrlink: 7ac4f061
 date: 2018-05-03 02:25:18
-icons: [fas fa-fire red]
 related_repos:
   - name: jwt-sample
     url: https://github.com/jitwxs/blog-sample/tree/master/springboot-sample/jwt-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、Session 与 JWT

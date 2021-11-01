@@ -9,8 +9,6 @@ date: 2020-08-30 00:53:01
 related_repos:
   - name: shallow-copy-sample
     url: https://github.com/jitwxs/blog-sample/blob/master/springboot-sample/shallow-copy-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 ## 一、前言
 

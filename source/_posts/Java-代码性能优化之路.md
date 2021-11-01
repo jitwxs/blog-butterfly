@@ -6,12 +6,9 @@ categories:
 abbrlink: 94186b3a
 date: 2020-05-01 20:21:12
 tags:
-icons: [fas fa-fire red]
 related_repos:
   - name: performance-optimized
     url: https://github.com/jitwxs/blog-sample/tree/master/javase-sample/performance-optimized
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、前言

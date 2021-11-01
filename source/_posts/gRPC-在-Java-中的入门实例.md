@@ -9,8 +9,6 @@ date: 2019-12-26 21:30:04
 related_repos:
   - name: grpc-sample
     url: https://github.com/jitwxs/blog-sample/tree/master/javase-sample/grpc-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、前言

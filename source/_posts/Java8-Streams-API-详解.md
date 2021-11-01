@@ -4,7 +4,8 @@ tags: Stream
 categories: Java
 abbrlink: 6855101d
 date: 2018-06-08 14:35:04
-copyright_author: 陈争云
+copyright_author: IBM Developer
+copyright_url: https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi
 ---
 
 ##  一、为什么需要 Stream

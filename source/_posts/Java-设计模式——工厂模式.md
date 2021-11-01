@@ -8,16 +8,10 @@ date: 2018-09-26 19:15:21
 references:
   - name: 工厂模式 - 菜鸟教程
     url: http://www.runoob.com/design-pattern/factory-pattern.html
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: JAVA设计模式之工厂模式—Factory Pattern
     url: https://www.cnblogs.com/carryjack/p/7709861.html
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: 三种工厂模式的使用选择
     url: https://blog.csdn.net/qq_17242957/article/details/52766885
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、什么是工厂模式

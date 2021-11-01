@@ -9,16 +9,10 @@ date: 2018-09-10 09:42:21
 references:
   - name: 字符串匹配的KMP算法
     url: http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: KMP 算法
     url: https://subetter.com/articles/kmp-algorithm.html
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: KMP字符串匹配算法
     url: https://www.bilibili.com/video/av11866460?zw
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、背景

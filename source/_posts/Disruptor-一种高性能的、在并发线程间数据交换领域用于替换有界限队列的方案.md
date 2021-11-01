@@ -6,16 +6,8 @@ categories:
 tags: Disruptor
 abbrlink: 17fac167
 date: 2019-12-12 23:03:10
-copyright_author: Martin Thompson
-references:
-  - name: Disruptor - 一种可替代有界队列完成并发线程间数据交换的高性能解决方案
-    url: https://www.cnblogs.com/daoqidelv/p/7043696.html
-    rel: nofollow noopener noreferrer
-    target: _blank
-  - name:  Disruptor - High performance alternative to bounded queues for 
-    url:  http://blog.sina.com.cn/s/blog_68ffc7a4010150yl.html 
-    rel: nofollow noopener noreferrer
-    target: _blank
+copyright_author: LMAX-Exchange
+copyright_url: https://lmax-exchange.github.io/disruptor/files/Disruptor-1.0.pdf
 ---
 
 ## 一、摘要

@@ -11,8 +11,6 @@ tags:
 references:
   - name: 《CountDownLatch详解》
     url: https://www.jianshu.com/p/128476015902
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、前言

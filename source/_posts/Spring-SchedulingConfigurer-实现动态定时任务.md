@@ -11,8 +11,6 @@ date: 2021-03-27 23:23:41
 related_repos:
   - name: dynamic-schedule-sample
     url: https://github.com/jitwxs/blog-sample/tree/master/springboot-sample/dynamic-schedule-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、前言

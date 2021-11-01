@@ -5,7 +5,6 @@ categories:
   - IDEA
 abbrlink: 4135e0a9
 date: 2018-08-01 09:11:15
-icons: [fas fa-fire red]
 ---
 
 ## 一、类注释

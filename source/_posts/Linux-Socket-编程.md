@@ -4,12 +4,9 @@ tags: Socket
 categories: Linux
 abbrlink: f2ee55a7
 date: 2017-11-15 01:34:36
-icons: [fas fa-fire red]
 related_repos:
   - name: linux_socket
     url: https://github.com/jitwxs/blog-sample/blob/master/Linux/linux_socket
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 前言

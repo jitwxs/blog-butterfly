@@ -2,14 +2,11 @@
 title: 详解 Caffeine Cache
 categories: Java
 tags: [Cache, Caffeine]
-icons: [fas fa-fire red]
 abbrlink: '126e3eed'
 date: 2020-06-26 15:34:01
 references:
   - name: caffeine 缓存实现原理
     url: https://zhouxinghang.github.io/caffeine.html
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、前言

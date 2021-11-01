@@ -9,7 +9,6 @@ categories:
   - 并发编程
 abbrlink: aa970b7c
 date: 2020-02-23 13:54:17
-icons: [fas fa-fire red]
 ---
 
 ## 一、前言

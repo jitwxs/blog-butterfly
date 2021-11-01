@@ -8,8 +8,6 @@ date: 2017-10-10 00:21:58
 related_repos:
   - name: LTP_03
     url: https://github.com/jitwxs/blog-sample/blob/master/LTP/LTP_03
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 在第二章中我们写了 Shell 测试集，在本章，我们将开发基于 C 的系统调用测试集,使用新 API 重写既有的测试 case ,整个流程与上一章基本相同，不再赘述。

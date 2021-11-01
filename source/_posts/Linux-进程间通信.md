@@ -4,12 +4,9 @@ tags: 进程通信
 categories: Linux
 abbrlink: 6c8041c0
 date: 2017-12-28 01:05:01
-icons: [fas fa-fire red]
 related_repos:
   - name: process_comm
     url: https://github.com/jitwxs/blog-sample/blob/master/Linux/process_comm
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 我们知道，进程是一个程序的一次执行，是系统资源分配的最小单元。这里所说的进程一般是指运行在用户态的进程，而由于处于用户态的不同进程间是彼此隔离的，但是它们很可能需要相互发送一些信息，好让对方知道自己的进度等情况，像这样进程间传递信息就叫`进程间通信`。

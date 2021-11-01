@@ -9,12 +9,8 @@ date: 2018-12-06 14:16:33
 references:
   - name: Spring Boot干货系列：（七）默认日志logback配置解析
     url: https://juejin.im/post/58f86981b123db0062363203
-    rel: nofollow noopener noreferrer
-    target: _blank
   - name: Spring Boot 日志配置
     url: https://blog.csdn.net/inke88/article/details/75007649
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、前言

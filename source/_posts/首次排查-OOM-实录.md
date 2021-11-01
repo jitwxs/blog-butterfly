@@ -9,8 +9,6 @@ date: 2020-04-19 11:18:15
 related_repos:
   - name: oom demo
     url: https://github.com/jitwxs/disruptor-study/blob/master/disruptor-demo/src/test/java/jit/wxs/disruptor/demo/oom
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、前言

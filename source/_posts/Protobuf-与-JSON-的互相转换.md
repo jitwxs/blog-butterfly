@@ -9,8 +9,6 @@ date: 2021-08-29 19:42:45
 related_repos:
   - name: protobuf-sample
     url: https://github.com/jitwxs/blog-sample/tree/master/javase-sample/protobuf-sample
-    rel: nofollow noopener noreferrer
-    target: _blank
 ---
 
 ## 一、前言
