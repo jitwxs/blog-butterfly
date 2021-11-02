@@ -1,6 +1,8 @@
 ---
 title: Mockito 源码分析（4）——Annotation
-categories: 单元测试
+categories: 
+  - Java Basic
+  - Unit Test
 tags: Mockito
 abbrlink: 208fa04c
 date: 2021-09-21 21:52:51

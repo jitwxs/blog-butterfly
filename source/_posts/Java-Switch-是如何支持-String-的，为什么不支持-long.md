@@ -1,6 +1,6 @@
 ---
 title: Java Switch 是如何支持 String 的，为什么不支持 long
-categories: Java
+categories: Java Basic
 abbrlink: 6f3eddff
 date: 2019-04-26 18:23:31
 ---

@@ -4,8 +4,8 @@ tags:
   - 队列
   - LinkedBlockingQueue
 categories:
-  - Java
-  - 并发编程
+  - Java Basic
+  - Concurrency Coding
 abbrlink: e00e15f2
 date: 2019-11-22 22:48:28
 copyright_author: benjaminwhx

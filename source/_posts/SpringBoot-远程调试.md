@@ -1,8 +1,8 @@
 ---
 title: SpringBoot 远程调试
-categories:
+categories: 
   - Java Web
-  - SpringBoot
+  - Spring Framework
 tags:
   - IDEA
   - 调试

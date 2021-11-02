@@ -1,7 +1,9 @@
 ---
 title: 图解 | 你管这破玩意儿叫TCP？
 tags: TCP
-categories: 网络
+categories: 
+  - Web
+  - Network
 copyright_author: 低并发编程
 copyright_url: 'https://mp.weixin.qq.com/s/Uf42QEL6WUSHOwJ403FwOA'
 abbrlink: bef70352

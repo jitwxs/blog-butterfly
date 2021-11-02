@@ -3,8 +3,8 @@ title: Java 并发编程——CountdownLatch
 abbrlink: c0b61611
 date: 2019-08-11 23:10:35
 categories: 
-  - Java
-  - 并发编程
+  - Java Basic
+  - Concurrency Coding
 tags: 
   - CountdownLatch
   - AQS

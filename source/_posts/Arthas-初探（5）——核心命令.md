@@ -2,8 +2,8 @@
 title: Arthas 初探（5）——核心命令
 tags: Arthas
 categories:
-  - Java
-  - 性能分析
+  - Java DevOps
+  - Arthas
 abbrlink: 5ed3293c
 date: 2020-12-27 20:01:49
 ---

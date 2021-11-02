@@ -1,6 +1,7 @@
 ---
 title: JTA 深度历险 - 原理与实现
-categories: Java Web
+categories: 
+  - Java Web
 tags: 事务
 abbrlink: cb257e6d
 date: 2019-05-26 22:03:22

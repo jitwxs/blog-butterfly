@@ -1,8 +1,8 @@
 ---
 title: LTP 第一章 LTP 介绍及内部机制
 categories:
-  - Linux
-  - LTP
+  - Operating System
+  - Linux LTP
 abbrlink: 51dc9e04
 date: 2017-09-23 03:21:58
 related_repos:

@@ -3,9 +3,9 @@ title: Web 三方登录实现（基于OAuth2.0，包含Github和QQ登录，附�
 tags:
   - OAuth
   - 三方登录
-categories:
+categories: 
   - Java Web
-  - SpringBoot
+  - Spring Framework
 abbrlink: 33ad9e35
 date: 2018-05-22 22:46:37
 related_repos:

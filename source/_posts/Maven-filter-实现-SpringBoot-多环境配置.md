@@ -1,11 +1,9 @@
 ---
 title: Maven filter 实现 SpringBoot 多环境配置
-tags:
-  - 多环境
-  - Maven
 categories:
-  - Java Web
-  - SpringBoot
+  - Java Basic
+  - Build Tool
+tags: maven
 abbrlink: 654be0f9
 date: 2019-09-02 00:47:43
 ---

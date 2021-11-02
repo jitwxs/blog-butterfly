@@ -1,6 +1,6 @@
 ---
 title: Java 集合框架
-categories: Java
+categories: Java Basic
 tags: 集合框架
 abbrlink: b2a8247c
 date: 2018-12-08 14:28:31

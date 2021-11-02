@@ -1,7 +1,7 @@
 ---
 title: Java8 Optional 详解
 tags: Optional
-categories: Java
+categories: Java Basic
 abbrlink: c6a78a53
 date: 2018-03-14 10:37:35
 ---

@@ -1,6 +1,8 @@
 ---
 title: Linux 配置多个 Tomcat
-categories: Linux
+categories: 
+  - Operating System
+  - Linux
 tags: Tomcat
 abbrlink: 13892bf0
 date: 2018-03-26 01:26:05

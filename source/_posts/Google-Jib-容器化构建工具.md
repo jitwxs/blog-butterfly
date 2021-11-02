@@ -1,6 +1,9 @@
 ---
 title: Google Jib 容器化构建工具
-categories: 云原生
+categories:
+  - Java Basic
+  - Build Tool
+tags: Jib
 abbrlink: a526485e
 date: 2019-12-17 21:50:11
 references:

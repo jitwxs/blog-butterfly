@@ -1,7 +1,7 @@
 ---
 title: Redis 初探（8）——Redis 的实际应用
 categories: 
-  - 数据库
+  - Database
   - Redis
 abbrlink: 5907c9b5
 date: 2018-04-10 01:32:07

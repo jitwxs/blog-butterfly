@@ -3,8 +3,8 @@ title: Java 并发编程——ReentrantLock
 abbrlink: cbe421eb
 date: 2019-08-07 21:18:07
 categories: 
-  - Java
-  - 并发编程
+  - Java Basic
+  - Concurrency Coding
 tags: 
   - ReentrantLock
   - AQS

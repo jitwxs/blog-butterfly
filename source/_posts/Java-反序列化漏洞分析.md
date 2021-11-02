@@ -1,7 +1,7 @@
 ---
 title: Java 反序列化漏洞分析
 tags: 反序列化
-categories: Java
+categories: Java Basic
 abbrlink: b9d809ac
 date: 2018-03-28 01:08:56
 ---

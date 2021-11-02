@@ -3,9 +3,7 @@ title: Java Fail-Fast 与 Fail-Safe 特性
 tags:
   - Fail Fast
   - Fail Safe
-categories: Java
-icons:
-  - fas fa-fire red
+categories: Java Basic
 references:
   - name: Fail Fast and Fail Safe Iterators in Java
     url: 'https://www.geeksforgeeks.org/fail-fast-fail-safe-iterators-java/'

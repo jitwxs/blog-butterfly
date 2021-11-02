@@ -1,6 +1,8 @@
 ---
 title: Nginx 初探（5）——Nginx的高可用
-categories: Nginx
+categories: 
+  - Web
+  - Nginx
 abbrlink: 55fecdc1
 date: 2018-03-27 00:32:41
 ---

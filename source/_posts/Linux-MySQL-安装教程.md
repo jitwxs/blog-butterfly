@@ -1,7 +1,9 @@
 ---
-title: Linux MySQL 安装教程
+title: 
+  - Operating System
+  - Linux MySQL 安装教程
 categories: 
-  - 数据库
+  - Database
   - MySQL
 abbrlink: 783eb9d
 date: 2017-12-09 17:46:34

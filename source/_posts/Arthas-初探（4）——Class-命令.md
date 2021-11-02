@@ -2,8 +2,8 @@
 title: Arthas 初探（4）——Class 命令
 tags: Arthas
 categories:
-  - Java
-  - 性能分析
+  - Java DevOps
+  - Arthas
 abbrlink: 43dc34ff
 date: 2020-12-27 16:55:36
 ---

@@ -2,8 +2,8 @@
 title: Java-并发编程——CyclicBarrier
 tags: CyclicBarrier
 categories:
-  - Java
-  - 并发编程
+  - Java Basic
+  - Concurrency Coding
 abbrlink: 6ff6c3e2
 date: 2019-11-24 23:34:29
 references:

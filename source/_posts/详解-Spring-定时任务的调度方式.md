@@ -1,7 +1,9 @@
 ---
 title: 详解 Spring 定时任务的调度方式
-categories: Java Web
-tags: Spring
+categories: 
+  - Java Web
+  - Spring Framework
+tags: 定时任务
 abbrlink: 295bff8a
 date: 2020-01-15 21:44:19
 references:

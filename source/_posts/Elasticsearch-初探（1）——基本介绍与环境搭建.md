@@ -1,7 +1,7 @@
 ---
 title: Elasticsearch 初探（1）——基本介绍与环境搭建
 categories:
-  - 搜索引擎
+  - Search Engine
   - Elasticsearch
 tags: Elasticsearch
 abbrlink: 513d7aa1

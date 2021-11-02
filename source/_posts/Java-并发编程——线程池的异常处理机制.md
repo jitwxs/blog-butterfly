@@ -5,8 +5,8 @@ tags:
   - 异常处理
   - Log4j
 categories:
-  - Java
-  - 并发编程
+  - Java Basic
+  - Concurrency Coding
 abbrlink: aa970b7c
 date: 2020-02-23 13:54:17
 ---

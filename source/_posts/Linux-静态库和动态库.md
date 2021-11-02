@@ -3,7 +3,9 @@ title: Linux 静态库和动态库
 tags:
   - 静态库
   - 动态库
-categories: Linux
+categories: 
+  - Operating System
+  - Linux
 abbrlink: 1ab0b663
 date: 2017-10-17 01:11:07
 references:

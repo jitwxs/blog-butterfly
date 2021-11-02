@@ -1,8 +1,8 @@
 ---
 title: Protobuf 学习手册——编码篇
 categories:
-  - Java
-  - Protobuf
+  - Java High Performance
+  - Protobuf && gRPC
 tags: Protobuf
 abbrlink: d4225e9b
 katex: true

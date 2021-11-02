@@ -1,8 +1,8 @@
 ---
 title: LTP 第二章 开发 Shell 测试集
 categories:
-  - Linux
-  - LTP
+  - Operating System
+  - Linux LTP
 abbrlink: a89075d9
 date: 2017-09-30 00:59:58
 related_repos:

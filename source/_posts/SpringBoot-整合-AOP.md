@@ -1,9 +1,9 @@
 ---
 title: SpringBoot 整合 AOP
 tags: AOP
-categories:
+categories: 
   - Java Web
-  - SpringBoot
+  - Spring Framework
 abbrlink: 77bba914
 date: 2018-12-06 19:04:32
 related_repos:

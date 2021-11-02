@@ -2,7 +2,7 @@
 title: Solr 初探（6）——SolrCloud
 tags: 集群
 categories:
-  - 搜索引擎
+  - Search Engine
   - Solr
 abbrlink: 96601bd
 date: 2018-04-12 13:46:50

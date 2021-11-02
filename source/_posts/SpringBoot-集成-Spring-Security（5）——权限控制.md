@@ -1,7 +1,7 @@
 ---
 title: SpringBoot 集成 Spring Security（5）——权限控制
 categories:
-  - 安全框架
+  - Java Web
   - Spring Security
 abbrlink: 71543ef6
 date: 2018-05-15 19:09:28

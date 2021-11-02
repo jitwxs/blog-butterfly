@@ -1,7 +1,7 @@
 ---
 title: Disruptor 官方文档——介绍
 categories:
-  - Java
+  - Java High Performance
   - Disruptor
 tags: Disruptor
 abbrlink: a7ed43af

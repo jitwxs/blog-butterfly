@@ -1,7 +1,7 @@
 ---
 title: SpringBoot 集成 Spring Security（9）——解决 UserNotFoundException 不抛出问题
 categories:
-  - 安全框架
+  - Java Web
   - Spring Security
 tags: 异常处理
 abbrlink: d9ec6e24

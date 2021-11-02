@@ -1,6 +1,8 @@
 ---
 title: Nginx 初探（2）——配置虚拟主机
-categories: Nginx
+categories: 
+  - Web
+  - Nginx
 abbrlink: 133d8a57
 date: 2018-03-23 15:37:13
 ---

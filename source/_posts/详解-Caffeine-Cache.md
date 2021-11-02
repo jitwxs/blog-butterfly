@@ -1,7 +1,9 @@
 ---
 title: 详解 Caffeine Cache
-categories: Java
-tags: [Cache, Caffeine]
+categories: 
+  - Database
+  - Memory Cache
+tags: Caffeine
 abbrlink: '126e3eed'
 date: 2020-06-26 15:34:01
 references:

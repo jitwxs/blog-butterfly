@@ -2,8 +2,8 @@
 title: Java 并发编程——volatile 关键字解析
 tags: Volatile
 categories: 
-  - Java
-  - 并发编程
+  - Java Basic
+  - Concurrency Coding
 abbrlink: dc6706eb
 date: 2018-10-02 10:33:44
 copyright_author: Matrix海子

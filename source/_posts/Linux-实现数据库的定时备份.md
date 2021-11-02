@@ -2,8 +2,10 @@
 title: Linux 实现数据库的定时备份
 tags:
   - Linux
-  - 数据库
-categories: Linux
+  - Database
+categories: 
+  - Operating System
+  - Linux
 abbrlink: a804ec35
 date: 2017-10-30 23:10:27
 ---

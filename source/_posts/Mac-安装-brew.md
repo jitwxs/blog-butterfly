@@ -1,7 +1,9 @@
 ---
 title: Mac 安装 brew
-tags: Mac
-categories: 开发工具
+tags: brew
+categories: 
+  - Operating System
+  - Mac
 abbrlink: c9822fb1
 date: 2020-09-26 10:36:17
 ---

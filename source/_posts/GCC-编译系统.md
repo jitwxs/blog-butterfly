@@ -1,6 +1,8 @@
 ---
 title: GCC 编译系统
-categories: Linux
+categories: 
+  - Operating System
+  - Linux
 tags: GCC
 abbrlink: 29703731
 date: 2017-07-05 14:21:59

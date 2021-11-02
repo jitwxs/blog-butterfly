@@ -1,7 +1,9 @@
 ---
 title: Linux IO 模型
 tags: IO模型
-categories: Linux
+categories: 
+  - Operating System
+  - Linux
 abbrlink: 3b3bd025
 date: 2017-11-28 01:23:44
 related_repos:

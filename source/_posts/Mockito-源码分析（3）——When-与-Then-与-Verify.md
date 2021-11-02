@@ -1,6 +1,8 @@
 ---
 title: Mockito 源码分析（3）——When 与 Then 与 Verify
-categories: 单元测试
+categories: 
+  - Java Basic
+  - Unit Test
 tags: Mockito
 abbrlink: 921b3e8a
 date: 2021-09-20 20:32:05

@@ -1,8 +1,8 @@
 ---
 title: LTP 第四章 开发_exit()测试集
 categories:
-  - Linux
-  - LTP
+  - Operating System
+  - Linux LTP
 abbrlink: a375e1a1
 date: 2017-10-27 19:08:58
 related_repos:

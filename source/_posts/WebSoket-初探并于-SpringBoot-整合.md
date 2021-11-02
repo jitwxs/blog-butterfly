@@ -1,9 +1,9 @@
 ---
 title: WebSoket 初探并于 SpringBoot 整合
 tags: WebSoket
-categories:
+categories: 
   - Java Web
-  - SpringBoot
+  - Spring Framework
 abbrlink: 9af7a6d1
 date: 2018-10-10 19:43:04
 related_repos:

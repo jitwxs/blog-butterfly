@@ -2,8 +2,8 @@
 title: Java 线程池实现原理及其在美团业务中的实践
 tags: 线程池
 categories:
-  - Java
-  - 并发编程
+  - Java Basic
+  - Concurrency Coding
 copyright_author: 美团技术团队
 copyright_url: https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html
 references:

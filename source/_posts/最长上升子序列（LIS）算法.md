@@ -1,9 +1,7 @@
 ---
 title: 最长上升子序列（LIS）算法
 tags: LIS
-categories:
-  - 算法与数据结构
-  - 算法
+categories: Algorithm && Data Structure
 abbrlink: f2158548
 date: 2018-03-28 01:34:09
 ---

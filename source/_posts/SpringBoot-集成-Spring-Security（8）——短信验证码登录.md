@@ -1,7 +1,7 @@
 ---
 title: SpringBoot 集成 Spring Security（8）——短信验证码登录
 categories:
-  - 安全框架
+  - Java Web
   - Spring Security
 abbrlink: d208d079
 date: 2019-01-09 17:10:43

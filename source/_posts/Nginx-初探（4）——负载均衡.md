@@ -1,6 +1,8 @@
 ---
 title: Nginx 初探（4）——负载均衡
-categories: Nginx
+categories: 
+  - Web
+  - Nginx
 abbrlink: 2801cb42
 date: 2018-03-26 23:52:20
 ---

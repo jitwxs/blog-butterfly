@@ -2,7 +2,7 @@
 title: Redis 初探（2）——Jedis 的使用
 tags: Jedis
 categories: 
-  - 数据库
+  - Database
   - Redis
 abbrlink: baef2507
 date: 2018-02-28 00:13:53

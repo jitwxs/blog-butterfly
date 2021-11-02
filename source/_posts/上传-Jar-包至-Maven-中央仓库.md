@@ -1,7 +1,9 @@
 ---
 title: 上传 Jar 包至 Maven 中央仓库
-categories: 开发工具
-tags: Maven
+categories:
+  - Java Basic
+  - Build Tool
+tags: maven
 abbrlink: 4714ed08
 date: 2020-05-17 22:32:48
 ---

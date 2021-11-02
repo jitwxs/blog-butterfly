@@ -1,7 +1,7 @@
 ---
 title: 高性能 Disruptor——消除伪共享
 categories:
-  - Java
+  - Java High Performance
   - Disruptor
 tags: Disruptor
 abbrlink: 13836b16

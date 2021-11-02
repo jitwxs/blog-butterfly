@@ -1,7 +1,7 @@
 ---
 title: SpringBoot 集成 Spring Security（10）——角色继承
 categories:
-  - 安全框架
+  - Java Web
   - Spring Security
 abbrlink: '7886e906'
 date: 2019-09-03 00:11:30

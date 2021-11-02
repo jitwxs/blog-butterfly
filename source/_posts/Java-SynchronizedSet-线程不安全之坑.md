@@ -3,8 +3,8 @@ title: Java SynchronizedSet 线程不安全之坑
 tags:
   - 踩坑之路
 categories:
-  - Java
-  - 并发编程
+  - Java Basic
+  - Concurrency Coding
 abbrlink: e31104fc
 date: 2020-02-17 22:24:58
 ---

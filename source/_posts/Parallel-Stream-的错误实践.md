@@ -1,6 +1,6 @@
 ---
 title: Parallel Stream 的错误实践
-categories: Java
+categories: Java Basic
 tags:
   - Stream
   - 踩坑之路

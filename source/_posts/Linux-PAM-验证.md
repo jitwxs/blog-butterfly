@@ -1,7 +1,9 @@
 ---
 title: Linux PAM 验证
 tags: PAM
-categories: Linux
+categories: 
+  - Operating System
+  - Linux
 abbrlink: a0b678d2
 date: 2017-12-06 02:33:51
 ---

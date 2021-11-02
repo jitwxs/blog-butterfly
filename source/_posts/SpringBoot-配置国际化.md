@@ -1,9 +1,9 @@
 ---
 title: SpringBoot 配置国际化
 tags: i18n
-categories:
+categories: 
   - Java Web
-  - SpringBoot
+  - Spring Framework
 abbrlink: 885663
 date: 2018-12-02 21:03:43
 related_repos:

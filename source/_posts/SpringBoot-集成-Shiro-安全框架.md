@@ -1,10 +1,7 @@
 ---
 title: SpringBoot 集成 Shiro 安全框架
-tags: 
-  - Shiro
-  - SpringBoot
 categories:
-  - 安全框架
+  - Java Web
   - Shiro
 abbrlink: 30819bdf
 date: 2018-03-20 23:23:32
@@ -57,7 +54,7 @@ Shiro 是在 Java Web 开发中，比较常见的安全框架技术，在本文�
     <version>2.1.9</version>
 </dependency>
 
-<!-- 数据库连接包 -->
+<!-- Database连接包 -->
 <dependency>
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>

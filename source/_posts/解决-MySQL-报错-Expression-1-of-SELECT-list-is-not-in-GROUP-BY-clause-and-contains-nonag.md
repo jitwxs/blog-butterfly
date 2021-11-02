@@ -3,7 +3,7 @@ title: >-
   解决 MySQL 报错 Expression #1 of SELECT list is not in GROUP BY clause and
   contains nonag...
 categories:
-  - 数据库
+  - Database
   - MySQL
 abbrlink: b6db8e4b
 date: 2019-02-25 22:40:00

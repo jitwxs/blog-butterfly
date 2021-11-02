@@ -1,6 +1,8 @@
 ---
 title: 理解 DRY、KISS、YAGNI 三原则
-categories: 综合
+categories: 
+  - Java Basic
+  - Design Pattern
 tags: 设计原则
 abbrlink: 234befaa
 date: 2019-09-20 00:15:06

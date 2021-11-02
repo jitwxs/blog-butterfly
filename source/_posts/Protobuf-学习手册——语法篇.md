@@ -1,8 +1,8 @@
 ---
 title: Protobuf 学习手册——语法篇
 categories:
-  - Java
-  - Protobuf
+  - Java High Performance
+  - Protobuf && gRPC
 tags: Protobuf
 abbrlink: 60aca815
 date: 2019-12-24 22:58:39

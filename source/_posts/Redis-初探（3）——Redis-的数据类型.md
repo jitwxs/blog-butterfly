@@ -1,7 +1,7 @@
 ---
 title: Redis 初探（3）——Redis 的数据类型
 categories:
-  - 数据库
+  - Database
   - Redis
 abbrlink: '63e66407'
 date: 2018-03-02 01:23:21

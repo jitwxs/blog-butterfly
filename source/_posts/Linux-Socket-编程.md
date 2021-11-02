@@ -1,7 +1,9 @@
 ---
 title: Linux Socket 编程
 tags: Socket
-categories: Linux
+categories: 
+  - Operating System
+  - Linux
 abbrlink: f2ee55a7
 date: 2017-11-15 01:34:36
 related_repos:

@@ -2,7 +2,7 @@
 title: Redis 初探（5）——Redis 的持久化
 tags: 持久化
 categories: 
-  - 数据库
+  - Database
   - Redis
 abbrlink: 4c90598b
 date: 2018-03-03 21:33:35

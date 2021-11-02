@@ -1,7 +1,7 @@
 ---
 title: Redis 初探（4）——Redis 的特性
 categories: 
-  - 数据库
+  - Database
   - Redis
 abbrlink: 125289ae
 date: 2018-03-03 20:30:41

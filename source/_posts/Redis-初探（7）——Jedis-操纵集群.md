@@ -2,7 +2,7 @@
 title: Redis 初探（7）——Jedis 操纵集群
 tags: Jedis
 categories: 
-  - 数据库
+  - Database
   - Redis
 abbrlink: 5108d6b6
 date: 2018-04-09 15:57:55

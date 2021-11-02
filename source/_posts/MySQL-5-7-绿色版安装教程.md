@@ -1,7 +1,7 @@
 ---
 title: MySQL 5.7 绿色版安装教程
 categories: 
-  - 数据库
+  - Database
   - MySQL
 abbrlink: f5cfbb3c
 date: 2017-11-29 01:36:57

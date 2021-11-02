@@ -3,9 +3,9 @@ title: Spring SchedulingConfigurer 实现动态定时任务
 tags:
   - SchedulingConfigurer
   - 定时任务
-categories:
+categories: 
   - Java Web
-  - SpringBoot
+  - Spring Framework
 abbrlink: e4d53ddb
 date: 2021-03-27 23:23:41
 related_repos:

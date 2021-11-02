@@ -1,7 +1,7 @@
 ---
 title: SpringBoot 集成 Spring Security（4）——自定义表单登录
 categories:
-  - 安全框架
+  - Java Web
   - Spring Security
 abbrlink: f420faae
 date: 2018-05-09 15:05:40

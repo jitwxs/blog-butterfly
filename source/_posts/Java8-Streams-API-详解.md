@@ -1,7 +1,7 @@
 ---
 title: Java8 Streams API 详解
 tags: Stream
-categories: Java
+categories: Java Basic
 abbrlink: 6855101d
 date: 2018-06-08 14:35:04
 copyright_author: IBM Developer

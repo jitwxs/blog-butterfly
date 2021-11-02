@@ -2,8 +2,8 @@
 title: Java 并发编程——Thread 类的使用
 tags: Thread
 categories: 
-  - Java
-  - 并发编程
+  - Java Basic
+  - Concurrency Coding
 abbrlink: 29b9a7ac
 date: 2018-10-02 11:59:46
 copyright_author: Matrix海子

@@ -1,6 +1,8 @@
 ---
 title: ES6 箭头函数
-categories: 前端
+categories: 
+  - Web
+  - Web Develop
 abbrlink: '4e410719'
 date: 2019-08-25 21:42:02
 copyright_author: liuliu

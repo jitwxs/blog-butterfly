@@ -1,7 +1,7 @@
 ---
 title: Elasticsearch 初探（2）——相关概念与索引、数据操作
 categories:
-  - 搜索引擎
+  - Search Engine
   - Elasticsearch
 tags: [索引, Elasticsearch]
 abbrlink: 404d3073

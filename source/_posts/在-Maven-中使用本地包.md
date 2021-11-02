@@ -1,7 +1,9 @@
 ---
 title: 在 Maven 中使用本地包
-categories: 开发工具
-tags: Maven
+categories:
+  - Java Basic
+  - Build Tool
+tags: maven
 abbrlink: f22262ea
 date: 2018-01-22 10:09:14
 ---

@@ -2,8 +2,8 @@
 title: Arthas 初探（1）——快速入门
 tags: Arthas
 categories:
-  - Java
-  - 性能分析
+  - Java DevOps
+  - Arthas
 abbrlink: a64edcb1
 date: 2020-12-26 18:11:40
 ---

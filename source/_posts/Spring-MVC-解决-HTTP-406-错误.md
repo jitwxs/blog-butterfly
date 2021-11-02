@@ -1,8 +1,8 @@
 ---
 title: Spring MVC 解决 HTTP 406 错误
-categories:
+categories: 
   - Java Web
-  - Spring MVC
+  - Spring Framework
 abbrlink: 6da44730
 date: 2018-04-17 00:45:50
 ---

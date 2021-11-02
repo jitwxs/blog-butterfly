@@ -1,6 +1,8 @@
 ---
 title: Nginx 初探（3）——反向代理
-categories: Nginx
+categories: 
+  - Web
+  - Nginx
 abbrlink: a2c06ed5
 date: 2018-03-26 01:07:10
 ---

@@ -2,8 +2,8 @@
 title: Arthas 初探（3）——JVM 命令
 tags: Arthas
 categories:
-  - Java
-  - 性能分析
+  - Java DevOps
+  - Arthas
 abbrlink: e88e6355
 date: 2020-12-26 20:28:17
 ---

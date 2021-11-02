@@ -1,6 +1,8 @@
 ---
 title: Mockito 源码分析（1）——基础概念
-categories: 单元测试
+categories: 
+  - Java Basic
+  - Unit Test
 tags: Mockito
 abbrlink: f9625997
 date: 2021-09-20 09:02:35

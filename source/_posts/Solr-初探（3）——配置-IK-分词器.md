@@ -2,7 +2,7 @@
 title: Solr 初探（3）——配置 IK 分词器
 tags: 分词
 categories:
-  - 搜索引擎
+  - Search Engine
   - Solr
 toc: false
 abbrlink: b381cc92

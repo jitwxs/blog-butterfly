@@ -1,7 +1,7 @@
 ---
 title: 详解 MySQL下的行表锁
 categories:
-  - 数据库
+  - Database
   - MySQL
 abbrlink: bc240583
 date: 2019-03-06 00:11:09

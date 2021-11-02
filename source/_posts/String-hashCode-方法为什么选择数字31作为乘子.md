@@ -1,6 +1,6 @@
 ---
 title: String hashCode 方法为什么选择数字31作为乘子
-categories: Java
+categories: Java Basic
 abbrlink: 9b889763
 date: 2019-04-26 16:16:58
 katex: true

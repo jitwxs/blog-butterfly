@@ -1,9 +1,7 @@
 ---
 title: 最长公共子序列（LCS）算法
 tags: LCS
-categories:
-  - 算法与数据结构
-  - 算法
+categories: Algorithm && Data Structure
 abbrlink: 38f549b
 date: 2018-03-28 01:33:50
 ---

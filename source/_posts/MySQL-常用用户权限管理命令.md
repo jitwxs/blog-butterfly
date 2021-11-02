@@ -1,7 +1,7 @@
 ---
 title: MySQL 常用用户权限管理命令
 categories:
-  - 数据库
+  - Database
   - MySQL
 abbrlink: 5aeb4f97
 date: 2020-05-12 22:25:12

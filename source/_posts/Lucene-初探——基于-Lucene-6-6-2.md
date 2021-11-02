@@ -1,7 +1,7 @@
 ---
 title: Lucene 初探——基于 Lucene 6.6.2
 categories:
-  - 搜索引擎
+  - Search Engine
   - Lucene
 abbrlink: 44bf5506
 date: 2018-03-04 14:25:39

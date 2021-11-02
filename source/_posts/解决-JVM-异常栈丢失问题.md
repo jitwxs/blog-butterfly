@@ -3,7 +3,7 @@ title: 解决 JVM 异常栈丢失问题
 tags:
   - JVM
   - OmitStackTraceInFastThrow
-categories: Java
+categories: Java Basic
 abbrlink: f8cb808a
 date: 2020-12-19 22:13:44
 ---

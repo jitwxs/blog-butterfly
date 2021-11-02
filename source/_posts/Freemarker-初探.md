@@ -1,7 +1,9 @@
 ---
 title: Freemarker 初探
 tags: Freemarker
-categories: Java Web
+categories: 
+  - Java Web
+  - Template Engine
 abbrlink: e843d977
 date: 2018-04-16 11:07:35
 ---

@@ -1,7 +1,7 @@
 ---
 title: Elasticsearch 初探（4）——集群
 categories:
-  - 搜索引擎
+  - Search Engine
   - Elasticsearch
 tags: Elasticsearch
 abbrlink: d459272e

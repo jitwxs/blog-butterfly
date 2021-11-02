@@ -1,7 +1,7 @@
 ---
 title: SpringBoot 集成 Spring Security（3）——异常处理
 categories:
-  - 安全框架
+  - Java Web
   - Spring Security
 tags: 异常处理
 abbrlink: eb7552c8

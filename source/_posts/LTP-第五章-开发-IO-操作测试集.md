@@ -1,8 +1,8 @@
 ---
 title: LTP 第五章 开发 IO 操作测试集
 categories:
-  - Linux
-  - LTP
+  - Operating System
+  - Linux LTP
 abbrlink: df12238b
 date: 2017-11-11 12:59:58
 related_repos:

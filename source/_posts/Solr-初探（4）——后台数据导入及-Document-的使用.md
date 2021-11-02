@@ -1,7 +1,7 @@
 ---
 title: Solr 初探（4）——后台数据导入及 Document 的使用
 categories:
-  - 搜索引擎
+  - Search Engine
   - Solr
 abbrlink: 7aa79ad1
 date: 2018-04-10 19:14:28
@@ -140,7 +140,7 @@ date: 2018-04-10 19:14:28
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <dataConfig>
-	<!-- 数据库信息 -->
+	<!-- Database信息 -->
 	<dataSource type="JdbcDataSource" 
 		driver="com.mysql.jdbc.Driver" 
 		url="jdbc:mysql://localhost:3306/e3mall" 
@@ -148,7 +148,7 @@ date: 2018-04-10 19:14:28
 	<document>
 		<!-- document实体 -->
 		<entity name="item" query="SELECT id,title,sell_point,price FROM tb_item">
-			<!-- 数据库字段映射solr字段 -->
+			<!-- Database字段映射solr字段 -->
 			<field column="id" name="id"/>
 			<field column="title" name="item_title"/>
 			<field column="sell_point" name="item_sell_point"/>

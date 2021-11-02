@@ -4,7 +4,9 @@ tags:
   - SpringBoot
   - Prometheus
   - Grafana
-categories: 云原生
+categories: 
+  - Java DevOps
+  - Metrics
 abbrlink: 527f9dce
 date: 2020-11-15 21:06:13
 related_repos:

@@ -1,7 +1,9 @@
 ---
 title: Linux Ext 文件系统
+categories: 
+  - Operating System
+  - Linux
 tags: 文件系统
-categories: Linux
 abbrlink: 63a050cf
 date: 2017-11-06 23:47:27
 ---

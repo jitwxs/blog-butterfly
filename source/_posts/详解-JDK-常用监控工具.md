@@ -2,8 +2,8 @@
 title: 详解 JDK 常用监控工具
 tags: JVM
 categories:
-  - Java
-  - 性能分析
+  - Java DevOps
+  - Performance Analysis
 abbrlink: c72fb74
 date: 2020-12-26 14:23:54
 ---

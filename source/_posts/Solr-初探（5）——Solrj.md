@@ -1,7 +1,7 @@
 ---
 title: Solr 初探（5）——Solrj
 categories:
-  - 搜索引擎
+  - Search Engine
   - Solr
 abbrlink: 46ffa9b2
 date: 2018-04-10 20:27:39

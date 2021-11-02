@@ -1,7 +1,7 @@
 ---
 title: 'Disruptor: 一种高性能的、在并发线程间数据交换领域用于替换有界限队列的方案'
 categories:
-  - Java
+  - Java High Performance
   - Disruptor
 tags: Disruptor
 abbrlink: 17fac167

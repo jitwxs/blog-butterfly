@@ -1,8 +1,8 @@
 ---
 title: Java 设计模式——工厂模式
 categories: 
-  - Java
-  - 设计模式
+  - Java Basic
+  - Design Pattern
 abbrlink: 4caa56ee
 date: 2018-09-26 19:15:21
 references:

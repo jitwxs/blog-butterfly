@@ -4,8 +4,8 @@ tags:
   - 队列
   - ArrayBlockingQueue
 categories:
-  - Java
-  - 并发编程
+  - Java Basic
+  - Concurrency Coding
 abbrlink: dfd9e7ac
 date: 2019-11-19 21:59:42
 copyright_author: benjaminwhx

@@ -1,9 +1,8 @@
 ---
 title: Shiro 解决无法注入 Service 问题
 categories:
-  - 安全框架
+  - Java Web
   - Shiro
-toc: false
 abbrlink: 6a006994
 date: 2018-03-20 16:38:23
 ---

@@ -3,7 +3,7 @@ title: JDK 动态代理与 Cglib 动态代理
 tags:
   - 动态代理
   - AOP
-categories: Java
+categories: Java Basic
 abbrlink: 8ee3adf6
 date: 2018-03-09 10:03:36
 related_repos:

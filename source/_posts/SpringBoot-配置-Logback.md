@@ -1,9 +1,11 @@
 ---
 title: SpringBoot 配置 Logback
-categories:
-  - Java
+categories: 
+  - Java Web
+  - Spring Framework
+tags: 
   - 日志框架
-tags: Logback
+  - Logback
 abbrlink: a00120ad
 date: 2018-12-06 14:16:33
 references:

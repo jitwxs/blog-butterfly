@@ -1,8 +1,8 @@
 ---
 title: Java 并发编程——CompletableFuture
 categories:
-  - Java
-  - 并发编程
+  - Java Basic
+  - Concurrency Coding
 abbrlink: d00bfcd
 date: 2020-12-12 18:10:44
 ---

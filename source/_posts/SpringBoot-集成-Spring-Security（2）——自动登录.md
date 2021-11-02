@@ -1,7 +1,7 @@
 ---
 title: SpringBoot 集成 Spring Security（2）——自动登录
 categories:
-  - 安全框架
+  - Java Web
   - Spring Security
 abbrlink: 8e248ac0
 date: 2018-05-09 10:22:57

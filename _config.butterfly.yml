@@ -9,9 +9,9 @@
 menu:
   首页: / || fas fa-home
   文章||fa-fw far fa-newspaper:
-    时间轴: /archives/ || fas fa-archive
-    标签: /tags/ || fas fa-tags
     分类: /categories/ || fas fa-folder-open
+    标签: /tags/ || fas fa-tags
+    时间轴: /archives/ || fas fa-archive
   收藏夹: /favorites/ || fas fa-meteor
   友链: /links/ || fas fa-link
   关于: /about/ || fas fa-heart

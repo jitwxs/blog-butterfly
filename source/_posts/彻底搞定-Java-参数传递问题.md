@@ -1,6 +1,6 @@
 ---
 title: 彻底搞定 Java 参数传递问题
-categories: Java
+categories: Java Basic
 abbrlink: 800a108d
 date: 2019-07-02 23:51:34
 ---

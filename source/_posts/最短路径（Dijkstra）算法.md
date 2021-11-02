@@ -1,9 +1,7 @@
 ---
 title: 最短路径（Dijkstra）算法
 tags: Dijkstra
-categories:
-  - 算法与数据结构
-  - 算法
+categories: Algorithm && Data Structure
 abbrlink: 40493b95
 date: 2018-03-28 01:30:00
 ---

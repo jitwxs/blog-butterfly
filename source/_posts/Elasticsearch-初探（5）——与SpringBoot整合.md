@@ -1,7 +1,7 @@
 ---
 title: Elasticsearch 初探（5）——与SpringBoot整合
 categories:
-  - 搜索引擎
+  - Search Engine
   - Elasticsearch
 tags: [Elasticsearch, SpringBoot]
 abbrlink: 79a2adb2

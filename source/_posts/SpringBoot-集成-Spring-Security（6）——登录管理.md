@@ -1,7 +1,7 @@
 ---
 title: SpringBoot 集成 Spring Security（6）——登录管理
 categories:
-  - 安全框架
+  - Java Web
   - Spring Security
 abbrlink: 59f4016e
 date: 2018-11-29 19:47:20

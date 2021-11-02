@@ -2,7 +2,9 @@
 title: 不可不说的 Java “锁”事
 abbrlink: 95f9cf72
 date: 2020-02-29 20:12:08
-categories: [Java, 并发编程]
+categories: 
+  - Java Basic
+  - Concurrency Coding
 copyright_author: 美团技术团队
 copyright_url: https://tech.meituan.com/2018/11/15/java-lock.html
 references:

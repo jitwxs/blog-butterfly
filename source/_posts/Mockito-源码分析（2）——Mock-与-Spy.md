@@ -1,6 +1,8 @@
 ---
 title: Mockito 源码分析（2）——Mock 与 Spy
-categories: 单元测试
+categories: 
+  - Java Basic
+  - Unit Test
 tags: Mockito
 abbrlink: cb1af043
 date: 2021-09-20 09:48:47

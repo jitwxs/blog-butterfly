@@ -1,7 +1,7 @@
 ---
 title: Solr 初探（2）——域管理
 categories:
-  - 搜索引擎
+  - Search Engine
   - Solr
 abbrlink: ea6efdc6
 date: 2018-04-10 15:31:06

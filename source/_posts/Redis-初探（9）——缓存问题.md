@@ -1,7 +1,7 @@
 ---
 title: Redis 初探（9）——缓存问题
 categories:
-  - 数据库
+  - Database
   - Redis
 tags: Cache
 abbrlink: e916a7db

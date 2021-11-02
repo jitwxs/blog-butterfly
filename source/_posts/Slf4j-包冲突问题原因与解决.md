@@ -1,8 +1,8 @@
 ---
 title: Slf4j 包冲突问题原因与解决
-categories:
-  - Java
+tags: 
   - 日志框架
+  - Slf4j
 abbrlink: e2390047
 date: 2020-12-06 23:57:23
 ---

@@ -1,7 +1,7 @@
 ---
 title: Redis 初探（1）——Redis 的安装
 categories: 
-  - 数据库
+  - Database
   - Redis
 abbrlink: e331e26a
 date: 2018-02-27 00:57:43

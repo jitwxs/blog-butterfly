@@ -1,9 +1,9 @@
 ---
 title: SpringBoot @Value 解析集合配置
 tags: '@Value'
-categories:
+categories: 
   - Java Web
-  - SpringBoot
+  - Spring Framework
 abbrlink: d6d760c4
 date: 2020-06-14 16:10:38
 ---

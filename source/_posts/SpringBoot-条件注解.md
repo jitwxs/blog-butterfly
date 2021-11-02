@@ -1,9 +1,9 @@
 ---
 title: SpringBoot 条件注解
 tags: condition
-categories:
+categories: 
   - Java Web
-  - SpringBoot
+  - Spring Framework
 abbrlink: 2b3b4639
 date: 2019-08-25 21:32:47
 references:

@@ -1,7 +1,7 @@
 ---
 title: Solr 初探（1）——Solr 介绍
 categories:
-  - 搜索引擎
+  - Search Engine
   - Solr
 abbrlink: 2b682855
 date: 2018-03-07 00:30:48

@@ -1,8 +1,8 @@
 ---
 title: 为什么阿里巴巴要禁用 Executors 创建线程池？
 categories:
-  - Java
-  - 并发编程
+  - Java Basic
+  - Concurrency Coding
 tags: 线程池
 abbrlink: f3caf014
 date: 2019-12-01 22:07:59

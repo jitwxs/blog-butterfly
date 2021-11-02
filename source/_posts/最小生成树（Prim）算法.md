@@ -1,9 +1,7 @@
 ---
 title: 最小生成树（Prim）算法
 tags: prim
-categories:
-  - 算法与数据结构
-  - 算法
+categories: Algorithm && Data Structure
 abbrlink: 2d931a86
 date: 2018-03-28 01:32:23
 ---

@@ -1,7 +1,7 @@
 ---
 title: SpringBoot 集成 Spring Security（1）——入门程序
 categories:
-  - 安全框架
+  - Java Web
   - Spring Security
 abbrlink: 5f5715e6
 date: 2018-05-09 09:47:49

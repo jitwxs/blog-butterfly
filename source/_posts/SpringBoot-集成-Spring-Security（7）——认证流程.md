@@ -1,7 +1,7 @@
 ---
 title: SpringBoot 集成 Spring Security（7）——认证流程
 categories:
-  - 安全框架
+  - Java Web
   - Spring Security
 abbrlink: a28c0db7
 date: 2018-12-02 14:14:03

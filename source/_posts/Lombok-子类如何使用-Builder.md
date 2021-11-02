@@ -1,9 +1,7 @@
 ---
 title: Lombok 子类如何使用 @Builder
-categories: 开发工具
+categories: Java Basic Basic
 tags: Lombok
-icons:
-  - fas fa-fire red
 abbrlink: 54621f54
 date: 2020-08-26 22:15:18
 ---

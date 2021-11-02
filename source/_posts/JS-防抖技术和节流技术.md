@@ -1,6 +1,8 @@
 ---
 title: JS 防抖技术和节流技术
-categories: 前端
+categories: 
+  - Web
+  - Web Develop
 tags: Javascript
 abbrlink: a265bb29
 date: 2019-08-18 11:30:49

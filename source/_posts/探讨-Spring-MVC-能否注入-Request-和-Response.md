@@ -1,8 +1,8 @@
 ---
 title: 探讨 Spring MVC 能否注入 Request 和 Response
-categories:
+categories: 
   - Java Web
-  - Spring MVC
+  - Spring Framework
 tags: Spring
 abbrlink: 6078a4e1
 date: 2019-05-07 21:57:35

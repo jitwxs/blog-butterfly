@@ -3,7 +3,7 @@ title: >-
   解决 MySQL 报错The server time zone value 'ÖÐ¹ú±ê×¼Ê±¼ä' is unrecognized or
   represents ....
 categories: 
-  - 数据库
+  - Database
   - MySQL
 abbrlink: 8a950d9f
 date: 2018-11-15 16:47:15

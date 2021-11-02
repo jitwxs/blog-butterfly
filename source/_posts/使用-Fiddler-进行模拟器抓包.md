@@ -1,7 +1,11 @@
 ---
 title: 使用 Fiddler 进行模拟器抓包
-tags: 抓包
-categories: 测试
+tags: 
+   - 抓包
+   - Fiddler
+categories: 
+  - Web
+  - Network
 abbrlink: f6ed356a
 date: 2020-10-25 16:52:52
 ---

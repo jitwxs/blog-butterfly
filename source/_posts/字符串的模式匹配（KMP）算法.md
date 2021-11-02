@@ -1,9 +1,7 @@
 ---
 title: 字符串的模式匹配（KMP）算法
 tags: kmp
-categories:
-  - 算法与数据结构
-  - 算法
+categories: Algorithm && Data Structure
 abbrlink: e6a4d507
 date: 2018-09-10 09:42:21
 references:

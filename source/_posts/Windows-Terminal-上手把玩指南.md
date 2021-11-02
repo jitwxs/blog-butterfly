@@ -1,7 +1,9 @@
 ---
 title: Windows Terminal 上手把玩指南
 tags: Windows Terminal
-categories: Windows
+categories: 
+  - Operating System
+  - Windows
 abbrlink: 644b4cd9
 date: 2020-05-30 16:56:33
 ---

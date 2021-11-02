@@ -4,8 +4,8 @@ tags:
   - Arthas
   - 火焰图
 categories:
-  - Java
-  - 性能分析
+  - Java DevOps
+  - Arthas
 abbrlink: 744744f8
 date: 2020-12-27 21:36:24
 ---

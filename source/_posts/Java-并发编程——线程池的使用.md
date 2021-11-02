@@ -2,8 +2,8 @@
 title: Java 并发编程——线程池的使用
 tags: 线程池
 categories: 
-  - Java
-  - 并发编程
+  - Java Basic
+  - Concurrency Coding
 abbrlink: a916fbe8
 date: 2018-09-27 19:35:33
 copyright_author: Matrix海子

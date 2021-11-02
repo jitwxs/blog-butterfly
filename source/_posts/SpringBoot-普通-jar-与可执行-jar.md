@@ -1,8 +1,8 @@
 ---
 title: SpringBoot 普通 jar 与可执行 jar
-categories:
+categories: 
   - Java Web
-  - SpringBoot
+  - Spring Framework
 tags: SpringBoot
 abbrlink: 348efd64
 date: 2019-09-02 22:35:57

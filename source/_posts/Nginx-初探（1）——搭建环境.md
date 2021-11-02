@@ -1,6 +1,8 @@
 ---
 title: Nginx 初探（1）——搭建环境
-categories: Nginx
+categories: 
+  - Web
+  - Nginx
 abbrlink: dbe6db6e
 date: 2018-03-23 09:21:22
 ---

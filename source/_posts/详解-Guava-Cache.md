@@ -1,7 +1,9 @@
 ---
 title: 详解 Guava Cache
-categories: Java
-tags: [Cache, Guava]
+categories: 
+  - Database
+  - Memory Cache
+tags: Guava
 abbrlink: 8fec5912
 date: 2019-04-19 21:19:30
 references:

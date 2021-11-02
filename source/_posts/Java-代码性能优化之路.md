@@ -1,8 +1,8 @@
 ---
 title: Java 代码性能优化之路
 categories:
-  - Java
-  - 性能分析
+  - Java DevOps
+  - Performance Analysis
 abbrlink: 94186b3a
 date: 2020-05-01 20:21:12
 tags:

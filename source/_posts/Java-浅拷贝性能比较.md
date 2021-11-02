@@ -1,9 +1,7 @@
 ---
 title: Java 浅拷贝性能比较
 tags: 浅拷贝
-categories: Java
-icons:
-  - fas fa-fire red
+categories: Java Basic
 abbrlink: a9fa88a0
 date: 2020-08-30 00:53:01
 related_repos:

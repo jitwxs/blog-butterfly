@@ -1,8 +1,8 @@
 ---
 title: Protobuf 在 Java 中的入门实例
 categories:
-  - Java
-  - Protobuf
+  - Java High Performance
+  - Protobuf && gRPC
 tags: Protobuf
 abbrlink: a5b690ac
 date: 2019-12-23 00:43:58

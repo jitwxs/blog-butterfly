@@ -2,7 +2,7 @@
 title: Redis 初探（6）——Redis 集群
 tags: 集群
 categories: 
-  - 数据库
+  - Database
   - Redis
 abbrlink: bcdf2003
 date: 2018-04-08 23:59:45

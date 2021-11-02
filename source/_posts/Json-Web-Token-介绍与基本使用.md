@@ -1,9 +1,9 @@
 ---
 title: Json Web Token 介绍与基本使用
 tags: JWT
-categories:
+categories: 
   - Java Web
-  - SpringBoot
+  - Spring Framework
 abbrlink: 7ac4f061
 date: 2018-05-03 02:25:18
 related_repos:

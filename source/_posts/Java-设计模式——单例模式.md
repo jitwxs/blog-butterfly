@@ -1,8 +1,8 @@
 ---
 title: Java 设计模式——单例模式
 categories: 
-  - Java
-  - 设计模式
+  - Java Basic
+  - Design Pattern
 abbrlink: e9b2c5a3
 date: 2018-09-26 17:54:29
 references:

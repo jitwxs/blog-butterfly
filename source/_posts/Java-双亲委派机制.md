@@ -1,7 +1,7 @@
 ---
 title: Java 双亲委派机制
 tags: 双亲委派
-categories: Java
+categories: Java Basic
 abbrlink: 9f878221
 date: 2021-03-14 11:26:34
 ---

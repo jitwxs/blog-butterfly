@@ -1,8 +1,8 @@
 ---
 title: Java 设计模式——观察者模式
 categories:
-  - Java
-  - 设计模式
+  - Java Basic
+  - Design Pattern
 abbrlink: 57c88403
 date: 2019-05-27 00:12:09
 ---

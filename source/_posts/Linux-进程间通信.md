@@ -1,7 +1,9 @@
 ---
 title: Linux 进程间通信
 tags: 进程通信
-categories: Linux
+categories: 
+  - Operating System
+  - Linux
 abbrlink: 6c8041c0
 date: 2017-12-28 01:05:01
 related_repos:

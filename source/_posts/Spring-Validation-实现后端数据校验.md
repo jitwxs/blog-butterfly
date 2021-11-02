@@ -1,9 +1,9 @@
 ---
 title: Spring Validation 实现后端数据校验
 tags: Validation
-categories:
+categories: 
   - Java Web
-  - SpringBoot
+  - Spring Framework
 abbrlink: d0d863b0
 date: 2018-10-11 19:37:33
 copyright_author: 下一秒升华

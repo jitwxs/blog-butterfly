@@ -1,6 +1,8 @@
 ---
 title: RESTful API 设计规范
-categories: 网络
+categories: 
+  - Web
+  - Network
 tags: RESTful
 abbrlink: 9c7c62cc
 date: 2019-01-21 23:18:05
