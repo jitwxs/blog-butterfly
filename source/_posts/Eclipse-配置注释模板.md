@@ -1,7 +1,7 @@
 ---
 title: Eclipse 配置注释模板
 tags: Eclipse
-categories: 开发工具
+categories: Dev Tools
 abbrlink: c9e92657
 date: 2017-08-03 09:54:24
 ---

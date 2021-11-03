@@ -1,7 +1,7 @@
 ---
 title: ActiveMQ 初探（2）——与 Spring 整合
 tags: ActiveMQ
-categories: 中间件
+categories: Middleware
 abbrlink: 5f77c427
 date: 2018-05-08 22:50:53
 related_repos:

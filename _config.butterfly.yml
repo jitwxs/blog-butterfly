@@ -213,7 +213,7 @@ index_post_content:
 # toc (目錄)
 toc:
   enable: true
-  number: true
+  number: false
   style_simple: false
 
 post_copyright:

@@ -1,7 +1,7 @@
 ---
 title: Git 修改已经被覆盖的提交
 categories:
-  - 开发工具
+  - Dev Tools
   - Git
 tags: Git
 abbrlink: 33ebef44

@@ -2,7 +2,7 @@
 title: IDEA 下 SpringBoot 实现热部署
 tags: SpringBoot
 categories:
-  - 开发工具
+  - Dev Tools
   - IDEA
 abbrlink: 893ce85e
 date: 2018-08-01 09:11:30

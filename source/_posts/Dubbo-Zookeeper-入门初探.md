@@ -3,7 +3,7 @@ title: Dubbo + Zookeeper 入门初探
 tags:
   - Dubbo
   - Zookeeper
-categories: 中间件
+categories: Middleware
 abbrlink: 5def036a
 date: 2018-03-22 14:55:13
 ---

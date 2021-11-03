@@ -1,6 +1,6 @@
 ---
 title: 详解 Cron 表达式
-categories: 综合
+categories: Other
 tags: Cron
 abbrlink: 482391a0
 date: 2019-07-27 14:49:40

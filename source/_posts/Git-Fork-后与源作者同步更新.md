@@ -1,7 +1,7 @@
 ---
 title: Git Fork 后与源作者同步更新
 categories:
-  - 开发工具
+  - Dev Tools
   - Git
 tags: Git
 abbrlink: 6533bf70

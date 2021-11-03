@@ -1,7 +1,7 @@
 ---
 title: Git 多用户配置
 categories:
-  - 开发工具
+  - Dev Tools
   - Git
 tags: Git
 abbrlink: dc78acac

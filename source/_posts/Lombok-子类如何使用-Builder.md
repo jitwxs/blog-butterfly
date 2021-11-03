@@ -1,6 +1,6 @@
 ---
 title: Lombok 子类如何使用 @Builder
-categories: Java Basic Basic
+categories: Java Basic
 tags: Lombok
 abbrlink: 54621f54
 date: 2020-08-26 22:15:18

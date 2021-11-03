@@ -1,7 +1,7 @@
 ---
 title: ActiveMQ 初探（1）——介绍与基本使用
 tags: ActiveMQ
-categories: 中间件
+categories: Middleware
 abbrlink: 7050d1f6
 date: 2018-04-15 16:24:45
 related_repos:

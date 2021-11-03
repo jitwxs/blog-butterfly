@@ -1,7 +1,7 @@
 ---
 title: Navicat Premium 15 安装与激活
 tags: Navicat
-categories: 开发工具
+categories: Dev Tools
 abbrlink: ecc43537
 date: 2020-02-14 23:00:50
 ---

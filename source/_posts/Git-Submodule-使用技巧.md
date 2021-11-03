@@ -1,7 +1,7 @@
 ---
 title: Git Submodule 使用技巧
 categories:
-  - 开发工具
+  - Dev Tools
   - Git
 tags: Git
 abbrlink: 8bef605

@@ -1,7 +1,7 @@
 ---
 title: Zookeper 集群搭建
 tags: Zookeeper
-categories: 中间件
+categories: Middleware
 abbrlink: 820a29b
 date: 2018-04-12 17:08:26
 ---

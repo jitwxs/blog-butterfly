@@ -1,7 +1,7 @@
 ---
 title: ActiveMQ 初探（3）——与 SpringBoot 整合
 tags: ActiveMQ
-categories: 中间件
+categories: Middleware
 abbrlink: a979ce
 date: 2018-05-08 23:49:01
 related_repos:

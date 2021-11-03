@@ -1,7 +1,7 @@
 ---
 title: IDEA 查看 UML 类图
 categories:
-  - 开发工具
+  - Dev Tools
   - IDEA
 tags: UML
 abbrlink: 13a03d86

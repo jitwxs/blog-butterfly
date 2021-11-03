@@ -1,7 +1,7 @@
 ---
 title: Navicat Premium 12.0.27 安装与激活
 tags: Navicat
-categories: 开发工具
+categories: Dev Tools
 abbrlink: 4be9221b
 date: 2018-05-04 15:50:59
 ---

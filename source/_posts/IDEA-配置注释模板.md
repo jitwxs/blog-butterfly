@@ -1,7 +1,7 @@
 ---
 title: IDEA 配置注释模板
 categories:
-  - 开发工具
+  - Dev Tools
   - IDEA
 abbrlink: 4135e0a9
 date: 2018-08-01 09:11:15

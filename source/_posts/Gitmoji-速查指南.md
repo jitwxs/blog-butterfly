@@ -1,7 +1,7 @@
 ---
 title: Gitmoji 速查指南
 categories:
-  - 开发工具
+  - Dev Tools
   - Git
 tags: Git
 abbrlink: 7dda603c

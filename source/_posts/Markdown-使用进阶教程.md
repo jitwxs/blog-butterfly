@@ -1,6 +1,6 @@
 ---
 title: Markdown 使用进阶教程
-categories: 综合
+categories: Other
 tags: Markdown
 abbrlink: 69ded3af
 katex: true

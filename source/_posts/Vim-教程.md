@@ -1,7 +1,7 @@
 ---
 title: Vim 教程
 tags: Vim
-categories: 开发工具
+categories: Dev Tools
 abbrlink: 8ab971cd
 date: 2017-10-31 00:00:17
 ---

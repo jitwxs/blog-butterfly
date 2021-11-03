@@ -1,6 +1,8 @@
 ---
 title: 从 Git 仓库的 Commit 历史中移除敏感文件
-categories: [开发工具, Git]
+categories:
+  - Dev Tools
+  - Git
 tags: Git
 abbrlink: 9a10ca4e
 date: 2019-05-06 11:55:08

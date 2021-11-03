@@ -3,7 +3,7 @@ title: Apollo 配置中心介绍
 abbrlink: 30f1531a
 date: 2019-07-25 23:37:14
 tags: Apollo
-categories: 中间件
+categories: Middleware
 references:
   - name: Apollo WIKI
     url: https://github.com/ctripcorp/apollo/wiki

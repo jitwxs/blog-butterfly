@@ -1,7 +1,7 @@
 ---
 title: 解决 Git Revert 后再次 Merge 代码丢失问题
 categories:
-  - 开发工具
+  - Dev Tools
   - Git
 tags: Git
 abbrlink: 38727be2

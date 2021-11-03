@@ -1,7 +1,7 @@
 ---
 title: Git 教程
-categories: 
-  - 开发工具
+categories:
+  - Dev Tools
   - Git
 tags: Git
 abbrlink: 2121b11b
