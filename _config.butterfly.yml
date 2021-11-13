@@ -684,7 +684,7 @@ aside:
       link: https://github.com/jitwxs
   card_announcement:
     enable: true
-    content: '<span style="display:inline-block;text-indent:2em">专注Java技术栈，内容均为个人技术总结和思考，如有笔误，欢迎留言指正。</span>'
+    content: '<span style="display:inline-block;text-indent:2em">专注Java技术栈，内容均为个人技术总结和思考，如有笔误，欢迎留言指正。</span><div style="width:100%;margin-top:10px;text-align:center"><img src="https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/configuration/wechat_qrcode.png"style="max-width:200px;margin:0 auto"class="entered loading"></div>'
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
