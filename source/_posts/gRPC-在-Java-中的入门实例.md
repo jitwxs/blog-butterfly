@@ -395,10 +395,6 @@ public class ProtoUtils {
 
 ## 五、运行程序
 
-整个项目代码目录结构如下：
-
-![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202004/20200411220150795.png)
-
 首先启动服务端，然后启动客户端。服务端首先接收到客户端请求，输出：
 
 ```
@@ -410,3 +406,5 @@ Server Rec listByAge request...
 ```json
 Response: {"msg": "success","user": [{"age": 20,"name": "Rczby"},{"age": 20,"name": "KXVdZ"},{"age": 20,"name": "setgc"}]}
 ```
+
+以上介绍的例子为最简单的一元 gRPC 请求，限于文章篇幅，更多 gRPC 的示例程序放置在了源码仓库中，请自行下载后深入学习，详见仓库中 README 描述。

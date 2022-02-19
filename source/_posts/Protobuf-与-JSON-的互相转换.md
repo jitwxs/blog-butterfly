@@ -410,7 +410,7 @@ public void testMapToJson() {
 public class ProtobufCodec implements ObjectSerializer, ObjectDeserializer {
     @Override
     public <T> T deserialze(final DefaultJSONParser parser, final Type fieldType, final Object fieldName) {
-        final String value = parser.parseObject().toJSONString();
+        final String value = parser.parse(fieldName).toString();
 
         if (fieldType instanceof Class && Message.class.isAssignableFrom((Class<?>) fieldType)) {
             return (T) ProtobufUtils.toBean(value, (Class) fieldType);
