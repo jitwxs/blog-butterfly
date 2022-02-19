@@ -9,10 +9,6 @@
       link: https://fontawesome.com/icons?d=gallery&q=file
       avatar: https://fontawesome.com/favicon.ico
       descr: 使用最广泛的图标库
-    - name: JSON 在线解析
-      link: https://www.json.cn/
-      avatar: https://www.json.cn/favicon.ico
-      descr: JSON 在线解析及格式化验证
     - name: Diffchecker
       link: https://www.diffchecker.com/
       avatar: https://www.diffchecker.com/favicon.ico
@@ -77,6 +73,10 @@
       link: https://www.baidu.com/s?wd=WizTree
       avatar: https://www.baidu.com/favicon.ico
       descr: 磁盘文件分析工具
+    - name: CrxDL
+      link: https://crxdl.com/
+      avatar: https://crxdl.com/favicon.ico
+      descr: 下载Chrome扩展插件Crx离线安装包
 
 - class_name: 影音娱乐
   class_desc: 
@@ -109,7 +109,15 @@
       link: https://www.baidu.com/s?wd=videothumbnailsmaker
       avatar: https://www.baidu.com/favicon.ico
       descr: 视频缩略图制作器
+    - name: Media Preview
+      link: https://www.baidu.com/s?wd=Media%20Preview
+      avatar: https://www.baidu.com/favicon.ico
+      descr: 文件预览缩略图插件
     - name: Inpaint
       link: https://theinpaint.com/?move
       avatar: https://theinpaint.com/favicon.ico
       descr: 轻量级图片水印去除工具
+    - name: 迅雷电影天堂
+      link: https://www.xl720.com/
+      avatar: https://www.xl720.com/favicon.ico
+      descr: 电影迅雷下载
