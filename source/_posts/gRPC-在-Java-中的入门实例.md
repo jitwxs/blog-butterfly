@@ -13,7 +13,7 @@ related_repos:
 
 ## 一、前言
 
-经过前面三篇 Protobuf 相关文章的学习，相信大家已经对 Protobuf 有所掌握。前文说过， ProtoBuf 很适合做数据存储或 RPC 数据交换格式。可以用于通讯协议、数据存储等领域的语言无关、平台无关、可扩展的序列化结构数据格式。
+经过前面三篇  相关文章的学习，相信大家已经对 Protobuf 有所掌握。前文说过， ProtoBuf 很适合做数据存储或 RPC 数据交换格式。可以用于通讯协议、数据存储等领域的语言无关、平台无关、可扩展的序列化结构数据格式。
 
 本节将介绍在 Java 中如何使用 gRPC 和 Protouf。gRpc 也是 Google 推出的 RPC 框架，由于师出同门，Protobuf 和 gRPC 可以非常容易的结合在一起，甚至于使用 Protobuf Maven 插件就可以自动生成 gRPC 代码。
 
@@ -23,7 +23,53 @@ related_repos:
 - [Protobuf 学习手册——编码篇](/d4225e9b.html)
 - [Protobuf 在 Java 中的入门实例](/a5b690ac.html)
 
-## 二、Protobuf 源文件
+## 二、gRPC 基础介绍
+
+### 2.1 gRPC 为什么使用 Protobuf
+
+- 接口定义语言（Interface Definition Language -> IDL）可读性好
+- 支持多种语言的代码生成
+- 使用二进制格式表示数据
+  - size 更小，相较于文本格式（如 JSON、XML）传输更快，序列化效率更高
+- 在客户端和服务端之前提供强类型的语法约束，支持向前/向后协议兼容
+
+### 2.2 HTTP2
+
+|                  | HTTP/2       | HTTP/1.1   |
+| ---------------- | ------------ | ---------- |
+| 传输协议         | 二进制       | 文本       |
+| 请求头           | 压缩后的数据 | 纯文本     |
+| 多路复用的执行   | 支持         | 不支持     |
+| 每个连接的请求数 | 支持多个请求 | 仅支持单个 |
+| 服务端推送       | 支持         | 不支持     |
+| 发布时间         | 2015         | 1997       |
+
+### 2.3 gRPC vs REST
+
+|                  | gRPC                      | REST                               |
+| ---------------- | ------------------------- | ---------------------------------- |
+| 协议             | HTTP/2                    | HTTP/1.1                           |
+| 传输内容 Payload | Protobuf（二进制，小）    | JSON（文本格式，大）               |
+| API 协议         | 严格（.proto）            | 松散（API 文档）                   |
+| 代码生成         | 自带构建工具（protoc）    | 第三方工具（Swagger...）           |
+| 安全性           | TLS/SSL                   | TLS/SSL                            |
+| 流支持           | 双向流                    | 客户端到服务端的单向请求，不支持流 |
+| 浏览器支持       | 受限制，需要依赖 gRPC-web | 全部支持                           |
+
+gRPC 更适合用于微服务场景：低延迟、高吞吐、协议严格、消息轻量级、多语言支持、点对点通信。
+
+### 2.4 gRPC 四种类型
+
+- 一元（unary）：客户端发送单一请求，服务端返回单一响应。类似普通的 HTTP 请求。
+- 客户端流（client streaming）：客户端将请求以一组消息流的形式发送，服务端收到全部的消息流后，返回单一响应。
+- 服务端流（server streaming）：客户端发送单一请求，服务端将响应以一组消息流的形式返回。
+- 双向流（bidirectional streaming）：客户端和服务端可以并行的发送多条消息，没有顺序要求，非常灵活且无阻塞。
+
+![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202201/20220115213923923.png)
+
+## 三、入门实例
+
+### 3.1 Protobuf 源文件
 
 本文给大家演示的例子是：根据年龄查询用户列表。首先新建一个 Maven 项目，在 `src/main` 目录下（和 java 目录同级）创建 `proto` 文件夹，用于存放 .proto 文件，该目录也是 Protobuf 的 Maven 插件默认扫描的文件夹。
 
@@ -72,7 +118,7 @@ service UserRpcService {
 
 在该文件中，定义一个名为 `UserRpcService` 的 Service 类，在其中定义一个名为 `listByAge` 的 rpc 接口，该接口的入参为 AgeRequest 和 UserResponse。
 
-## 三、生成 Java 类
+### 3.2 生成 Java 类
 
 编辑 POM 文件如下：
 
@@ -175,9 +221,9 @@ service UserRpcService {
 
 ![](https://cdn.jsdelivr.net/gh/jitwxs/cdn/blog/posts/202004/20200411215225665.png)
 
-## 四、gRPC 服务端与客户端
+### 3.3 gRPC 服务端与客户端
 
-### 4.1 gRPC 实现类
+#### gRPC 实现类
 
 创建类 UserRpcServiceImpl，并去实现刚刚 Maven 插件生成的 `UserRpcServiceGrpc.UserRpcServiceImplBase` 接口：
 
@@ -230,7 +276,7 @@ public class UserRpcServiceImpl extends UserRpcServiceGrpc.UserRpcServiceImplBas
 
 在 `listByAge()` 方法中编写当我们接收到 request 请求时的行为，并将结果放入 response 中。这里我模拟了下业务逻辑，返回了三个年龄等于请求参数的用户。
 
-### 4.2 gRPC 服务端
+#### gRPC 服务端
 
 既然是 RPC 框架，那么就会有服务端和客户端。首先创建服务端：
 
@@ -305,7 +351,7 @@ public class Example1Server {
 
 - 添加一个 ShutdownHook 的回调钩子，当程序终止的前一刻，该钩子会被回调，方法中执行 `stop()` 方法停止服务端服务。
 
-### 4.3 gRPC 客户端
+#### gRPC 客户端
 
 最后编写客户端去请求服务端。
 
@@ -362,7 +408,7 @@ public class Example1Client {
 - 构造方法中，通过 `ManagedChannel` 创建对服务端的连接。
 - 构造 Request 请求对象，通过 UserRpcServiceBlockingStub 的 listByAge() 接口去请求服务端，并输出返回的 response。
 
-### 4.4 辅助类
+#### 辅助类
 
 本示例程序还使用了以下辅助类：
 
@@ -393,7 +439,7 @@ public class ProtoUtils {
 }
 ```
 
-## 五、运行程序
+### 3.4 运行程序
 
 首先启动服务端，然后启动客户端。服务端首先接收到客户端请求，输出：
 
